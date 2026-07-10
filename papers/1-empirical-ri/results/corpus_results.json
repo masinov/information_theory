@@ -1,0 +1,1240 @@
+{
+  "words": {
+    "give": {
+      "word": "give",
+      "n_tokens": 491,
+      "n_senses": 4,
+      "senses": [
+        "give%2:40:00::",
+        "give%2:40:03::",
+        "give%2:40:05::",
+        "give%2:40:07::"
+      ],
+      "prior": [
+        0.18533604887983707,
+        0.34419551934826886,
+        0.3136456211812627,
+        0.15682281059063136
+      ],
+      "per_type": {
+        "frame": {
+          "I": 0.01790727797385605,
+          "alphabet": 3,
+          "symbols": [
+            "OTHER",
+            "PRP_PRP",
+            "<OTHER>"
+          ],
+          "n_min": 77
+        },
+        "next_lemma": {
+          "I": 0.04188402832639282,
+          "alphabet": 3,
+          "symbols": [
+            "OTHER",
+            "the",
+            "<OTHER>"
+          ],
+          "n_min": 77
+        },
+        "next_pos": {
+          "I": 0.06777553999964336,
+          "alphabet": 3,
+          "symbols": [
+            "PRP",
+            "DT",
+            "<OTHER>"
+          ],
+          "n_min": 77
+        },
+        "prev_lemma": {
+          "I": 0.02862409009300837,
+          "alphabet": 3,
+          "symbols": [
+            "OTHER",
+            "to",
+            "<OTHER>"
+          ],
+          "n_min": 77
+        },
+        "prev_pos": {
+          "I": 0.014521267424215,
+          "alphabet": 3,
+          "symbols": [
+            "OTHER",
+            "NN",
+            "<OTHER>"
+          ],
+          "n_min": 77
+        }
+      },
+      "refusals": [],
+      "covering": {
+        "median_N": {
+          "(0, 1)": 475.5,
+          "(0, 2)": 155.0,
+          "(0, 3)": 105.5,
+          "(1, 2)": 124.5,
+          "(1, 3)": 62.0,
+          "(2, 3)": 108.5
+        },
+        "prediction": {
+          "(0, 1)": 2540.9250733290196,
+          "(0, 2)": 645.4439612842554,
+          "(0, 3)": 590.1077676659995,
+          "(1, 2)": 491.03785954915764,
+          "(1, 3)": 265.28090571998007,
+          "(2, 3)": 350.4556097689831
+        },
+        "hardest_empirical": [
+          0,
+          1
+        ],
+        "hardest_predicted": [
+          0,
+          1
+        ],
+        "prediction_correct": true
+      },
+      "selection": {
+        "picked": [
+          "next_pos",
+          "next_lemma",
+          "prev_lemma"
+        ],
+        "log": [
+          {
+            "step": 1,
+            "pick": "next_pos",
+            "gain": 0.06777553999964336,
+            "gains": {
+              "frame": 0.01790727797385605,
+              "next_lemma": 0.04188402832639282,
+              "next_pos": 0.06777553999964336,
+              "prev_lemma": 0.02862409009300837,
+              "prev_pos": 0.014521267424215
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          },
+          {
+            "step": 2,
+            "pick": "next_lemma",
+            "gain": 0.03981476181409249,
+            "gains": {
+              "frame": 0.01721369897526248,
+              "next_lemma": 0.03981476181409249,
+              "prev_lemma": 0.027386242642327474,
+              "prev_pos": 0.013923346205182874
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          },
+          {
+            "step": 3,
+            "pick": "prev_lemma",
+            "gain": 0.026344924070537346,
+            "gains": {
+              "frame": 0.016831818552657474,
+              "prev_lemma": 0.026344924070537346,
+              "prev_pos": 0.013463174241904241
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          }
+        ],
+        "audit_fired": false
+      },
+      "certificates": [
+        {
+          "budget": 25,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "next_pos",
+              "frame"
+            ],
+            "(0, 2)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(0, 3)": [
+              "next_lemma",
+              "prev_lemma"
+            ],
+            "(1, 2)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(1, 3)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(2, 3)": [
+              "next_pos",
+              "frame"
+            ]
+          }
+        },
+        {
+          "budget": 50,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "next_pos",
+              "frame"
+            ],
+            "(0, 2)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(0, 3)": [
+              "next_lemma",
+              "prev_lemma"
+            ],
+            "(1, 2)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(1, 3)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(2, 3)": [
+              "next_pos",
+              "frame"
+            ]
+          }
+        },
+        {
+          "budget": 100,
+          "resolved": {
+            "(1, 3)": 63
+          },
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "next_pos",
+              "frame"
+            ],
+            "(0, 2)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(0, 3)": [
+              "next_lemma",
+              "prev_lemma"
+            ],
+            "(1, 2)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(2, 3)": [
+              "next_pos",
+              "frame"
+            ]
+          }
+        }
+      ]
+    },
+    "take": {
+      "word": "take",
+      "n_tokens": 378,
+      "n_senses": 7,
+      "senses": [
+        "take%2:30:01::",
+        "take%2:31:07::",
+        "take%2:35:00::",
+        "take%2:38:09::",
+        "take%2:38:10::",
+        "take%2:40:06::",
+        "take%2:41:04::"
+      ],
+      "prior": [
+        0.10052910052910052,
+        0.08994708994708994,
+        0.12433862433862433,
+        0.18518518518518517,
+        0.082010582010582,
+        0.19047619047619047,
+        0.2275132275132275
+      ],
+      "per_type": {},
+      "refusals": [
+        {
+          "type": "frame",
+          "reason": "n_min=31 < 40"
+        },
+        {
+          "type": "next_lemma",
+          "reason": "n_min=31 < 40"
+        },
+        {
+          "type": "next_pos",
+          "reason": "n_min=31 < 40"
+        },
+        {
+          "type": "prev_lemma",
+          "reason": "n_min=31 < 40"
+        },
+        {
+          "type": "prev_pos",
+          "reason": "n_min=31 < 40"
+        }
+      ],
+      "covering": null,
+      "note": "all context types refused; no estimable channel"
+    },
+    "tell": {
+      "word": "tell",
+      "n_tokens": 476,
+      "n_senses": 4,
+      "senses": [
+        "tell%2:32:00::",
+        "tell%2:32:01::",
+        "tell%2:32:02::",
+        "tell%2:32:04::"
+      ],
+      "prior": [
+        0.36134453781512604,
+        0.13865546218487396,
+        0.10504201680672269,
+        0.3949579831932773
+      ],
+      "per_type": {
+        "frame": {
+          "I": 0.01137220667629757,
+          "alphabet": 2,
+          "symbols": [
+            "OTHER",
+            "<OTHER>"
+          ],
+          "n_min": 50
+        },
+        "next_lemma": {
+          "I": 0.01115721428209726,
+          "alphabet": 2,
+          "symbols": [
+            "OTHER",
+            "<OTHER>"
+          ],
+          "n_min": 50
+        },
+        "next_pos": {
+          "I": 0.016204170827709863,
+          "alphabet": 2,
+          "symbols": [
+            "PRP",
+            "<OTHER>"
+          ],
+          "n_min": 50
+        },
+        "prev_lemma": {
+          "I": 0.0017690789308999477,
+          "alphabet": 2,
+          "symbols": [
+            "OTHER",
+            "<OTHER>"
+          ],
+          "n_min": 50
+        },
+        "prev_pos": {
+          "I": 0.012142143443769182,
+          "alphabet": 2,
+          "symbols": [
+            "OTHER",
+            "<OTHER>"
+          ],
+          "n_min": 50
+        }
+      },
+      "refusals": [],
+      "covering": {
+        "median_N": {
+          "(0, 1)": 300.0,
+          "(0, 2)": 477.0,
+          "(0, 3)": 477.0,
+          "(1, 2)": 150.0,
+          "(1, 3)": 166.5,
+          "(2, 3)": 477.0
+        },
+        "prediction": {
+          "(0, 1)": 1208.8903098639612,
+          "(0, 2)": 3363.6258263608083,
+          "(0, 3)": 2569.9332205319374,
+          "(1, 2)": 468.4181641117439,
+          "(1, 3)": 780.7958411982037,
+          "(2, 3)": 4502.475477976904
+        },
+        "hardest_empirical": [
+          0,
+          2
+        ],
+        "hardest_predicted": [
+          2,
+          3
+        ],
+        "prediction_correct": false
+      },
+      "selection": {
+        "picked": [
+          "next_pos",
+          "prev_pos",
+          "frame"
+        ],
+        "log": [
+          {
+            "step": 1,
+            "pick": "next_pos",
+            "gain": 0.016204170827709863,
+            "gains": {
+              "frame": 0.01137220667629757,
+              "next_lemma": 0.01115721428209726,
+              "next_pos": 0.016204170827709863,
+              "prev_lemma": 0.0017690789308999477,
+              "prev_pos": 0.012142143443769182
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          },
+          {
+            "step": 2,
+            "pick": "prev_pos",
+            "gain": 0.012103862614380567,
+            "gains": {
+              "frame": 0.011177115807599947,
+              "next_lemma": 0.010990450839566623,
+              "prev_lemma": 0.0017640593929995063,
+              "prev_pos": 0.012103862614380567
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          },
+          {
+            "step": 3,
+            "pick": "frame",
+            "gain": 0.011086442842925148,
+            "gains": {
+              "frame": 0.011086442842925148,
+              "next_lemma": 0.010957914831056126,
+              "prev_lemma": 0.0017404196048924625
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          }
+        ],
+        "audit_fired": false
+      },
+      "certificates": [
+        {
+          "budget": 25,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(0, 2)": [
+              "frame",
+              "next_pos"
+            ],
+            "(0, 3)": [
+              "prev_pos",
+              "frame"
+            ],
+            "(1, 2)": [
+              "next_pos",
+              "frame"
+            ],
+            "(1, 3)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(2, 3)": [
+              "prev_pos",
+              "next_lemma"
+            ]
+          }
+        },
+        {
+          "budget": 50,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(0, 2)": [
+              "frame",
+              "next_pos"
+            ],
+            "(0, 3)": [
+              "prev_pos",
+              "frame"
+            ],
+            "(1, 2)": [
+              "next_pos",
+              "frame"
+            ],
+            "(1, 3)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(2, 3)": [
+              "prev_pos",
+              "next_lemma"
+            ]
+          }
+        },
+        {
+          "budget": 100,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(0, 2)": [
+              "frame",
+              "next_pos"
+            ],
+            "(0, 3)": [
+              "prev_pos",
+              "frame"
+            ],
+            "(1, 2)": [
+              "next_pos",
+              "frame"
+            ],
+            "(1, 3)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(2, 3)": [
+              "prev_pos",
+              "next_lemma"
+            ]
+          }
+        }
+      ]
+    },
+    "think": {
+      "word": "think",
+      "n_tokens": 484,
+      "n_senses": 3,
+      "senses": [
+        "think%2:31:00::",
+        "think%2:31:01::",
+        "think%2:31:03::"
+      ],
+      "prior": [
+        0.21487603305785125,
+        0.4462809917355372,
+        0.33884297520661155
+      ],
+      "per_type": {
+        "frame": {
+          "I": 0.08602867138022097,
+          "alphabet": 5,
+          "symbols": [
+            "OTHER",
+            "PRP_PRP",
+            "PRP_IN",
+            "PRP_DT",
+            "<OTHER>"
+          ],
+          "n_min": 104
+        },
+        "next_lemma": {
+          "I": 0.11860243572490292,
+          "alphabet": 5,
+          "symbols": [
+            "OTHER",
+            "it",
+            "that",
+            "EOS",
+            "<OTHER>"
+          ],
+          "n_min": 104
+        },
+        "next_pos": {
+          "I": 0.14564875216203754,
+          "alphabet": 5,
+          "symbols": [
+            "PRP",
+            "OTHER",
+            "IN",
+            "RB",
+            "<OTHER>"
+          ],
+          "n_min": 104
+        },
+        "prev_lemma": {
+          "I": 0.050571002738049486,
+          "alphabet": 5,
+          "symbols": [
+            "OTHER",
+            "i",
+            "he",
+            "to",
+            "<OTHER>"
+          ],
+          "n_min": 104
+        },
+        "prev_pos": {
+          "I": 0.03428998633697855,
+          "alphabet": 5,
+          "symbols": [
+            "PRP",
+            "OTHER",
+            "RB",
+            "TO",
+            "<OTHER>"
+          ],
+          "n_min": 104
+        }
+      },
+      "refusals": [],
+      "covering": {
+        "median_N": {
+          "(0, 1)": 27.5,
+          "(0, 2)": 23.0,
+          "(1, 2)": 369.0
+        },
+        "prediction": {
+          "(0, 1)": 116.83811004552416,
+          "(0, 2)": 109.46082704130481,
+          "(1, 2)": 1878.1470210161622
+        },
+        "hardest_empirical": [
+          1,
+          2
+        ],
+        "hardest_predicted": [
+          1,
+          2
+        ],
+        "prediction_correct": true
+      },
+      "selection": {
+        "picked": [
+          "next_pos",
+          "next_lemma",
+          "frame"
+        ],
+        "log": [
+          {
+            "step": 1,
+            "pick": "next_pos",
+            "gain": 0.14564875216203754,
+            "gains": {
+              "frame": 0.08602867138022097,
+              "next_lemma": 0.11860243572490292,
+              "next_pos": 0.14564875216203754,
+              "prev_lemma": 0.050571002738049486,
+              "prev_pos": 0.03428998633697855
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          },
+          {
+            "step": 2,
+            "pick": "next_lemma",
+            "gain": 0.1013107884625506,
+            "gains": {
+              "frame": 0.07336910191649659,
+              "next_lemma": 0.1013107884625506,
+              "prev_lemma": 0.04284946333067152,
+              "prev_pos": 0.027936116288980184
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          },
+          {
+            "step": 3,
+            "pick": "frame",
+            "gain": 0.06462360560907943,
+            "gains": {
+              "frame": 0.06462360560907943,
+              "prev_lemma": 0.03783140759069159,
+              "prev_pos": 0.023919638243995678
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          }
+        ],
+        "audit_fired": false
+      },
+      "certificates": [
+        {
+          "budget": 25,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "next_pos",
+              "frame"
+            ],
+            "(0, 2)": [
+              "next_pos",
+              "next_lemma"
+            ],
+            "(1, 2)": [
+              "next_lemma",
+              "prev_lemma"
+            ]
+          }
+        },
+        {
+          "budget": 50,
+          "resolved": {
+            "(0, 2)": 27,
+            "(0, 1)": 32
+          },
+          "residual": [
+            [
+              1,
+              2
+            ]
+          ],
+          "recommended": {
+            "(1, 2)": [
+              "next_lemma",
+              "prev_lemma"
+            ]
+          }
+        },
+        {
+          "budget": 100,
+          "resolved": {
+            "(0, 2)": 27,
+            "(0, 1)": 32
+          },
+          "residual": [
+            [
+              1,
+              2
+            ]
+          ],
+          "recommended": {
+            "(1, 2)": [
+              "next_lemma",
+              "prev_lemma"
+            ]
+          }
+        }
+      ]
+    },
+    "go": {
+      "word": "go",
+      "n_tokens": 382,
+      "n_senses": 3,
+      "senses": [
+        "go%2:38:00::",
+        "go%2:38:01::",
+        "go%2:41:00::"
+      ],
+      "prior": [
+        0.6675392670157068,
+        0.1099476439790576,
+        0.22251308900523561
+      ],
+      "per_type": {
+        "frame": {
+          "I": 0.02518691099742343,
+          "alphabet": 2,
+          "symbols": [
+            "OTHER",
+            "<OTHER>"
+          ],
+          "n_min": 42
+        },
+        "next_lemma": {
+          "I": 0.0031658350031844584,
+          "alphabet": 2,
+          "symbols": [
+            "OTHER",
+            "<OTHER>"
+          ],
+          "n_min": 42
+        },
+        "next_pos": {
+          "I": 0.017636571707893012,
+          "alphabet": 2,
+          "symbols": [
+            "VB",
+            "<OTHER>"
+          ],
+          "n_min": 42
+        },
+        "prev_lemma": {
+          "I": 0.0029048640666688996,
+          "alphabet": 2,
+          "symbols": [
+            "OTHER",
+            "<OTHER>"
+          ],
+          "n_min": 42
+        },
+        "prev_pos": {
+          "I": 0.003728186781828402,
+          "alphabet": 2,
+          "symbols": [
+            "OTHER",
+            "<OTHER>"
+          ],
+          "n_min": 42
+        }
+      },
+      "refusals": [],
+      "covering": {
+        "median_N": {
+          "(0, 1)": 121.0,
+          "(0, 2)": 383.0,
+          "(1, 2)": 131.5
+        },
+        "prediction": {
+          "(0, 1)": 414.7994696314618,
+          "(0, 2)": 5937.838024769439,
+          "(1, 2)": 423.9536338138031
+        },
+        "hardest_empirical": [
+          0,
+          2
+        ],
+        "hardest_predicted": [
+          0,
+          2
+        ],
+        "prediction_correct": true
+      },
+      "selection": {
+        "picked": [
+          "frame",
+          "next_pos",
+          "prev_pos"
+        ],
+        "log": [
+          {
+            "step": 1,
+            "pick": "frame",
+            "gain": 0.02518691099742343,
+            "gains": {
+              "frame": 0.02518691099742343,
+              "next_lemma": 0.0031658350031844584,
+              "next_pos": 0.017636571707893012,
+              "prev_lemma": 0.0029048640666688996,
+              "prev_pos": 0.003728186781828402
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          },
+          {
+            "step": 2,
+            "pick": "next_pos",
+            "gain": 0.01723289845693854,
+            "gains": {
+              "next_lemma": 0.0031595542666824628,
+              "next_pos": 0.01723289845693854,
+              "prev_lemma": 0.0028746825244532204,
+              "prev_pos": 0.0036808560294456782
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          },
+          {
+            "step": 3,
+            "pick": "prev_pos",
+            "gain": 0.00365432639537433,
+            "gains": {
+              "next_lemma": 0.003144736039622842,
+              "prev_lemma": 0.002835305222355089,
+              "prev_pos": 0.00365432639537433
+            },
+            "best_superadditive_pair": null,
+            "best_superadditivity": 0.0,
+            "stalled": false
+          }
+        ],
+        "audit_fired": false
+      },
+      "certificates": [
+        {
+          "budget": 25,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "frame",
+              "next_pos"
+            ],
+            "(0, 2)": [
+              "prev_pos",
+              "next_lemma"
+            ],
+            "(1, 2)": [
+              "frame",
+              "next_pos"
+            ]
+          }
+        },
+        {
+          "budget": 50,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "frame",
+              "next_pos"
+            ],
+            "(0, 2)": [
+              "prev_pos",
+              "next_lemma"
+            ],
+            "(1, 2)": [
+              "frame",
+              "next_pos"
+            ]
+          }
+        },
+        {
+          "budget": 100,
+          "resolved": {},
+          "residual": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "recommended": {
+            "(0, 1)": [
+              "frame",
+              "next_pos"
+            ],
+            "(0, 2)": [
+              "prev_pos",
+              "next_lemma"
+            ],
+            "(1, 2)": [
+              "frame",
+              "next_pos"
+            ]
+          }
+        }
+      ]
+    },
+    "time": {
+      "word": "time",
+      "n_tokens": 493,
+      "n_senses": 5,
+      "senses": [
+        "time%1:03:00::",
+        "time%1:11:00::",
+        "time%1:28:00::",
+        "time%1:28:05::",
+        "time%1:28:06::"
+      ],
+      "prior": [
+        0.07099391480730223,
+        0.39553752535496955,
+        0.15415821501014199,
+        0.30628803245436104,
+        0.07302231237322515
+      ],
+      "per_type": {},
+      "refusals": [
+        {
+          "type": "frame",
+          "reason": "n_min=35 < 40"
+        },
+        {
+          "type": "next_lemma",
+          "reason": "n_min=35 < 40"
+        },
+        {
+          "type": "next_pos",
+          "reason": "n_min=35 < 40"
+        },
+        {
+          "type": "prev_lemma",
+          "reason": "n_min=35 < 40"
+        },
+        {
+          "type": "prev_pos",
+          "reason": "n_min=35 < 40"
+        }
+      ],
+      "covering": null,
+      "note": "all context types refused; no estimable channel"
+    },
+    "first": {
+      "word": "first",
+      "n_tokens": 366,
+      "n_senses": 4,
+      "senses": [
+        "first%3:00:00::",
+        "first%4:02:00::",
+        "first%4:02:02::",
+        "first%5:00:00:ordinal:00"
+      ],
+      "prior": [
+        0.5819672131147541,
+        0.15300546448087432,
+        0.09836065573770492,
+        0.16666666666666666
+      ],
+      "per_type": {},
+      "refusals": [
+        {
+          "type": "frame",
+          "reason": "n_min=36 < 40"
+        },
+        {
+          "type": "next_lemma",
+          "reason": "n_min=36 < 40"
+        },
+        {
+          "type": "next_pos",
+          "reason": "n_min=36 < 40"
+        },
+        {
+          "type": "prev_lemma",
+          "reason": "n_min=36 < 40"
+        },
+        {
+          "type": "prev_pos",
+          "reason": "n_min=36 < 40"
+        }
+      ],
+      "covering": null,
+      "note": "all context types refused; no estimable channel"
+    }
+  },
+  "annotator_audit": {
+    "available_on_semcor": false,
+    "reason": "SemCor tokens are single-annotated (no sense2 field)",
+    "synthsense_validation": {
+      "disagreement": 0.2479,
+      "true_error": 0.13536666666666666,
+      "H_residual": 0.7360544380135288,
+      "fano_bound": 0.7865257923282065,
+      "err_bracket": [
+        0.12395,
+        0.2479
+      ]
+    }
+  },
+  "config": {
+    "refusal_factor": 20,
+    "delta": 0.05
+  }
+}
