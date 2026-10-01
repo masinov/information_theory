@@ -4,7 +4,7 @@
 
 ## Appendix C: Controlled Vocabulary
 
-The manuscript's named objects, one line each, with the defining location. Terms are grouped by the layer that introduces them; the six **tracked coordinates** are marked ◆.
+The monograph's named objects, one line each, with the defining location. Terms are grouped by the layer that introduces them; the six **tracked coordinates** are marked ◆.
 
 | term | defined | one-line meaning |
 |---|---|---|
@@ -39,5 +39,20 @@ The manuscript's named objects, one line each, with the defining location. Terms
 | adaptivity premium; causal gap; commitment | Thms 76.2, 77.1, Def 78.2 | history's value to the policy; futurity's cost to the adversary; write-ahead as internalized provenance |
 | domain family; vacuous extension | Defs 83.1, 83.4 | related contrast domains under coarsening/restriction/products; pullback of pieces |
 | ◆ algebra (coordinate) | Thm 84.1 | generalized set-algebra laws and independent-replication idempotency; a full graded valuation algebra remains unproved |
+
+**Symbols with more than one meaning.** A few letters are reused across parts; the meaning is always fixed by the local context, as listed here.
+
+| symbol | meanings, with the parts where they occur |
+|---|---|
+| $S$, $T$ | finite view sets (throughout); in Part IV, $S$ is also the standard record (presentation and verdict), and view sets there are written $W$ |
+| $\tau$ | the upper adjoint of the content map (Definition 6.1, Theorem 15.1); the verdict view $\tau_v$ of an anchored view (Parts VI, VIII, X); the separation $\tau$ of a dichotomy in total variation (Proposition 71.1) |
+| $N$ | the forgetful record (Part IV); the presentation view $N_v$ (Part VI); a binary symmetric channel (Proposition 23.3, Appendix B) |
+| $\delta$ | Le Cam deficiency $\delta(E,F)$ (Parts V, IX; Appendix D); point masses $\delta_y$; a cover defect $\delta_K(\mathcal U;T)$ (§37); the erasure probability in Theorem 61.1 and Proposition 71.2; the minimum total-variation gap in the proof of Theorem 22.2 |
+| $\Delta$ | the registration anomaly $\Delta_K(T)$ (Definition 15.3) and its components (Theorem 37.7); Le Cam distance $\Delta(E,F)$ (§40); the simplex $\Delta^k$ (Theorem 38.4); the BROJA feasible set $\Delta_P$ (Proposition 55.4) |
+| $d$ | the label map $d(E,\pi)=\pi$ (Proposition 6.11); a distractor origin (Parts IV, VI, VIII); the $L_1$ separation of two class averages (Lemma 62.1) |
+| $K$ | an admissibility structure (Parts II, V, VI); a regular conditional kernel (Appendix A) |
+| $m$ | the minimal sufficient statistic (Theorem 22.6); the number of verdict symbols (Theorem 63.2); fiber minima $m_D$, $m_A$ (Appendix D.4) |
+| $\varepsilon$ | a corruption rate (Parts IV, V, VIII–X); an error threshold in $\varepsilon$-answerability (Definition 22.0) |
+| $\iota$ | the irreparable attribution rate (Definition 27.3) |
 
 **One overloaded word, disambiguated.** "Kernel" is used in exactly two senses: (i) $\ker(v)$, the kernel *of a map* — always with its argument; (ii) **the kernel**, Part I's exact deterministic core — the maximal-structure fiber of the collapse theorem, called the *exact core* where prose risks ambiguity. “Markov kernel” also occurs for a stochastic channel and has a different, explicitly qualified meaning.

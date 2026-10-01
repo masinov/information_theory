@@ -16,7 +16,7 @@ All state and observation spaces are finite and nonempty. Information order is c
 
 This adds a useful intermediate notion between total zero-error answerability and probabilistic loss: how much of the domain permits a certified answer. With non-full-support priors the maximal domain is unchanged, but probability-maximizing decoders need not be unique on zero-mass fibers.
 
-**Semantic caution.** Equality of registered pieces can encode distinctions beyond what an individual piece entails. For $D=\{0,1\}$, the registrations $\kappa(0)=\{0\}$ and $\kappa(1)=D$ are sound and distinct. Observing which piece was emitted identifies the candidate, although the constraint $D$ alone entails no answer. The manuscript's equality-kernel answerability concerns observation of the registered representation. Constraint entailment is a different semantics and should be named when intended.
+**Semantic caution.** Equality of registered pieces can encode distinctions beyond what an individual piece entails. For $D=\{0,1\}$, the registrations $\kappa(0)=\{0\}$ and $\kappa(1)=D$ are sound and distinct. Observing which piece was emitted identifies the candidate, although the constraint $D$ alone entails no answer. The monograph's equality-kernel answerability concerns observation of the registered representation. Constraint entailment is a different semantics and should be named when intended.
 
 ### D.2 Saturation algebra and its support boundary
 
@@ -85,7 +85,7 @@ Consequently binary-state finite coupling fibers always have a least Blackwell c
 
 For a single product branch, admissibility of the perceived readings is exactly the needed composite admissibility. For a mixture, admissibility after averaging branches does not imply branchwise admissibility; it cannot be silently substituted. This is a useful sufficient criterion, not a characterization of all robust corruptions.
 
-**Order caution.** The down-set completion embeds any poset by $x\mapsto{\downarrow}x$ and supplies unions as joins. It does not generally preserve joins already present: for incomparable $a,b$ with a join, ${\downarrow}a\cup{\downarrow}b$ omits $a\vee b$. In particular it encodes available alternatives, not an assembled joint experiment. The manuscript's $\min_i\delta(E_i,F)$ similarly chooses one local resource; it is not deficiency from a bundle of all resources.
+**Order caution.** The down-set completion embeds any poset by $x\mapsto{\downarrow}x$ and supplies unions as joins. It does not generally preserve joins already present: for incomparable $a,b$ with a join, ${\downarrow}a\cup{\downarrow}b$ omits $a\vee b$. In particular it encodes available alternatives, not an assembled joint experiment. The monograph's $\min_i\delta(E_i,F)$ similarly chooses one local resource; it is not deficiency from a bundle of all resources.
 
 ### D.7 Sharp committed-bit detection, including adaptive forgers
 

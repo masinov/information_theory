@@ -29,12 +29,12 @@ A dynamical scene's trajectory domain with its causal views is a contrast domain
 \[
 \sigma_t(S) \;=\; \sigma\big(S \cap V_{\le t}\big), \qquad \sigma_1(S) \le \sigma_2(S) \le \cdots \le \sigma_n(S) = \sigma(S),
 \]
-an increasing sequence in \(\mathrm{Part}(D)\) (monotonicity of \(\sigma\)), with the graded and admissible analogues defined the same way. A question is \textbf{answerable at time \(t\)} iff \(\ker(q) \le \sigma_t(S)\) (respectively the stratum-wise and ceiling-wise forms); \textbf{prediction} is answerability at \(t\) of a question measurable only in coordinates beyond \(t\)---\hspace{0pt}a special case, not a new notion. Each increment \([\sigma_t, \sigma_{t+1}]\) is an interval of the exact calculus, so the evaluations of Parts VII and IX apply to the \emph{time} axis as they did to the cover axis: \(\nu_{\mu,q}\) decomposes the stream's information additively over rounds (chain additivity), while \(\nu_\delta\) is subadditive over rounds with the defect calculus of §69---\hspace{0pt}the quasi-cocycle theorem acquires a temporal reading for free. \(\square\)
+an increasing sequence in \(\mathrm{Part}(D)\) (monotonicity of \(\sigma\)), with the graded and admissible analogues defined the same way. A question is \textbf{answerable at time \(t\)} iff \(\ker(q) \le \sigma_t(S)\) (respectively the stratum-wise and ceiling-wise forms); \textbf{prediction} is answerability at \(t\) of a question measurable only in coordinates beyond \(t\)---\hspace{0pt}a special case, not a new notion. Each increment \([\sigma_t, \sigma_{t+1}]\) is an interval of the exact calculus, so the evaluations of Parts VII and IX apply to the \emph{time} axis as they did to the cover axis: \(\nu_{\mu,q}\) decomposes the stream's information additively over rounds (chain additivity), while \(\nu_\delta\) is subadditive over rounds with the defect calculus of §69---\hspace{0pt}so the quasi-cocycle theorem has a temporal reading as well. \(\square\)
 \end{thmplain}
 
-\begin{thmrem}[\hypertarget{stmt:75.5}{Remark~75.5}\ {\normalfont\upshape(two Part VIII phenomena were dynamics in disguise)}]
+\begin{thmrem}[\hypertarget{stmt:75.5}{Remark~75.5}\ {\normalfont\upshape(two Part VIII phenomena are dynamical)}]
 
-Accumulation (§23.1) is native here: each time step is a fresh look, so (K3̂)'s trade-off is not an exotic corner but the stream's default condition, and \hyperlink{stmt:61.1}{Theorem~61.1}(1)'s scheduling attack is literally temporal---\hspace{0pt}anti-correlated duty cycles across slots---\hspace{0pt}as Worked example J's instruments anticipated. Part X adds no new theorem to either; it observes that their natural habitat has now been built, and that both were provable in reduced form precisely because (A7)'s marginal already carried them (Remark 29.2's point, vindicated).
+Accumulation (§23.1) is native here: each time step is a fresh look, so (K3̂)'s trade-off is not an exotic corner but the stream's default condition, and \hyperlink{stmt:61.1}{Theorem~61.1}(1)'s scheduling attack is literally temporal---\hspace{0pt}anti-correlated duty cycles across slots---\hspace{0pt}as Worked example J's instruments anticipated. Part X adds no new theorem to either; it observes that their natural habitat has now been built, and that both were provable in reduced form precisely because (A7)'s marginal already carried them (as \hyperlink{stmt:29.2}{Remark~29.2} anticipated).
 \end{thmrem}
 
 \secn{76}{76}{Online control}
@@ -95,7 +95,7 @@ The premium's mechanism is stated by the exhibit: round-1 information (\(k\)) te
 
 \begin{thmplain}[\hypertarget{stmt:77.1}{Theorem~77.1}\ {\normalfont\upshape(the causal gap)}]
 
-Fix a finite stream and two nested closed feasible classes of attacks, causal and clairvoyant, with a compact rate parameter and an attainable annihilation constraint. In item 3 the model is whole-law contamination of one record at common rate \(\varepsilon\).
+Fix a finite stream, a question, and a corruption model. For each rate \(\varepsilon\), let the \textbf{clairvoyant} feasible set consist of the patterns of \hyperlink{stmt:75.3}{Definition~75.3} with unrestricted dependence on the trajectory, and the \textbf{causal} feasible set of those whose clutter at each time depends only on the prefix; both are polytopes in the clutter variables (Appendix B.1). The \textbf{annihilation threshold} of a class is the least \(\varepsilon\) at which some feasible pattern makes the perceived record independent of the question. In item 3 the model is whole-law contamination of one record at common rate \(\varepsilon\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}

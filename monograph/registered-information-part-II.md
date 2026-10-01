@@ -166,11 +166,11 @@ The kernel used one registration per view; admissibility allows a *class* and, c
 >
 > - **(K0) Grounding.** $\gamma_K(\varnothing)=\bot$.
 > - **(K1) Boundedness.** $\gamma_K(T)\le\sigma(T)$ for all $T$ (no registration invents distinctions its raw material does not draw; Lemma 14.2).
-> - **(K2) Realizability closure.** For each $T$, every $\rho\le\gamma_K(T)$ is itself admissible on $T$; i.e. an admissible reading may always be coarsened. Equivalently, the admissible partitions on $T$ form the principal ideal ${\downarrow}\gamma_K(T)$.
+> - **(K2) Principality.** For each $T$, the partitions admissible on $T$ are exactly those below the ceiling: $\rho$ is admissible on $T$ iff $\rho\le\gamma_K(T)$. Equivalently, the admissible partitions on $T$ form the principal down-set ${\downarrow}\gamma_K(T)$.
 >
 > $K$ is **monotone** if $T\subseteq T'\Rightarrow\gamma_K(T)\le\gamma_K(T')$: enlarging the raw material never lowers the admissible ceiling.
 
-(K2) records that admissibility caps *resolving power*, not the freedom to ignore: given an admissible reading one may always throw information away, so the admissible partitions on a fixed $T$ are exactly those below a top element $\gamma_K(T)$. The content of an admissibility structure therefore lies not in the per-$T$ ideals but in *how the ceilings on different $T$ relate* — the assignment $T\mapsto\gamma_K(T)$ as a whole. Monotonicity is optional and marks a fault line examined in §16.
+(K2) is a modelling hypothesis with two parts. The first is that admissibility caps *resolving power*, not the freedom to ignore: an admissible reading may always be coarsened, so the admissible partitions on $T$ form a down-set. The second is that this down-set has a largest element, the ceiling. The first part is natural for every decoder class considered in this monograph; the second is a genuine restriction, and §16.2 gives a natural class — decoders with an output budget — whose admissible partitions form a down-set without a largest element. Such classes are representable only as lower sets (Remark 24.6); Definition 14.3 treats the principal case, in which an admissibility structure is determined by its ceilings. The content of an admissibility structure therefore lies not in the per-$T$ down-sets but in *how the ceilings on different $T$ relate* — the assignment $T\mapsto\gamma_K(T)$ as a whole. Monotonicity is optional and marks a fault line examined in §16.
 
 That the axioms describe realizable structure, rather than stipulating it, is guaranteed by the following lemma.
 
@@ -178,7 +178,7 @@ That the axioms describe realizable structure, rather than stipulating it, is gu
 > $$
 > \kappa\big(c_T(Z)\big) = [Z]_\rho
 > $$
-> (extended by the null value $D$ off the image) is well defined, sound, and has registered partition $\rho(\kappa) = \rho$. Together with Lemma 14.2 applied to the compound view, the partitions realizable by sound registrations of $c_T$ are therefore exactly the principal ideal ${\downarrow}\,\sigma(T)$: axioms (K1)–(K2) delimit precisely the realizable range, and nothing in Definition 14.3 is stipulative beyond the choice of ceiling.
+> (extended by the null value $D$ off the image) is well defined, sound, and has registered partition $\rho(\kappa) = \rho$. Together with Lemma 14.2 applied to the compound view, the partitions realizable by sound registrations of $c_T$ are therefore exactly the principal ideal ${\downarrow}\,\sigma(T)$. Hence every ceiling allowed by (K1) is realized by a sound registration, and (K1) delimits exactly the realizable range; the only further stipulation of Definition 14.3 is the principality hypothesis (K2).
 >
 > *Proof.* Well-definedness: $c_T(Z) = c_T(Z')$ means $Z \sim_T Z'$, i.e. $[Z]_{\sigma(T)} = [Z']_{\sigma(T)}$; since $\rho \le \sigma(T)$, every $\sigma(T)$-block lies inside a $\rho$-block, so $[Z]_\rho = [Z']_\rho$. Soundness: $Z \in [Z]_\rho$. Registered partition: $\kappa(c_T(Z)) = \kappa(c_T(Z'))$ iff $[Z]_\rho = [Z']_\rho$, so $\rho(\kappa) = \ker(Z \mapsto [Z]_\rho) = \rho$. The converse bound $\rho(\kappa) \le \ker(c_T) = \sigma(T)$ for every registration is Lemma 14.2. $\square$
 
@@ -267,11 +267,13 @@ So the kernel identity "register-then-combine $=$ combine-then-register" (Propos
 > $$
 > \Delta_K(S)=\big[\,\sigma^{\mathrm{sep}}_K(S),\ \sigma^{\mathrm{jnt}}_K(S)\,\big]\subseteq\mathrm{Part}(D),
 > $$
-> nontrivial (non-degenerate) exactly when the endpoints disagree. The interval typing is deliberate: intervals in a complete lattice restrict, intersect, and compose, which is the raw material an obstruction theory needs (§16.4), whereas a bare pair has no algebra. For non-monotone $K$ the two contents may be incomparable, and the anomaly is then recorded as the unordered pair of endpoints.
+> nontrivial (non-degenerate) exactly when the endpoints disagree. For non-monotone $K$ the two contents may be incomparable, and the anomaly is then recorded as the unordered pair of endpoints.
+>
+> **Interval operations.** An interval $[a,b]$ of $\mathrm{Part}(D)$ is a pair $a\le b$; it is *degenerate* if $a=b$. Two operations are used. **Concatenation**: for $a\le m\le b$, $[a,m]\cdot[m,b]=[a,b]$; conversely every $m$ with $a\le m\le b$ *splits* $[a,b]$ into the two factors. **Inclusion**: $[a,b]\subseteq[a',b']$ iff $a'\le a$ and $b\le b'$. Part V's obstruction calculus is formulated with these two operations (Proposition 37.2, Lemma 37.4, Theorem 37.7), and the evaluations of Parts VII and IX are functions of intervals that are additive (Proposition 53.2) or subadditive (Proposition 68.2) under concatenation.
 
 > **Corollary 15.4 (finite-view adjunction criterion).** Let $V$ be finite and $K$ monotone. The following are equivalent: (i) $K$ is separable; (ii) $\sigma_K^{\mathrm{jnt}}:\mathcal P(V)\to\mathrm{Part}(D)$ preserves all unions, including the empty union; (iii) it has a right adjoint; (iv) it equals $\sigma_K^{\mathrm{sep}}$.
 >
-> *Proof.* Separability is (iv). The singleton-generated formula in (iv) preserves unions and has the right adjoint of Theorem 15.1. Union preservation gives that formula by expressing any subset as the union of its singletons. A left adjoint preserves unions. Grounding follows from the raw-content bound at the empty set. For infinite $V$, the finite-subset version characterizes finite-union preservation; the right-adjoint statement applies to the arbitrary-join extension on $\mathcal P(V)$, not in general to a map with domain $\mathcal F(V)$. $\square$
+> *Proof.* (i)$\Leftrightarrow$(iv) is Definition 15.3. (iv)$\Rightarrow$(iii): $\sigma^{\mathrm{sep}}_K$ has the right adjoint $\tau_K$ of Theorem 15.1. (iii)$\Rightarrow$(ii): a left adjoint preserves all joins that exist, in particular all unions, including the empty union. (ii)$\Rightarrow$(iv): write $S=\bigcup_{v\in S}\{v\}$; union preservation gives $\sigma^{\mathrm{jnt}}_K(S)=\bigvee_{v\in S}\gamma_K(\{v\})=\sigma^{\mathrm{sep}}_K(S)$ for nonempty $S$, and for $S=\varnothing$ both sides equal $\bot$ by (K0). For infinite $V$ the same argument on finite subsets characterizes preservation of finite unions; the right-adjoint statement then applies to the extension of $\sigma^{\mathrm{sep}}_K$ to all of $\mathcal P(V)$ by arbitrary joins, not to a map defined only on finite subsets. $\square$
 
 The fate of T1 is thus sharp. **For separable content the adjunction always holds; for joint content it holds iff the admissibility structure is separable, and the obstruction is exactly the registration anomaly $\Delta_K$.** Full admissibility (the kernel) is separable, which is why Part I never saw the anomaly. Any strictly sub-canonical $K$ that reads the joint more finely than the combination of its parts breaks separability — and that, far from being pathological, is the generic and interesting case, as the next section shows.
 
@@ -289,7 +291,7 @@ v(b_1b_2)=b_1,\qquad w(b_1b_2)=b_2,
 $$
 with $\ker(v)=\{00\,01\mid10\,11\}$ and $\ker(w)=\{00\,10\mid01\,11\}$, so $\sigma(\{v,w\})=\top$. The target question is parity, $q(b_1b_2)=b_1\oplus b_2$, whose content is $\ker(q)=\{00\,11\mid01\,10\}$.
 
-**Admissibility by invariance.** Let the decoder be required to produce readings invariant under $G$: an admissible registered partition must have $G$-stable blocks. The finest $G$-invariant partition of $D$ is the orbit partition
+**Admissibility by invariance.** Let the decoder be required to produce readings invariant under $G$: an admissible registered partition must have every block a union of $G$-orbits (equivalently, the reading takes the same value at $Z$ and at $gZ$ for every $g\in G$). The finest such partition of $D$ is the orbit partition
 $$
 P_G=\{\,00\,11\mid01\,10\,\},
 $$

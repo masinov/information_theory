@@ -48,7 +48,7 @@ Every randomized structural check reported in the text (transport commutations o
 
 ### B.5 Independent numerical checks
 
-The random-test counts above are reports from an earlier draft and were not re-run for this edition. A separate check script (`review/check_finite_claims.py` in the manuscript's source repository) uses NumPy/SciPy and a separately implemented row-stochastic deficiency LP; it does not call the companion papers' shared solver. Run it from the repository root:
+The random-test counts above are reports from an earlier draft and were not re-run for this edition. A separate check script (`review/check_finite_claims.py` in the monograph's source repository) uses NumPy/SciPy and a separately implemented row-stochastic deficiency LP; it does not call the companion papers' shared solver. Run it from the repository root:
 
 ```sh
 python review/check_finite_claims.py

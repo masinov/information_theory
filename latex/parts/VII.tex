@@ -95,7 +95,7 @@ Let \(K_G\) be an invariance structure, \(\mu\) full-support, \(q\) a question.
 \begin{thmrem}[\hypertarget{stmt:54.2}{Remark~54.2}\ {\normalfont\upshape(the reflection address covers the support-geometric
 mechanism)}]
 
-Section 23.2's mechanism (3)---\hspace{0pt}zero-error superadditivity through noise-support geometry (Proposition 22.3)---\hspace{0pt}produces interval data in \(\mathrm{Part}(D)\) at the \(\sigma^0\) stratum, which \(\nu\) evaluates by the same definition; and its mechanism was identified with reflection in two steps (Proposition 22.3′; §37.4's closing: a closure operator failing to commute with a meet, in two lattices). The exact addresses of the stratified decomposition are therefore two, not three: \textbf{witness} and \textbf{reflection}, with the support-geometric instances filed under reflection. Section 23.2's count of three mechanisms is unchanged---\hspace{0pt}its mechanism (1) is the ledger functor of \hyperlink{sec:56}{§56}, not an address.
+Section 23.2's mechanism (3)---\hspace{0pt}zero-error superadditivity through noise-support geometry (Proposition 22.3)---\hspace{0pt}produces interval data in \(\mathrm{Part}(D)\) at the \(\sigma^0\) stratum, which \(\nu\) evaluates by the same definition; and its mechanism was identified with reflection in two steps (Proposition 22.3′; §37.4's closing: a closure operator failing to commute with a meet, in two lattices). The exact addresses of the stratified decomposition are therefore two, not three: \textbf{witness} and \textbf{reflection}, with the support-geometric instances filed under reflection. Section 23.2's count of three mechanisms is unchanged---\hspace{0pt}its mechanism (1) is the ledger map of \hyperlink{sec:56}{§56}, not an address.
 \end{thmrem}
 
 \secn{55}{55}{The coupling address}
@@ -141,11 +141,11 @@ with \(\Delta_P\) the set of joint distributions of \((q(Z), Y_v, Y_w)\) preserv
 The coupling address now has its invariant at each coefficient level, in the discipline of \hyperlink{stmt:40.3}{Remark~40.3}: the \emph{exact} invariant is non-constancy of \(\sigma^{=}\) on fibers (Proposition 39.3(2)); the \emph{Shannon} invariant is the fiber excess and width of \hyperlink{stmt:55.1}{Definition~55.1}; the \emph{enriched} invariant is the Le Cam diameter of the fiber (§39, \hyperlink{sec:40}{§40}). Proposition 55.3's family instantiates all three: \(\sigma^{=}\) takes both \(\bot\) and \(\top\) on its fiber, the width is one bit, and the diameter is positive.
 \end{thmrem}
 
-\secn{56}{56}{The ledger functor and the transport theorem}
+\secn{56}{56}{The ledger map and the transport theorem}
 
-Section 23.2's mechanism (1)---\hspace{0pt}prior-marginalization---\hspace{0pt}was never an address; \hyperlink{stmt:42.3}{Remark~42.3} called it a change of ledger. Here is the change, as a map, and the theorem that it moves quanta between addresses.
+Section 23.2's mechanism (1)---\hspace{0pt}prior-marginalization---\hspace{0pt}is not an address; \hyperlink{stmt:42.3}{Remark~42.3} called it a change of ledger. This section defines the change as a map from families to families and shows that it can move a quantum from one address to another. (We call it a map rather than a functor: no category of families and morphisms is needed or defined.)
 
-\begin{thmdef}[\hypertarget{stmt:56.1}{Definition~56.1}\ {\normalfont\upshape(the ledger functor)}]
+\begin{thmdef}[\hypertarget{stmt:56.1}{Definition~56.1}\ {\normalfont\upshape(the ledger map)}]
 
 For a coherent family over \(D\) with prior \(\mu\) and question \(q\), the \textbf{\(q\)-marginalization} is the coherent family over the quotient contrast domain \(D_q = D/\ker(q)\) with prior \(\mu_q\) and channels \(P(Y_v \mid q(Z))\) (well defined by averaging \(\mu\) within \(q\)-classes). The \textbf{coarse ledger} of \((family, \mu, q)\) is the fine ledger of its \(q\)-marginalization: in particular, the coarse fiber is the coupling fiber of the marginalized family, and \(C^{\mathrm{coarse}}_{\mu,q} := C_{\mu_q, \mathrm{id}}(\text{marginalized family})\), which by \hyperlink{stmt:55.4}{Proposition~55.4} is BROJA's \(CI\).
 \end{thmdef}
@@ -165,7 +165,7 @@ Let the family be deterministic over \(D\), let \(\mu\) have full support, and s
   \]
   \textbf{The entire quantum sits at the coupling address of the coarse ledger.}
 \item
-  \textbf{(Instance.)} For the parity configuration, the one bit of \hyperlink{stmt:54.1}{Theorem~54.1}(2)---\hspace{0pt}witness address, fine ledger---\hspace{0pt}is exactly the one bit of coarse-ledger coupling excess: \(C^{\mathrm{coarse}} = 1\) bit, realized between the XOR coupling and the product coupling. The known fact that XOR is BROJA-synergistic is, in this typing, the image of a witness class under the ledger functor.
+  \textbf{(Instance.)} For the parity configuration, the one bit of \hyperlink{stmt:54.1}{Theorem~54.1}(2)---\hspace{0pt}witness address, fine ledger---\hspace{0pt}is exactly the one bit of coarse-ledger coupling excess: \(C^{\mathrm{coarse}} = 1\) bit, realized between the XOR coupling and the product coupling. The known fact that XOR is BROJA-synergistic is, in this typing, the image of a witness class under the ledger map.
 \end{enumerate}
 \end{thmplain}
 
@@ -210,7 +210,7 @@ Fix a coherent family, a full-support prior \(\mu\), and a question \(q\), and w
 \item
   \textbf{(Sufficient vanishing conditions.)} Exact interval evaluations vanish on separable structures. Sterility identifies defects with their presentation shadows only for covers whose members are \(N\)-complete; they vanish if those shadows glue. Coupling excess vanishes on singleton fibers and, more generally, whenever the observed joint minimizes the fiber objective. These are not converse characterizations for a fixed question, and the two clauses are separate identities on their respective objects.
 \item
-  \textbf{(Exclusions, principled.)} Prior-marginalization is not a component but the \textbf{functor between the decompositions} (Definition 56.1, \hyperlink{stmt:56.2}{Theorem~56.2}). Accumulation is not a component because it varies the datum: \(C\) and \(\nu\) are functionals of a fixed family, while accumulation compounds \emph{readings} of it---\hspace{0pt}§23.2's coda, with the exclusion now typed rather than observed.
+  \textbf{(Exclusions, principled.)} Prior-marginalization is not a component but the \textbf{map between the decompositions} (Definition 56.1, \hyperlink{stmt:56.2}{Theorem~56.2}). Accumulation is not a component because it varies the datum: \(C\) and \(\nu\) are functionals of a fixed family, while accumulation compounds \emph{readings} of it---\hspace{0pt}§23.2's coda, with the exclusion now typed rather than observed.
 \end{enumerate}
 
 These identities do not supply a single additive sum of witness, reflection, and coupling terms for arbitrary graded ceilings. \hyperlink{stmt:56.3}{Corollary~56.3} concerns the noninvariance of the specified parity addresses; it is not a general PID impossibility theorem (Remark 56.4).
@@ -228,7 +228,7 @@ The exact formulas evaluate ordered partition chains; the graded formula compare
 
 \secn{58}{58}{Worked example I: a three-address ledger}
 
-Assemble the three pure generators on one contrast domain: \(D = D_1 \times D_2 \times D_3\) with independent uniform prior, where \(D_1 = \{00,01,10,11\}\) carries the parity configuration (views \(v, w\) reading the \(D_1\) coordinates), \(D_2 = \{Z, Z'\}\) carries \hyperlink{stmt:22.4}{Proposition~22.4}(2)'s coupled pair (graded views \(s, t\) reading the \(D_2\) factor), and \(D_3\) carries Worked example E (views \(v_3, w_3\) reading the \(D_3\) factor). The group \(G_1 \times 1 \times G_3\) acts factorwise; its orbit partition is the product \(P_{G_1} \times \top \times P_{G_3}\), and since kernels of factor-local views are cylinder partitions and both lattice operations of \hyperlink{stmt:3.3}{Fact~3.3} factorize on products of factor-local data, the invariance ceiling computes factorwise. The question is the joint \(q = (q_{G_1}, \mathrm{id}_{D_2}, q_{G_3})\); readings are admissible exact readings on the deterministic factors tensored with arbitrary channels on the graded factor. Under the declared independent factor construction, the displayed Shannon contributions add, and the ledger reads:
+Assemble the three pure generators on one contrast domain: \(D = D_1 \times D_2 \times D_3\) with independent uniform prior, where \(D_1 = \{00,01,10,11\}\) carries the parity configuration (views \(v, w\) reading the \(D_1\) coordinates), \(D_2 = \{Z, Z'\}\) carries \hyperlink{stmt:22.4}{Proposition~22.4}(2)'s coupled pair (graded views \(s, t\) reading the \(D_2\) factor), and \(D_3\) carries Worked example E (views \(v_3, w_3\) reading the \(D_3\) factor). The group \(G_1 \times 1 \times G_3\) acts factorwise; its orbit partition is the product \(P_{G_1} \times \top \times P_{G_3}\), and since kernels of factor-local views are cylinder partitions and both lattice operations of \hyperlink{stmt:3.3}{Fact~3.3} factorize on products of factor-local data, the invariance ceiling computes factorwise. The question is the joint \(q = (q_{G_1}, \mathrm{id}_{D_2}, q_{G_3})\); readings are admissible exact readings on the deterministic factors tensored with arbitrary channels on the graded factor. (This product structure is what admissibility means in this example; no general admissibility structure mixing exact and graded views is defined in the monograph.) Under the declared independent factor construction, the displayed Shannon contributions add, and the ledger reads:
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}

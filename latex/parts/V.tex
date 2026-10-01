@@ -86,9 +86,9 @@ Throughout the rest of Part V, ``cover'' without qualification means a union cov
 
 \secn{36}{36}{Three levels of descent data}
 
-The base carries three assignments that the manuscript has been working with, at different moments, without separating them. Fix a monotone admissibility structure \(K\) (for the graded level, a coherent family).
+The base carries three assignments that the monograph has been working with, at different moments, without separating them. Fix a monotone admissibility structure \(K\) (for the graded level, a coherent family).
 
-\textbf{The reading level.} \(T \mapsto \mathcal{K}(T)\), the admissible registrations of the compound view (Proposition 14.4′). This is the manuscript's native object: \hyperlink{stmt:6.3}{Proposition~6.3} is its trivial gluing law, \hyperlink{sec:16.1}{§16.1} its first violation, and Proposition 14.4′ its cross-\(T\) coherence.
+\textbf{The reading level.} \(T \mapsto \mathcal{K}(T)\), the admissible registrations of the compound view (Proposition 14.4′). This is the monograph's native object: \hyperlink{stmt:6.3}{Proposition~6.3} is its trivial gluing law, \hyperlink{sec:16.1}{§16.1} its first violation, and Proposition 14.4′ its cross-\(T\) coherence.
 
 \textbf{The content level.} \(T \mapsto \mathcal{C}(T)\), a content system (Definition 24.3): \(\sigma^{\mathrm{jnt}}_K\), the strata, the schema. This is the \emph{shadow} of the reading level: by \hyperlink{stmt:14.4}{Lemma~14.4}, \(\gamma_K(T)\) is exactly the top of the resolving powers realized in \(\mathcal{K}(T)\).
 
@@ -98,7 +98,7 @@ Two structural remarks organize everything that follows.
 
 \begin{thmrem}[\hypertarget{stmt:36.1}{Remark~36.1}\ {\normalfont\upshape(chirality)}]
 
-Reading and content data are covariant with information---\hspace{0pt}more views, more readings, more content---\hspace{0pt}and their descent conditions are \emph{join-shaped}: do the local contributions exhaust the global object? This is cosheaf chirality, and it is the chirality of every anomaly in Parts I--II. Distribution data is contravariant---\hspace{0pt}more views, a bigger joint that \emph{restricts} to the parts---\hspace{0pt}and its descent condition is \emph{limit-shaped}: do compatible local sections extend? This is sheaf chirality, the chirality of the marginal problem and of the contextuality literature \autocite{abramsky2011}. The manuscript's obstruction theory therefore has two ends, and \hyperlink{sec:38}{§38} exhibits the exact point where they meet: the witness presheaf, a sheaf-chirality object whose global-section emptiness is a cosheaf-chirality anomaly.
+Reading and content data are covariant with information---\hspace{0pt}more views, more readings, more content---\hspace{0pt}and their descent conditions are \emph{join-shaped}: do the local contributions exhaust the global object? This is cosheaf chirality, and it is the chirality of every anomaly in Parts I--II. Distribution data is contravariant---\hspace{0pt}more views, a bigger joint that \emph{restricts} to the parts---\hspace{0pt}and its descent condition is \emph{limit-shaped}: do compatible local sections extend? We call these two shapes cosheaf and sheaf \emph{chirality}; the terms are used descriptively, for covariant join-shaped versus contravariant limit-shaped conditions, and no cosheaf structure is claimed for the content level. The second is the chirality of the marginal problem and of the contextuality literature \autocite{abramsky2011}. The monograph's obstruction theory therefore has two ends, and \hyperlink{sec:38}{§38} exhibits the exact point where they meet: the witness presheaf, a sheaf-chirality object whose global-section emptiness is a cosheaf-chirality anomaly.
 \end{thmrem}
 
 \begin{thmrem}[\hypertarget{stmt:36.2}{Remark~36.2}\ {\normalfont\upshape(what ``gluing'' means per level)}]
@@ -216,13 +216,13 @@ with all right endpoints \(\gamma_K(T)\), resp. \(\gamma_K(T_i)\). Consequently:
 \(\ell(\delta_K(\mathcal{V};T)) = \bigvee_{ij}\gamma_K(T_{ij}) = \bigvee_i \big(\bigvee_j \gamma_K(T_{ij})\big)\), regrouping the join. Item 1: degeneracy of each stage gives \(\bigvee_j \gamma_K(T_{ij}) = \gamma_K(T_i)\), and degeneracy of \(\mathcal{U}\) gives \(\bigvee_i \gamma_K(T_i) = \gamma_K(T)\). Item 2 restates the displayed identity.
 \end{proof}
 
-Absorption is not hypothetical; the manuscript's own running example exhibits it.
+Absorption is not hypothetical; the monograph's own running example exhibits it.
 
 \textbf{Absorption on the parity configuration.} Take §16.1's setup (\(D\) the two-bit strings, \(G\) the global flip, coordinate views \(v, w\), invariance ceiling \(\gamma_G\)) and adjoin the parity view \(u(Z) = b_1 \oplus b_2\), whose kernel is \(P_G\) itself, so \(\gamma_G(\{u\}) = P_G \wedge \ker(u) = P_G\). Let \(T = \{u, v, w\}\); then \(\gamma_G(T) = P_G \wedge \top = P_G\). The cover \(\mathcal{U} = \{\{u\}, \{v,w\}\}\) has \(\ell = P_G \vee P_G = P_G = \gamma_G(T)\): degenerate. Refining \(\{v,w\}\) by singletons has stage defect \(\Delta_{K}(\{v,w\}) = [\bot, P_G]\): maximally nondegenerate. Yet the composite (the singleton cover of \(T\)) has \(\ell = P_G \vee \bot \vee \bot = P_G\): degenerate. The parity anomaly is real at its own level and absorbed one level up---\hspace{0pt}the interval calculus is genuinely local, and ``the data glues'' is a statement about a cover, not about the world.
 
 \subsecn{3}{37.3}{Invariance structures: the orbit-graph formula}
 
-The calculus is now applied to the structure class the manuscript has used as its canonical anomaly source since \hyperlink{sec:16.1}{§16.1}: \textbf{invariance ceilings} \(\gamma_G(T) = P_G \wedge \sigma(T)\) for a group \(G\) acting on \(D\), with \(P_G\) the orbit partition. Everything reduces to finite graphs on the orbit set.
+The calculus is now applied to the structure class the monograph has used as its canonical anomaly source since \hyperlink{sec:16.1}{§16.1}: \textbf{invariance ceilings} \(\gamma_G(T) = P_G \wedge \sigma(T)\) for a group \(G\) acting on \(D\), with \(P_G\) the orbit partition. Everything reduces to finite graphs on the orbit set.
 
 Recall (Fact 3.3) that the meet \(P_G \wedge \pi\) is the partition whose equivalence relation is the transitive closure of \(R_G \cup E_\pi\), where \(R_G\) is orbit equivalence and \(E_\pi\) the equivalence of \(\pi\); and that the interval \({\downarrow} P_G \subseteq \mathrm{Part}(D)\) of orbit-saturated partitions is isomorphic, as a complete lattice, to \(\mathrm{Part}(D/G)\), by taking blocks to their orbit contents (joins on both sides are common refinements of saturated partitions, which are saturated). We write \(\mathrm{lift}\) for the inverse isomorphism.
 
@@ -300,7 +300,7 @@ with the listed values pairwise distinct within each view. Then \(\Gamma_{\{v\}}
 nontrivial with no witness incoherence anywhere: the anomaly is produced entirely by the two connected per-view graphs intersecting to a disconnected one---\hspace{0pt}transitive closure failing to commute with intersection, on three vertices. (One checks directly: \(\sigma(T)\) merges exactly \(a_1, b_1\); the meet with \(P_G\) chains \(a_2\)--\(a_1\)--\(b_1\)--\(b_2\) and isolates \(\{c_1, c_2\}\), matching the formula.)
 \end{thmrem}
 
-The decomposition also settles a question of mechanism left open by the mechanism ladder of \hyperlink{sec:22.2}{§22.2}. There, reflection was identified as the graded zero-error mechanism; here it reappears \emph{inside the exact theory}, driven not by noise supports but by orbit projection. The two exact anomalies known to the manuscript---\hspace{0pt}invariance-type registration anomalies and the tolerance-to-partition losses of Proposition 22.3′---\hspace{0pt}are, at the level of mechanism, one phenomenon in two lattices: a closure operator (transitive closure; component formation) failing to commute with a meet (edge intersection). The witness nerve records missing joint witnesses at the edge level. Its homology is studied next; Appendix D.9 supplies the separate component-level cut criterion.
+The decomposition also settles a question of mechanism left open by the mechanism ladder of \hyperlink{sec:22.2}{§22.2}. There, reflection was identified as the graded zero-error mechanism; here it reappears \emph{inside the exact theory}, driven not by noise supports but by orbit projection. The two exact anomalies known to the monograph---\hspace{0pt}invariance-type registration anomalies and the tolerance-to-partition losses of Proposition 22.3′---\hspace{0pt}are, at the level of mechanism, one phenomenon in two lattices: a closure operator (transitive closure; component formation) failing to commute with a meet (edge intersection). The witness nerve records missing joint witnesses at the edge level. Its homology is studied next; Appendix D.9 supplies the separate component-level cut criterion.
 
 \secn{38}{38}{The witness nerve and the linearized track}
 
@@ -361,7 +361,7 @@ For an orbit pair \((O, O')\):
 
 \begin{proof}
 
-1--3 unfold the definitions. 4: if all full-vertexed nerves have their top faces, then \(\Gamma_T = \bigcap_v \Gamma_{\{v\}}\) and the middle and right terms of \hyperlink{stmt:37.7}{Theorem~37.7} coincide; the converse direction only needs the component partitions to differ, which requires some edge difference but is not implied by one.
+1--3 unfold the definitions. 4: if every nerve with a full vertex set also has its top face, then \(\Gamma_T = \bigcap_v \Gamma_{\{v\}}\), so the middle and right terms of \hyperlink{stmt:37.7}{Theorem~37.7} coincide and \(\Delta^{\mathrm{wit}}(T)\) is degenerate; this is the contrapositive of the stated implication. The converse fails because a missing edge changes the component partition only when it disconnects a component (Appendix D.9), and Appendix D.9's absorption example exhibits a missing edge that does not.
 \end{proof}
 
 \subsecn{3}{38.3}{The hierarchy: threshold structures and sphere boundaries}
@@ -418,7 +418,7 @@ Under (A6), the \textbf{coupling presheaf} on \(\mathcal{F}(V)\) assigns to fini
 
 \begin{thmplain}[\hypertarget{stmt:39.2}{Theorem~39.2}\ {\normalfont\upshape(Vorob'ev's theorem as the descent criterion)}]
 
-Let \(\mathcal{U} = \{T_1, \dots, T_n\}\) be a cover of \(T\). For every choice of finite outcome alphabets, every matching family over \(\mathcal U\) admits an amalgamation iff \(\mathcal{U}\) is \textbf{acyclic}: its maximal members admit a running-intersection ordering (\(T_{m} \cap (T_1 \cup \cdots \cup T_{m-1}) \subseteq T_{j(m)}\) for some \(j(m) < m\), after reordering). \autocite{vorobev1962} The acyclicity condition is, in modern terminology, decomposability of the hypergraph---\hspace{0pt}the junction-tree condition.
+Let \(\mathcal{U} = \{T_1, \dots, T_n\}\) be a cover of \(T\). For every choice of finite outcome alphabets with at least two elements each, every matching family over \(\mathcal U\) admits an amalgamation iff \(\mathcal{U}\) is \textbf{acyclic}: its maximal members admit a running-intersection ordering (\(T_{m} \cap (T_1 \cup \cdots \cup T_{m-1}) \subseteq T_{j(m)}\) for some \(j(m) < m\), after reordering). \autocite{vorobev1962} The acyclicity condition is, in modern terminology, decomposability of the hypergraph---\hspace{0pt}the junction-tree condition.
 \end{thmplain}
 
 \begin{proof}[Proof sketch.]
@@ -438,7 +438,7 @@ Over the coupling presheaf:
 \item
   \textbf{(Contextual evidence \(=\) empty fiber.)} A matching family with no amalgamation is a system of locally coherent, jointly incoherent experimental records---\hspace{0pt}Part I §8's ``joint inconsistency of individually coherent views,'' and exactly the no-signalling empirical models whose non-extendability constitutes contextuality in \autocite{abramsky2011}. \hyperlink{stmt:39.2}{Theorem~39.2} says which covers are immune: the acyclic ones. The candidate-pair witness presheaf of \hyperlink{sec:38}{§38} has different restrictions; it is not identified with this empirical-model support presheaf. Appendix D.12 gives an explicit separation.
 \item
-  \textbf{(Underdetermination \(=\) non-singleton fiber.)} Even over acyclic covers the fiber is generally not a singleton, and statistical content is \emph{not a function of the matching family}: \hyperlink{stmt:22.4}{Proposition~22.4}(2)'s two couplings lie in one fiber over the singleton cover of \(\{v, w\}\), with \(\sigma^{=}\) equal to \(\bot\) at one point of the fiber and \(\top\) at another. For the singleton-cover fiber, non-constancy of \(\sigma^{=}\) is equivalent to existence of some statistically superadditive coupling; it is not a condition satisfied by every coupling in that fiber, and the Le Cam diameter of a fiber is the natural quantitative measure of the underdetermination.
+  \textbf{(Underdetermination \(=\) non-singleton fiber.)} Even over acyclic covers the fiber is generally not a singleton, and statistical content is \emph{not a function of the matching family}: \hyperlink{stmt:22.4}{Proposition~22.4}(2)'s two couplings lie in one fiber over the singleton cover of \(\{v, w\}\), with \(\sigma^{=}\) equal to \(\bot\) at one point of the fiber and \(\top\) at another. For the singleton-cover fiber, non-constancy of \(\sigma^{=}\) is equivalent to existence of some statistically superadditive coupling; it is not a condition satisfied by every coupling in that fiber, and the \textbf{Le Cam diameter} of a fiber---\hspace{0pt}the largest Le Cam distance \(\Delta\) between two of its members---\hspace{0pt}is a natural quantitative measure of the underdetermination.
 \end{enumerate}
 \end{thmplain}
 
@@ -597,7 +597,7 @@ fidelity & ---\hspace{0pt} & blind: presheaf endomorphism, \(\sigma^{=}\)-obstru
 \end{longtable}
 }
 
-The asymmetry worth naming: at the exact levels the glue always \emph{exists} and the obstruction is cofinality (how much the glue reaches); at the distribution level existence itself can fail. The manuscript's two oldest slogans---\hspace{0pt}``no coherent combination'' and ``multiple coherent combinations'' (Part I \hyperlink{sec:8}{§8}, H4)---\hspace{0pt}turn out to live at different levels of the same base, and both now have addresses, criteria, and generators.
+The asymmetry worth naming: at the exact levels the glue always \emph{exists} and the obstruction is cofinality (how much the glue reaches); at the distribution level existence itself can fail. The monograph's two oldest slogans---\hspace{0pt}``no coherent combination'' and ``multiple coherent combinations'' (Part I \hyperlink{sec:8}{§8}, H4)---\hspace{0pt}turn out to live at different levels of the same base, and both now have addresses, criteria, and generators.
 
 \subsecn{3}{42.3}{Two closing remarks}
 
