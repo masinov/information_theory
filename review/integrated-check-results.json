@@ -1,0 +1,9 @@
+{
+  "scope": "Exhaustive finite instances supplement Appendix D proofs.",
+  "join_cover_sublattices": 19,
+  "graph_cut_pairs": 729,
+  "commuting_extraction_partition_pairs": 225,
+  "constraint_tree_configurations": 4096,
+  "globally_coherent_witness_anomaly": true,
+  "witness_hierarchy_contexts": 60
+}

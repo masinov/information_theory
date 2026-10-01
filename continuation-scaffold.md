@@ -1,5 +1,8 @@
 # Continuation scaffold — FINAL (manuscript complete: Parts I–XI + Appendices A–C)
 
+> **Historical planning document.** The [2026-10-01 proof audit](review/proof-audit.md) and [revised research directions](review/corrections-and-extensions.md) supersede completion claims and mathematical assertions affected by the review. This file is retained as project history.
+
+
 *Working notes, not part of the manuscript. FINAL STATE, 2026-07-07: the manuscript is COMPLETE — eleven parts (§§0–89) plus Appendix A. The endgame plan (§0) is fully discharged. This scaffold is now a maintenance document only: use it for verification protocol, conventions, and the map of the whole; there are no further parts to author (per §0's closing rule).*
 
 ## 0. ENDGAME PLAN (agreed 2026-07-07; in force)

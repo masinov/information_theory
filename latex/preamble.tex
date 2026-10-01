@@ -1,0 +1,76 @@
+% ---- Registered Information over Contrast Domains: preamble (LuaLaTeX) ----
+\usepackage[paperwidth=6.5in,paperheight=9.5in,inner=0.95in,outer=0.8in,top=0.9in,bottom=1in,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage{unicode-math}
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}[Scale=MatchLowercase]
+\setmathfont{Libertinus Math}
+\setmathfont{Latin Modern Math}[range={\mathcal,\mathbfcal,\mathscr,\mathbfscr}]
+\usepackage{microtype}
+\usepackage{booktabs,longtable,array,calc}
+\usepackage{enumitem}
+\setlist{itemsep=0.25em,topsep=0.4em,parsep=0pt}
+\usepackage[hyphens]{xurl}
+\usepackage[autostyle]{csquotes}
+\usepackage[backend=biber,style=authoryear,maxbibnames=6,minbibnames=3,uniquelist=false,useprefix=true,giveninits=true,doi=false,url=false,isbn=false,eprint=false]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{scrlayer-scrpage}
+\usepackage[hidelinks,pdfusetitle,bookmarksnumbered]{hyperref}
+\newcounter{none}\providecommand{\pandocbounded}[1]{#1}
+\providecommand{\tightlist}{\setlength{\itemsep}{0.15em}\setlength{\parskip}{0pt}}
+
+% ---- numbering: sections run continuously across parts; statements carry their source numbers
+\renewcommand{\thepart}{\Roman{part}}
+\makeatletter
+\@removefromreset{section}{chapter}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\makeatother
+\newcommand{\secn}[3]{\setcounter{section}{\numexpr#1-1\relax}\section{#3}\hypertarget{sec:#2}{}}
+\newcommand{\subsecn}[3]{\setcounter{subsection}{\numexpr#1-1\relax}\subsection{#3}\hypertarget{sec:#2}{}}
+\newcommand{\appsection}[1]{\clearpage\section{#1}}
+\newcommand{\startappendices}{\setcounter{section}{0}\renewcommand{\thesection}{\Alph{section}}}
+
+% ---- statements
+\newtheoremstyle{riplain}{0.9em}{0.9em}{\itshape}{}{\bfseries}{.}{0.5em}{\thmnote{#3}}
+\newtheoremstyle{ridef}{0.9em}{0.9em}{\upshape}{}{\bfseries}{.}{0.5em}{\thmnote{#3}}
+\newtheoremstyle{rirem}{0.7em}{0.7em}{\upshape}{}{\bfseries\itshape}{.}{0.5em}{\thmnote{#3}}
+\theoremstyle{riplain}\newtheorem*{thmplain}{}
+\theoremstyle{ridef}\newtheorem*{thmdef}{}
+\theoremstyle{rirem}\newtheorem*{thmrem}{}
+\renewcommand{\qedsymbol}{\ensuremath{\square}}
+
+% ---- notation
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Ach}{Ach}
+\DeclareMathOperator{\Part}{Part}
+\providecommand{\varnothing}{\emptyset}
+
+% ---- headers
+\automark[section]{part}
+\ohead{\headmark}\ihead{}\chead{}\ofoot*{\pagemark}\cfoot*{}\ifoot*{}
+
+% ---- tables in a smaller size, with slightly tighter column padding
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{6pt}}
+
+% ---- line breaking
+\setlength{\emergencystretch}{2.5em}
+\tolerance=800
+\hbadness=3000
+\widowpenalty=10000 \clubpenalty=10000
+
+% ---- part pages and headings
+\setkomafont{part}{\normalfont\huge\bfseries}
+\setkomafont{partnumber}{\normalfont\large\scshape\mdseries}
+\renewcommand*{\partformat}{\partname~\thepart}
+\renewcommand*{\partpagestyle}{empty}
+\setkomafont{disposition}{\normalfont\bfseries}
+\setkomafont{section}{\normalfont\Large\bfseries}
+\setkomafont{subsection}{\normalfont\large\bfseries}
+
+% ---- bibliography / TOC details
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\setcounter{tocdepth}{1}
+\hypersetup{bookmarksdepth=2,pdftitle={Registered Information over Contrast Domains},pdfauthor={Mario Asis}}

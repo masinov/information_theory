@@ -1,16 +1,14 @@
 # Registered Information over Contrast Domains
 
+> **Integrated edition, 2026-10-01.** Statements, proofs, and scope conditions in this manuscript are authoritative. Results are finite unless explicitly stated otherwise. Appendix D contains the supplementary theorems; the external review documents record the revision history.
+
 ## Part II: Worked Examples and the Admissibility Layer
 
 ---
 
-## 10. Purpose and scope of Part II
+## 10. Admissible exact readings
 
-Part I built the deterministic kernel: contrast domains, views, canonical registration, the induced quotient $\sigma(S)=\bigvee_{v\in S}\ker(v)$, answerability as factorization, and four structure theorems — the adjunction $\sigma\dashv\tau$ (Theorem 6.2), the down-set of answerable questions (Theorem 6.4), the marginal-value criterion (Theorem 6.5), and the universal property of the induced quotient (Theorem 6.7). Throughout, registration was fixed to the canonical one by standing assumption (A3), which had two consequences that will now be seen as degeneracies rather than features: registered-piece equality coincided with candidate indistinguishability (Lemma 5.3), and register-then-combine equalled combine-then-register (Proposition 6.3).
-
-Part II does two things. First (§§11–13) it validates the kernel by running it end to end on three concrete, hand-computable instances drawn from different fields — clinical diagnosis, relational dependency theory, and automaton observability — checking that the kernel either reproduces the field's established notions or produces the intuitively correct verdict. These instances also serve as the framework's running examples. Second (§§14–16) it relaxes (A3): it introduces admissible registration as a first-class structure, determines which kernel theorems survive the relaxation, and isolates the precise point at which one of them breaks. That breakage is not a defect; it is the kernel-level appearance of the phenomenon later layers are built to study, and §16 states it as a theorem and marks its attachment to the sheaf-theoretic extension.
-
-Part II presupposes Part I and uses its numbering (definitions, lemmas, and theorems are cited by their Part I numbers). New notions are defined here; new references are collected in §17.
+The examples specialize the exact kernel to diagnosis, database dependencies, and finite-machine observability. The admissibility layer then separates raw content, joint admissible content, and the content attainable by separate per-view readings. Monotone ceilings guarantee a bracket; separability is the stronger join-preservation property. Adjoint claims use the full subset lattice, with the finite-view convention or the explicit arbitrary-join extension in Corollary 15.4.
 
 ---
 
@@ -80,12 +78,14 @@ the agreement partition of the union of attributes. By Theorem 6.7(3), the induc
 
 **Armstrong's axioms as lattice facts.** Writing $\ker_X:=\ker(\pi_X)$ and using $\ker_{X\cup Z}=\ker_X\vee\ker_Z$:
 
-> **Proposition 12.1.** The three Armstrong rules hold as identities in $\mathrm{Part}(D)$:
+> **Proposition 12.1 (soundness of the Armstrong rules).** The three Armstrong rules hold as identities in $\mathrm{Part}(D)$:
 > - *Reflexivity:* if $Y\subseteq X$ then $\ker_Y\le\ker_X$, so $X\to Y$.
 > - *Augmentation:* if $\ker_Y\le\ker_X$ then $\ker_{Y\cup Z}=\ker_Y\vee\ker_Z\le\ker_X\vee\ker_Z=\ker_{X\cup Z}$, so $XZ\to YZ$.
 > - *Transitivity:* if $\ker_Z\le\ker_Y$ and $\ker_Y\le\ker_X$ then $\ker_Z\le\ker_X$, so $X\to Z$.
 >
 > *Proof.* Reflexivity: $\pi_X$ pairs $\pi_Y$ with $\pi_{X\setminus Y}$, so $\ker_X=\ker_Y\vee\ker_{X\setminus Y}\ge\ker_Y$. Augmentation and transitivity are monotonicity of $\vee$ and transitivity of $\le$, as displayed. $\square$
+
+**Mathematical scope.** These are sound rules for the fixed view family. Completeness of Armstrong inference over all relational models is a separate classical theorem; the displayed lattice proof does not prove that every dependency true in this particular family is derivable from an arbitrarily chosen dependency basis.
 
 Thus the completeness of Armstrong's system, in a fixed instance, reflects that $\{\ker_X\}_{X\subseteq\mathcal U}$ is a join-subsemilattice of $\mathrm{Part}(D)$ and that functional determination is its order. The partition view of dependencies is the basis of dependency-discovery algorithms [Huhtala et al. 1999], and its appearance here as a special case is evidence that the kernel's primitives are the right ones: a theory built for heterogeneous views specializes, with no adjustment, to the attribute-incidence case that classical dependency theory and Formal Concept Analysis already treat [Armstrong 1974; Ganter & Wille 1999].
 
@@ -258,9 +258,9 @@ So the kernel identity "register-then-combine $=$ combine-then-register" (Propos
 > $$
 > nontrivial (non-degenerate) exactly when the endpoints disagree. The interval typing is deliberate: intervals in a complete lattice restrict, intersect, and compose, which is the raw material an obstruction theory needs (§16.4), whereas a bare pair has no algebra. For non-monotone $K$ the two contents may be incomparable, and the anomaly is then recorded as the unordered pair of endpoints.
 
-> **Corollary 15.4.** The following are equivalent for a monotone $K$: (i) $K$ is separable; (ii) $\sigma^{\mathrm{jnt}}_K$ preserves unions; (iii) $\sigma^{\mathrm{jnt}}_K$ admits an upper adjoint; (iv) $\sigma^{\mathrm{jnt}}_K=\sigma^{\mathrm{sep}}_K$, and hence Theorem 6.2 holds for joint content.
+> **Corollary 15.4 (finite-view adjunction criterion).** Let $V$ be finite and $K$ monotone. The following are equivalent: (i) $K$ is separable; (ii) $\sigma_K^{\mathrm{jnt}}:\mathcal P(V)\to\mathrm{Part}(D)$ preserves all unions, including the empty union; (iii) it has a right adjoint; (iv) it equals $\sigma_K^{\mathrm{sep}}$.
 >
-> *Proof.* (i)$\Rightarrow$(iv) by definition; (iv)$\Rightarrow$(ii),(iii) by Theorem 15.1; (ii)$\Rightarrow$(iv) as in Proposition 15.2; (iii)$\Rightarrow$(ii) by Fact 3.4(ii); (ii)$\Rightarrow$(i) since union-preservation forces $\gamma_K(S)=\bigvee_{v}\gamma_K(\{v\})$. $\square$
+> *Proof.* Separability is (iv). The singleton-generated formula in (iv) preserves unions and has the right adjoint of Theorem 15.1. Union preservation gives that formula by expressing any subset as the union of its singletons. A left adjoint preserves unions. Grounding follows from the raw-content bound at the empty set. For infinite $V$, the finite-subset version characterizes finite-union preservation; the right-adjoint statement applies to the arbitrary-join extension on $\mathcal P(V)$, not in general to a map with domain $\mathcal F(V)$. $\square$
 
 The fate of T1 is thus sharp. **For separable content the adjunction always holds; for joint content it holds iff the admissibility structure is separable, and the obstruction is exactly the registration anomaly $\Delta_K$.** Full admissibility (the kernel) is separable, which is why Part I never saw the anomaly. Any strictly sub-canonical $K$ that reads the joint more finely than the combination of its parts breaks separability — and that, far from being pathological, is the generic and interesting case, as the next section shows.
 
@@ -333,15 +333,14 @@ $$
 
 ### 16.4 The anomaly as the entry point to gluing
 
-For monotone $K$, the assignment $T\mapsto\gamma_K(T)$ is a monotone map from the finite subsets of $V$, ordered by inclusion, into $\mathrm{Part}(D)$: a presheaf-like datum on the view lattice. Separability (Definition 15.3) is the statement that this datum is *determined by its values on singletons via join* — that local (per-view) admissible readings assemble to the global (joint) admissible reading. Non-separability is the failure of local readings to assemble, and the registration anomaly $\Delta_K$ — interval-typed by Definition 15.3, hence composable — is its obstruction. This is the deterministic, exact shadow of the sheaf-gluing condition flagged in Part I (§8, H4): where Proposition 6.3 was the kernel's trivial gluing law, $\Delta_K$ is its first nontrivial violation. The sheaf-theoretic extension attaches here: place a coverage on $(V,\preceq)$ in which a covering of the compound view $\langle T\rangle$ is a family jointly determining it; then separable structures are those whose admissible-content presheaf is a sheaf, non-separable structures carry a nonzero gluing obstruction, and the invariance anomaly of §16.1 is the finite analogue of the contextual, non-gluing data studied cohomologically in [Abramsky & Brandenburger 2011]. Developing that obstruction into an invariant is the business of H4 and is not undertaken here; §16 has established only that the obstruction exists, is generic, and is exactly located. It is undertaken in Part V: the vanishing theorem identifies separability with triviality of every cover defect (Theorem 37.3), the anomaly of this section's invariance ceilings is computed on orbit graphs and decomposes canonically into a reflection and a witness component (Theorems 37.5, 37.7) — the parity anomaly of §16.1 being pure witness and the bottom rung of a homological hierarchy realizing every degree (Theorem 38.4) — and the division of labor between the order-theoretic and cohomological invariants is itself a theorem (Proposition 38.5).
+For monotone $K$, $T\mapsto\gamma_K(T)$ is covariant in the view set. Separability says that its singleton contributions jointly attain its value on $T$. Locally admissible readings always combine under monotonicity; the possible failure is that those combinations do not dominate all joint readings (Proposition 36.3). Thus the interval $\Delta_K$ is a cofinality defect, not by itself a failure of the sheaf axiom for a Set-valued presheaf.
 
+Part V develops positive union covers, orbit graphs, and witness sets. Appendix D.8 states the additional distributivity condition needed for join covers on achievable partitions to form a site. Appendix D.12 shows why the parity admissibility anomaly does not imply contextuality of the ordinary marginal empirical model. These distinctions preserve the local-to-global motivation without identifying different gluing problems.
 ---
 
-## 17. Status of Part II and added references
+## 17. Established results and scope
 
-Part II has (i) validated the kernel on three instances, recovering functional-dependency theory (§12) and automaton observability (§13) as special cases and correctly diagnosing a synthetic case (§11); (ii) relaxed canonical registration into an admissibility layer with explicit axioms (Definition 14.3), grounded as exactly the realizable range by the realization lemma (Lemma 14.4), with monotonicity characterized operationally as closure of the induced registration classes under restriction along projections (Proposition 14.4′), still exact and deterministic, and defined separable and joint admissible content (Definition 14.5); and (iii) determined the fate of the kernel's structure theorems, showing the adjunction survives unconditionally for separable content (Theorem 15.1) and survives for joint content iff the structure is separable, with the registration anomaly $\Delta_K$ as the precise obstruction (Proposition 15.2, Corollary 15.4), and monotonicity as the condition ruling out the resource-limited inversion, whose failure permits but does not force it (§16.2).
-
-What Part II has *not* done, consistent with the extension map of Part I (§8): it has not graded the theory (noise, degree, and the Blackwell/information-bottleneck refinement of admissible content remain H3); it has not developed the gluing obstruction into a cohomological invariant (H4), only exhibited and located it; it has not treated anchoring (H1) or multiple domains and full extraction (H5); and it has not modelled *used* content, which needs process dynamics. Each remains attached at the hook named in Part I, now with the admissibility layer interposed between the kernel and H3–H4.
+The exact admissibility theory proves realizability, projection coherence, bracketing, and the separability criterion. The anomaly is a failure of local readings to be cofinal among joint readings, not a failure to construct their combination. Its graph and positive-cover analysis is developed in Part V; Appendix D.8 identifies exactly when join covers on achievable partitions form a site.
 
 **References added in Part II** (see Part I, §References, for those already cited):
 

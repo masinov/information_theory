@@ -1,11 +1,17 @@
 # Registered Information — project workspace
 
+**Integrated edition (2026-10-01).** The monograph now contains the corrected statements, proofs, hypotheses, and conclusions directly. Start with [Part I](monograph/registered-information-kernel.md); [Appendix D](monograph/registered-information-appendix-D.md) contains the supplementary proofs, including the site criterion, witness cut criterion, exact join-tree propagation, and finite transfer certificates. The [proof audit](review/proof-audit.md) records the revision history of all 136 original numbered results and indexes the 16 numbered appendix additions. The companion papers' empirical runs were not rerun.
+
+Recommended order: Parts I–III (foundations), IV–VI (records, descent, admissibility), VII and IX (quantification), VIII and X (corruption and interaction), XI (qualified synthesis), then Appendices A–D. [Review checks](review/check_finite_claims.py) and their [results](review/finite-check-results.json) provide a separate, reproducible validation path. [Integration checks](review/check_integrated_claims.py) and their [results](review/integrated-check-results.json) validate the added structural examples.
+
+
 Foundational monograph plus its derived papers, each self-contained with its own
 scripts, results, and reproduction notes.
 
 ```
-monograph/                     [RI]  the manuscript (Parts I–XI, Appendices A–C)
-continuation-scaffold.md             project-wide running log (both papers)
+monograph/                     [RI]  the manuscript (Parts I–XI, Appendices A–D)
+review/                         proof audit, corrections, new results, independent checks
+continuation-scaffold.md             historical project log (both papers)
 papers/
   shared/
     ri_pilot.py                shared kernel: deficiency, q_info, fiber_min_I, … (used by BOTH papers)

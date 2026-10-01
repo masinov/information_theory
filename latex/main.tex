@@ -1,0 +1,35 @@
+\documentclass[10.5pt,twoside,openright,headings=normal,numbers=noenddot,parskip=false]{scrbook}
+\input{preamble}
+\title{Registered Information over Contrast Domains}
+\author{Mario Asis}
+\date{2026}
+\begin{document}
+\frontmatter
+\input{frontmatter/titlepage}
+\input{frontmatter/abstract}
+\input{frontmatter/preface}
+\tableofcontents
+\mainmatter
+\input{parts/I}
+\input{parts/II}
+\input{parts/III}
+\input{parts/IV}
+\input{parts/V}
+\input{parts/VI}
+\input{parts/VII}
+\input{parts/VIII}
+\input{parts/IX}
+\input{parts/X}
+\input{parts/XI}
+\appendix
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}
+\startappendices
+\input{manual/A}
+\input{appendices/B}
+\input{appendices/C}
+\input{appendices/D}
+\backmatter
+\manualmark\markboth{References}{References}
+\printbibliography[heading=bibintoc,title={References}]
+\end{document}

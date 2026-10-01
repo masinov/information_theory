@@ -1,5 +1,8 @@
 # Empirical Registered Information: Characterization Numbers and Definition Selection for Images and Text
 
+> **Dependency review, 2026-10-01.** Read the foundational claims subject to the [monograph audit](../../review/proof-audit.md) and [companion-paper impact assessment](../../review/corrections-and-extensions.md#5-consequences-for-the-companion-papers). In particular, fine/coarse coupling differences do not alone establish a general PID impossibility theorem. The original empirical runs have not been rerun or independently certified by this review.
+
+
 *A derived paper. It cites the monograph "Registered Information over Contrast Domains" as [RI, Part·, item·] and has its own numbering and bibliography. The §7.1 MNIST and §7.2 corpus (SemCor) runs — formerly marked ⟦TO FILL⟧ — have now been executed per `INSTRUCTIONS.md`; their numbers, bootstrap CIs, and refusal logs are in §§7.1–7.2, reproducible from `src/` (see `RESULTS.md`). All other numbers are from executed validation runs against planted ground truth.*
 
 ---
@@ -32,7 +35,9 @@ Channels are estimated from $n_z$ samples per candidate by Laplace smoothing ($\
 >
 > *Proof.* 1: For laws at TV distance $d$, maximal coupling plus the grouping bound gives $|H(X) - H(X')| \le h(d) + d\log_2(N-1)$ — the same lemma that proves [RI, Thm 63.2] — and the joint law of $(q, Y)$ moves by at most $\bar\epsilon$; apply to $H(Y)$ and $H(q, Y)$ in $I = H(q) + H(Y) - H(q, Y)$ ($H(q)$ is exact, $\mu$ being given). 2: for $M$ near-optimal for $(E, F)$: $\mathrm{TV}(M\widehat E_z, \widehat F_z) \le \mathrm{TV}(M \widehat E_z, M E_z) + \mathrm{TV}(M E_z, F_z) + \mathrm{TV}(F_z, \widehat F_z)$, channels contracting TV; symmetrize. $\square$
 
-> **Corollary 3.4 (half-gap validity).** If $\widehat\nu_\delta < \tfrac12 - \bar\epsilon_n$ then the interval is graded, with the confidence of the concentration event — [RI, Prop 69.2]'s classifier with a finite-sample license. $\square$
+> **Corollary 3.4 (qualified half-gap validity).** Let $r_n$ be a valid confidence radius for the deficiency estimate, including both endpoint errors. On its concentration event, if
+> $$0<\widehat\nu_\delta-r_n\quad\text{and}\quad\widehat\nu_\delta+r_n<\tfrac12,$$
+> then the interval cannot be equivalent to a deterministic partition interval, by [RI, Prop 69.2]. An upper bound below $1/2$ alone only excludes a **nondegenerate** deterministic interval; it does not exclude zero deficiency. Existing “graded” labels based solely on the upper test need this qualification. $\square$
 
 > **Proposition 3.5 (fiber stability).** *(Rounding lemma.)* If $\widehat Q$ couples $(\widehat p, \widehat q)$ and $\mathrm{TV}(\widehat p, p) \le \epsilon_a$, $\mathrm{TV}(\widehat q, q) \le \epsilon_b$, there is a coupling $Q$ of $(p, q)$ with $\mathrm{TV}(Q, \widehat Q) \le \epsilon_a + \epsilon_b$: let $K_a$ be the channel induced by a maximal coupling of $(\widehat p, p)$ (it pushes $\widehat p$ to $p$ and disturbs its input with probability $\epsilon_a$), similarly $K_b$, and set $Q = (K_a \otimes K_b)\widehat Q$. Consequently the estimated fiber minimum, hence $\widehat C$ and the BROJA estimate $\widehat{CI}$, deviate by at most the Shannon modulus of $(\epsilon_v + \epsilon_w)$, two-sidedly. $\square$
 

@@ -1,0 +1,14 @@
+# LaTeX build artifacts (sources in parts/, appendices/, manual/ are tracked)
+build/
+ri.*
+!ri.tex
+*.aux
+*.log
+*.toc
+*.out
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.synctex.gz
+main.pdf
