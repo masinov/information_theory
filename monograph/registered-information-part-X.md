@@ -55,6 +55,7 @@ $$
 > e_2(Z) = \begin{cases} A & \text{if } k = 1,\, b_2 = 1 \ \text{ or } \ k = 2,\, b_1 = 0,\\ B & \text{otherwise,}\end{cases}
 > $$
 > with $o \equiv t^*$. Then, with $B = \{f_1, v_2\}$:
+>
 > 1. **(Memoryless frontier.)** The four memoryless policies $\tau(e_2)$ realize exactly $(E, V) \in \{(0,0),\, (\tfrac12, \tfrac12),\, (\tfrac12, \tfrac12),\, (1, 0)\}$: the loyal policy buys nothing, either single-cell erring policy buys $\tfrac12$ bit at cost $\tfrac12$, and the always-err policy has kernel $\bot$ again — the $\bar d$ pathology of Proposition 63.3, in a stream.
 > 2. **(Adaptive point.)** The policy "err on $A$ iff $k = 1$" — a function of $(e_1, e_2)$ — achieves $(E, V) = (\tfrac14, \tfrac12)$: **the same class at half the cost**, strictly dominating the memoryless frontier.
 > 3. Both frontiers respect Theorem 76.1 ($\tfrac12 \le h(\tfrac14)$); the premium is an efficiency gain, not a rate violation.
@@ -68,6 +69,7 @@ $$
 ## 77. Causal corruption
 
 > **Theorem 77.1 (the causal gap).** Fix a finite stream and two nested closed feasible classes of attacks, causal and clairvoyant, with a compact rate parameter and an attainable annihilation constraint. In item 3 the model is whole-law contamination of one record at common rate $\varepsilon$.
+>
 > 1. **(Order.)** The causal annihilation threshold is $\ge$ the corresponding clairvoyant optimum: causal patterns are a subset of clairvoyant ones.
 > 2. **(Equality criterion.)** They coincide iff some optimal clairvoyant attack admits the required joint causal factorization (for one record, its clutter depends only on the available prefix).
 > 3. **(Strict gap, exhibited.)** Horizon $2$; the only record is $R_1 = b_1$ at time $1$; the environment coordinate $b_2$ realizes at time $2$ and is never recorded; prior $b_1 \sim \mathrm{unif} \otimes b_2 \sim \mathrm{Bern}(\beta)$, $0<\beta<1$, $\beta\ne\tfrac12$; $q=b_1\oplus b_2$. The honest $q$-conditional laws of $R_1$ are $(1-\beta, \beta)$ and $(\beta, 1-\beta)$, so $d = 2|1-2\beta|$ and the **clairvoyant** threshold is
@@ -98,6 +100,7 @@ The next theorem studies a different model in which a retained feature shares fr
 > **Definition 78.2 (co-registration; commitment).** At time $t$ let the interpreter's perception be one draw $y_t \sim u_t(\cdot \mid Z_{\le t})$, and let the round-record contain a **co-registered pair**: a retained feature $g(y_t)$ and the verdict $a(y_t)$, both functions of the *same* draw. The stream is **committed** (write-ahead) if any forgery's verdict-replacement at time $t$ may depend on $(Z_{\le t}, \text{record}_{<t}, \text{own randomness})$ but not on $y_t$ or its functions — the verdict is written before the co-registered feature is revealed to anything that could rewrite it.
 
 > **Theorem 78.3 (provenance from commitment $+$ shared noise).**
+>
 > 1. **(Commitment is necessary.)** Without it — the forger sees $g(y_t)$ before writing — conditional resampling, $\hat a \sim \Pr(a(y_t)\in\cdot\mid g(y_t),Z_{\le t},\mathrm{past})$, reproduces the round-record's joint law exactly: forgery is perfect again.
 > 2. **(Positive-gap commitment separates.)** Assume the fresh draw is independent of the forger’s precommitment information conditional on the candidate history and past. With commitment, any forged verdict is conditionally independent of $y_t$ given $(Z_{\le t}, \text{past})$, so the forged round-law is a *product-form* coupling of the feature and verdict margins, and the honest and forged round-laws differ by at least $g_t=\inf_\nu\mathrm{TV}(P_t,P_t^{\mathrm{feature}}\otimes\nu)$. Separation requires $g_t>0$; shared-origin notation alone does not imply this. On the canonical exhibit — $y_t$ a uniform bit, $g = a = y_t$ — the honest pair is the diagonal law and every committed forgery yields $\mathrm{TV} = \tfrac12$, *regardless of the forged verdict's marginal*: for any $\nu$, $\mathrm{TV}(\mathrm{diag}, \mathrm{unif} \otimes \nu) = \tfrac12$.
 > 3. **(Sequential detection, exponential.)** In the forensic setting — provenance tested for a known candidate history, rounds conditionally independent given it — for two fixed hypotheses with iid round laws $P\ne Q$, the $n$-round Bayes error of the optimal audit is at most $\tfrac12 \mathrm{BC}^n$, where $\mathrm{BC} = \sum_y \sqrt{P(y)Q(y)} < 1$ is the round Bhattacharyya coefficient: since $\min(a,b) \le \sqrt{ab}$ pointwise and $\mathrm{BC}$ is multiplicative over products, $1 - \mathrm{TV}(P^{\otimes n}, Q^{\otimes n}) \le \mathrm{BC}^n$. On the bit exhibit with forged marginal $\nu$, $\mathrm{BC}=(\sqrt{\nu(0)}+\sqrt{\nu(1)})/2\le2^{-1/2}$, with equality only at uniform $\nu$: one round is inconclusive (error $\le 0.354$), twenty rounds pin provenance to error $\le 2^{-11}$.

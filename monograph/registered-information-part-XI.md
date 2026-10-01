@@ -8,7 +8,7 @@
 
 ## 82. Purpose: the last hook is the last assumption
 
-One hook and one assumption remain, and the audit preceding this part found them to be the same promise. Hook H5 — multiple domains and full information algebra — was typed in §8 as the extension that "relaxes A5," the kernel's standing restriction to a single fixed contrast domain; and §8 fixed its brief exactly: reintroduce the ambient class of targets and a family of related contrast domains, and establish "coherence of registration with extraction, and functoriality of $\sigma$ along maps between contrast domains (restriction, refinement, and coarsening of $D$), extending Theorem 6.2." Proposition 6.11 already supplies more than a germ: over one domain, the saturated-set pieces form a complete **labeled idempotent information algebra** over the achievable-quotient lattice, with combination as intersection, focusing as Pawlak's upper approximation, and the whole structure functorial in the view family. What remains — and it is all that remains — is the *multi*-domain step, the fate of the algebra's axioms under the manuscript's relaxations, and the theorem toward which every part has been aimed.
+One hook and one assumption remain, and they are the same promise. Hook H5 — multiple domains and information algebra — was introduced in §8 as the extension that relaxes (A5), the kernel's restriction to a single fixed contrast domain, with the brief: reintroduce the ambient class of targets and a family of related contrast domains, and establish "coherence of registration with extraction, and functoriality of $\sigma$ along maps between contrast domains (restriction, refinement, and coarsening of $D$), extending Theorem 6.2." Proposition 6.11 already supplies the single-domain case: the saturated-set pieces form a **labeled idempotent information algebra** over the achievable-quotient lattice, with combination as intersection, focusing as Pawlak's upper approximation, and the whole structure functorial in the view family. What remains is the multi-domain step, the behaviour of the algebra's laws under the earlier relaxations, and a consolidated statement of the recovery results.
 
 Part XI establishes a finite generated-domain construction, subject to the common-scene hypothesis in Definition 83.4. Appendix A does not extend it automatically to arbitrary measurable domains. General extraction systems and unrestricted domain diagrams remain additional problems.
 
@@ -18,13 +18,14 @@ Section 84 distinguishes the generalized set information algebra from a possible
 
 Section 85 collects finite recovery results under their separate hypotheses. They do not establish a product of commuting extension axes. Sections 86–89 distinguish the proved finite construction from additional research questions; Appendix D supplies the finite closure results.
 
-**Assumptions and conventions.** Finite nonempty domains and observation spaces remain in force. The common-scene representation requires specified surjections to the member domains. Deterministic pullback, trace, and factor products must be distinguished from prior-averaging of channels. Historical random-computation counts are not review-run certificates; Appendix B identifies the independently reproduced checks.
+**Assumptions and conventions.** Finite nonempty domains and observation spaces remain in force. The common-scene representation requires specified surjections to the member domains. Deterministic pullback, trace, and factor products must be distinguished from prior-averaging of channels. Appendix B distinguishes exact certificates from numerical checks.
 
 ---
 
 ## 83. The multi-domain frame
 
 > **Definition 83.1 (ambient class; carving; domain family).** Fix an ambient class $\Omega$ of targets — the universe from which contrast domains are carved (§2's deferred clause, now cashed). A **domain family** is a finite diagram $\mathcal{D}$ of contrast domains, each carrying its own view family, connected by generating morphisms of the three kinds H5 names:
+>
 > - **coarsening** $c_\pi : D \twoheadrightarrow D/\pi$ for $\pi \in \mathrm{Part}(D)$ — a question, promoted to a domain (the identification that makes Part VII's ledger functor, Definition 56.1, a *domain morphism*: prior-marginalization is coarsening along $\ker q$, with channels pushed forward by prior-averaging);
 > - **restriction** $D' \hookrightarrow D$ for $\varnothing\ne D'\subseteq D$ — fewer live alternatives (conditioning; sub-cohorts); its reverse reading is **refinement**, traveling backward along a coarsening;
 > - **joint domains** $D_1 \times D_2$ for distinct targets carved from $\Omega$ — the multi-target case, with factor-local view families (the constructor of Worked example I).
@@ -32,12 +33,14 @@ Section 85 collects finite recovery results under their separate hypotheses. The
 > Views transport contravariantly along coarsenings and restrictions (precomposition; trace) and factor-locally into products; graded families transport with them (pushforward of channels along $c_\pi$ with prior-averaging; restriction of kernels; factor tensors), coherence being preserved by marginality in each case.
 
 > **Lemma 83.2 (transport calculus; the part's core).**
+>
 > 1. **(Coarsening: a lattice isomorphism onto an ideal.)** The pullback $c_\pi^* : \mathrm{Part}(D/\pi) \to \mathrm{Part}(D)$, $\bar\rho \mapsto \{c_\pi^{-1}(B) : B \in \bar\rho\}$, is an isomorphism of complete lattices onto the principal ideal ${\downarrow}\pi$ — the partitions coarser than $\pi$, i.e. the $\pi$-saturated ones. It preserves arbitrary joins and nonempty meets in the ambient partition lattice (all meets internally in the principal ideal): a transitive-closure chain downstairs lifts, because within-fiber moves are available by reflexivity, so $c_\pi^*(\bar\rho \wedge \bar\rho') = c_\pi^*\bar\rho \wedge c_\pi^*\bar\rho'$. Consequently expressions built from transported kernels, joins, and nonempty meets commute with this pullback. Internal top is $\pi$, so the empty ambient meet is excluded. This is deterministic pullback, not prior averaging of channels.
 > 2. **(Restriction: exact on joins, lax on meets.)** The trace $\rho \mapsto \rho|_{D'}$ commutes with joins (blockwise intersection with $D'$ commutes with common refinement) but only laxly with meets, with the definite direction
 > $$
 > (\rho \wedge \rho')\big|_{D'} \;\le\; \rho|_{D'} \wedge \rho'|_{D'},
 > $$
 > strictly in general: on $D = \{1,2,3\}$ with $\rho = \{12 \mid 3\}$, $\rho' = \{1 \mid 23\}$, and $D' = \{1,3\}$, the $D$-meet is the single block (the chain runs through the excluded candidate $2$) while the traced meet is discrete. The mechanism is the manuscript's familiar one — a closure operator (transitive closure) failing to commute with a second operation — now in its third guise after the tolerance reflection of Proposition 22.3′ and the orbit reflection of Theorem 37.7: **chains of identification may pass through candidates that a restriction removes.**
+>
 > 3. **(Products: both operations factorize.)** For factor-local data, $(\rho_1 \times \rho_2) \vee (\rho_1' \times \rho_2') = (\rho_1 \vee \rho_1') \times (\rho_2 \vee \rho_2')$ and likewise for $\wedge$: a transitive-closure chain in the product interleaves into per-factor chains, holding the other coordinate fixed by reflexivity, and conversely per-factor chains concatenate. Hence contents *and ceilings* over factor-local views factorize — the lemma used ad hoc in Worked example I, established once.
 >
 > *Proof.* All three as sketched, each direction elementary; 1 and 3 additionally machine-verified on 200 randomized instances each, and 2's counterexample computed. $\square$
@@ -60,7 +63,6 @@ Section 85 collects finite recovery results under their separate hypotheses. The
 
 **Common-scene condition.** The common-scene construction assumes specified surjections from $D^*$ to every domain whose labels are pulled back. Two quotient maps need not induce a surjection onto their full Cartesian product: two copies of the same binary quotient give only the diagonal. Use the realized image as the joint domain, or assume/enlarge a common scene admitting the required surjections and restate its views. The factor-product laws of Lemma 83.2 apply to genuine Cartesian products; they are not a claim that arbitrary related targets vary independently.
 
-
 > **Theorem 83.5 (multi-domain set algebra, qualified).** Use the join-closed label family $L$ of Definition 83.4. The labeled saturated sets form the generalized set information algebra of Proposition 6.11, with nontrivial focusing. For a surjection $c$, inverse image commutes with combination and focusing: $s_{c^*\rho}(c^{-1}E)=c^{-1}s_\rho(E)$. Restriction is combination-exact and focusing-lax: $s_{\rho|_{D'}}(E\cap D')\subseteq s_\rho(E)\cap D'$.
 >
 > Every piece has a supporting label. A **least** supporting label is guaranteed if $L$ is finite and closed under ambient meets; it is not guaranteed merely by join-closure. Choosing ambient-meet closure may add labels even in the single-domain case. With join-closure only, the single-domain label family is exactly $\mathrm{Ach}(V)$ under the standing finite convention.
@@ -72,6 +74,8 @@ Section 85 collects finite recovery results under their separate hypotheses. The
 ---
 
 ## 84. The algebra coordinate
+
+The laws satisfied by combination and focusing form the sixth and last tracked coordinate (after codomain, compositionality, representability, fidelity, and descent). This section records how far they extend beyond the exact construction.
 
 > **Theorem 84.1 (independent combination and the algebra boundary).** The exact saturated-set construction is a generalized idempotent information algebra under the hypotheses of Proposition 6.11 and Theorem 83.5. For finite stochastic experiments, independent tensor product is well defined on Blackwell classes, associative and commutative up to equivalence, but need not be idempotent. BSC(0.3) is an explicit strict example, with deficiency to its independent double equal to 0.084 (Appendix B.6). Arbitrary supplied couplings do not define an operation on marginal Blackwell classes.
 >
@@ -129,8 +133,8 @@ The laboratory, final appearance. Its corpus of records now serves two clients o
 
 ---
 
-## 89. Reviewed status of the monograph
+## 89. Status and scope of the results
 
-The finite kernel, the qualified graph and partition calculus, the coupling-fiber constructions, and the explicit statistical decision comparisons provide the established framework. The [proof audit](../review/proof-audit.md) records every numbered result and its assumptions. The [supplementary theorems](registered-information-appendix-D.md) establish partial certification, a support criterion, a replication theorem, a quotient-lifting inequality, the least-coupling/join equivalence, a budget-transfer rule, and a sharp committed-bit test.
+The finite kernel, the qualified graph and partition calculus, the coupling-fiber constructions, and the explicit statistical decision comparisons constitute the established framework. The supplementary theorems of Appendix D establish partial certification, a support criterion, a replication theorem, a quotient-lifting inequality, the least-coupling/join equivalence, a budget-transfer rule, and a sharp committed-bit test.
 
-Several original completion claims have been withdrawn. A general measurable extension, a full graded valuation algebra, a comparison with contextuality cohomology, and unconstrained commutation of the proposed extension directions have not been established. The revised research directions identify concrete proof obligations and counterexamples that future work must respect. The companion papers' empirical claims remain subject to separate replication; Appendix B identifies exactly what this review checked.
+A general measurable extension, a full graded valuation algebra, a comparison with contextuality cohomology, and unconstrained commutation of the proposed extension directions are not established here; §86 and Appendix A state the proof obligations and counterexamples that future work must respect. Appendix B identifies which computations were checked independently.

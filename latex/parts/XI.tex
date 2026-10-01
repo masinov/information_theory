@@ -2,7 +2,7 @@
 
 \secn{82}{82}{Purpose: the last hook is the last assumption}
 
-One hook and one assumption remain, and the audit preceding this part found them to be the same promise. Hook H5---\hspace{0pt}multiple domains and full information algebra---\hspace{0pt}was typed in \hyperlink{sec:8}{§8} as the extension that ``relaxes A5,'' the kernel's standing restriction to a single fixed contrast domain; and \hyperlink{sec:8}{§8} fixed its brief exactly: reintroduce the ambient class of targets and a family of related contrast domains, and establish ``coherence of registration with extraction, and functoriality of \(\sigma\) along maps between contrast domains (restriction, refinement, and coarsening of \(D\)), extending \hyperlink{stmt:6.2}{Theorem~6.2}.'' \hyperlink{stmt:6.11}{Proposition~6.11} already supplies more than a germ: over one domain, the saturated-set pieces form a complete \textbf{labeled idempotent information algebra} over the achievable-quotient lattice, with combination as intersection, focusing as Pawlak's upper approximation, and the whole structure functorial in the view family. What remains---\hspace{0pt}and it is all that remains---\hspace{0pt}is the \emph{multi}-domain step, the fate of the algebra's axioms under the manuscript's relaxations, and the theorem toward which every part has been aimed.
+One hook and one assumption remain, and they are the same promise. Hook H5---\hspace{0pt}multiple domains and information algebra---\hspace{0pt}was introduced in \hyperlink{sec:8}{§8} as the extension that relaxes (A5), the kernel's restriction to a single fixed contrast domain, with the brief: reintroduce the ambient class of targets and a family of related contrast domains, and establish ``coherence of registration with extraction, and functoriality of \(\sigma\) along maps between contrast domains (restriction, refinement, and coarsening of \(D\)), extending \hyperlink{stmt:6.2}{Theorem~6.2}.'' \hyperlink{stmt:6.11}{Proposition~6.11} already supplies the single-domain case: the saturated-set pieces form a \textbf{labeled idempotent information algebra} over the achievable-quotient lattice, with combination as intersection, focusing as Pawlak's upper approximation, and the whole structure functorial in the view family. What remains is the multi-domain step, the behaviour of the algebra's laws under the earlier relaxations, and a consolidated statement of the recovery results.
 
 Part XI establishes a finite generated-domain construction, subject to the common-scene hypothesis in \hyperlink{stmt:83.4}{Definition~83.4}. Appendix A does not extend it automatically to arbitrary measurable domains. General extraction systems and unrestricted domain diagrams remain additional problems.
 
@@ -12,7 +12,7 @@ Section 84 distinguishes the generalized set information algebra from a possible
 
 Section 85 collects finite recovery results under their separate hypotheses. They do not establish a product of commuting extension axes. Sections 86--89 distinguish the proved finite construction from additional research questions; Appendix D supplies the finite closure results.
 
-\textbf{Assumptions and conventions.} Finite nonempty domains and observation spaces remain in force. The common-scene representation requires specified surjections to the member domains. Deterministic pullback, trace, and factor products must be distinguished from prior-averaging of channels. Historical random-computation counts are not review-run certificates; Appendix B identifies the independently reproduced checks.
+\textbf{Assumptions and conventions.} Finite nonempty domains and observation spaces remain in force. The common-scene representation requires specified surjections to the member domains. Deterministic pullback, trace, and factor products must be distinguished from prior-averaging of channels. Appendix B distinguishes exact certificates from numerical checks.
 
 \secn{83}{83}{The multi-domain frame}
 
@@ -39,7 +39,6 @@ Views transport contravariantly along coarsenings and restrictions (precompositi
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{(Coarsening: a lattice isomorphism onto an ideal.)} The pullback \(c_\pi^* : \mathrm{Part}(D/\pi) \to \mathrm{Part}(D)\), \(\bar\rho \mapsto \{c_\pi^{-1}(B) : B \in \bar\rho\}\), is an isomorphism of complete lattices onto the principal ideal \({\downarrow}\pi\)---\hspace{0pt}the partitions coarser than \(\pi\), i.e.~the \(\pi\)-saturated ones. It preserves arbitrary joins and nonempty meets in the ambient partition lattice (all meets internally in the principal ideal): a transitive-closure chain downstairs lifts, because within-fiber moves are available by reflexivity, so \(c_\pi^*(\bar\rho \wedge \bar\rho') = c_\pi^*\bar\rho \wedge c_\pi^*\bar\rho'\). Consequently expressions built from transported kernels, joins, and nonempty meets commute with this pullback. Internal top is \(\pi\), so the empty ambient meet is excluded. This is deterministic pullback, not prior averaging of channels.
 \item
@@ -47,7 +46,7 @@ Views transport contravariantly along coarsenings and restrictions (precompositi
   \[
   (\rho \wedge \rho')\big|_{D'} \;\le\; \rho|_{D'} \wedge \rho'|_{D'},
   \]
-  strictly in general: on \(D = \{1,2,3\}\) with \(\rho = \{12 \mid 3\}\), \(\rho' = \{1 \mid 23\}\), and \(D' = \{1,3\}\), the \(D\)-meet is the single block (the chain runs through the excluded candidate \(2\)) while the traced meet is discrete. The mechanism is the manuscript's familiar one---\hspace{0pt}a closure operator (transitive closure) failing to commute with a second operation---\hspace{0pt}now in its third guise after the tolerance reflection of \hyperlink{stmt:22.3′}{Proposition~22.3′} and the orbit reflection of \hyperlink{stmt:37.7}{Theorem~37.7}: \textbf{chains of identification may pass through candidates that a restriction removes.}
+  strictly in general: on \(D = \{1,2,3\}\) with \(\rho = \{12 \mid 3\}\), \(\rho' = \{1 \mid 23\}\), and \(D' = \{1,3\}\), the \(D\)-meet is the single block (the chain runs through the excluded candidate \(2\)) while the traced meet is discrete. The mechanism is the manuscript's familiar one---\hspace{0pt}a closure operator (transitive closure) failing to commute with a second operation---\hspace{0pt}now in its third guise after the tolerance reflection of Proposition 22.3′ and the orbit reflection of \hyperlink{stmt:37.7}{Theorem~37.7}: \textbf{chains of identification may pass through candidates that a restriction removes.}
 \item
   \textbf{(Products: both operations factorize.)} For factor-local data, \((\rho_1 \times \rho_2) \vee (\rho_1' \times \rho_2') = (\rho_1 \vee \rho_1') \times (\rho_2 \vee \rho_2')\) and likewise for \(\wedge\): a transitive-closure chain in the product interleaves into per-factor chains, holding the other coordinate fixed by reflexivity, and conversely per-factor chains concatenate. Hence contents \emph{and ceilings} over factor-local views factorize---\hspace{0pt}the lemma used ad hoc in Worked example I, established once.
 \end{enumerate}
@@ -98,6 +97,8 @@ The down-set completion is available for a poset, but its interaction with pullb
 
 \secn{84}{84}{The algebra coordinate}
 
+The laws satisfied by combination and focusing form the sixth and last tracked coordinate (after codomain, compositionality, representability, fidelity, and descent). This section records how far they extend beyond the exact construction.
+
 \begin{thmplain}[\hypertarget{stmt:84.1}{Theorem~84.1}\ {\normalfont\upshape(independent combination and the algebra boundary)}]
 
 The exact saturated-set construction is a generalized idempotent information algebra under the hypotheses of \hyperlink{stmt:6.11}{Proposition~6.11} and \hyperlink{stmt:83.5}{Theorem~83.5}. For finite stochastic experiments, independent tensor product is well defined on Blackwell classes, associative and commutative up to equivalence, but need not be idempotent. BSC(0.3) is an explicit strict example, with deficiency to its independent double equal to 0.084 (Appendix B.6). Arbitrary supplied couplings do not define an operation on marginal Blackwell classes.
@@ -122,7 +123,7 @@ Combining readings with partitions bounded by \(\gamma_K(T)\) and \(\gamma_K(T')
 
 \begin{thmplain}[\hypertarget{stmt:85.1}{Theorem~85.1}\ {\normalfont\upshape(scope of the recovery results)}]
 
-The deterministic, fully admissible, correctly anchored presentation-only, static, single-domain specialization recovers the exact quotient theory of Part I. Its partition, answerability, and canonical-combination identities are \hyperlink{stmt:6.2}{Theorems~6.2}--6.7. Finite stochastic experiments additionally recover the classical Blackwell, sufficiency, and Shannon statements of Part III under their own hypotheses; classical noisy information theory is not confined to a deterministic fiber.
+The deterministic, fully admissible, correctly anchored presentation-only, static, single-domain specialization recovers the exact quotient theory of Part I. Its partition, answerability, and canonical-combination identities are Theorems 6.2--6.7. Finite stochastic experiments additionally recover the classical Blackwell, sufficiency, and Shannon statements of Part III under their own hypotheses; classical noisy information theory is not confined to a deterministic fiber.
 
 The multi-domain deterministic pullback and product identities hold by \hyperlink{stmt:83.2}{Lemma~83.2}. No unrestricted assertion that all relaxations commute is made: prior marginalization can turn deterministic conditionally independent views into coupled stochastic views (XOR), and informative context prevents the all-record recovery excluded by \hyperlink{stmt:32.1}{Theorem~32.1}. Restriction remains lax. The six coordinates remain an organizing taxonomy, not a proved product decomposition of theories or a uniqueness-of-axis theorem for anomalies.
 \end{thmplain}
@@ -138,11 +139,11 @@ The deterministic fully admissible specialization recovers the exact kernel. Noi
 
 The finite results above and in Appendix D require none of the conjectures below. The following list records which broader questions remain after the finite site, cut, and propagation results have been established.
 
-\textbf{P1 (PID inside one address).} Does the witness class admit an internal nonnegative decomposition graded by the missing-face dimension of the nerve hierarchy (§38.3), i.e.~a partial information decomposition \emph{within} a single descent address, where \hyperlink{stmt:56.2}{Theorem~56.2}'s transport obstruction cannot arise because the ledger is fixed? Provenance: \hyperlink{stmt:57.2}{Remark~57.2}.
+\textbf{P1 (PID inside one address).} Does the witness class admit an internal nonnegative decomposition graded by the missing-face dimension of the nerve hierarchy (§38.3), i.e.~a partial information decomposition \emph{within} a single descent address, where Theorem 56.2's transport obstruction cannot arise because the ledger is fixed? Provenance: \hyperlink{stmt:57.2}{Remark~57.2}.
 
 \textbf{P2 (beyond the direct join-cover site).} Appendix D.8 settles pullback stability of join covers: it holds exactly for distributive finite achievable lattices, and then the coverage is subcanonical. The positive subset site already supports the witness sheaf. What remains is a useful alternative topology or base change representing more of the nondistributive content calculus, with an explicit comparison functor.
 
-\textbf{P3 (sheafification of \hyperlink{stmt:6.7}{Theorem~6.7}).} Whether registration-plus-consolidation is a sheafification in a precise sense---\hspace{0pt}the universal property of \hyperlink{stmt:6.7}{Theorem~6.7} as the unit of a sheafification adjunction over the H4 site. Provenance: \hyperlink{sec:8}{§8}'s H4 clause; open since Part I.
+\textbf{P3 (sheafification of \hyperlink{stmt:6.7}{Theorem~6.7}).} Whether registration-plus-consolidation is a sheafification in a precise sense---\hspace{0pt}the universal property of \hyperlink{stmt:6.7}{Theorem~6.7} as the unit of a sheafification adjunction over the H4 site. Provenance: §8's H4 clause; open since Part I.
 
 \textbf{P4 (used content).} A model of the downstream process that \emph{uses} registered content, coarsening ``extractable'' to ``used''; the evaluation functional's \((\mu, q)\)-dependence (§53) is the flagged entry point---\hspace{0pt}\emph{used} is plausibly \emph{evaluated against the questions the process actually asks}. Provenance: Part II \hyperlink{sec:17}{§17}; \hyperlink{sec:59}{§59}.
 
@@ -167,6 +168,6 @@ For the singleton family \(\mathcal{D} = \{D\}\), the global algebra of \hyperli
 
 \secn{89}{89}{Status and scope of the results}
 
-The finite kernel, the qualified graph and partition calculus, the coupling-fiber constructions, and the explicit statistical decision comparisons provide the established framework. The supplementary theorems of Appendix D establish partial certification, a support criterion, a replication theorem, a quotient-lifting inequality, the least-coupling/join equivalence, a budget-transfer rule, and a sharp committed-bit test.
+The finite kernel, the qualified graph and partition calculus, the coupling-fiber constructions, and the explicit statistical decision comparisons constitute the established framework. The supplementary theorems of Appendix D establish partial certification, a support criterion, a replication theorem, a quotient-lifting inequality, the least-coupling/join equivalence, a budget-transfer rule, and a sharp committed-bit test.
 
 A general measurable extension, a full graded valuation algebra, a comparison with contextuality cohomology, and unconstrained commutation of the proposed extension directions are not established here; \hyperlink{sec:86}{§86} and Appendix A state the proof obligations and counterexamples that future work must respect. Appendix B identifies which computations were checked independently.

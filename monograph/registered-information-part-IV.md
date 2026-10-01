@@ -53,10 +53,12 @@ Definitions 19.4–19.5 gave the exact anchoring apparatus: a correspondence $\e
 Whether the floor is attainable is exactly where the two readings of the origin map (Definition 19.3) part ways. Call an attribution **loyal** in the tracked-target reading ($o \equiv t^*$) if $A(t^* \mid y,c) = 1$ whenever $t^* \in \eta(y,c)$.
 
 > **Proposition 27.5 (attainability dichotomy).**
+>
 > 1. **(Tracked-target reading.)** Every loyal attribution attains the floor uniformly: $\varepsilon(Z) = \iota(Z)$ for all $Z$ and all emissions. Conversely, the loyal attributions are exactly the compatible attributions attaining the floor for every $Z$ under every emission: if $A$ is not loyal, some emission witnesses $\varepsilon(Z) > \iota(Z)$.
 > 2. **(Identity reading.)** No such extremal attribution need exist. There is a scenario with injective $o$ and $\iota \equiv 0$ in which every compatible attribution has total error $\sum_{Z} \varepsilon(Z) = 1$ — so every deterministic policy has $\varepsilon(Z) = 1$ for some $Z$ — and the achievable error profiles $\big(\varepsilon(Z)\big)_{Z \in D}$ form an antichain under the pointwise order: no policy dominates another, and none attains the floor at every candidate.
 >
 > *Proof.* 1. Loyalty makes $\{t \ne t^*\} \subseteq \{t^* \notin \eta(y,c)\}$ up to null events, and on the latter event error is certain by Lemma 27.4's argument; so $\varepsilon(Z) = \iota(Z)$. Conversely, if $A$ is not loyal there is $(y_0, c_0)$ with $t^* \in \eta(y_0, c_0)$ and $A(t^* \mid y_0, c_0) = 1 - \delta < 1$; an emission concentrated at $(y_0, c_0)$ gives $\iota(Z) = 0$ but $\varepsilon(Z) = \delta > 0$.
+>
 > 2. Let $D = \{Z_1, Z_2\}$, $o$ injective with values $t_1, t_2$, and one raw presentation $(y_0, c_0)$ emitted with probability one under both candidates, with $\eta(y_0, c_0) = \{t_1, t_2\}$. Then $\iota \equiv 0$. Any compatible $A$ is determined by $a := A(t_1 \mid y_0, c_0)$, with error profile $(\varepsilon(Z_1), \varepsilon(Z_2)) = (1 - a,\, a)$, whose coordinates sum to $1$; the deterministic policies realize $(0,1)$ and $(1,0)$; two profiles $(1-a, a)$, $(1-a', a')$ are pointwise comparable only if equal; and no profile is $(0,0)$, the floor. $\square$
 
 The dichotomy is the part's first structural verdict: in the tracked-target regime, anchoring error is a *fidelity* problem with a uniform optimum; in the identity regime it is an *inference* problem — selecting the origin is answering the identity question, so policy optimality is necessarily decision-theoretic and prior-indexed. Section 30 develops both halves.
@@ -103,6 +105,7 @@ the **identity question**: which origin does the actual candidate realize? Its c
 The interface's type discipline now pays the dividend it was designed for: the identity question needs no new answerability theory.
 
 > **Corollary 28.1 (anchoring strata; the type-stability dividend).** Fix an anchored graded view and any of its records $R \in \{F, S, N, \alpha\}$. Then, verbatim by Theorems 22.1 and 22.2 applied to the channel $R$:
+>
 > - attribution is **zero-error achievable from $R$** (some rule names the origin with certainty in one look) iff $\ker(q_o) \le \sigma^{0}(R)$;
 > - attribution is **asymptotically achievable from $R$** iff $\ker(q_o) \le \sigma^{=}(R)$;
 >
@@ -143,6 +146,7 @@ The candidate-blind case is formally the $\varepsilon$-contamination (gross-erro
 ### 29.2 Candidate-blind corruption: noise, exactly
 
 > **Theorem 29.3 (candidate-blind mis-anchoring is a garbling, monotonically in the rate).** Let $(\varepsilon, Q)$ be candidate-blind. Then:
+>
 > 1. $\tilde v = G \circ v$ for the channel $G(y' \mid y) = (1 - \varepsilon)\, \delta_y(y') + \varepsilon\, Q(y')$; hence $\tilde v \preceq_B v$, all strata are non-increasing (Lemma 27.7), Bayes risks are non-decreasing (Blackwell–Sherman–Stein, §20.1), and the DPI applies to any further registration.
 > 2. Degradation is monotone in the rate: for $0 \le \varepsilon' \le \varepsilon \le 1$ with $\varepsilon' < 1$ and common clutter $Q$,
 > $$
@@ -155,16 +159,19 @@ The candidate-blind case is formally the $\varepsilon$-contamination (gross-erro
 > *Proof.* 1: $(G \circ v)(y' \mid Z) = (1-\varepsilon) v(y' \mid Z) + \varepsilon Q(y') = \tilde v(y' \mid Z)$. 2: Expand the right-hand side: $(1-\lambda)(1-\varepsilon') v + \big((1-\lambda)\varepsilon' + \lambda\big) Q$; the stated $\lambda$ gives $(1-\lambda)(1-\varepsilon') = 1 - \varepsilon$ and hence coefficient $\varepsilon$ on $Q$; and mixing with a fixed $Q$ at rate $\lambda$ is itself candidate-blind contamination, a garbling by item 1. $\square$
 
 > **Theorem 29.4 (the stratum trichotomy under blind corruption).** Let $(\varepsilon, Q)$ be candidate-blind with $0 < \varepsilon < 1$. Then:
+>
 > 1. **(Annihilation of $\sigma^0$.)** $\mathrm{supp}\,\tilde v(\cdot \mid Z) = \mathrm{supp}\, v(\cdot \mid Z) \cup \mathrm{supp}\, Q$ for every $Z$; since $\mathrm{supp}\,Q \ne \varnothing$, every pair of candidates is confusable, the confusability graph is complete, and
 > $$
 > \sigma^{0}(\tilde v) = \bot .
 > $$
 > An arbitrarily small blind mis-anchoring rate destroys all zero-error content: the zero-error stratum is infinitely fragile.
+>
 > 2. **(Invariance of $\sigma^=$.)** The map $p \mapsto (1-\varepsilon)p + \varepsilon Q$ on $\Pr(Y)$ is injective for $\varepsilon < 1$, so
 > $$
 > \sigma^{=}(\tilde v) = \sigma^{=}(v):
 > $$
 > statistical content — and with it asymptotic answerability (Theorem 22.2) — is *exactly* preserved. Blind mis-anchoring is invisible to the repetition ledger.
+>
 > 3. **(Bracketed degradation of $\widehat\sigma$.)** For every prior $\mu$ and question $q$,
 > $$
 > e_\mu(q \mid v) \;\le\; e_\mu(q \mid \tilde v) \;\le\; (1 - \varepsilon)\, e_\mu(q \mid v) + \varepsilon .
@@ -179,12 +186,13 @@ The trichotomy is a strong validation of Part III's refusal to let graded conten
 ### 29.3 Candidate-dependent corruption: not noise
 
 > **Theorem 29.6 (targeted mis-anchoring re-authors the experiment).** Candidate-dependent patterns can place the perceived view in **any** Blackwell relation to the intended one:
+>
 > 1. **(Creation: the leak at the feature level.)** There are $v$ and a pattern with $\sigma^{=}(\tilde v) > \sigma^{=}(v)$; consequently $\tilde v$ is not a garbling of $v$ (Lemma 27.7), and indeed $\tilde v \succ_B v$ is realizable with $v$ Blackwell-null.
 > 2. **(Destruction beyond garbling.)** There are $v$ and a pattern with $\sigma^{=}(\tilde v) < \sigma^{=}(v)$ collapsing distinctions entirely.
 > 3. **(Incomparability.)** There are $v$ and a pattern with $\sigma^{=}(\tilde v)$ and $\sigma^{=}(v)$ incomparable in $\mathrm{Part}(D)$; then neither experiment is a garbling of the other.
 >
 > *Proof.* 1: Let $D = \{Z_1, Z_2\}$, $Y = \{0,1\}$, $v(\cdot \mid Z_i) = p$ for both candidates ($\sigma^=(v) = \bot$; $v$ is null). Take $\varepsilon(Z_1) = 0$, $\varepsilon(Z_2) = \tfrac12$, $Q_{Z_2} = q \ne p$. Then $\tilde v(\cdot \mid Z_1) = p \ne \tfrac12 p + \tfrac12 q = \tilde v(\cdot \mid Z_2)$, so $\sigma^=(\tilde v) = \top$. A null experiment is a garbling of anything, so $\tilde v \succ_B v$.
-> 2: Let $v(\cdot \mid Z_1) = (\tfrac12, \tfrac12)$, $v(\cdot \mid Z_2) = (1, 0)$, $\varepsilon(Z_1) = 0$, $\varepsilon(Z_2) = \tfrac12$, $Q_{Z_2} = (0,1)$. Then $\tilde v(\cdot \mid Z_2) = \tfrac12(1,0) + \tfrac12(0,1) = (\tfrac12, \tfrac12) = \tilde v(\cdot \mid Z_1)$: $\sigma^= $ collapses from $\top$ to $\bot$.
+> 2: Let $v(\cdot \mid Z_1) = (\tfrac12, \tfrac12)$, $v(\cdot \mid Z_2) = (1, 0)$, $\varepsilon(Z_1) = 0$, $\varepsilon(Z_2) = \tfrac12$, $Q_{Z_2} = (0,1)$. Then $\tilde v(\cdot \mid Z_2) = \tfrac12(1,0) + \tfrac12(0,1) = (\tfrac12, \tfrac12) = \tilde v(\cdot \mid Z_1)$: $\sigma^=$ collapses from $\top$ to $\bot$.
 > 3: Combine the mechanisms on disjoint parts of $D = \{1,2,3,4\}$, $Y = \{0,1\}$. Honest laws: $v_1 = v_2 = (\tfrac14, \tfrac34)$, $v_3 = (1,0)$, $v_4 = (\tfrac12, \tfrac12)$; so $\sigma^=(v) = \{\,12 \mid 3 \mid 4\,\}$. Pattern: $\varepsilon(1) = \varepsilon(4) = 0$; $\varepsilon(2) = \tfrac12$, $Q_2 = (1,0)$; $\varepsilon(3) = \tfrac12$, $Q_3 = (0,1)$. Then $\tilde v_1 = (\tfrac14, \tfrac34)$, $\tilde v_2 = \tfrac12(\tfrac14,\tfrac34) + \tfrac12(1,0) = (\tfrac58, \tfrac38)$, $\tilde v_3 = \tfrac12(1,0) + \tfrac12(0,1) = (\tfrac12,\tfrac12) = \tilde v_4$; so $\sigma^=(\tilde v) = \{\,1 \mid 2 \mid 34\,\}$. Neither of $\{12 \mid 3 \mid 4\}$ and $\{1 \mid 2 \mid 34\}$ refines the other; by Lemma 27.7 (applied in both directions) neither experiment garbles the other. $\square$
 
 The moral completes the sharpening promised in §26: **mis-anchoring is noise exactly when it is blind.** A candidate-dependent pattern is not a processing of the intended experiment — it is a different emission, and the difference can be informative (item 1 is the feature-level form of anchoring leakage: the *rate pattern* $\varepsilon(\cdot)$ is itself a view on $D$, manifesting statistically when its indicator is unobserved), destructive (item 2), or both at once (item 3). Auditability is the operational face of item 1: where intrusion indicators can be observed (provenance checks, adjudicated subsamples), they are a legitimate additional view and their content is governed by the ordinary theory; where they cannot, their content surfaces as an uninterpreted statistical distinction, indistinguishable from honest signal — the epistemically dangerous case, and the anchored ancestor of dataset-shift pathologies.
@@ -196,6 +204,7 @@ Mis-anchoring across a view family introduces one further degree of freedom, and
 > **Definition 29.7 (family pattern).** For a finite view set $S$ of a coherent family with joint channel $P_S$, a **family mis-anchoring pattern** consists of, for each $Z$: a law $\lambda_Z$ on subsets $\kappa \subseteq S$ (the **intrusion configuration**) and clutter laws $R_{Z, \kappa} \in \Pr\big(\prod_{i \in \kappa} Y_i\big)$; the perceived joint draws $y \sim P_S(\cdot \mid Z)$, independently $\kappa \sim \lambda_Z$ and $r \sim R_{Z,\kappa}$, and outputs $y$ with its $\kappa$-coordinates replaced by $r$. The pattern is **jointly candidate-blind** if $\lambda_Z$ and $R_{Z,\kappa}$ do not depend on $Z$; it is **marginally candidate-blind** if each single view's induced pattern is candidate-blind.
 
 > **Proposition 29.8 (intrusion coupling).**
+>
 > 1. **(Joint blindness.)** A jointly candidate-blind pattern is a garbling of the honest joint: draw the intrusion subset and clutter independently of the candidate, retaining the other coordinates. It cannot increase Blackwell content. If $\lambda(\varnothing)>0$, it preserves the equal-law partition by Lemma 41.1. It need not annihilate zero-error content: anti-correlated erasures of two identity copies can always leave one reveal. A positive common full-support replacement of the whole record is sufficient for zero-error annihilation.
 > 2. Marginal blindness does not imply joint blindness, and the gap is a coupling channel: there is a family with *constant* honest channels (each view Blackwell-null, jointly and severally) and a marginally blind pattern whose perceived family exhibits the strict statistical superadditivity of Proposition 22.4(2):
 > $$
@@ -213,6 +222,7 @@ Proposition 29.8(2) is Proposition 22.4's coupling mechanism realized **inside t
 ### 30.1 Two orders on policies
 
 > **Definition 30.1 (fidelity and informativeness).** Fix a scenario, an emission, and a correspondence $\eta$. For $\eta$-compatible attributions $A, A'$:
+>
 > - $A$ **fidelity-dominates** $A'$ if $\varepsilon_A(Z) \le \varepsilon_{A'}(Z)$ for every $Z \in D$ (pointwise comparison of error profiles);
 > - $A$ **informativeness-dominates** $A'$ (relative to a designated record) if the record channel induced by $A$ Blackwell-dominates that induced by $A'$.
 >
@@ -237,13 +247,13 @@ The mechanism is §28's leakage wearing a different coat: $a$'s errors are conte
 > \tilde v_{A} \;\preceq_B\; \tilde v_{\ell}
 > \qquad \text{for all compatible } A \text{ and loyal } \ell .
 > $$
-> Loyalty is thus simultaneously fidelity-extremal (Proposition 27.5(1)) and informativeness-extremal. Moreover sterility is exactly what the theorem needs: without it, Proposition 30.2 exhibits an error-free loyal policy strictly dominated.
+> Loyalty is thus simultaneously fidelity-extremal (Proposition 27.5(1)) and informativeness-extremal. The sterility hypothesis cannot simply be dropped: without it, Proposition 30.2 exhibits an error-free loyal policy that is strictly dominated.
 >
 > *Proof.* For a compatible attribution $A$, define the acceptance rate $s_A(y) = \sum_c \gamma(c \mid y)\, A(t^* \mid y, c)$ — independent of $Z$ by sterility. The accepted record is $\tilde v_A(y \mid Z) = v(y \mid Z)\, s_A(y)$ and $\tilde v_A(\varnothing \mid Z) = 1 - \sum_y v(y \mid Z)\, s_A(y)$. Compatibility gives $A(t^* \mid y, c) \le \mathbb{1}\{t^* \in \eta(y,c)\}$ pointwise, with equality for loyal $\ell$; hence $s_A(y) \le s_\ell(y)$ for all $y$. Define a channel $G$ on $Y \cup \{\varnothing\}$: on $y$ with $s_\ell(y) > 0$, pass $y$ with probability $s_A(y)/s_\ell(y)$ and output $\varnothing$ otherwise; on $y$ with $s_\ell(y) = 0$ (then $s_A(y) = 0$ and $y$ is never emitted by $\tilde v_\ell$), act arbitrarily; on $\varnothing$, output $\varnothing$. Then $(G \circ \tilde v_\ell)(y \mid Z) = v(y \mid Z)\, s_\ell(y) \cdot s_A(y)/s_\ell(y) = \tilde v_A(y \mid Z)$, and the $\varnothing$-masses match by complementation; so $\tilde v_A = G \circ \tilde v_\ell$. $\square$
 
 **Mathematical scope.** Sterility is a sufficient uniform hypothesis, not a necessary condition for extremality in each fixed scenario. Nonsterile context with a forced loyal correspondence is an immediate counterexample to necessity. Proposition 30.2 establishes failure in some nonsterile scenarios only.
 
-The shape is exactly Lemma 4.7's: an extremal element (loyal $\ell$, as canonical $\kappa^{\mathrm{can}}$ there) dominating a class (compatible attributions, as sound registrations there) that is not itself totally ordered — different sub-loyal policies' records are in general Blackwell-incomparable, just as different sound registrations are. And the theorem's boundary is exactly the leak: sterility says the context has nothing to smuggle, whence errors can only *thin* the record; the moment context is informative, the loyalty anomaly is available. In the collapse idiom of §24: the fidelity and informativeness orders coincide on a kernel-like sublocus and come apart off it, with leakage as the responsible mechanism.
+The shape is exactly Lemma 4.7's: an extremal element (loyal $\ell$, as canonical $\kappa^{\mathrm{can}}$ there) dominating a class (compatible attributions, as sound registrations there) that is not itself totally ordered — different sub-loyal policies' records are in general Blackwell-incomparable, just as different sound registrations are. And the theorem's boundary is the leak: sterility says the context has nothing to smuggle, whence errors can only *thin* the record; the moment context is informative, the loyalty anomaly is available. In the collapse idiom of §24: the fidelity and informativeness orders coincide on a kernel-like sublocus and come apart off it, with leakage as the responsible mechanism.
 
 > **Remark 30.4′ (the missingness reading).** The accepted record is a missing-data structure: a presentation is observed with probability $s_A(y)$ and replaced by the gap symbol $\varnothing$ otherwise. Sterility makes the acceptance mechanism depend on the raw material only through the presentation itself — no residual dependence on the candidate — which is the anchored counterpart of the ignorability conditions of the missing-data literature [Rubin 1976]: under it, Theorem 30.4 says the mechanism can only *thin* the loyal record (gaps still shift likelihoods, but never carry more than a garbling of the full record carries). Off sterility the mechanism is informative missingness — the missing-not-at-random regime — and the loyalty anomaly is its constructive exhibit: the pattern of gaps is itself a channel on $D$, and a policy can be worth more because of what its gaps reveal. The bridge is useful in both directions: missing-data practice supplies diagnostics and sensitivity analyses for exactly the non-sterile regime the extremality theorem excludes, and the framework returns, via Corollary 28.1, a stratified account of what an informative gap pattern can answer.
 
@@ -275,7 +285,7 @@ The example exercises the identity regime, the Bayes selector, leakage, and the 
 
 **Leakage and the record hierarchy.** The forgetful record $N$ (the value alone, initials being constant) has $\sigma^=(N) = \top$ (the laws $(\tfrac34, \tfrac14)$ and $(\tfrac14, \tfrac34)$ differ — identity is asymptotically resolvable from values by Theorem 22.2) but $\sigma^0(N) = \bot$ (overlapping supports — no single value certifies). The standard record $S = (y, t)$ under $a_{\mathrm{clinic}}$ has $\sigma^0(S) = \top$: the verdict carries the clinic into the record after the context is dropped, upgrading resolution from asymptotic to single-look. This is Proposition 28.2's carrying capacity in benign form — and Corollary 28.3's warning in concrete form: a pipeline that linked records and then discarded the link verdicts would demote its own content by a full stratum.
 
-**The loyalty anomaly in miniature.** The tie-break policy $a_1$ ("always $P_1$") has error profile $(0, 1)$ and a constant verdict: fidelity-poor and informativeness-null at once — until audited, when its error indicator (an intrusion-indicator view in the sense of §29.3) restores $\top$. Which record the institution keeps decides which theorem governs it.
+**A tie-break policy.** The policy $a_1$ ("always $P_1$") has error profile $(0, 1)$ and a constant verdict: fidelity-poor and informativeness-null at once — until audited, when its error indicator (an intrusion-indicator view in the sense of §29.3) restores $\top$. Which record the institution keeps decides which theorem governs it.
 
 **A corruption coda.** If clinic B occasionally forwards records of an unrelated J.S., the accepted stream under $a_{\mathrm{clinic}}$ acquires a foreign-acceptance pattern concentrated on one candidate's file — candidate-dependent contamination, §29.3's regime, with Theorem 29.6's bidirectional consequences; the blind theorems of §29.2 apply only if the intrusions are indifferent to which patient is actual. The example ends where the stream dynamics deferred by (A7) begin.
 
@@ -297,11 +307,11 @@ The structural-collapse table of §24 tracked two degradation axes — the codom
 
 | anchoring regime | perceived vs. intended | governing results |
 |---|---|---|
-| sound & unique (A4′) | equal | Theorem 32.1(1); Parts I–III verbatim; verdict $=$ identity view |
+| sound & unique (A4′) | equal | Theorem 32.1; Parts I–III verbatim; verdict $=$ identity view |
 | candidate-blind mis-anchoring | garbling, monotone in the rate | Theorems 29.3–29.4: $\sigma^0$ annihilated for any $\varepsilon > 0$; $\sigma^=$ exactly invariant for $\varepsilon < 1$; $\widehat\sigma$ degraded within the bracket; deficiency $\le \varepsilon$ (Remark 29.5) |
 | candidate-dependent mis-anchoring | arbitrary: $\succeq_B$, $\preceq_B$, or incomparable | Theorem 29.6: the experiment is re-authored; leakage, collapse, and incomparability all realizable; Proposition 29.8: intrusion coupling sources joint-only content |
 
-Read against §24: the kernel was the maximal-structure fiber of the *algebra*; (A4′) is the maximal-structure fiber of *fidelity*. Off it, the blind regime keeps the two experiments comparable — corruption is honest noise, and every Part III instrument (DPI, Blackwell monotonicity, the strata) measures it — while the targeted regime severs comparability itself: the interpreter's experiment is no longer a degraded copy of the intended one but a different experiment whose difference is partly *made of information* (the leak). The anomalies of the part — leakage, the loyalty anomaly, intrusion coupling — are the price receipts of this axis, in exactly the sense of §24's closing paragraph. And the axis feeds H4 twice over: intrusion couplings widen the marginal problem of Remark 21.3, and the fidelity trichotomy gives the prospective obstruction theory a new base datum — local records that fail to glue not because the views disagree but because they are not records *of the same experiment*. In the schema of Part III (§24, Definitions 24.3–24.5), fidelity is thereby a further coordinate of a content system, alongside codomain, cell-invertibility, and representability: it indexes which experiment the system is *about*, and the blind/targeted split classifies whether the perceived system is a garbled instance of the intended one at all. Both feeds are cashed in Part V: intrusion coupling generates motion along coupling fibers (Proposition 39.4), and the trichotomy becomes a classification of what corruption does to descent data — jointly blind corruption is a presheaf endomorphism preserving every statistical-stratum obstruction, marginal-only blindness creates classes at every rate, and targeted corruption severs the comparison itself (Theorem 41.2, Proposition 41.3, Remark 41.4).
+Read against §24: the kernel was the maximal-structure fiber of the *algebra*; (A4′) is the maximal-structure fiber of *fidelity*. Off it, the blind regime keeps the two experiments comparable — corruption is honest noise, and every Part III instrument (DPI, Blackwell monotonicity, the strata) measures it — while the targeted regime severs comparability itself: the interpreter's experiment is no longer a degraded copy of the intended one but a different experiment whose difference is partly *made of information* (the leak). The anomalies of the part — leakage, the loyalty anomaly, intrusion coupling — are the phenomena that appear once this axis is relaxed, as the strata and the anomaly appeared once (A2) and (A3) were relaxed. And the axis feeds H4 twice over: intrusion couplings widen the marginal problem of Remark 21.3, and the fidelity trichotomy gives the prospective obstruction theory a new base datum — local records that fail to glue not because the views disagree but because they are not records *of the same experiment*. In the schema of Part III (§24, Definitions 24.3–24.5), fidelity is thereby a further coordinate of a content system, alongside codomain, cell-invertibility, and representability: it indexes which experiment the system is *about*, and the blind/targeted split classifies whether the perceived system is a garbled instance of the intended one at all. Both feeds are cashed in Part V: intrusion coupling generates motion along coupling fibers (Proposition 39.4), and the trichotomy becomes a classification of what corruption does to descent data — jointly blind corruption is a presheaf endomorphism preserving every statistical-stratum obstruction, marginal-only blindness creates classes at every rate, and targeted corruption severs the comparison itself (Theorem 41.2, Proposition 41.3, Remark 41.4).
 
 ---
 

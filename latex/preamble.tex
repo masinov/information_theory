@@ -53,7 +53,7 @@
 
 % ---- tables in a smaller size, with slightly tighter column padding
 \usepackage{etoolbox}
-\AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{6pt}}
+\AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.25}\hyphenpenalty=2500\exhyphenpenalty=2500}
 
 % ---- line breaking
 \setlength{\emergencystretch}{2.5em}

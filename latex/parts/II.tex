@@ -16,11 +16,11 @@ Three views are available: a lab reading \(L:D\to\{\mathrm{lo},\mathrm{hi}\}\), 
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2093}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1860}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1860}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1860}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2326}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 state
@@ -113,7 +113,7 @@ Reflexivity: \(\pi_X\) pairs \(\pi_Y\) with \(\pi_{X\setminus Y}\), so \(\ker_X=
 
 \textbf{Mathematical scope.} These are sound rules for the fixed view family. Completeness of Armstrong inference over all relational models is a separate classical theorem; the displayed lattice proof does not prove that every dependency true in this particular family is derivable from an arbitrarily chosen dependency basis.
 
-Thus the completeness of Armstrong's system, in a fixed instance, reflects that \(\{\ker_X\}_{X\subseteq\mathcal U}\) is a join-subsemilattice of \(\mathrm{Part}(D)\) and that functional determination is its order. The partition view of dependencies is the basis of dependency-discovery algorithms \autocite{huhtala1999}, and its appearance here as a special case is evidence that the kernel's primitives are the right ones: a theory built for heterogeneous views specializes, with no adjustment, to the attribute-incidence case that classical dependency theory and Formal Concept Analysis already treat \autocite{armstrong1974,ganter1999}.
+What the lattice view does show is that, in a fixed instance, the agreement partitions \(\{\ker_X\}_{X\subseteq\mathcal U}\) form a join-subsemilattice of \(\mathrm{Part}(D)\) (since \(\ker_{X\cup Z}=\ker_X\vee\ker_Z\)) and that the dependencies holding in the instance are exactly its order. The partition view of dependencies is the basis of dependency-discovery algorithms \autocite{huhtala1999}, and its appearance here as a special case is evidence that the kernel's primitives are the right ones: a theory built for heterogeneous views specializes, with no adjustment, to the attribute-incidence case that classical dependency theory and Formal Concept Analysis already treat \autocite{armstrong1974,ganter1999}.
 
 \secn{13}{13}{Worked example C: observability of a finite machine}
 
@@ -177,7 +177,7 @@ with equality for the canonical registration: \(\rho(\kappa^{\mathrm{can}}_v)=\k
 The map \(\kappa_v\circ v\) factors through \(v\) by construction, so \(v(Z)=v(Z')\Rightarrow\kappa_v(v(Z))=\kappa_v(v(Z'))\); hence \(\ker(v)\) refines nothing beyond \(\rho(\kappa_v)\), i.e.~\(\rho(\kappa_v)\le\ker(v)\). For canonical, \(\kappa^{\mathrm{can}}_v(v(Z))=v^{-1}(v(Z))=[Z]_{\ker(v)}\), so the induced partition is \(\ker(v)\) itself.
 \end{proof}
 
-\hyperlink{stmt:14.2}{Lemma~14.2} is the exact counterpart, at the level of distinctions, of \hyperlink{stmt:4.7}{Lemma~4.7}'s statement at the level of pieces: registration can only \emph{discard} the distinctions a view already draws, never manufacture new ones, and canonical registration discards none. Everything downstream lives in the interval \([\bot,\ker(v)]\).
+\hyperlink{stmt:14.2}{Lemma~14.2} is the exact counterpart, at the level of distinctions, of Lemma 4.7's statement at the level of pieces: registration can only \emph{discard} the distinctions a view already draws, never manufacture new ones, and canonical registration discards none. Everything downstream lives in the interval \([\bot,\ker(v)]\).
 
 \subsecn{2}{14.2}{Admissibility structures}
 
@@ -224,7 +224,7 @@ Well-definedness: \(c_T(Z) = c_T(Z')\) means \(Z \sim_T Z'\), i.e.~\([Z]_{\sigma
 
 \hyperlink{stmt:14.4}{Lemma~14.4} grounds each ceiling \emph{individually}. Whether a family of ceilings is \emph{simultaneously} realizable by one coherent class of decoders is a further question, and it is exactly where monotonicity acquires operational content.
 
-\begin{thmplain}[\hypertarget{stmt:14.4′}{Proposition~14.4′}\ {\normalfont\upshape(simultaneous realization: the operational content of
+\begin{thmplain}[\hypertarget{stmt:14.4�′}{Proposition~14.4�′}\ {\normalfont\upshape(simultaneous realization: the operational content of
 monotonicity)}]
 
 An admissibility structure \(K\) induces, for each finite \(T \subseteq V\), the registration class
@@ -263,7 +263,6 @@ An admissible interpreter facing a view set \(S\) has two regimes: register each
 For \(S\subseteq V\) under an admissibility structure \(K\):
 
 \begin{itemize}
-\tightlist
 \item
   the \textbf{separable content} is
   \[
@@ -400,7 +399,7 @@ The phenomenon is the informational core of parity secret-sharing \autocite{sham
 
 \subsecn{2}{16.2}{The opposite regime, and why monotonicity is the divide}
 
-Strictness in \hyperlink{stmt:15.2}{Proposition~15.2} assumed monotonicity, which delivered \(\sigma^{\mathrm{sep}}_K\le\sigma^{\mathrm{jnt}}_K\). Non-monotone admissibility can invert it. Consider a decoder with an \textbf{output budget}: it emits at most one bit regardless of input, so every admissible reading has at most two blocks. Note that the budget constraint by itself carves out a down-set of \(\mathrm{Part}(D)\) that is \emph{not} a principal ideal---\hspace{0pt}there is no finest two-block partition below \(\top\)---\hspace{0pt}so a budget-limited decoder is modelled, within \hyperlink{stmt:14.3}{Definition~14.3}, by an admissibility structure that makes a definite choice of ceiling inside the budget. (The awkwardness is typal rather than substantive: down-sets of \(\mathrm{Part}(D)\) form a complete lattice under inclusion, so budget classes are first-class content objects in the ideal completion, with ceilings---\hspace{0pt}principal ideals---\hspace{0pt}as the representable case; the graded theory meets the same issue twice more, and the consolidation is made in Part III, \hyperlink{sec:24}{§24}.) In the parity setup, take \(\gamma_K(\{v\})=\ker(v)\) and \(\gamma_K(\{w\})=\ker(w)\) (each already two-block), and for the compound view let the decoder spend its bit on the first coordinate: \(\gamma_K(\{v,w\})=\ker(v)\). Axioms (K0)--(K2) hold, but monotonicity fails: \(\gamma_K(\{w\})=\ker(w)\not\le\ker(v)=\gamma_K(\{v,w\})\). Then
+Strictness in \hyperlink{stmt:15.2}{Proposition~15.2} assumed monotonicity, which delivered \(\sigma^{\mathrm{sep}}_K\le\sigma^{\mathrm{jnt}}_K\). Non-monotone admissibility can invert it. Consider a decoder with an \textbf{output budget}: it emits at most one bit regardless of input, so every admissible reading has at most two blocks. Note that the budget constraint by itself carves out a down-set of \(\mathrm{Part}(D)\) that is \emph{not} a principal ideal---\hspace{0pt}there is no finest two-block partition below \(\top\)---\hspace{0pt}so a budget-limited decoder is modelled, within \hyperlink{stmt:14.3}{Definition~14.3}, by an admissibility structure that makes a definite choice of ceiling inside the budget. (Down-sets of \(\mathrm{Part}(D)\) form a complete lattice under inclusion, so a budget class can always be represented as a lower set, with ceilings---\hspace{0pt}principal down-sets---\hspace{0pt}as the representable case. The graded theory meets the same issue twice more; \hyperlink{stmt:24.6}{Remark~24.6} records what the lower-set representation does and does not provide.) In the parity setup, take \(\gamma_K(\{v\})=\ker(v)\) and \(\gamma_K(\{w\})=\ker(w)\) (each already two-block), and for the compound view let the decoder spend its bit on the first coordinate: \(\gamma_K(\{v,w\})=\ker(v)\). Axioms (K0)--(K2) hold, but monotonicity fails: \(\gamma_K(\{w\})=\ker(w)\not\le\ker(v)=\gamma_K(\{v,w\})\). Then
 \[
 \sigma^{\mathrm{sep}}_K(\{v,w\})=\ker(v)\vee\ker(w)=\top,
 \qquad

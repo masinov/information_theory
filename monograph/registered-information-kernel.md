@@ -72,7 +72,7 @@ The kernel is not built in a vacuum. This section states, briefly and with sourc
 
 **The gap targeted.** None of the above provides a general, formal account of the passage
 $$
-\text{raw presentation} \;\longrightarrow\; \text{anchored presentation} \;\longrightarrow\; \text{registered information piece},
+\text{raw presentation} \to \text{anchored presentation} \to \text{registered information piece},
 $$
 relative to a contrast domain and a question-family. The kernel below builds the exact deterministic core on which that account will be erected.
 
@@ -92,9 +92,9 @@ $$
 $$
 i.e., the partition induced by the equivalence $Z \sim Z' \iff f(Z) = f(Z')$.
 
-**Fact 3.1 (image factorization).** Every map $f : D \to Y$ factors as $f = m \circ e$ with $e : D \twoheadrightarrow D/\ker(f)$ the quotient surjection and $m : D/\ker(f) \rightarrowtail Y$ injective; the factorization is unique up to unique isomorphism. [See e.g. Davey & Priestley 2002, or any text on sets and mappings.]
+> **Fact 3.1 (image factorization).** Every map $f : D \to Y$ factors as $f = m \circ e$ with $e : D \twoheadrightarrow D/\ker(f)$ the quotient surjection and $m : D/\ker(f) \rightarrowtail Y$ injective; the factorization is unique up to unique isomorphism. (See, e.g., [Davey & Priestley 2002].)
 
-**Fact 3.2 (factorization criterion).** For maps $f : D \to Y$ and $g : D \to A$: there exists $h : f(D) \to A$ with $g = h \circ f$ if and only if $\ker(f)$ refines $\ker(g)$, i.e., $f(Z) = f(Z') \Rightarrow g(Z) = g(Z')$; and $h$ is then unique on $f(D)$.
+> **Fact 3.2 (factorization criterion).** For maps $f : D \to Y$ and $g : D \to A$: there exists $h : f(D) \to A$ with $g = h \circ f$ if and only if $\ker(f)$ refines $\ker(g)$, i.e., $f(Z) = f(Z') \Rightarrow g(Z) = g(Z')$; and $h$ is then unique on $f(D)$.
 
 ### 3.2 The partition lattice
 
@@ -105,11 +105,11 @@ $$
 
 **Orientation convention.** Under this convention, *finer is greater*: the top element is the discrete partition $\top = \{\{Z\} : Z \in D\}$ (every element distinguished; maximal information) and the bottom element is the indiscrete partition $\bot = \{D\}$ (nothing distinguished; null information). The convention is chosen so that the order agrees with the *information order*: more distinctions $=$ more information. (Some sources orient the partition lattice the opposite way; nothing depends on the choice beyond bookkeeping.)
 
-**Fact 3.3.** $(\mathrm{Part}(D), \le)$ is a complete lattice [Ore 1942; Birkhoff 1967]. The join $\bigvee_i \pi_i$ is the **common refinement**: its blocks are the nonempty intersections $\bigcap_i B_i$ with $B_i$ a block of $\pi_i$. Equivalently, $Z, Z'$ lie in the same block of $\bigvee_i \pi_i$ iff they lie in the same block of every $\pi_i$. The meet is the finest partition simultaneously coarsened by all $\pi_i$ (transitive closure of the union of the equivalences). In particular, for a family of maps $f_i : D \to Y_i$ with pairing $\langle f_i \rangle : D \to \prod_i Y_i$,
-$$
-\ker \langle f_i \rangle_{i \in I} \;=\; \bigvee_{i \in I} \ker(f_i).
-\tag{3.1}
-$$
+> **Fact 3.3.** $(\mathrm{Part}(D), \le)$ is a complete lattice [Ore 1942; Birkhoff 1967]. The join $\bigvee_i \pi_i$ is the **common refinement**: its blocks are the nonempty intersections $\bigcap_i B_i$ with $B_i$ a block of $\pi_i$. Equivalently, $Z, Z'$ lie in the same block of $\bigvee_i \pi_i$ iff they lie in the same block of every $\pi_i$. The meet is the finest partition simultaneously coarsened by all $\pi_i$ (transitive closure of the union of the equivalences). In particular, for a family of maps $f_i : D \to Y_i$ with pairing $\langle f_i \rangle : D \to \prod_i Y_i$,
+> $$
+> \ker \langle f_i \rangle_{i \in I} \;=\; \bigvee_{i \in I} \ker(f_i).
+> \tag{3.1}
+> $$
 
 Shannon's information lattice [Shannon 1953] is precisely a lattice of equivalence relations under this kind of order, with join as the combination of information.
 
@@ -120,19 +120,19 @@ $$
 \sigma(p) \le q \quad \iff \quad p \le \tau(q) \qquad \text{for all } p \in P,\; q \in Q.
 $$
 
-**Fact 3.4** [Davey & Priestley 2002, ch. 7; Erné et al. 1993]. If $\sigma \dashv \tau$, then: (i) both maps are monotone; (ii) $\sigma$ preserves all existing joins and $\tau$ all existing meets; (iii) $\tau \sigma$ is a closure operator on $P$ (inflationary, monotone, idempotent) and $\sigma \tau$ is an interior operator on $Q$ (deflationary, monotone, idempotent; the alternative name "kernel operator" is avoided throughout to keep "kernel" unambiguous); (iv) $\sigma \tau \sigma = \sigma$ and $\tau \sigma \tau = \tau$; (v) the fixed points of $\tau\sigma$ and of $\sigma\tau$ form complete lattices when $P, Q$ are complete, and $\sigma, \tau$ restrict to mutually inverse isomorphisms between them.
+> **Fact 3.4 (properties of Galois connections).** [Davey & Priestley 2002, ch. 7; Erné et al. 1993] If $\sigma \dashv \tau$, then: (i) both maps are monotone; (ii) $\sigma$ preserves all existing joins and $\tau$ all existing meets; (iii) $\tau \sigma$ is a closure operator on $P$ (inflationary, monotone, idempotent) and $\sigma \tau$ is an interior operator on $Q$ (deflationary, monotone, idempotent; the alternative name "kernel operator" is avoided throughout to keep "kernel" unambiguous); (iv) $\sigma \tau \sigma = \sigma$ and $\tau \sigma \tau = \tau$; (v) the fixed points of $\tau\sigma$ and of $\sigma\tau$ form complete lattices when $P, Q$ are complete, and $\sigma, \tau$ restrict to mutually inverse isomorphisms between them.
 
 ### 3.4 The subset information algebra
 
 The simplest nontrivial instance of an information algebra in the sense of [Kohlas 2003] is the **subset algebra** (there also called the algebra of constraints, and the single-domain case of the relational algebra example): information about an unknown element of a set $D$ is represented by the set of possibilities not yet excluded.
 
-**Definition 3.5.** The **subset algebra over $D$** is $\Phi_D = \mathcal{P}(D)$ with:
+> **Definition 3.5.** The **subset algebra over $D$** is $\Phi_D = \mathcal{P}(D)$ with:
+>
+> - **combination** $\phi \cdot \psi := \phi \cap \psi$ (pooling two pieces of information excludes what either excludes);
+> - **information order** $\phi \le \psi :\iff \psi \subseteq \phi$ ($\psi$ is at least as informative: it excludes more);
+> - **null information** $1 = D$ (nothing excluded); **contradiction** $0 = \varnothing$.
 
-- **combination** $\phi \cdot \psi := \phi \cap \psi$ (pooling two pieces of information excludes what either excludes);
-- **information order** $\phi \le \psi :\iff \psi \subseteq \phi$ ($\psi$ is at least as informative: it excludes more);
-- **null information** $1 = D$ (nothing excluded); **contradiction** $0 = \varnothing$.
-
-Combination is associative, commutative, and idempotent, with $1$ neutral; $\phi \le \psi \iff \phi \cdot \psi = \psi$. This is a (domain-free, idempotent) information algebra; extraction/focusing structure is trivial in the single-domain case and is deferred with the multi-domain extension (§8, H5). *(Executed in Part XI, Theorem 83.5.)* A piece $\phi \in \Phi_D$ is **true of** $Z \in D$ iff $Z \in \phi$.
+Combination is associative, commutative, and idempotent, with $1$ neutral; $\phi \le \psi \iff \phi \cdot \psi = \psi$. This is a (domain-free, idempotent) information algebra. Taken by itself it has no nontrivial extraction (focusing) structure; Proposition 6.11 shows that a view family induces a labeled version of it with nontrivial focusing, and the multi-domain version is hook H5 (§8). A piece $\phi \in \Phi_D$ is **true of** $Z \in D$ iff $Z \in \phi$.
 
 ---
 
@@ -140,9 +140,9 @@ Combination is associative, commutative, and idempotent, with $1$ neutral; $\phi
 
 ### 4.1 Standing assumptions
 
-The kernel operates under five standing assumptions. They are not claims about the intended final theory; they are simplifications adopted so that the core can be built exactly, each with a designated relaxation (§8).
+The kernel operates under five standing assumptions. They are not claims about the intended final theory; they are simplifications adopted so that the core can be built exactly. All but (A1) are relaxed later in the monograph; §8 explains what a relaxation is and lists every assumption the monograph introduces, including those added in later parts.
 
-- **(A1) Totality.** Every view is defined on the whole contrast domain. *(In force throughout; never relaxed, by design — see Part XI, Theorem 85.1.)*
+- **(A1) Totality.** Every view is defined on the whole contrast domain. *(In force throughout; never relaxed.)*
 - **(A2) Determinism.** Views are functions: a target yields exactly one presentation per view; there is no noise. *(Relaxed in Part III.)*
 - **(A3) Canonical registration.** Registration is the canonical one (Definition 4.6); the general theory of admissible registration classes is deferred. *(Relaxed in Part II.)*
 - **(A4) Anchoring suppressed.** Each view arrives *pre-anchored*: it is given as a function on $D$, so the assignment of aboutness has already succeeded. The theory of anchoring — including ambiguity and failure — is deferred. *(Interface in Part III, §19; relaxed in Part IV.)*
@@ -183,21 +183,21 @@ The choice is a deliberate stub: the subset algebra is the minimal genuine infor
 > **Definition 4.6.** A **registration** for a view $v$ is a map $\kappa_v : Y_v \to \Phi_D$, converting presentations into information pieces. A registration is **sound** if for all $Z \in D$:
 > $$
 > Z \in \kappa_v(v(Z)).
-> \tag{Appendix D.1}
+> \tag{S}
 > $$
 > The **canonical registration** for $v$ is
 > $$
 > \kappa^{\mathrm{can}}_v(y) \;=\; v^{-1}(y) \;=\; \{\, Z \in D : v(Z) = y \,\}.
 > $$
 
-(Appendix D.1) is the one substantive axiom retained in the kernel: registered information must be true of the candidate that produced the presentation. It is the kernel residue of the eventual admissibility theory.
+(S) is the one substantive axiom retained in the kernel: registered information must be true of the candidate that produced the presentation. It is the kernel residue of the eventual admissibility theory.
 
 > **Lemma 4.7 (the canonical registration is the most informative sound one).** $\kappa^{\mathrm{can}}_v$ is sound, and for every sound registration $\kappa_v$ and every realized presentation $y \in v(D)$,
 > $$
 > v^{-1}(y) \;\subseteq\; \kappa_v(y),
 > \qquad\text{equivalently}\qquad
 > \kappa_v(y) \;\le\; \kappa^{\mathrm{can}}_v(y)
-> \ \text{ in the information order.}
+> \qquad \text{in the information order.}
 > $$
 > Every sound registration is at most as informative as the canonical one: $\kappa^{\mathrm{can}}$ extracts from a presentation everything that can soundly be extracted from that presentation alone.
 >
@@ -265,6 +265,7 @@ Lemma 5.3 licenses conflating, in the kernel, the "algebraic" description (equal
 Unresolved pairs are the exact witnesses of missing information: candidates the data cannot separate but the question must.
 
 > **Proposition 5.6 (equivalent characterizations of answerability).** The following are equivalent:
+>
 > 1. $q$ is answerable from $S$;
 > 2. $\ker(q) \le \sigma(S)$ in $\mathrm{Part}(D)$;
 > 3. $U(S, q) = \varnothing$;
@@ -291,6 +292,7 @@ Unresolved pairs are the exact witnesses of missing information: candidates the 
 > \sigma(S) \le \pi \quad \iff \quad S \subseteq \tau(\pi) \qquad \text{for all } S \subseteq V,\ \pi \in \mathrm{Part}(D).
 > $$
 > Consequently:
+>
 > 1. **(Compositionality of content.)** $\sigma$ preserves arbitrary unions as joins: $\sigma\big(\bigcup_i S_i\big) = \bigvee_i \sigma(S_i)$; in particular $\sigma(S \cup S') = \sigma(S) \vee \sigma(S')$ and $\sigma(\varnothing) = \bot$.
 > 2. **(Informational closure of view sets.)** $\mathrm{cl} := \tau\sigma$ is a closure operator on $\mathcal{P}(V)$; $\mathrm{cl}(S)$ is the set of all views in $V$ whose presentations are determined by the views in $S$. Adding to $S$ any view it already determines does not change content: $\sigma(\mathrm{cl}(S)) = \sigma(S)$.
 > 3. **(Achievable quotients.)** $\mathrm{int} := \sigma\tau$ is an interior operator on $\mathrm{Part}(D)$; its fixed points — equivalently, the image of $\sigma$ — are the **achievable quotients**: the distinction-structures realizable by some subset of the available views. They form a complete lattice $\mathrm{Ach}(V)$ with joins computed as in $\mathrm{Part}(D)$ and bottom $\bot$; and $\sigma, \tau$ restrict to an isomorphism between $\mathrm{Ach}(V)$ and the lattice of closed view sets.
@@ -320,6 +322,7 @@ Proposition 6.3 is the exact-deterministic shadow of the sheaf-theoretic gluing 
 > \mathcal{A}(S) \;=\; {\downarrow}\,\sigma(S) \;=\; \{\, \rho \in \mathrm{Part}(D) : \rho \le \sigma(S) \,\}.
 > $$
 > Consequently:
+>
 > 1. $\mathcal{A}(S)$ is closed under arbitrary joins and nonempty ambient meets of its members (it is a complete lattice in its own right, whose empty meet is $\sigma(S)$ rather than the ambient $\top$): any combination of answerable questions is answerable, and any coarsening of an answerable question is answerable.
 > 2. The quotient map $\pi_S : D \to D/\sigma(S)$, regarded as a question, is itself answerable and is the **maximally informative answerable question**: every answerable $q$ factors uniquely through it. In this precise sense, $\sigma(S)$ *is* the total exact information content of $S$ over $D$.
 >
@@ -330,6 +333,7 @@ Theorem 6.4 turns "dataset audit" into a definite mathematical task: to audit $S
 ### 6.3 Marginal value of a view
 
 > **Theorem 6.5 (T3: exact characterization of when a new view helps).** Let $S \subseteq V$, let $q$ be a question, and let $w$ be a view on $D$. Then:
+>
 > 1. $U(S \cup \{w\},\, q) \;=\; U(S, q) \,\cap\, \{\, (Z,Z') : w(Z) = w(Z') \,\}$.
 > 2. $w$ **strictly helps** $q$ given $S$ — i.e. $U(S \cup \{w\}, q) \subsetneq U(S, q)$ — iff there is an unresolved pair $(Z, Z') \in U(S, q)$ with $w(Z) \neq w(Z')$.
 > 3. $q$ becomes answerable upon adding $w$ iff $w$ separates *every* unresolved pair: $\forall (Z,Z') \in U(S,q):\ w(Z) \neq w(Z')$.
@@ -345,6 +349,7 @@ The final kernel theorem upgrades the induced quotient from a construction to an
 > **Definition 6.6.** A surjection $e : D \twoheadrightarrow Q_e$ is an **$S$-consolidation** if every view $v \in S$ factors through $e$ (i.e. $v = f_v \circ e$ for some $f_v : Q_e \to Y_v$): the consolidation retains everything each available view presents.
 
 > **Theorem 6.7 (T4: the induced quotient is the terminal consolidation).**
+>
 > 1. $\pi_S : D \twoheadrightarrow D/\sigma(S)$ is an $S$-consolidation.
 > 2. For every $S$-consolidation $e : D \twoheadrightarrow Q_e$ there is a unique surjection $u : Q_e \twoheadrightarrow D/\sigma(S)$ with $\pi_S = u \circ e$. Thus $\pi_S$ is the **coarsest** $S$-consolidation, and every other one maps onto it; it is terminal in the evident category of $S$-consolidations (objects: consolidations; morphisms: surjections commuting with the maps from $D$).
 > 3. Concretely, $D/\sigma(S) \cong \mathrm{Im}\, \langle v \rangle_{v \in S} \subseteq \prod_{v \in S} Y_v$: the induced quotient is (isomorphic to) the image of the joint presentation map, i.e. the set of presentation profiles actually realized over $D$.
@@ -357,11 +362,11 @@ Theorem 6.7 is the result that makes "answerability as factorization" contentful
 
 The following restatements collect what the kernel already delivers for the motivating applications. Each is an immediate corollary of §§6.1–6.4.
 
-**Corollary 6.8 (dataset sufficiency).** A dataset, modeled as a view set $S$, is sufficient for a question family $Q$ over $D$ iff $\ker(q) \le \sigma(S)$ for every $q \in Q$; equivalently iff $\bigvee_{q \in Q} \ker(q) \le \sigma(S)$.
+> **Corollary 6.8 (dataset sufficiency).** A dataset, modeled as a view set $S$, is sufficient for a question family $Q$ over $D$ iff $\ker(q) \le \sigma(S)$ for every $q \in Q$; equivalently iff $\bigvee_{q \in Q} \ker(q) \le \sigma(S)$.
 
-**Corollary 6.9 (missing-information analysis).** If $q$ is not answerable from $S$, the failure is witnessed exactly by the nonempty set $U(S, q)$ of unresolved pairs, and any remedy must separate them (Theorem 6.5).
+> **Corollary 6.9 (missing-information analysis).** If $q$ is not answerable from $S$, the failure is witnessed exactly by the nonempty set $U(S, q)$ of unresolved pairs, and any remedy must separate them (Theorem 6.5).
 
-**Corollary 6.10 (entailment discipline).** Call an answer $a$ to $q$ **entailed by $S$ at $Z$** if $q$ is answerable from $S$ and $a = \alpha_q(\pi_S(Z))$. A system answering $q$ from the registered content of $S$ alone can be correct on all of $D$ only for answerable $q$; for unanswerable $q$, any answering policy is wrong on at least one member of some unresolved pair. This grounds, in the exact case, the normative distinction between answers *entailed* by the data and answers that add information beyond it — the kernel form of an anti-overclaiming criterion. (Graded and probabilistic versions of this distinction belong to extension H3.)
+> **Corollary 6.10 (entailment discipline).** Call an answer $a$ to $q$ **entailed by $S$ at $Z$** if $q$ is answerable from $S$ and $a = \alpha_q(\pi_S(Z))$. A system answering $q$ from the registered content of $S$ alone can be correct on all of $D$ only for answerable $q$; for unanswerable $q$, any answering policy is wrong on at least one member of some unresolved pair. This grounds, in the exact case, the normative distinction between answers *entailed* by the data and answers that add information beyond it — the kernel form of an anti-overclaiming criterion. (Graded and probabilistic versions of this distinction belong to extension H3.)
 
 One further result belongs here, because it converts the positioning claim of §2 — that the kernel supplies the layer information algebra presupposes — into a theorem: the passage from views to pieces does not merely interface with an information algebra; it *generates* one.
 
@@ -371,6 +376,7 @@ One further result belongs here, because it converts the positioning claim of §
 > $$
 > Since the union is disjoint, a **piece is formally the labeled pair** $(E, \pi)$ — the same subset is saturated for many partitions (any $\pi$-saturated set is $\pi'$-saturated for every finer $\pi'$), and the label is part of the datum; the unlabeled abbreviations $\phi \otimes \psi = \phi \cap \psi$ and $\phi^{\Rightarrow\rho} = s_\rho(\phi)$ used below always carry the label composition displayed here.
 > Then:
+>
 > 1. **(Labeling.)** $\phi \otimes \psi \in \Phi_{d(\phi) \vee d(\psi)}$, and $\phi^{\Rightarrow\rho} \in \Phi_\rho$.
 > 2. **(Transitivity of focusing.)** $(\phi^{\Rightarrow\rho})^{\Rightarrow\rho'} = \phi^{\Rightarrow\rho'}$ for $\rho' \le \rho$.
 > 3. **(Combination axiom.)** For $\phi \in \Phi_\pi$ and $\psi \in \Phi_\rho$ with $\rho \le \pi$: $(\phi \otimes \psi)^{\Rightarrow \rho} = \phi^{\Rightarrow\rho} \otimes \psi$.
@@ -389,23 +395,84 @@ It is worth being precise about the epistemic status of §6. The individual proo
 
 It is also worth pre-empting a deflationary reading. The kernel's ingredients are classical — kernels of maps, partition lattices, factorization, Galois connections — and none is claimed as new; in the special case of a single object–attribute table the induced quotient is Pawlak's indiscernibility partition (§2). The novelty claimed is architectural: the role this quotient is assigned. It is simultaneously the registration target of raw presentations, the audit object for datasets, the base object that the admissibility layer bounds, the designated zero-noise fiber of the graded theory, and the attachment interface for anchoring, extraction, and gluing. The contribution is the load-bearing arrangement; the anomaly and stratification results of the later parts are its returns.
 
-What the kernel does **not** yet contain, by design: any account of aboutness (anchoring is suppressed by A4); any nontrivial theory of which registrations are legitimate (A3 fixes the canonical one; Lemma 4.7 only bounds the sound ones); any treatment of noise, approximation, or degree (A2); any interaction between contrast domains (A5); single-domain extraction is already provided by Proposition 6.11; and any measure-theoretic or quantitative layer connecting the induced quotient to entropic quantities. Each absence is deliberate and localized; §8 specifies where each future component attaches.
+What the kernel does **not** contain, by design:
+
+- an account of aboutness (anchoring is suppressed by (A4));
+- a theory of which registrations are legitimate ((A3) fixes the canonical one; Lemma 4.7 only bounds the sound ones);
+- any treatment of noise, approximation, or degree ((A2));
+- any interaction between contrast domains ((A5));
+- a quantitative layer connecting the induced quotient to entropic or decision-theoretic quantities.
+
+Extraction over a single domain, by contrast, is already present: Proposition 6.11 equips the registered pieces with a nontrivial focusing operation. Each absence is deliberate and localized; §8 explains how the later parts supply them.
 
 ---
 
-## 8. Deferred extensions and their attachment hooks
+## 8. How the theory grows from the kernel
 
-**H1. Anchoring (attaches at P2; relaxes A4).** In the kernel a view is a function $v : D \to Y_v$: aboutness is presupposed. The anchoring extension replaces this with raw presentations whose target-assignment is itself an operation $\eta(y, c) = X$ dependent on context $c$, admitting ambiguity (several candidate targets) and failure (none, or the wrong one). Formally, P2 generalizes from functions on $D$ to relations, or to families of candidate functions indexed by anchoring hypotheses; the presentation-only kernel is recovered under unique successful anchoring; identifying it with all record layers additionally requires sterile context (Theorem 32.1). Mis-anchoring — reference failure, entity-resolution error, dataset mislabeling — becomes representable, and its downstream effect on $\sigma(S)$ becomes a definite mathematical question. *(Interface frozen in Part III, §19; substantive theory executed in Part IV, with corruption in Parts VIII and X.)*
+The kernel is never revised. No later part redefines $\sigma$, answerability, registration, or the partition lattice. What later parts do is *generalize a primitive* — a view becomes a channel, the canonical registration becomes a class of admissible registrations, a pre-anchored view becomes an emission with an attribution step — and then show that the kernel reappears, unchanged, as a special case of the generalized theory. This section makes that relationship precise, lists every standing assumption the monograph introduces, and records where each kernel theorem is re-examined.
 
-**H2. Admissible registration (attaches at P5; relaxes A3).** The kernel fixes canonical registration; Lemma 4.7 shows it is extremal among sound registrations. The extension introduces a class $K$ of admissible registrations — sound maps satisfying further closure conditions (e.g. closure under composition with algebra morphisms, invariance or resource constraints) — and studies the content map $\sigma_K$ it induces. The kernel inequality "any sound registration is at most as informative as canonical" then brackets $\sigma_K$ between $\bot$ and $\sigma$. This is the formal home for the distinction, crucial to model interpretability, between what a representation *encodes* and what is *registered/extractable under admissible decoders* (cf. the probe-power problem in interpretability; the kernel deliberately does not adjudicate it). *(Executed in Part II.)*
+### 8.1 Extensions and recovery
 
-**H3. Noise and degree (attaches at P2; relaxes A2, and with it the exactness of §§5–6).** Views become stochastic: Markov kernels $v : D \to \mathcal{P}r(Y_v)$. Exact indistinguishability $\sim_S$ is replaced by statistical structures: sufficient statistics and the factorization theorem [Halmos & Savage 1949], the Blackwell order on experiments [Blackwell 1951, 1953], and soft quotients in the sense of the information bottleneck [Tishby, Pereira & Bialek 1999]. The target results are graded analogues of Theorems 6.2–6.7, with the kernel as the zero-noise limit; this is also where the connection to Shannon-quantitative notions (mutual information as a measure of partition refinement) is to be established. *(Executed in Part III, §§20–24, with the Shannon bridge at §22.4.)*
+An **extension** of the kernel consists of three pieces of data:
 
-**H4. Local-to-global semantics (attaches at P3).** Part V distinguishes content join equations, the candidate-pair witness sheaf on positive subset covers, and distributional amalgamation. Determination families do not automatically define a site. Theorems 37.3, 37.5, and 37.7 give the exact interval calculus; §38 constructs nerves and threshold examples. Appendix D.8 proves the join-cover site criterion, D.9 gives the cut condition that turns a witness-edge loss into a partition defect, and D.12 separates these anomalies from marginal contextuality. Registration-as-sheafification remains an additional construction, not a consequence of quotient factorization alone.
+1. **generalized primitives** replacing one or more of P1–P6 (for example, channels $D \to \Pr(Y)$ in place of maps $D \to Y$);
+2. an **embedding** of kernel data into the generalized primitives (a map $v$ is the channel $Z \mapsto \delta_{v(Z)}$);
+3. a **recovery theorem**: on embedded data, every construction of the extension coincides with its kernel counterpart, so that the kernel's definitions and theorems hold verbatim there.
 
-**H5. Multiple domains and information algebra (attaches at P1 and P4; relaxes A5).** Proposition 6.11 provides a generalized set algebra with nontrivial saturation on one domain. Part XI extends it to finite domain families with specified surjections from a common scene: pullback is exact, trace is focusing-lax, and least supports require ambient meet closure. Appendix D.10 proves local computation for coordinate constraints on a join tree. General graded extraction, arbitrary domain diagrams, and propagation of anomaly messages require further hypotheses and are not part of the proved construction.
+An extension **relaxes** a standing assumption when the embedded data are exactly the data satisfying that assumption: the kernel is the sub-theory on which the assumption holds, and the extension studies what happens off it. Relaxing an assumption therefore never weakens a kernel theorem; it asks which kernel theorems remain true *in the larger setting*, and in what form. Each part answers this question in a "fate of the kernel theorems" section, classifying each result as surviving exactly, surviving laxly (an inequality replaces an equation), or failing, and locating the mechanism responsible.
 
-The kernel is complete relative to its assumptions: no statement in §§4–6 depends on H1–H5. Each extension is a controlled relaxation of a named assumption with a designated attachment point.
+The kernel enters the later parts in three ways: as the **target of recovery** (what each extension must reduce to), as a **template** (the kernel theorems T1–T4 of §6 are the questions every extension is asked), and as an **ingredient** (for example, the canonical content $\sigma(T)$ is the upper bound in the admissibility axiom (K1), and the achievable quotients $\mathrm{Ach}(V)$ label the information algebras of Parts V and XI).
+
+Not every part is an extension in this sense. Parts V, VII, and IX introduce no new primitive; they ask new questions of the existing layers — whether local content glues into global content (Part V), and how the resulting intervals are measured in bits (Part VII) or by Le Cam deficiency (Part IX). Parts VI and VIII study two or three relaxations at once.
+
+### 8.2 The assumption ledger
+
+The table lists every standing assumption in the monograph, where it is introduced, where it is relaxed, and the theorem that recovers the more restricted theory. The assumptions (A4′), (A6), and (A7) and the view-set finiteness convention are introduced by later parts, each in order to build its extension exactly.
+
+| assumption | introduced | relaxed in | recovery | remarks |
+|---|---|---|---|---|
+| (A1) totality | §4.1 | never | — | in force throughout |
+| (A2) determinism | §4.1 | Part III (graded views) | Theorem 24.2 | deterministic channels are the embedded kernel views |
+| (A3) canonical registration | §4.1 | Part II (admissibility structures) | Proposition 14.6 | full admissibility $K^{\mathrm{can}}$ is the embedded kernel |
+| (A4) anchoring suppressed | §4.1 | Part III, §19 (interface); Part IV (theory) | Theorem 32.1 | recovery of all records additionally requires sterile context |
+| (A5) single fixed domain | §4.1 | Part XI (domain families) | Theorem 88.1 | the singleton family is the embedded kernel |
+| finite view sets | §14 | partly: Theorem 15.1, Corollary 15.4 | — | a convention, not a modelling assumption |
+| (A4′) sound unique anchoring | Definition 19.7 | Part IV | Theorem 32.1 | graded form of (A4) |
+| (A6) finite domains and presentation spaces | §20 | partly: Appendix A | Proposition A.1 | the general measurable case is open (§86, P6) |
+| (A7) reduced-form corruption | §29 | Part X (dynamical scenes) | Theorem 80.1 | horizon one recovers the static theory |
+
+The parts that ask questions rather than relax assumptions are: descent and obstruction (Part V, hook H4), the Shannon evaluation (Part VII), and the decision-theoretic evaluation (Part IX). Their kernel cases are recorded in Theorem 42.1 and in the evaluation of degenerate intervals (Proposition 53.2).
+
+### 8.3 The hooks
+
+The five hooks below name the extensions that the kernel was designed to accept, the primitive each attaches to, and the assumption it relaxes. They are stated as programmes; the later parts carry them out.
+
+**H1. Anchoring (attaches at P2; relaxes (A4)).** In the kernel a view is a function $v : D \to Y_v$, so aboutness is presupposed. The anchoring extension replaces this with raw presentations $(y, c)$, whose attribution to an origin is itself an operation depending on the context $c$ and admitting ambiguity (several admissible origins) and failure (none, or the wrong one). Mis-anchoring — reference failure, entity-resolution error, dataset mislabeling — becomes representable, and its effect on content becomes a definite mathematical question. The interface is fixed in Part III, §19; the theory is Part IV, with corruption studied further in Parts VIII and X.
+
+**H2. Admissible registration (attaches at P5; relaxes (A3)).** The kernel fixes canonical registration, which Lemma 4.7 shows is extremal among sound registrations. The extension introduces a class of admissible registrations — sound maps satisfying further constraints such as invariance or resource bounds — and studies the content they induce, which lies between $\bot$ and $\sigma$. This is the formal home of the distinction, important for model interpretability, between what a representation *encodes* and what an *admissible decoder can extract* (the probe-power problem). The extension is Part II.
+
+**H3. Noise and degree (attaches at P2; relaxes (A2)).** Views become stochastic: channels $v : D \to \Pr(Y_v)$. Exact indistinguishability is replaced by statistical structure — sufficient statistics and the factorization theorem [Halmos & Savage 1949], the Blackwell order on experiments [Blackwell 1951, 1953], and soft quotients in the sense of the information bottleneck [Tishby, Pereira & Bialek 1999]. The target results are graded analogues of Theorems 6.2–6.7, with the kernel as the zero-noise case, together with the connection to Shannon quantities. The extension is Part III, §§20–24, with the Shannon bridge in §22.4.
+
+**H4. Local-to-global semantics (attaches at P3; relaxes no assumption).** Given content attached to subsets of a view family, when does local content determine global content, and when do locally coherent data admit a global description? The kernel's coherence law (Proposition 6.3) is the trivial case. This hook asks a question of every layer rather than relaxing an assumption; it is answered in Part V.
+
+**H5. Multiple domains and information algebra (attaches at P1 and P4; relaxes (A5)).** Reintroduce the ambient class of targets and a family of related contrast domains, and establish coherence of registration with extraction, and functoriality of $\sigma$ along maps between contrast domains (restriction, refinement, and coarsening of $D$), extending Theorem 6.2. Proposition 6.11 already supplies the single-domain algebra. The extension is Part XI.
+
+### 8.4 The kernel theorems as a template
+
+The table indicates where the kernel's structure theorems are re-examined and what they become. Entries are summaries; the cited results state the hypotheses.
+
+| kernel result | admissibility (Part II) | noise (Part III) |
+|---|---|---|
+| T1, adjunction (Thm 6.2) | holds for separable content (Thm 15.1); for joint content iff the structure is separable (Cor 15.4) | fails for zero-error content even under conditional independence (Prop 22.3), restored for its confusability graph (Prop 22.3′); holds for statistical content on conditionally independent families (Prop 22.4); no join law for full experiments (Prop 22.5) |
+| T2, answerable questions form ${\downarrow}\sigma(S)$ (Thm 6.4) | holds for separable content (§15.1) | zero-error and asymptotic answerability are principal ideals (Thms 22.1, 22.2); $\varepsilon$-answerability is not (§22.1) |
+| T3, marginal value (Thm 6.5) | holds for separable content (§15.1) | marginal value is conditional mutual information (Thm 22.7(3)) |
+| T4, terminal consolidation (Thm 6.7) | terminal among per-view consolidations (§15.1) | minimal sufficient statistic (Thm 22.6) |
+| coherence law (Prop 6.3) | fails: the registration anomaly (Prop 15.2, §16) | conditional: holds for statistical content under conditional independence |
+| canonical registration is extremal (Lemma 4.7) | bracketing $\bot \le \sigma^{\mathrm{sep}}_K \le \sigma^{\mathrm{jnt}}_K \le \sigma$ (Prop 14.6) | minimal sufficiency is the coarsest lossless registration (§22.3) |
+
+For anchoring (Part IV), the analogue of Theorem 6.4 is Corollary 28.1 — attribution is itself a question, with zero-error and asymptotic criteria of the same form — and the analogue of Lemma 4.7 is Theorem 30.4: loyal policies are extremal under sterile context, and Proposition 30.2 shows that they need not be otherwise.
+
+The kernel is complete relative to its assumptions: no statement in §§4–6 depends on H1–H5.
 
 ---
 
@@ -420,7 +487,7 @@ The kernel is complete relative to its assumptions: no statement in §§4–6 de
 | $\mathrm{Part}(D)$, $\le$, $\vee$, $\top$, $\bot$ | partition lattice; refinement order (finer $=$ greater) | §3.2 |
 | $\ker(f)$ | kernel partition of a map | §3.1 |
 | $\Phi_D = (\mathcal{P}(D), \cap, \le)$ | subset information algebra; $1 = D$, $0 = \varnothing$ | Def. 3.5 |
-| $\kappa_v$, (Appendix D.1) | registration; soundness axiom | Def. 4.6 |
+| $\kappa_v$, (S) | registration; soundness axiom | Def. 4.6 |
 | $q : D \to A_q$, $\ker(q)$ | question; its content | Def. 4.8 |
 | $R_S(Z)$ | registered representation of $Z$ through $S$ | Def. 5.1 |
 | $\sim_S$, $\sigma(S)$, $\pi_S$ | induced indistinguishability, quotient, quotient map | Def. 5.2 |

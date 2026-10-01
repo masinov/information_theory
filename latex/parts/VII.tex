@@ -68,7 +68,6 @@ Let \(K_G\) be an invariance structure, \(\mu\) full-support, \(q\) a question.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{(Additive reflection--witness split.)} \(\nu(\Delta_{K_G}(T)) = \nu(\Delta^{\mathrm{refl}}(T)) + \nu(\Delta^{\mathrm{wit}}(T))\), with both terms computed from the orbit-graph data of \hyperlink{stmt:37.5}{Theorem~37.5} and the evaluation of \hyperlink{stmt:53.1}{Definition~53.1}.
 \item
@@ -80,19 +79,19 @@ Let \(K_G\) be an invariance structure, \(\mu\) full-support, \(q\) a question.
   \]
   since the ceiling partition has blocks of mass \(\tfrac23\) (within which the orbit is uniform on \(\{O_1, O_2\}\), one residual bit) and \(\tfrac13\) (pure \(O_3\)).
 \item
-  \textbf{(The policy lever, in bits.)} On \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration (uniform \(\mu\); \(q = q_G\)): \(\nu(X_{K_G}(\{v, \tau_a\})) = 1\) bit under the context-reading policy and \(0\) under the loyal policy. The interpreter's one lever moves exactly one bit of witness-address synergy.
+  \textbf{(The policy lever, in bits.)} On Theorem 46.3's configuration (uniform \(\mu\); \(q = q_G\)): \(\nu(X_{K_G}(\{v, \tau_a\})) = 1\) bit under the context-reading policy and \(0\) under the loyal policy. The interpreter's one lever moves exactly one bit of witness-address synergy.
 \end{enumerate}
 \end{thmplain}
 
 \begin{proof}
 
-1 is \hyperlink{stmt:53.3}{Proposition~53.3}(2). 2: for parity, \(\Delta^{\mathrm{refl}}\) is degenerate (Theorem 37.7's computation), \([Z]_\bot\) is constant, and \([Z]_{P_G} = q_G(Z)\), giving \(H(q_G) = 1\) bit; \hyperlink{sec:23.2}{§23.2}'s direct computation confirms \(I(q_G; Y_v) = I(q_G; Y_w) = 0\), so nothing separable is being double-counted. For \(C_{k+1}\): purity is \hyperlink{stmt:38.4}{Theorem~38.4}; the two orbits have equal mass under the uniform prior, so \(H(q_G) = 1\); every proper subfamily has \(\gamma_G(T') = \bot\), hence admissible information \(0\)---\hspace{0pt}the threshold property, evaluated. 3: purity is Worked example E; the evaluation is the stated entropy computation, \(H(q_G) - H(q_G \mid \text{blocks}) = \log_2 3 - \big(\tfrac23 \cdot 1 + \tfrac13 \cdot 0\big)\). 4: \hyperlink{stmt:46.3}{Theorem~46.3}(1) gives the intervals \([\bot, P_G]\) and \([\bot, \bot]\); evaluate as in 2.
+1 is \hyperlink{stmt:53.3}{Proposition~53.3}(2). 2: for parity, \(\Delta^{\mathrm{refl}}\) is degenerate (Theorem 37.7's computation), \([Z]_\bot\) is constant, and \([Z]_{P_G} = q_G(Z)\), giving \(H(q_G) = 1\) bit; §23.2's direct computation confirms \(I(q_G; Y_v) = I(q_G; Y_w) = 0\), so nothing separable is being double-counted. For \(C_{k+1}\): purity is \hyperlink{stmt:38.4}{Theorem~38.4}; the two orbits have equal mass under the uniform prior, so \(H(q_G) = 1\); every proper subfamily has \(\gamma_G(T') = \bot\), hence admissible information \(0\)---\hspace{0pt}the threshold property, evaluated. 3: purity is Worked example E; the evaluation is the stated entropy computation, \(H(q_G) - H(q_G \mid \text{blocks}) = \log_2 3 - \big(\tfrac23 \cdot 1 + \tfrac13 \cdot 0\big)\). 4: \hyperlink{stmt:46.3}{Theorem~46.3}(1) gives the intervals \([\bot, P_G]\) and \([\bot, \bot]\); evaluate as in 2.
 \end{proof}
 
 \begin{thmrem}[\hypertarget{stmt:54.2}{Remark~54.2}\ {\normalfont\upshape(the reflection address covers the support-geometric
 mechanism)}]
 
-Section 23.2's mechanism (3)---\hspace{0pt}zero-error superadditivity through noise-support geometry (Proposition 22.3)---\hspace{0pt}produces interval data in \(\mathrm{Part}(D)\) at the \(\sigma^0\) stratum, which \(\nu\) evaluates by the same definition; and its mechanism was identified with reflection in two steps (Proposition 22.3′; \hyperlink{sec:37.4}{§37.4}'s closing: a closure operator failing to commute with a meet, in two lattices). The exact addresses of the stratified decomposition are therefore two, not three: \textbf{witness} and \textbf{reflection}, with the support-geometric instances filed under reflection. Section 23.2's count of three mechanisms is unchanged---\hspace{0pt}its mechanism (1) is the ledger functor of \hyperlink{sec:56}{§56}, not an address.
+Section 23.2's mechanism (3)---\hspace{0pt}zero-error superadditivity through noise-support geometry (Proposition 22.3)---\hspace{0pt}produces interval data in \(\mathrm{Part}(D)\) at the \(\sigma^0\) stratum, which \(\nu\) evaluates by the same definition; and its mechanism was identified with reflection in two steps (Proposition 22.3′; §37.4's closing: a closure operator failing to commute with a meet, in two lattices). The exact addresses of the stratified decomposition are therefore two, not three: \textbf{witness} and \textbf{reflection}, with the support-geometric instances filed under reflection. Section 23.2's count of three mechanisms is unchanged---\hspace{0pt}its mechanism (1) is the ledger functor of \hyperlink{sec:56}{§56}, not an address.
 \end{thmrem}
 
 \secn{55}{55}{The coupling address}
@@ -135,7 +134,7 @@ with \(\Delta_P\) the set of joint distributions of \((q(Z), Y_v, Y_w)\) preserv
 
 \begin{thmrem}[\hypertarget{stmt:55.5}{Remark~55.5}\ {\normalfont\upshape(three rungs of one coordinate)}]
 
-The coupling address now has its invariant at each coefficient level, in the discipline of \hyperlink{stmt:40.3}{Remark~40.3}: the \emph{exact} invariant is non-constancy of \(\sigma^{=}\) on fibers (Proposition 39.3(2)); the \emph{Shannon} invariant is the fiber excess and width of \hyperlink{stmt:55.1}{Definition~55.1}; the \emph{enriched} invariant is the Le Cam diameter of the fiber (§39, \hyperlink{sec:40}{§40}). \hyperlink{stmt:55.3}{Proposition~55.3}'s family instantiates all three: \(\sigma^{=}\) takes both \(\bot\) and \(\top\) on its fiber, the width is one bit, and the diameter is positive.
+The coupling address now has its invariant at each coefficient level, in the discipline of \hyperlink{stmt:40.3}{Remark~40.3}: the \emph{exact} invariant is non-constancy of \(\sigma^{=}\) on fibers (Proposition 39.3(2)); the \emph{Shannon} invariant is the fiber excess and width of \hyperlink{stmt:55.1}{Definition~55.1}; the \emph{enriched} invariant is the Le Cam diameter of the fiber (§39, \hyperlink{sec:40}{§40}). Proposition 55.3's family instantiates all three: \(\sigma^{=}\) takes both \(\bot\) and \(\top\) on its fiber, the width is one bit, and the diameter is positive.
 \end{thmrem}
 
 \secn{56}{56}{The ledger functor and the transport theorem}
@@ -153,7 +152,6 @@ Let the family be deterministic over \(D\), let \(\mu\) have full support, and s
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{(Fine ledger.)} The fine fiber is a singleton (Theorem 42.1(3)), so \(C_{\mu,q}(T) = 0\): this establishes zero fine coupling excess. A fine witness/reflection address requires a specified admissibility structure and its interval calculation; it is not determined by source blindness alone.
 \item
@@ -169,7 +167,7 @@ Let the family be deterministic over \(D\), let \(\mu\) have full support, and s
 
 \begin{proof}
 
-1 is \hyperlink{stmt:55.2}{Proposition~55.2}. 2: \(Y_v \perp q\) gives \(P(y_v \mid q) = P(y_v)\); the product coupling has the required \((q, Y_v)\)-marginals and makes the joint output independent of \(q\); nonnegativity of mutual information makes it a minimizer. 3 instantiates 2 with \hyperlink{sec:23.2}{§23.2}'s computation and \hyperlink{stmt:54.1}{Theorem~54.1}(2).
+1 is \hyperlink{stmt:55.2}{Proposition~55.2}. 2: \(Y_v \perp q\) gives \(P(y_v \mid q) = P(y_v)\); the product coupling has the required \((q, Y_v)\)-marginals and makes the joint output independent of \(q\); nonnegativity of mutual information makes it a minimizer. 3 instantiates 2 with §23.2's computation and \hyperlink{stmt:54.1}{Theorem~54.1}(2).
 \end{proof}
 
 \begin{thmplain}[\hypertarget{stmt:56.3}{Corollary~56.3}\ {\normalfont\upshape(noninvariance of the specified addresses)}]
@@ -195,7 +193,6 @@ Fix a coherent family, a full-support prior \(\mu\), and a question \(q\), and w
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{(Graded clause; the sheaf address.)} For every finite \(T\):
   \[
@@ -231,11 +228,11 @@ Assemble the three pure generators on one contrast domain: \(D = D_1 \times D_2 
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1653}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1613}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1794}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2863}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2077}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1842}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1447}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1447}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2763}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 address
@@ -258,7 +255,7 @@ coupling (sheaf, graded) & \(D_2\): the pair & \(\tfrac32 - \tfrac34\log_2 3 \ap
 \end{longtable}
 }
 
-Total admissible synergy: \(\approx 2.230\) bits, each summand switchable by its own dial and none by the others'. Marginalizing the prior onto \(q\) transports the first row's bit to the third row's address (Theorem 56.2)---\hspace{0pt}the table is a table \emph{per ledger}, which is the resolution in one picture.
+Because the factors are independent and the question is a product, each row can be switched by its own dial without affecting the others. The three quanta are values of different functionals---\hspace{0pt}two interval evaluations and one fiber excess---\hspace{0pt}so their sum (\(\approx 2.230\) bits) is not itself a term of any decomposition proved here (Remark 57.2). Marginalizing the prior onto \(q\) transports the first row's bit to the third row's address (Theorem 56.2)---\hspace{0pt}the table is a table \emph{per ledger}, which is the resolution in one picture.
 
 \secn{59}{59}{Established results and scope}
 

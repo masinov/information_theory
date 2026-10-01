@@ -79,6 +79,7 @@ the agreement partition of the union of attributes. By Theorem 6.7(3), the induc
 **Armstrong's axioms as lattice facts.** Writing $\ker_X:=\ker(\pi_X)$ and using $\ker_{X\cup Z}=\ker_X\vee\ker_Z$:
 
 > **Proposition 12.1 (soundness of the Armstrong rules).** The three Armstrong rules hold as identities in $\mathrm{Part}(D)$:
+>
 > - *Reflexivity:* if $Y\subseteq X$ then $\ker_Y\le\ker_X$, so $X\to Y$.
 > - *Augmentation:* if $\ker_Y\le\ker_X$ then $\ker_{Y\cup Z}=\ker_Y\vee\ker_Z\le\ker_X\vee\ker_Z=\ker_{X\cup Z}$, so $XZ\to YZ$.
 > - *Transitivity:* if $\ker_Z\le\ker_Y$ and $\ker_Y\le\ker_X$ then $\ker_Z\le\ker_X$, so $X\to Z$.
@@ -87,7 +88,7 @@ the agreement partition of the union of attributes. By Theorem 6.7(3), the induc
 
 **Mathematical scope.** These are sound rules for the fixed view family. Completeness of Armstrong inference over all relational models is a separate classical theorem; the displayed lattice proof does not prove that every dependency true in this particular family is derivable from an arbitrarily chosen dependency basis.
 
-Thus the completeness of Armstrong's system, in a fixed instance, reflects that $\{\ker_X\}_{X\subseteq\mathcal U}$ is a join-subsemilattice of $\mathrm{Part}(D)$ and that functional determination is its order. The partition view of dependencies is the basis of dependency-discovery algorithms [Huhtala et al. 1999], and its appearance here as a special case is evidence that the kernel's primitives are the right ones: a theory built for heterogeneous views specializes, with no adjustment, to the attribute-incidence case that classical dependency theory and Formal Concept Analysis already treat [Armstrong 1974; Ganter & Wille 1999].
+What the lattice view does show is that, in a fixed instance, the agreement partitions $\{\ker_X\}_{X\subseteq\mathcal U}$ form a join-subsemilattice of $\mathrm{Part}(D)$ (since $\ker_{X\cup Z}=\ker_X\vee\ker_Z$) and that the dependencies holding in the instance are exactly its order. The partition view of dependencies is the basis of dependency-discovery algorithms [Huhtala et al. 1999], and its appearance here as a special case is evidence that the kernel's primitives are the right ones: a theory built for heterogeneous views specializes, with no adjustment, to the attribute-incidence case that classical dependency theory and Formal Concept Analysis already treat [Armstrong 1974; Ganter & Wille 1999].
 
 ---
 
@@ -155,6 +156,7 @@ The kernel used one registration per view; admissibility allows a *class* and, c
 > \gamma_K(T)\in\mathrm{Part}(D),
 > $$
 > subject to:
+>
 > - **(K0) Grounding.** $\gamma_K(\varnothing)=\bot$.
 > - **(K1) Boundedness.** $\gamma_K(T)\le\sigma(T)$ for all $T$ (no registration invents distinctions its raw material does not draw; Lemma 14.2).
 > - **(K2) Realizability closure.** For each $T$, every $\rho\le\gamma_K(T)$ is itself admissible on $T$; i.e. an admissible reading may always be coarsened. Equivalently, the admissible partitions on $T$ form the principal ideal ${\downarrow}\gamma_K(T)$.
@@ -198,10 +200,12 @@ Two canonical instances:
 An admissible interpreter facing a view set $S$ has two regimes: register each view separately (subject to per-view ceilings) and then combine the pieces, or register the compound view jointly (subject to the compound ceiling). The kernel conflated these; admissibility splits them.
 
 > **Definition 14.5.** For $S\subseteq V$ under an admissibility structure $K$:
+>
 > - the **separable content** is
 > $$
 > \sigma^{\mathrm{sep}}_K(S)=\bigvee_{v\in S}\gamma_K(\{v\});
 > $$
+>
 > - the **joint content** is
 > $$
 > \sigma^{\mathrm{jnt}}_K(S)=\gamma_K(S).
@@ -303,11 +307,11 @@ $$
 \Delta_K(\{v,w\})=[\,\bot,\ \ker(q)\,],\qquad \sigma^{\mathrm{sep}}_K(\{v,w\}) < \sigma^{\mathrm{jnt}}_K(\{v,w\}).
 $$
 
-The phenomenon is the informational core of parity secret-sharing [Shamir 1979]: each share (coordinate) individually carries nothing about the secret (parity), while the shares jointly determine it. The kernel could not express this, because canonical registration is separable; admissibility is precisely the added structure that makes "jointly informative, separately null" a representable — and quantifiable — state of affairs. In measurement-theoretic terms the invariance ceiling is the *meaningfulness* criterion [Krantz, Luce, Suppes & Tversky 1971; Narens 2002; both cited in Part I]: admissible content is invariant content, and the anomaly states that meaningful joint content can strictly exceed the join of meaningful marginal contents.
+The phenomenon is the informational core of parity secret-sharing [Shamir 1979]: each share (coordinate) individually carries nothing about the secret (parity), while the shares jointly determine it. The kernel could not express this, because canonical registration is separable; admissibility is precisely the added structure that makes "jointly informative, separately null" a representable — and quantifiable — state of affairs. In measurement-theoretic terms the invariance ceiling is the *meaningfulness* criterion [Krantz, Luce, Suppes & Tversky 1971; Narens 2002]: admissible content is invariant content, and the anomaly states that meaningful joint content can strictly exceed the join of meaningful marginal contents.
 
 ### 16.2 The opposite regime, and why monotonicity is the divide
 
-Strictness in Proposition 15.2 assumed monotonicity, which delivered $\sigma^{\mathrm{sep}}_K\le\sigma^{\mathrm{jnt}}_K$. Non-monotone admissibility can invert it. Consider a decoder with an **output budget**: it emits at most one bit regardless of input, so every admissible reading has at most two blocks. Note that the budget constraint by itself carves out a down-set of $\mathrm{Part}(D)$ that is *not* a principal ideal — there is no finest two-block partition below $\top$ — so a budget-limited decoder is modelled, within Definition 14.3, by an admissibility structure that makes a definite choice of ceiling inside the budget. (The awkwardness is typal rather than substantive: down-sets of $\mathrm{Part}(D)$ form a complete lattice under inclusion, so budget classes are first-class content objects in the ideal completion, with ceilings — principal ideals — as the representable case; the graded theory meets the same issue twice more, and the consolidation is made in Part III, §24.) In the parity setup, take $\gamma_K(\{v\})=\ker(v)$ and $\gamma_K(\{w\})=\ker(w)$ (each already two-block), and for the compound view let the decoder spend its bit on the first coordinate: $\gamma_K(\{v,w\})=\ker(v)$. Axioms (K0)–(K2) hold, but monotonicity fails: $\gamma_K(\{w\})=\ker(w)\not\le\ker(v)=\gamma_K(\{v,w\})$. Then
+Strictness in Proposition 15.2 assumed monotonicity, which delivered $\sigma^{\mathrm{sep}}_K\le\sigma^{\mathrm{jnt}}_K$. Non-monotone admissibility can invert it. Consider a decoder with an **output budget**: it emits at most one bit regardless of input, so every admissible reading has at most two blocks. Note that the budget constraint by itself carves out a down-set of $\mathrm{Part}(D)$ that is *not* a principal ideal — there is no finest two-block partition below $\top$ — so a budget-limited decoder is modelled, within Definition 14.3, by an admissibility structure that makes a definite choice of ceiling inside the budget. (Down-sets of $\mathrm{Part}(D)$ form a complete lattice under inclusion, so a budget class can always be represented as a lower set, with ceilings — principal down-sets — as the representable case. The graded theory meets the same issue twice more; Remark 24.6 records what the lower-set representation does and does not provide.) In the parity setup, take $\gamma_K(\{v\})=\ker(v)$ and $\gamma_K(\{w\})=\ker(w)$ (each already two-block), and for the compound view let the decoder spend its bit on the first coordinate: $\gamma_K(\{v,w\})=\ker(v)$. Axioms (K0)–(K2) hold, but monotonicity fails: $\gamma_K(\{w\})=\ker(w)\not\le\ker(v)=\gamma_K(\{v,w\})$. Then
 $$
 \sigma^{\mathrm{sep}}_K(\{v,w\})=\ker(v)\vee\ker(w)=\top,
 \qquad
@@ -336,6 +340,7 @@ $$
 For monotone $K$, $T\mapsto\gamma_K(T)$ is covariant in the view set. Separability says that its singleton contributions jointly attain its value on $T$. Locally admissible readings always combine under monotonicity; the possible failure is that those combinations do not dominate all joint readings (Proposition 36.3). Thus the interval $\Delta_K$ is a cofinality defect, not by itself a failure of the sheaf axiom for a Set-valued presheaf.
 
 Part V develops positive union covers, orbit graphs, and witness sets. Appendix D.8 states the additional distributivity condition needed for join covers on achievable partitions to form a site. Appendix D.12 shows why the parity admissibility anomaly does not imply contextuality of the ordinary marginal empirical model. These distinctions preserve the local-to-global motivation without identifying different gluing problems.
+
 ---
 
 ## 17. Established results and scope

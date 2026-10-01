@@ -71,11 +71,10 @@ When the honest class-conditional averages have disjoint supports, \(d = 2\) and
 
 \begin{thmplain}[\hypertarget{stmt:62.2}{Theorem~62.2}\ {\normalfont\upshape(fate of the policy bit: a trichotomy with constants)}]
 
-On \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration under the erring policy (honest record pair \((Y_v, Y_{\tau_a})\); \(q = q_G\); uniform prior):
+On Theorem 46.3's configuration under the erring policy (honest record pair \((Y_v, Y_{\tau_a})\); \(q = q_G\); uniform prior):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{(Zero-error stratum: dies at any rate.)} For every pattern with \(\varepsilon > 0\) and positive joint full-support clutter (or independent full-support replacement of every coordinate) of the joint record, the perceived supports of all candidates coincide, so \(q_G\) is not zero-error answerable from any reading: at the \(\sigma^0\) stratum (Definition 21.6, \hyperlink{stmt:22.1}{Theorem~22.1}) the class exists only at \(\varepsilon = 0\).
 \item
@@ -92,7 +91,7 @@ On \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration under the erring policy (
 
 \begin{proof}
 
-1: positive joint full-support clutter (or independent full-support replacement of every coordinate) puts every output profile in every candidate's perceived support; zero-error content is then trivial and \hyperlink{stmt:22.1}{Theorem~22.1} applies. 2: uniform clutter at rate \(\varepsilon\) replaces a bit by a fair coin, i.e.~flips it with probability \(\varepsilon/2\); the two perceived channels are independent BSC\((\varepsilon/2)\) readings of \(b_1\) and \(b_2\); conditional on the parity, the pair's law depends only on the XOR by symmetry, so the XOR is sufficient, and it mis-reports the parity iff exactly one channel flipped: crossover \(2\cdot\tfrac{\varepsilon}{2}(1 - \tfrac{\varepsilon}{2}) = \varepsilon(1-\varepsilon/2)\). Orbit-equalization: the global flip inverts both bits, and the XOR's law is invariant under simultaneous inversion. 3: read the four honest outputs off \hyperlink{stmt:46.3}{Theorem~46.3}'s proof and apply the lemma.
+1: positive joint full-support clutter (or independent full-support replacement of every coordinate) puts every output profile in every candidate's perceived support; zero-error content is then trivial and \hyperlink{stmt:22.1}{Theorem~22.1} applies. 2: uniform clutter at rate \(\varepsilon\) replaces a bit by a fair coin, i.e.~flips it with probability \(\varepsilon/2\); the two perceived channels are independent BSC\((\varepsilon/2)\) readings of \(b_1\) and \(b_2\); conditional on the parity, the pair's law depends only on the XOR by symmetry, so the XOR is sufficient, and it mis-reports the parity iff exactly one channel flipped: crossover \(2\cdot\tfrac{\varepsilon}{2}(1 - \tfrac{\varepsilon}{2}) = \varepsilon(1-\varepsilon/2)\). Orbit-equalization: the global flip inverts both bits, and the XOR's law is invariant under simultaneous inversion. 3: read the four honest outputs off Theorem 46.3's proof and apply the lemma.
 \end{proof}
 
 \begin{thmplain}[\hypertarget{stmt:62.3}{Theorem~62.3}\ {\normalfont\upshape(counterfeit: targeted corruption forges the lever)}]
@@ -101,7 +100,6 @@ On the same configuration under the \textbf{loyal} policy:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{(Creation at every rate.)} The targeted pattern on the verdict channel with \(\varepsilon(Z) = \varepsilon \cdot \mathbb{1}[b_2(Z) = 1]\) and clutter \(\delta_d\) creates the class at every \(\varepsilon > 0\), with exact quantum
   \[
@@ -121,7 +119,7 @@ On the same configuration under the \textbf{loyal} policy:
 \begin{thmrem}[\hypertarget{stmt:62.4}{Remark~62.4}\ {\normalfont\upshape(the limit of robustness-as-invariance; one number, three
 roles)}]
 
-\hyperlink{stmt:47.3}{Theorem~47.3} protects admissible content when the admissible readings equalize the clutter's variation. Against \hyperlink{stmt:62.1}{Lemma~62.1}'s annihilating cross-clutter this protection is void by construction: the clutter's variation across candidates \emph{is} the question's---\hspace{0pt}a reading equalizing \(g \circ Q_{O_1} = g \circ Q_{O_2}\) with \(Q_{O_i} = \bar p_{\text{other}}\) thereby equalizes \(g \circ \bar p_1 = g \circ \bar p_2\) and carries no \(q_G\)-information at all, the annihilation absorbed into the ceiling rather than repelled by it. Robustness-as-invariance is exactly robustness against clutter \emph{transverse} to the question; along the question's own direction the trade-off of \hyperlink{stmt:47.4}{Proposition~47.4} is unimprovable. The section's constant \(\tfrac12\) meanwhile appears in three roles worth distinguishing: the annihilation threshold (rate \(\tfrac12\) on every record), the perfect counterfeit's average corrupt mass (rate \(1\) on the half of the candidates with \(b_2 = 1\)), and \hyperlink{stmt:61.2}{Proposition~61.2}'s creation exhibit at its Part VII calibration point---\hspace{0pt}in each case, \emph{half the ledger} is the price of erasing, forging, or smuggling a cleanly separated one-bit class.
+\hyperlink{stmt:47.3}{Theorem~47.3} protects admissible content when the admissible readings equalize the clutter's variation. Against Lemma 62.1's annihilating cross-clutter this protection is void by construction: the clutter's variation across candidates \emph{is} the question's---\hspace{0pt}a reading equalizing \(g \circ Q_{O_1} = g \circ Q_{O_2}\) with \(Q_{O_i} = \bar p_{\text{other}}\) thereby equalizes \(g \circ \bar p_1 = g \circ \bar p_2\) and carries no \(q_G\)-information at all, the annihilation absorbed into the ceiling rather than repelled by it. Robustness-as-invariance is exactly robustness against clutter \emph{transverse} to the question; along the question's own direction the trade-off of \hyperlink{stmt:47.4}{Proposition~47.4} is unimprovable. The section's constant \(\tfrac12\) meanwhile appears in three roles worth distinguishing: the annihilation threshold (rate \(\tfrac12\) on every record), the perfect counterfeit's average corrupt mass (rate \(1\) on the half of the candidates with \(b_2 = 1\)), and \hyperlink{stmt:61.1}{Theorem~61.1}(2)'s creation exhibit at its Part VII calibration point---\hspace{0pt}in each case, \emph{half the ledger} is the price of erasing, forging, or smuggling a cleanly separated one-bit class.
 \end{thmrem}
 
 \secn{63}{63}{The policy calculus}
@@ -131,7 +129,7 @@ The exact anchored regime of \hyperlink{sec:44}{§44}, with determination-monoto
 
 \begin{thmplain}[\hypertarget{stmt:63.1}{Proposition~63.1}\ {\normalfont\upshape(separation of coordinates)}]
 
-\(V(a)\) depends on \(a\) only through \(\ker(\tau_a)\): by \hyperlink{stmt:45.4}{Theorem~45.4}(3), \(\gamma_K = g \circ \sigma\) for monotone \(g\), and \(\sigma(B \cup \{\tau_a\}) = \sigma(B) \vee \ker(\tau_a)\). The cost \(E(a)\) is not a function of \(\ker(\tau_a)\): on \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration with prior mass \(\tfrac13\) on \(\{b_2 = 1\}\), the policies \((t^*\!,\, d)\) and \((d,\, t^*)\) have the same verdict kernel \(\ker(w)\) but costs \(\tfrac13\) and \(\tfrac23\). A policy is thus two choices---\hspace{0pt}a \textbf{partition} (which purchases classes) and a \textbf{truth-assignment within it} (which spends error)---\hspace{0pt}and only the first reaches the value. \(\square\)
+\(V(a)\) depends on \(a\) only through \(\ker(\tau_a)\): by \hyperlink{stmt:45.4}{Theorem~45.4}(3), \(\gamma_K = g \circ \sigma\) for monotone \(g\), and \(\sigma(B \cup \{\tau_a\}) = \sigma(B) \vee \ker(\tau_a)\). The cost \(E(a)\) is not a function of \(\ker(\tau_a)\): on Theorem 46.3's configuration with prior mass \(\tfrac13\) on \(\{b_2 = 1\}\), the policies \((t^*\!,\, d)\) and \((d,\, t^*)\) have the same verdict kernel \(\ker(w)\) but costs \(\tfrac13\) and \(\tfrac23\). A policy is thus two choices---\hspace{0pt}a \textbf{partition} (which purchases classes) and a \textbf{truth-assignment within it} (which spends error)---\hspace{0pt}and only the first reaches the value. \(\square\)
 \end{thmplain}
 
 \begin{thmplain}[\hypertarget{stmt:63.2}{Theorem~63.2}\ {\normalfont\upshape(no free classes; Fano's exchange rate)}]
@@ -140,7 +138,6 @@ Let the scenario be tracked-target (\(o \equiv t^*\)), let \(m=|\tau_a(D)\cup\{t
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{(No free classes.)} \(E(a) = 0\) forces \(\tau_a \equiv t^*\), hence \(\ker(\tau_a) = \bot\) and \(V(a) = 0\): zero-error policies purchase nothing beyond the baseline.
 \item
@@ -150,7 +147,7 @@ Let the scenario be tracked-target (\(o \equiv t^*\)), let \(m=|\tau_a(D)\cup\{t
   \]
   where \(S_0 = I\big(q; [Z]_{\sigma(B)}\big) - I\big(q; [Z]_{\gamma_K(B)}\big) \ge 0\) is a policy-independent constant of the scene (the baseline content the ceiling suppresses). Classes are bought with errors, at at most Fano's rate.
 \item
-  \textbf{(Tightness.)} On \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration (\(S_0 = 0\), \(m = 2\)): the erring policy has \(V = 1\) bit and \(E = \tfrac12\), meeting the bound \(V \le h(E)\) with equality. For this \(S_0=0\) scenario, one bit requires \(E=1/2\). No such universal lower bound follows when \(S_0>0\); the baseline can contain suppressed information unlocked by a verdict.
+  \textbf{(Tightness.)} On Theorem 46.3's configuration (\(S_0 = 0\), \(m = 2\)): the erring policy has \(V = 1\) bit and \(E = \tfrac12\), meeting the bound \(V \le h(E)\) with equality. For this \(S_0=0\) scenario, one bit requires \(E=1/2\). No such universal lower bound follows when \(S_0>0\); the baseline can contain suppressed information unlocked by a verdict.
 \end{enumerate}
 \end{thmplain}
 
@@ -163,14 +160,14 @@ and \(\tau_a\) is determined by the pair (error indicator, which wrong verdict),
 
 \begin{thmplain}[\hypertarget{stmt:63.3}{Proposition~63.3}\ {\normalfont\upshape(the lever's design space; the frontier)}]
 
-On \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration the compatible policies are the four maps \(\{c_0, c_1\} \to \{t^*, d\}\), with (uniform prior):
+On Theorem 46.3's configuration the compatible policies are the four maps \(\{c_0, c_1\} \to \{t^*, d\}\), with (uniform prior):
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.6351}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1486}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1081}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1081}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 policy
@@ -197,21 +194,21 @@ The Pareto frontier is \(\{\ell, a\}\) (with \(\bar a\) value-equivalent to \(a\
 
 \begin{thmplain}[\hypertarget{stmt:63.4}{Corollary~63.4}\ {\normalfont\upshape(certified design in the stated attack model)}]
 
-For the policy-bit construction with the full-support contamination and retained-record assumptions of \hyperlink{stmt:62.2}{Theorems~62.2}--62.3, a designed class has the stated statistical-stratum survival behavior, annihilable at rate \(d/(2+d)\) by an adversary who knows the question (Lemma 62.1), and perfectly counterfeitable on a loyal substrate (Theorem 62.3(2)). Purchasing a class by policy design is therefore only half a control system; the other half is fidelity certification (§32.2)---\hspace{0pt}provenance metadata that no record-level reading can reconstruct. The policy lever and the fidelity axis are complements, not alternatives. \(\square\)
+For the policy-bit construction with the full-support contamination and retained-record assumptions of Theorems 62.2--62.3, a designed class has the stated statistical-stratum survival behavior, annihilable at rate \(d/(2+d)\) by an adversary who knows the question (Lemma 62.1), and perfectly counterfeitable on a loyal substrate (Theorem 62.3(2)). Purchasing a class by policy design is therefore only half a control system; the other half is fidelity certification (§32.2)---\hspace{0pt}provenance metadata that no record-level reading can reconstruct. The policy lever and the fidelity axis are complements, not alternatives. \(\square\)
 \end{thmplain}
 
 \secn{64}{64}{Worked example J: design, attack, forgery, audit}
 
-The calibration laboratory of \hyperlink{sec:49}{§49}, one quarter on. The lab has read \hyperlink{sec:46}{§46}: it \emph{designs} the context-reading linkage, accepting anchoring error on half the batches to make the calibration-invariant agreement question answerable from assay A plus the linkage verdicts---\hspace{0pt}one bit, bought at the Fano-tight price \(E = \tfrac12\) (Theorem 63.2(3)); the swap policy \(\bar a\) would buy the same bit for the same price (Proposition 63.1), and the panic policy ``reject everything'' buys nothing at the maximal price (Proposition 63.3). Ordinary transcription noise on the record does not threaten the purchase: the bit decays as \(1 - h(\varepsilon(1 - \varepsilon/2))\) and survives every blind rate below one (Theorem 62.2(2)), though single-shot certainty about agreement is gone at any positive rate (62.2(1)). A competitor who can \emph{target} the record---\hspace{0pt}substitute plausible entries that depend on the batch---\hspace{0pt}erases the bit exactly when half the ledger is theirs (Theorem 62.2(3)), and a subtler adversary does the reverse: forges the erring pattern onto an honestly loyal log, producing a record byte-equivalent, as an experiment, to the designed one (Theorem 62.3(2)). The auditor of \hyperlink{sec:49}{§49}, who once erred by discarding verdicts (\(K_\varnothing\)), now faces the deeper problem: even reading everything, the record cannot say whether its one bit was designed or planted. What settles it is nothing in the record---\hspace{0pt}it is the lab's fidelity certification: signed policy declarations, custody of the anchoring step, the metadata of \hyperlink{sec:32.2}{§32.2}. The audit trail is not bureaucracy; it is the only carrier of a class's provenance (Corollary 63.4). Meanwhile the lab's per-instrument accounting of noise budgets is itself vulnerable to \hyperlink{stmt:61.1}{Theorem~61.1}(1): two instruments whose failures are anti-correlated (shared power rail, alternating duty cycle) jointly outperform the certified per-instrument ceilings without a single false symbol---\hspace{0pt}the accounting, not the physics, is what breaks.
+The calibration laboratory of \hyperlink{sec:49}{§49}, one quarter on. The lab has read \hyperlink{sec:46}{§46}: it \emph{designs} the context-reading linkage, accepting anchoring error on half the batches to make the calibration-invariant agreement question answerable from assay A plus the linkage verdicts---\hspace{0pt}one bit, bought at the Fano-tight price \(E = \tfrac12\) (Theorem 63.2(3)); the swap policy \(\bar a\) would buy the same bit for the same price (Proposition 63.1), and the policy that attributes every record to the distractor buys nothing at the maximal price (Proposition 63.3). Ordinary transcription noise on the record does not threaten the purchase: the bit decays as \(1 - h(\varepsilon(1 - \varepsilon/2))\) and survives every blind rate below one (Theorem 62.2(2)), though single-shot certainty about agreement is gone at any positive rate (62.2(1)). A competitor who can \emph{target} the record---\hspace{0pt}substitute plausible entries that depend on the batch---\hspace{0pt}erases the bit exactly when half the ledger is theirs (Theorem 62.2(3)), and a subtler adversary does the reverse: forges the erring pattern onto an honestly loyal log, producing a record byte-equivalent, as an experiment, to the designed one (Theorem 62.3(2)). The auditor of \hyperlink{sec:49}{§49}, who once erred by discarding verdicts, now faces the deeper problem: even reading everything, the record cannot say whether its one bit was designed or planted. What settles it is nothing in the record---\hspace{0pt}it is the lab's fidelity certification: signed policy declarations, custody of the anchoring step, the metadata of \hyperlink{sec:32.2}{§32.2}. The audit trail is not bureaucracy; it is the only carrier of a class's provenance (Corollary 63.4). Meanwhile the lab's per-instrument accounting of noise budgets is itself vulnerable to \hyperlink{stmt:61.1}{Theorem~61.1}(1): two instruments whose failures are anti-correlated (shared power rail, alternating duty cycle) jointly outperform the certified per-instrument ceilings without a single false symbol---\hspace{0pt}the accounting, not the physics, is what breaks.
 
 \secn{65}{65}{Recovery, and the matrix completed}
 
 \begin{thmplain}[\hypertarget{stmt:65.1}{Theorem~65.1}\ {\normalfont\upshape(recovery)}]
 
-At \(\varepsilon \equiv 0\), \hyperlink{stmt:61.1}{Theorem~61.1}'s patterns are empty, \hyperlink{stmt:62.1}{Lemma~62.1} and \hyperlink{stmt:62.2}{Theorems~62.2}--62.3 are vacuous, and the transferred structure is the structure: §§61--62 collapse to Part VI's tame half stated at rate zero. Under (A4′), the correspondence is single-valued, the policy space is a singleton, the design space of \hyperlink{sec:63}{§63} degenerates (\(V\) and \(E\) are constants), and the frontier is the point \((0, V_o)\)---\hspace{0pt}there is nothing to control because nothing was ever chosen. Under \(K^{\mathrm{can}}\), \(S_0 = 0\) and \hyperlink{stmt:63.2}{Theorem~63.2}'s bound reads \(V \le h(E) + E\log_2(m-1)\) pure, while (K3̂)-transfer questions trivialize (no ceilings to defeat). Parts IV, VI, and VII are recovered as the rate-zero, forced-policy, and full-admissibility fibers respectively. \(\square\)
+At \(\varepsilon \equiv 0\), Theorem 61.1's patterns are empty, \hyperlink{stmt:62.1}{Lemma~62.1} and Theorems 62.2--62.3 are vacuous, and the transferred structure is the structure: §§61--62 collapse to Part VI's tame half stated at rate zero. Under (A4′), the correspondence is single-valued, the policy space is a singleton, the design space of \hyperlink{sec:63}{§63} degenerates (\(V\) and \(E\) are constants), and the frontier is the single point \((0, V)\) of the forced policy---\hspace{0pt}there is nothing to control because nothing was ever chosen. Under \(K^{\mathrm{can}}\), \(S_0 = 0\) and Theorem 63.2's bound reads \(V \le h(E) + E\log_2(m-1)\) pure, while (K3̂)-transfer questions trivialize (no ceilings to defeat). Parts IV, VI, and VII are recovered as the rate-zero, forced-policy, and full-admissibility fibers respectively. \(\square\)
 \end{thmplain}
 
-The triple cell of the interaction matrix (§50.2) is now closed in both halves, and the completed row reads: \textbf{independent blind}---\hspace{0pt}transfers everything (Propositions 47.1, 48.1, 48.2; \hyperlink{stmt:41.2}{Theorem~41.2}); \textbf{jointly blind, coupled}---\hspace{0pt}content-neutral but accounting-defeating: descent data preserved (Theorem 41.2), ceiling brackets violated by scheduling (Theorem 61.1(1)); \textbf{marginally blind}---\hspace{0pt}creates: descent classes (Proposition 41.3), superadditivity (Proposition 29.8(2)), and ceiling violations by injection of the pure coupling generator (Theorem 61.1(2)); \textbf{targeted}---\hspace{0pt}annihilates at threshold \(d/(2+d)\), counterfeits perfectly, severs comparison (Lemma 62.1, \hyperlink{stmt:62.2}{Theorems~62.2}--62.3, 29.6). No canonical repair exists on the principal side (Proposition 61.2); the ideal completion absorbs, at representability. The corresponding discharge annotations are entered at \hyperlink{sec:50.2}{§50.2} and \hyperlink{sec:48}{§48}.
+The triple cell of the interaction matrix (§50.2) is now closed in both halves, and the completed row reads: \textbf{independent blind}---\hspace{0pt}transfers everything (Propositions 47.1, 48.1, 48.2; \hyperlink{stmt:41.2}{Theorem~41.2}); \textbf{jointly blind, coupled}---\hspace{0pt}content-neutral but accounting-defeating: descent data preserved (Theorem 41.2), ceiling brackets violated by scheduling (Theorem 61.1(1)); \textbf{marginally blind}---\hspace{0pt}creates: descent classes (Proposition 41.3), superadditivity (Proposition 29.8(2)), and ceiling violations by injection of the pure coupling generator (Theorem 61.1(2)); \textbf{targeted}---\hspace{0pt}annihilates at threshold \(d/(2+d)\), counterfeits perfectly, severs comparison (Lemma 62.1, Theorems 62.2--62.3, 29.6). Whether a least adequate transfer exists is open in general (Proposition 61.2); the lower-set representation of the perceived readings always exists but need not be achievable by any experiment (Remark 24.6).
 
 \secn{66}{66}{Established results and scope}
 

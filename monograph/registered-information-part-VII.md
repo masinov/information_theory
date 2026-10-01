@@ -23,6 +23,7 @@ The exact obstruction calculus outputs intervals in $\mathrm{Part}(D)$; a decomp
 > (For the endpoint pairs of non-monotone structures, where the left quantity can exceed the right — Definition 37.1's parenthetical — $\nu$ is signed; the calculus below is developed for the monotone case, mirroring §37.)
 
 > **Proposition 53.2 (properties of $\nu$).**
+>
 > 1. **(Nonnegativity.)** $\nu_{\mu,q}([a,b]) \ge 0$: since $a \le b$, the block variable $[Z]_a$ is a function of $[Z]_b$, and the data-processing inequality applies.
 > 2. **(Chain additivity.)** $\nu_{\mu,q}([a,b]) = \nu_{\mu,q}([a,m]) + \nu_{\mu,q}([m,b])$ for any $a \le m \le b$: evaluation telescopes along exactly the concatenation typed in Definition 15.3.
 > 3. **(Zero law.)** $\nu_{\mu,q}([a,b]) = 0$ iff $H(q(Z) \mid [Z]_a) = H(q(Z) \mid [Z]_b)$, i.e. iff the refinement from $a$ to $b$ is **$q$-null**: $q(Z) \perp [Z]_b \mid [Z]_a$. An interval can be nondegenerate and $q$-null; $\nu$ measures what the refinement does *for this question under this prior*.
@@ -33,6 +34,7 @@ The exact obstruction calculus outputs intervals in $\mathrm{Part}(D)$; a decomp
 Item 4 deserves a sentence against Part V's linearized track. Per-pair nerve homology supplies an incomplete edge-level certificate and does not by itself certify a component-partition witness interval (Proposition 38.5). The full collection of nerves contains more information than those homology groups alone. The evaluation family $\{\nu_{\mu,q}\}$ is **complete** — it detects every nondegenerate interval — because it evaluates the intervals themselves. What $\nu$ does *not* do is identify mechanism: a number carries no address. Addresses come from *which chain the interval sits on*, which is the content of §§54–55; $\nu$ is the measure, the calculus is the geometry.
 
 > **Proposition 53.3 (the calculus, pushed forward).** Let $K$ be monotone and $(\mu, q)$ fixed. Every interval identity of the exact theory becomes an additive identity in bits:
+>
 > 1. for any cover $\mathcal{U}$ of finite $T$: $\nu(\Delta_K(T)) = \nu\big([\sigma^{\mathrm{sep}}_K(T),\, \ell(\mathcal{U})]\big) + \nu\big(\delta_K(\mathcal{U}; T)\big)$, both terms nonnegative (Proposition 37.2);
 > 2. for invariance structures: $\nu(\Delta_{K_G}(T)) = \nu(\Delta^{\mathrm{refl}}(T)) + \nu(\Delta^{\mathrm{wit}}(T))$ (Theorem 37.7);
 > 3. for mixed sets: $\nu(\Delta_K(T)) = \nu(J_K(T)) + \nu(X_K(T))$ (Proposition 46.2).
@@ -44,6 +46,7 @@ Item 4 deserves a sentence against Part V's linearized track. Per-pair nerve hom
 ## 54. The exact addresses, in bits
 
 > **Theorem 54.1 (the cosheaf addresses quantified).** Let $K_G$ be an invariance structure, $\mu$ full-support, $q$ a question.
+>
 > 1. **(Additive reflection–witness split.)** $\nu(\Delta_{K_G}(T)) = \nu(\Delta^{\mathrm{refl}}(T)) + \nu(\Delta^{\mathrm{wit}}(T))$, with both terms computed from the orbit-graph data of Theorem 37.5 and the evaluation of Definition 53.1.
 > 2. **(Pure witness: one bit.)** On the parity configuration (§16.1; uniform $\mu$; $q = q_G$): $\nu(\Delta^{\mathrm{refl}}) = 0$ and $\nu(\Delta^{\mathrm{wit}}) = I(q_G; [Z]_{P_G}) - I(q_G; [Z]_\bot) = 1 - 0 = 1$ bit — the XOR bit of §23.2, now carrying an address: witness, cosheaf, exact. More generally, on the cyclic hierarchy $C_{k+1}$ (Theorem 38.4; uniform $\mu$): the pure witness quantum is $1$ bit **at every arity**, all-or-nothing — $\nu(\Delta^{\mathrm{wit}}(T)) = H(q_G) = 1$ for the full family and the admissible information of every proper subfamily is $0$.
 > 3. **(Pure reflection: $\log_2 3 - \tfrac23$ bits.)** On Worked example E (uniform $\mu$ on six elements; $q = q_G$ the three-valued orbit question): $\nu(\Delta^{\mathrm{wit}}) = 0$ and
@@ -51,6 +54,7 @@ Item 4 deserves a sentence against Part V's linearized track. Per-pair nerve hom
 > \nu(\Delta^{\mathrm{refl}}) \;=\; I\big(q_G;\, [Z]_{\mathrm{lift}(\{O_1O_2 \mid O_3\})}\big) \;=\; \log_2 3 - \tfrac23 \;\approx\; 0.918 \text{ bits},
 > $$
 > since the ceiling partition has blocks of mass $\tfrac23$ (within which the orbit is uniform on $\{O_1, O_2\}$, one residual bit) and $\tfrac13$ (pure $O_3$).
+>
 > 4. **(The policy lever, in bits.)** On Theorem 46.3's configuration (uniform $\mu$; $q = q_G$): $\nu(X_{K_G}(\{v, \tau_a\})) = 1$ bit under the context-reading policy and $0$ under the loyal policy. The interpreter's one lever moves exactly one bit of witness-address synergy.
 >
 > *Proof.* 1 is Proposition 53.3(2). 2: for parity, $\Delta^{\mathrm{refl}}$ is degenerate (Theorem 37.7's computation), $[Z]_\bot$ is constant, and $[Z]_{P_G} = q_G(Z)$, giving $H(q_G) = 1$ bit; §23.2's direct computation confirms $I(q_G; Y_v) = I(q_G; Y_w) = 0$, so nothing separable is being double-counted. For $C_{k+1}$: purity is Theorem 38.4; the two orbits have equal mass under the uniform prior, so $H(q_G) = 1$; every proper subfamily has $\gamma_G(T') = \bot$, hence admissible information $0$ — the threshold property, evaluated. 3: purity is Worked example E; the evaluation is the stated entropy computation, $H(q_G) - H(q_G \mid \text{blocks}) = \log_2 3 - \big(\tfrac23 \cdot 1 + \tfrac13 \cdot 0\big)$. 4: Theorem 46.3(1) gives the intervals $[\bot, P_G]$ and $[\bot, \bot]$; evaluate as in 2. $\square$
@@ -105,12 +109,14 @@ Section 23.2's mechanism (1) — prior-marginalization — was never an address;
 > **Definition 56.1 (the ledger functor).** For a coherent family over $D$ with prior $\mu$ and question $q$, the **$q$-marginalization** is the coherent family over the quotient contrast domain $D_q = D/\ker(q)$ with prior $\mu_q$ and channels $P(Y_v \mid q(Z))$ (well defined by averaging $\mu$ within $q$-classes). The **coarse ledger** of $(family, \mu, q)$ is the fine ledger of its $q$-marginalization: in particular, the coarse fiber is the coupling fiber of the marginalized family, and $C^{\mathrm{coarse}}_{\mu,q} := C_{\mu_q, \mathrm{id}}(\text{marginalized family})$, which by Proposition 55.4 is BROJA's $CI$.
 
 > **Theorem 56.2 (transport: the same bit changes address).** Let the family be deterministic over $D$, let $\mu$ have full support, and suppose the family is **per-view $q$-blind**: $I_\mu(q(Z); Y_v) = 0$ for every $v \in T$. Then:
+>
 > 1. **(Fine ledger.)** The fine fiber is a singleton (Theorem 42.1(3)), so $C_{\mu,q}(T) = 0$: this establishes zero fine coupling excess. A fine witness/reflection address requires a specified admissibility structure and its interval calculation; it is not determined by source blindness alone.
 > 2. **(Coarse ledger.)** Per-view $q$-blindness makes each marginalized channel $P(Y_v \mid q)$ constant in $q$; the product coupling $Q^\otimes(y_T \mid q) = \prod_v P(y_v)$ lies in the coarse fiber and renders $Y_T \perp q$, so $\min I = 0$ and
 > $$
 > C^{\mathrm{coarse}}_{\mu,q}(T) \;=\; I_\mu\big(q(Z); Y_T\big).
 > $$
 > **The entire quantum sits at the coupling address of the coarse ledger.**
+>
 > 3. **(Instance.)** For the parity configuration, the one bit of Theorem 54.1(2) — witness address, fine ledger — is exactly the one bit of coarse-ledger coupling excess: $C^{\mathrm{coarse}} = 1$ bit, realized between the XOR coupling and the product coupling. The known fact that XOR is BROJA-synergistic is, in this typing, the image of a witness class under the ledger functor.
 >
 > *Proof.* 1 is Proposition 55.2. 2: $Y_v \perp q$ gives $P(y_v \mid q) = P(y_v)$; the product coupling has the required $(q, Y_v)$-marginals and makes the joint output independent of $q$; nonnegativity of mutual information makes it a minimizer. 3 instantiates 2 with §23.2's computation and Theorem 54.1(2). $\square$
@@ -126,11 +132,13 @@ Section 23.2's mechanism (1) — prior-marginalization — was never an address;
 ## 57. The stratified decomposition theorem
 
 > **Theorem 57.1 (the stratified decomposition).** Fix a coherent family, a full-support prior $\mu$, and a question $q$, and work on a fixed ledger (fine, or coarse via Definition 56.1).
+>
 > 1. **(Graded clause; the sheaf address.)** For every finite $T$:
 > $$
 > I\big(q(Z); Y_T\big) \;=\; C_{\mu,q}(T) \;+\; I^{\min}_{\mu,q}(T),
 > $$
 > with $C \ge 0$ the coupling component and $I^{\min} \ge \max_v I(q; Y_v) \ge 0$ the marginal-forced residual; $C$ vanishes whenever the fiber is a singleton, in particular on deterministic families.
+>
 > 2. **(Exact clause; the cosheaf addresses.)** For deterministic families under a monotone admissibility structure, the admissible information decomposes additively along the canonical chains: for every cover, $\nu(\Delta_K(T)) = \nu([\sigma^{\mathrm{sep}}_K(T), \ell(\mathcal{U})]) + \nu(\delta_K(\mathcal{U}; T))$; for invariance structures, $\nu(\Delta_{K_G}(T)) = \nu(\Delta^{\mathrm{refl}}) + \nu(\Delta^{\mathrm{wit}})$; for mixed feature–record sets, $\nu(\Delta_K(T)) = \nu(J_K(T)) + \nu(X_K(T))$ — all terms nonnegative, at every arity (Propositions 53.2–53.3, Theorem 54.1).
 > 3. **(Separate mechanism examples.)** In the exact clause, parity has pure witness evaluation $1$ bit, and Example E has pure reflection evaluation $\log_2 3-2/3$ bits; both have zero coupling excess because their fine fibers are singletons. In the graded clause, Proposition 55.3 gives coupling excess $3/2-(3/4)\log_2 3$ bits. No exact witness/reflection split is asserted for that graded example without an additional admissibility construction.
 > 4. **(Sufficient vanishing conditions.)** Exact interval evaluations vanish on separable structures. Sterility identifies defects with their presentation shadows only for covers whose members are $N$-complete; they vanish if those shadows glue. Coupling excess vanishes on singleton fibers and, more generally, whenever the observed joint minimizes the fiber objective. These are not converse characterizations for a fixed question, and the two clauses are separate identities on their respective objects.
@@ -154,7 +162,7 @@ Assemble the three pure generators on one contrast domain: $D = D_1 \times D_2 \
 | reflection (cosheaf, exact) | $D_3$: Example E | $\log_2 3 - \tfrac23 \approx 0.918$ | components/meet non-commutation (Theorem 37.7) | the ceiling |
 | coupling (sheaf, graded) | $D_2$: the pair | $\tfrac32 - \tfrac34\log_2 3 \approx 0.311$ | fiber non-constancy; excess and width (§55) | the coupling — a point of the fiber |
 
-Total admissible synergy: $\approx 2.230$ bits, each summand switchable by its own dial and none by the others'. Marginalizing the prior onto $q$ transports the first row's bit to the third row's address (Theorem 56.2) — the table is a table *per ledger*, which is the resolution in one picture.
+Because the factors are independent and the question is a product, each row can be switched by its own dial without affecting the others. The three quanta are values of different functionals — two interval evaluations and one fiber excess — so their sum ($\approx 2.230$ bits) is not itself a term of any decomposition proved here (Remark 57.2). Marginalizing the prior onto $q$ transports the first row's bit to the third row's address (Theorem 56.2) — the table is a table *per ledger*, which is the resolution in one picture.
 
 ---
 

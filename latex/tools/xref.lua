@@ -11,7 +11,7 @@ local kind_words = {
 
 local function split_trailing(s)
   -- "6.5(3)," -> core "6.5", tail "(3),"
-  local core = s:match('^([%u]?%.?%d[%d%.]*%d)') or s:match('^([%u]?%.?%d)')
+  local core = s:match('^([%u]?%.?%d[%d%.]*%d%l?)') or s:match('^([%u]?%.?%d%l?)')
   if not core then return nil end
   local tail = s:sub(#core + 1)
   if tail:sub(1, #'′') == '′' then core = core .. '′'; tail = tail:sub(#'′' + 1) end

@@ -17,6 +17,7 @@ Work with finite view families, or with their finitely achievable content and ex
 Descent needs a base. Two candidates were promised: Part I (§8, H4) designated the view-refinement preorder $(V, \preceq)$ as "the future base site," with coverings by families that jointly determine a view; Definition 24.5 equipped $\mathcal{F}(V)$, the finite subsets of $V$, with the union coverage. This section shows the two are compatible in a precise and instructive way, and fixes the primary base.
 
 > **Definition 35.1 (covering systems on $\mathcal{F}(V)$).** A **covering system** on $\mathcal{F}(V)$ assigns to each finite $T$ a collection of **covers**: families of subsets of $T$. Two systems are used below:
+>
 > - the **union system**: a nonempty family $\{T_i\}_i$ covers $T$ iff $\bigcup_i T_i = T$ (Definition 24.5);
 > - the **determination system**: a nonempty family $\{T_i\}_i$ with $T_i \subseteq T$ covers $T$ iff $\bigvee_i \sigma(T_i) = \sigma(T)$ — the parts jointly determine the compound view (the $\mathcal{F}(V)$-form of the coverage promised at P3).
 >
@@ -35,6 +36,7 @@ Gluing conditions are well posed for any covering system, so nothing below depen
 > *Proof.* ($\Leftarrow$) immediate. ($\Rightarrow$) First, stability extends from nested to arbitrary pairs: if $\sigma(T) = \sigma(T'')$, then $\sigma(T \cup T'') = \sigma(T) \vee \sigma(T'') = \sigma(T)$, and stability applied to $T \subseteq T \cup T''$ and $T'' \subseteq T \cup T''$ gives $\mathcal{C}(T) = \mathcal{C}(T \cup T'') = \mathcal{C}(T'')$. So $\widetilde{\mathcal{C}}(\sigma(T)) := \mathcal{C}(T)$ is well defined on $\mathrm{Im}\,\sigma = \mathrm{Ach}(V)$. Monotonicity: if $\sigma(T) \le \sigma(T'')$ then $\sigma(T \cup T'') = \sigma(T'')$, so $\mathcal{C}(T) \le \mathcal{C}(T \cup T'') = \mathcal{C}(T'')$ by monotonicity of $\mathcal{C}$ and stability. $\square$
 
 > **Theorem 35.5 (comparison).** For a content system $\mathcal{C}$ valued in a complete lattice, the following are equivalent:
+>
 > 1. $\mathcal{C}$ glues for the determination system;
 > 2. $\mathcal{C}$ glues for the union system **and** is determination-stable.
 >
@@ -67,6 +69,7 @@ Two structural remarks organize everything that follows.
 > **Remark 36.2 (what "gluing" means per level).** At the content level, gluing is Definition 24.5. At the distribution level, gluing is amalgamation of matching families (§39). At the reading level, the right notion is fixed by the next proposition — and it is *not* existence of a glued reading, which always holds.
 
 > **Proposition 36.3 (the reading-level formulation of the anomaly).** Let $K$ be monotone and $T$ finite. Then:
+>
 > 1. **(Gluing always succeeds.)** For any per-view admissible readings $\kappa_v \in \mathcal{K}(\{v\})$, $v \in T$, the combination $\kappa(y) = \prod_{v \in T} \kappa_v(y_v)$ is sound on $c_T$ with $\rho(\kappa) \le \bigvee_{v} \rho(\kappa_v) \le \sigma^{\mathrm{sep}}_K(T) \le \gamma_K(T)$; hence $\kappa \in \mathcal{K}(T)$: locally admissible readings always combine admissibly.
 > 2. **(Combinations are cofinal below $\sigma^{\mathrm{sep}}_K$.)** The registered partitions of readings dominated by combinations are exactly ${\downarrow}\,\sigma^{\mathrm{sep}}_K(T)$: the bound in 1 is attained by combining the ceiling-realizing readings of Lemma 14.4, whose combination has $\kappa(c_T(Z)) = \bigcap_v [Z]_{\gamma_K(\{v\})} = [Z]_{\sigma^{\mathrm{sep}}_K(T)}$.
 > 3. **(The anomaly is a cofinality defect.)** $\mathcal{K}(T)$ realizes ${\downarrow}\,\gamma_K(T)$ (Lemma 14.4), so $\Delta_K(T) = [\sigma^{\mathrm{sep}}_K(T), \gamma_K(T)]$ is exactly the gap between the combined class and the joint class: it is degenerate iff every joint admissible reading is dominated in resolving power by a combination of per-view admissible readings.
@@ -90,12 +93,14 @@ Throughout this section $K$ is a monotone admissibility structure and all view s
 > well defined because monotonicity gives $\gamma_K(T_i) \le \gamma_K(T)$ for each $i$. The cover **glues** iff its defect is degenerate. (For non-monotone $K$ the left quantity can exceed the right — the inversion of §16.2 — and the defect is recorded as an endpoint pair, per the convention of Definition 15.3; the calculus below is developed for the monotone case.)
 
 > **Proposition 37.2 (refinement monotonicity; universality of $\Delta_K$).**
+>
 > 1. If $\mathcal{V}$ refines $\mathcal{U}$ (both cover $T$, and every member of $\mathcal{V}$ is contained in some member of $\mathcal{U}$), then $\delta_K(\mathcal{V}; T) \supseteq \delta_K(\mathcal{U}; T)$: defects grow under refinement.
 > 2. The singleton cover $\mathcal{U}_0(T) = \{\{v\}\}_{v \in T}$ for nonempty $T$ (and $\mathcal{U}_0(\varnothing)=\{\varnothing\}$) is the finest cover up to empty members, and its defect is the registration anomaly: $\delta_K(\mathcal{U}_0; T) = \Delta_K(T)$. Consequently every cover defect is a sub-interval of $\Delta_K(T)$ sharing its right endpoint: **the registration anomaly is the universal defect.**
 >
 > *Proof.* 1: For $V \in \mathcal{V}$ choose $U_V \in \mathcal{U}$ with $V \subseteq U_V$; monotonicity gives $\gamma_K(V) \le \gamma_K(U_V)$, so $\bigvee_V \gamma_K(V) \le \bigvee_U \gamma_K(U)$, i.e. the left endpoint drops; the right endpoint is fixed. 2: Every cover is refined by $\mathcal{U}_0$ (each $v \in T$ lies in some $T_i$), whose left endpoint is $\bigvee_{v \in T} \gamma_K(\{v\}) = \sigma^{\mathrm{sep}}_K(T)$. $\square$
 
 > **Theorem 37.3 (vanishing).** For monotone $K$ and finite $T$, the following are equivalent:
+>
 > 1. every cover of $T$ glues;
 > 2. the singleton cover of $T$ glues;
 > 3. $\Delta_K(T)$ is degenerate, i.e. $K$ is separable at $T$ (Definition 15.3).
@@ -115,6 +120,7 @@ Intervals were given composable typing in Definition 15.3; here is the compositi
 > \ell\big(\delta_K(\mathcal{V}; T)\big) \;=\; \bigvee_i \ell\big(\delta_K(\mathcal{V}_i; T_i)\big),
 > $$
 > with all right endpoints $\gamma_K(T)$, resp. $\gamma_K(T_i)$. Consequently:
+>
 > 1. if $\delta_K(\mathcal{U}; T)$ and every $\delta_K(\mathcal{V}_i; T_i)$ are degenerate, so is $\delta_K(\mathcal{V}; T)$: triviality composes;
 > 2. exactly, $\delta_K(\mathcal{V}; T)$ is degenerate iff $\bigvee_i \ell(\delta_K(\mathcal{V}_i; T_i)) = \gamma_K(T)$ — a *joint* condition on the stage defects, which can hold with individual stage defects nondegenerate. Local anomalies can be **absorbed**.
 >
@@ -164,6 +170,7 @@ where the first inclusion holds because a joint witness is a per-view witness fo
 > \gamma_G(T),
 > $$
 > and the anomaly concatenates accordingly, $\Delta_{K_G}(T) = \Delta^{\mathrm{refl}}(T) \cdot \Delta^{\mathrm{wit}}(T)$, into:
+>
 > - the **reflection component** $\Delta^{\mathrm{refl}}(T) = \big[\sigma^{\mathrm{sep}}_{K_G}(T),\ \mathrm{lift}(\mathrm{comp}(\bigcap_v \Gamma_{\{v\}}))\big]$: the failure of component formation to commute with edge intersection — the mechanism of Proposition 22.3′, now inside the exact theory;
 > - the **witness component** $\Delta^{\mathrm{wit}}(T) = \big[\mathrm{lift}(\mathrm{comp}(\bigcap_v \Gamma_{\{v\}})),\ \gamma_G(T)\big]$: the failure of per-view witnesses to cohere into a joint witness — edges asserted view by view with no common witnessing pair.
 >
@@ -204,7 +211,7 @@ so that $(O,O')$ is an edge of $\Gamma_{T'}$ iff $W_{T'}(O,O') \ne \varnothing$.
 > $$
 > W_{T}(O, O') \;=\; \bigcap_i W_{T_i}(O, O'),
 > $$
-> and since restrictions are inclusions, every matching family is constant and amalgamates uniquely. Consequently the witness anomaly is **not** a failure of compatible local data to glue; it is the emptiness of the global-section set despite nonemptiness of every local one — precisely the possibilistic (all-local-sections, no-global-section) pattern that [Abramsky & Brandenburger 2011] identify as the logical form of contextuality.
+> and since restrictions are inclusions, every matching family is constant and amalgamates uniquely. Consequently the witness anomaly is **not** a failure of compatible local data to glue; it is the emptiness of the global-section set despite nonemptiness of every local one. This all-local-sections, no-global-section pattern has the same possibilistic form as the logical contextuality of [Abramsky & Brandenburger 2011], but the two presheaves differ (see the scope note below and Appendix D.12), and no identification is claimed.
 >
 > *Proof.* Agreement on $T = \bigcup T_i$ is agreement on every $T_i$; the intersection identity follows. A matching family assigns $w_i \in W_{T_i}$ agreeing under restriction; restrictions being inclusions into common supersets, agreement forces $w_i = w_j$ as pairs, and the common value lies in the intersection. $\square$
 
@@ -219,6 +226,7 @@ so that $(O,O')$ is an edge of $\Gamma_{T'}$ iff $W_{T'}(O,O') \ne \varnothing$.
 > downward closed because the witness sets are antitone.
 
 > **Proposition 38.3 (nerve dictionary).** For an orbit pair $(O, O')$:
+>
 > 1. $v$ is a vertex of $N_T(O,O')$ iff $(O,O')$ is an edge of $\Gamma_{\{v\}}$; the vertex set is full iff $(O,O')$ is an edge of $\bigcap_v \Gamma_{\{v\}}$.
 > 2. $T \in N_T(O,O')$ (the top face is present) iff $(O,O')$ is an edge of $\Gamma_T$.
 > 3. The pair carries an **edge-level witness defect** — a per-view-confusable, jointly-separated orbit pair — iff its nerve has a full vertex set and a missing top face.
@@ -252,7 +260,7 @@ The nerve is not merely a bookkeeping device; on a canonical family of structure
 >
 > *Proof.* The first statements are Proposition 38.3 and contractibility of Example G. Removing a redundant edge can leave components unchanged; this separates graph defects from interval defects. Example E verifies the last existence statement. Appendix D.9 characterizes precisely when the deleted edges split a component. The full family of nerves does encode all edge sets and hence can reconstruct reflection; what is insufficient is the asserted per-pair homological certificate. $\square$
 
-Two closing connections. First, chirality (Remark 36.1): the witness presheaf is a sheaf-chirality object — it provides an intersection-consistency analogy to the distribution-level problem of the next section; an identification with its support presheaf has not been constructed — whose global-section emptiness detects an edge-level witness defect, which may be absorbed at the content-partition level; §38 is the promised meeting point of the two ends. Second, the linearized track answers the question of *degree*: witness anomalies are stratified by the minimal dimension of a missing face over a full skeleton, parity failing at dimension one, the triangle at dimension two, and the hierarchy showing every degree is realized — the exact-case analogue of the logical/strong contextuality hierarchy, computed here on six-element domains by hand.
+Two closing connections. First, chirality (Remark 36.1): the witness presheaf is a sheaf-chirality object whose global-section emptiness detects an edge-level witness defect, which may still be absorbed at the content-partition level. In this sense §38 is where the two ends meet: the witness presheaf is analogous to the distribution-level problem of the next section, although no identification with its support presheaf has been constructed. Second, the linearized track answers the question of *degree*: witness anomalies are stratified by the minimal dimension of a missing face over a full skeleton, parity failing at dimension one, the triangle at dimension two, and the hierarchy showing every degree is realized. The hierarchy is formally reminiscent of the logical/strong contextuality hierarchy, but witness anomalies do not imply contextuality of the marginal empirical model (Appendix D.12).
 
 ---
 
@@ -262,13 +270,14 @@ The distribution level is where descent takes its classical sheaf form, and wher
 
 > **Definition 39.1 (coupling presheaf; fibers).** Under (A6), the **coupling presheaf** on $\mathcal{F}(V)$ assigns to finite $T'$ the set $\mathcal{P}(T')$ of channels $D \to \Pr(\prod_{v \in T'} Y_v)$, with restriction along $T'' \subseteq T'$ given by marginalization. A **matching family** over a cover $\{T_i\}$ of $T$ is a family $p_i \in \mathcal{P}(T_i)$ agreeing under marginalization on all intersections $T_i \cap T_j$; an **amalgamation** is $p \in \mathcal{P}(T)$ restricting to every $p_i$. The **fiber** over a matching family is its set of amalgamations. A coherent graded family (Definition 21.2) is exactly a compatible choice of amalgamations at every level; the coupling fiber of Remark 21.3 is the fiber over the singleton-cover matching family (the marginal system), for every $T$ at once.
 
-> **Theorem 39.2 (Vorob'ev's theorem as the descent criterion).** Let $\mathcal{U} = \{T_1, \dots, T_n\}$ be a cover of $T$. For every choice of finite outcome alphabets, every matching family over $\mathcal U$ admits an amalgamation iff $\mathcal{U}$ is **acyclic**: its maximal members admit a running-intersection ordering ($T_{m} \cap (T_1 \cup \cdots \cup T_{m-1}) \subseteq T_{j(m)}$ for some $j(m) < m$, after reordering). [Vorob'ev 1962; the acyclicity condition is, in modern terminology, decomposability of the hypergraph, the junction-tree condition.]
+> **Theorem 39.2 (Vorob'ev's theorem as the descent criterion).** Let $\mathcal{U} = \{T_1, \dots, T_n\}$ be a cover of $T$. For every choice of finite outcome alphabets, every matching family over $\mathcal U$ admits an amalgamation iff $\mathcal{U}$ is **acyclic**: its maximal members admit a running-intersection ordering ($T_{m} \cap (T_1 \cup \cdots \cup T_{m-1}) \subseteq T_{j(m)}$ for some $j(m) < m$, after reordering). [Vorob'ev 1962] The acyclicity condition is, in modern terminology, decomposability of the hypergraph — the junction-tree condition.
 >
 > *Proof sketch.* Sufficiency is the sequential conditional-product construction: given a running-intersection ordering, extend the partial amalgamation over $T_1 \cup \cdots \cup T_{m-1}$ by adjoining, independently given the separator $T_m \cap T_{j(m)}$, the conditional of $p_{T_m}$ given that separator; consistency on the separator is exactly the matching condition, and the marginal checks are direct. Necessity — for every non-acyclic complex there exists a consistent, non-amalgamable family — is Vorob'ev's theorem, applied candidatewise (channels are indexed families of finite distributions, and the obstructing family can be taken constant in $Z$ or not, as needed). $\square$
 
 Three consequences knit the reformulation into the standing theory.
 
 > **Proposition 39.3 (the two failure modes, in one object).** Over the coupling presheaf:
+>
 > 1. **(Contextual evidence $=$ empty fiber.)** A matching family with no amalgamation is a system of locally coherent, jointly incoherent experimental records — Part I §8's "joint inconsistency of individually coherent views," and exactly the no-signalling empirical models whose non-extendability constitutes contextuality in [Abramsky & Brandenburger 2011]. Theorem 39.2 says which covers are immune: the acyclic ones. The candidate-pair witness presheaf of §38 has different restrictions; it is not identified with this empirical-model support presheaf. Appendix D.12 gives an explicit separation.
 > 2. **(Underdetermination $=$ non-singleton fiber.)** Even over acyclic covers the fiber is generally not a singleton, and statistical content is *not a function of the matching family*: Proposition 22.4(2)'s two couplings lie in one fiber over the singleton cover of $\{v, w\}$, with $\sigma^{=}$ equal to $\bot$ at one point of the fiber and $\top$ at another. For the singleton-cover fiber, non-constancy of $\sigma^{=}$ is equivalent to existence of some statistically superadditive coupling; it is not a condition satisfied by every coupling in that fiber, and the Le Cam diameter of a fiber is the natural quantitative measure of the underdetermination.
 >
@@ -280,11 +289,11 @@ Three consequences knit the reformulation into the standing theory.
 
 ## 40. Approximate descent
 
-Remark 24.7 typed the comparison cells metrically; this section proves the two results that fix what quantitative descent can and cannot mean. Recall Le Cam's deficiency $\delta(E, F)$ and distance $\Delta(E, F) = \max(\delta(E,F), \delta(F,E))$ [Le Cam 1964; Torgersen 1991], and the ideal-valued full-stratum content of Remark 24.6, under which the comparison cell of a cover $\mathcal{U} = \{T_i\}$ at $T$ is measured by
+Remark 24.7 typed the comparison cells metrically; this section proves the two results that fix what quantitative descent can and cannot mean. Recall Le Cam's deficiency $\delta(E, F)$ and distance $\Delta(E, F) = \max(\delta(E,F), \delta(F,E))$ [Le Cam 1964; Torgersen 1991], Represent the local experiments of a cover $\mathcal{U} = \{T_i\}$ by the union of their lower sets, ${\bigcup_i}{\downarrow}P_{T_i}$ (Remark 24.6), and measure the comparison cell at $T$ by
 $$
 d(\mathcal{U}; T) \;=\; \min_i \, \delta\big(P_{T_i},\, P_T\big),
 $$
-the deficiency of the best local experiment at reproducing the global one — zero exactly when $P_T$ lies in the ideal join of the locals. (The ideal join forgets coupling by design; an assembled join would require a chosen amalgamation, i.e. a point of §39's fiber, and the fiber is the object under study, not an input.)
+the deficiency of the best single local experiment at reproducing the global one; it is zero exactly when $P_T$ lies in that union. This is a deliberately weak measure. It does not assemble the local experiments into a joint one — an assembled join would require a chosen amalgamation, i.e. a point of §39's fiber, and the fiber is the object under study, not an input — so a cover whose members are informative only jointly has a positive cell even when the joint experiment is determined by the members (for example, under conditional independence). The two results below concern this measure.
 
 > **Proposition 40.1 (stability under blind corruption).** Let a coherent family over $T$ be corrupted by a jointly candidate-blind family pattern (Definition 29.7) with survival probability $\lambda(\varnothing) = 1 - \varepsilon > 0$. Then $\Delta(\widetilde{P}_{T'}, P_{T'}) \le \varepsilon$ for every $T' \subseteq T$, and consequently every enriched cell defect is $2\varepsilon$-stable:
 > $$
@@ -320,6 +329,7 @@ Part IV established the trichotomy of the fidelity axis (§32.2); this section s
 > *Proof.* Let $d = p - p'$ with $\widetilde{p} = \widetilde{p}'$; we show every marginal $d_{S'}$ vanishes, by induction on $|S'|$. Marginalizing the identity $\sum_\kappa \lambda(\kappa)(d_{S\setminus\kappa} \otimes R_\kappa) = 0$ onto $S'$: a term with $\kappa \cap S' \ne \varnothing$ depends on $d$ only through $d_{S' \setminus \kappa}$, and $S' \setminus \kappa \subsetneq S'$, so it vanishes by the inductive hypothesis; a term with $\kappa \cap S' = \varnothing$ contributes $\lambda(\kappa)\, d_{S'}$. Hence $\big(\sum_{\kappa \cap S' = \varnothing} \lambda(\kappa)\big) d_{S'} = 0$ with coefficient $\ge \lambda(\varnothing) > 0$, so $d_{S'} = 0$; at $S' = S$ this is $p = p'$. $\square$
 
 > **Theorem 41.2 (blind corruption is descent-neutral at the statistical stratum).** Let a coherent family over $T$ be corrupted by a jointly candidate-blind pattern with $\lambda(\varnothing) > 0$. Then:
+>
 > 1. **(Presheaf endomorphism.)** The replacement operation commutes with marginalization — the marginal of the perceived joint onto $T'$ is the perceived joint of the induced (again jointly blind, survival $\ge \lambda(\varnothing)$) pattern on $T'$ — so blind corruption is an endomorphism of the coupling presheaf: it carries matching families to matching families and amalgamations to amalgamations, and creates no distribution-level obstruction.
 > 2. **(Exact invariance of $\sigma^{=}$.)** For every $T' \subseteq T$, $\sigma^{=}(\widetilde{P}_{T'}) = \sigma^{=}(P_{T'})$; hence every statistical-stratum content, every comparison cell, and every defect interval is *exactly* preserved. Blind corruption can neither create nor destroy statistical-stratum obstructions.
 >
@@ -336,6 +346,7 @@ Part IV established the trichotomy of the fidelity axis (§32.2); this section s
 ### 42.1 The descent-trivial fiber
 
 > **Theorem 42.1 (recovery).** Under full admissibility, determinism, and sound unique anchoring — the kernel regime of Parts I–II, per Theorems 24.2 and 32.1 — all three levels of descent are trivial:
+>
 > 1. **(Readings.)** $\mathcal{K}(T)$ is the class of all sound registrations of $c_T$, and combinations of per-view canonical registrations are cofinal in it: every sound joint reading is dominated by a combination (Proposition 36.3 with $\gamma_K = \sigma$; Lemma 4.7 and Proposition 6.3 are its two classical faces).
 > 2. **(Content.)** Every defect interval of every cover degenerates (Theorem 37.3, $K^{\mathrm{can}}$ being separable); with trivial $G$, orbits are singletons, every realized witness nerve is a full simplex on its vertex set (a $\sim_T$-pair is its own joint witness), and both components of Theorem 37.7 vanish identically.
 > 3. **(Distributions.)** The deterministic coupling presheaf is a sheaf with *unique* amalgamation: deterministic marginals admit exactly one joint (the pairing), so every matching family glues, uniquely (Theorem 24.2(1) restated). Neither failure mode of Proposition 39.3 — contextual evidence, underdetermination — can occur.
@@ -359,7 +370,7 @@ The asymmetry worth naming: at the exact levels the glue always *exists* and the
 
 ### 42.3 Two closing remarks
 
-> **Remark 42.2 (the epistemological payoff).** Part V delivers a fully classical theory of **contextual evidence**: configurations of individually meaningful, individually invariant readings that admit no joint witness — no quantum mechanics anywhere, six-element domains, finite groups — with the invariance structures of §16.1 as generators, the witness nerve as the criterion, and sphere boundaries as the canonical obstruction classes. Read against Part I's roots (§2): contrastivism supplies the domain-relativity, measurement-theoretic meaningfulness supplies the ceilings, and the witness anomaly is the exact statement that *meaning can be irreducibly joint* — invariant content that exists at the family and at no member, with the threshold hierarchy showing the phenomenon at every arity. Underdetermination, its sheaf-chirality twin, is the non-singleton fiber, quantified by Le Cam diameter. Both are now theorems with computable invariants rather than named phenomena.
+> **Remark 42.2 (the epistemological payoff).** Part V delivers a classical theory of **jointly irreducible evidence**: configurations of individually meaningful, individually invariant readings that admit no joint witness — small finite domains and finite groups, with no quantum-mechanical input — with the invariance structures of §16.1 as generators, the witness nerve as an edge-level criterion, and sphere boundaries as the canonical examples. (Contextuality in the sense of the marginal problem is the distribution-level phenomenon of §39; Appendix D.12 shows the two are distinct.) Read against Part I's roots (§2): contrastivism supplies the domain-relativity, measurement-theoretic meaningfulness supplies the ceilings, and the witness anomaly is the exact statement that *meaning can be irreducibly joint* — invariant content that exists at the family and at no member, with the threshold hierarchy showing the phenomenon at every arity. Underdetermination, its sheaf-chirality twin, is the non-singleton fiber, quantified by Le Cam diameter. Both are now theorems with computable invariants rather than named phenomena.
 
 > **Remark 42.3 (the decomposition problem).** Witness loss, component reflection, and coupling variation identify distinct local-to-global mechanisms. Part VII evaluates exact partition chains and, separately, coupling-fiber excess; it does not prove one universal additive decomposition for arbitrary graded ceilings. Prior averaging changes the fiber and the assigned addresses, with the inequality of Appendix D.4. An axiomatic unification must specify its input data, admissibility, and coefficient object before a proof or a PID comparison can be attempted.
 

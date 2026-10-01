@@ -12,7 +12,7 @@ For a Blackwell interval \([E, F]\) (experiments on \(D\) with \(E \preceq_B F\)
 \[
 \nu_\delta\big([E, F]\big) \;=\; \delta(E, F) \;=\; \inf_M \ \sup_{Z \in D}\ \mathrm{TV}\big((M \circ E)(\cdot \mid Z),\, F(\cdot \mid Z)\big).
 \]
-Exact intervals \([a, b]\) in \(\mathrm{Part}(D)\) are evaluated as \(\nu_\delta([E_a, E_b])\). (For the endpoint pairs of non-monotone structures, where \(a \le b\) fails, the symmetrized distance \(\Delta\) is the descriptive substitute, mirroring \hyperlink{stmt:53.1}{Definition~53.1}'s parenthetical; the calculus below is developed for the monotone case.)
+Exact intervals \([a, b]\) in \(\mathrm{Part}(D)\) are evaluated as \(\nu_\delta([E_a, E_b])\). (For the endpoint pairs of non-monotone structures, where \(a \le b\) fails, the symmetrized distance \(\Delta\) is the descriptive substitute, mirroring Definition 53.1's parenthetical; the calculus below is developed for the monotone case.)
 \end{thmdef}
 
 \begin{thmplain}[\hypertarget{stmt:68.2}{Proposition~68.2}\ {\normalfont\upshape(basic laws)}]
@@ -44,7 +44,7 @@ For every prior \(\pi\) on \(D\) and loss \(L\) with values in \([0,1]\), the Ba
 \[
 r_{\pi, L}(E) \;-\; r_{\pi, L}(F) \;\le\; \nu_\delta\big([E,F]\big),
 \]
-so any decision problem exhibits a lower bound; any explicit channel exhibits an upper bound; and a matching pair proves an exact value. (For \([0,1]\)-losses, \(|\!\int L\, dP - \int L\, dQ| \le \mathrm{TV}(P,Q)\); take a near-optimal simulation \(M\), transport \(F\)'s optimal rule back along it, and average over \(\pi\). This is Le Cam's randomization criterion in the finite case \autocite{lecam1964,torgersen1991}.) Every value asserted in this part is proved by such a pair, and has additionally been verified by direct solution of the linear program. \(\square\)
+so any decision problem exhibits a lower bound; any explicit channel exhibits an upper bound; and a matching pair proves an exact value. (For \([0,1]\)-losses, \(|\!\int L\, dP - \int L\, dQ| \le \mathrm{TV}(P,Q)\); take a near-optimal simulation \(M\), transport \(F\)'s optimal rule back along it, and average over \(\pi\). This is Le Cam's randomization criterion in the finite case \autocite{lecam1964,torgersen1991}.) Every value asserted in this part is proved by such a pair; Appendix B lists the certificates and indicates which values were also checked numerically. \(\square\)
 \end{thmplain}
 
 \secn{69}{69}{The quasi-cocycle theorem}
@@ -67,7 +67,7 @@ Consequently the four canonical quanta of \hyperlink{stmt:54.1}{Theorem~54.1} al
 
 \begin{thmplain}[\hypertarget{stmt:69.2}{Proposition~69.2}\ {\normalfont\upshape(the half-gap)}]
 
-Every nondegenerate exact interval has \(\nu_\delta \ge \tfrac12\) (some block splits, so some \(k_B \ge 2\)), while graded intervals realize every value in \((0, \tfrac12)\) (erasure legs, \hyperlink{stmt:69.4}{Theorem~69.4}(2)). Hence an enriched evaluation in \((0, \tfrac12)\) \textbf{certifies grading}: the exact/graded boundary, qualitative since Part III, is metrically visible as a gap. This is the enriched face of the discontinuity results (Proposition 40.2, \hyperlink{stmt:62.2}{Theorem~62.2}(1)): exact anomalies cannot decay continuously \emph{because there is nowhere in \((0, \tfrac12)\) for them to go}---\hspace{0pt}they switch, as \hyperlink{stmt:40.3}{Remark~40.3} said, rather than drift. \(\square\)
+Every nondegenerate exact interval has \(\nu_\delta \ge \tfrac12\) (some block splits, so some \(k_B \ge 2\)), while graded intervals realize every value in \((0, \tfrac12)\) (erasure legs, \hyperlink{stmt:69.4}{Theorem~69.4}). Hence an enriched evaluation in \((0, \tfrac12)\) \textbf{certifies grading}: the exact/graded boundary, qualitative since Part III, is metrically visible as a gap. This is the enriched face of the discontinuity results (Proposition 40.2, \hyperlink{stmt:62.2}{Theorem~62.2}(1)): exact anomalies cannot decay continuously \emph{because there is nowhere in \((0, \tfrac12)\) for them to go}---\hspace{0pt}they switch, as \hyperlink{stmt:40.3}{Remark~40.3} said, rather than drift. \(\square\)
 \end{thmplain}
 
 \subsecn{2}{69.2}{Additivity fails, strictly, already exactly}
@@ -107,7 +107,7 @@ Assign \(\nu_\delta\) to the \(1\)-simplices \((E \preceq F)\) of the order comp
 \[
 \mathsf{D}(E, M, F) \;=\; \nu_\delta([E,M]) + \nu_\delta([M,F]) - \nu_\delta([E,F]) \;\ge\; 0
 \]
-is precisely the simplicial coboundary \(\mathsf{D} = \partial^* \nu_\delta\), hence automatically a \(2\)-cocycle (indeed exact), and the cohomological content is \textbf{not a hidden nonzero class but a canonical positivity structure}: \(\mathsf{D} \ge 0\) everywhere (triangle inequality), \(\mathsf{D} = 0\) exactly on aligned triples (Theorem 69.4), \(\mathsf{D} = \tfrac13\) on the canonical exact exhibit. The right coefficient category is ordered---\hspace{0pt}in the spirit of the ideal-valued repairs of \hyperlink{stmt:24.6}{Remark~24.6}---\hspace{0pt}and what replaces exactness of a sequence is positivity of a defect. The program of \hyperlink{sec:43}{§43} closes not with a new invariant lattice but with the exact statement of \emph{which} algebraic property survives each rung: composition-exactness (exact rung, by construction), coboundary-additivity (Shannon rung, by the potential), triangle-with-computable-defect (enriched rung, by this section).
+is precisely the simplicial coboundary \(\mathsf{D} = \partial^* \nu_\delta\), hence automatically a \(2\)-cocycle (indeed exact), and the cohomological content is \textbf{not a hidden nonzero class but a canonical positivity structure}: \(\mathsf{D} \ge 0\) everywhere (triangle inequality), \(\mathsf{D} = 0\) exactly on aligned triples (Theorem 69.4), \(\mathsf{D} = \tfrac13\) on the canonical exact exhibit. The right coefficient category is ordered, and what replaces exactness of a sequence is positivity of a defect. The question raised by \hyperlink{stmt:37.4}{Lemma~37.4} is thereby answered not with a new invariant lattice but with the exact statement of \emph{which} algebraic property survives each rung: composition-exactness (exact rung, by construction), coboundary-additivity (Shannon rung, by the potential), triangle-with-computable-defect (enriched rung, by this section).
 \end{thmrem}
 
 \secn{70}{70}{The rungs compared}
@@ -139,14 +139,14 @@ I \;=\; \tfrac{2}{\ln 2}\,\nu_\delta^{\,2} \;+\; O(\nu_\delta^{\,4}):
 
 \begin{thmrem}[\hypertarget{stmt:70.3}{Remark~70.3}\ {\normalfont\upshape(the one-sided exception; the continuity ladder completed)}]
 
-The square law is a \emph{symmetric-noise} phenomenon. The counterfeit creation channel of \hyperlink{stmt:62.3}{Theorem~62.3}(1) is one-sided---\hspace{0pt}the verdict \(d\) is certain evidence---\hspace{0pt}and there the rungs agree at first order: the created class's \(q\)-conditional laws separate by \(\mathrm{TV} = \varepsilon\), so its enriched size is \(\varepsilon/2\), while its Shannon quantum expands as \(\tfrac{\varepsilon}{2} + \tfrac{\varepsilon^2}{8 \ln 2} + O(\varepsilon^3)\). The organizing reading: one-sided channels retain a zero-error-flavored component, and where zero-error content survives, the rungs march together; where noise is symmetric and the class approaches annihilation, the Shannon rung goes blind quadratically and only the enriched rung remains first-order. \hyperlink{stmt:40.3}{Remark~40.3}'s continuity ladder now has its moduli: the exact rung \textbf{jumps} (Proposition 40.2; the half-gap of \hyperlink{stmt:69.2}{Proposition~69.2} is the reason there is nowhere to drift); the enriched rung is the \textbf{Lipschitz scale itself} (Proposition 40.1); the Shannon rung is continuous with entropy modulus---\hspace{0pt}infinitely steep where zero-error content is lost (the derivative of \(1 - h(c)\) at \(c = 0\)), quadratically flat where classes die (the square law).
+The square law is a \emph{symmetric-noise} phenomenon. The counterfeit creation channel of \hyperlink{stmt:62.3}{Theorem~62.3}(1) is one-sided---\hspace{0pt}the verdict \(d\) is certain evidence---\hspace{0pt}and there the rungs agree at first order: the created class's \(q\)-conditional laws separate by \(\mathrm{TV} = \varepsilon\), so its enriched size is \(\varepsilon/2\), while its Shannon quantum expands as \(\tfrac{\varepsilon}{2} + \tfrac{\varepsilon^2}{8 \ln 2} + O(\varepsilon^3)\). The organizing reading: one-sided channels retain a zero-error-flavored component, and where zero-error content survives, the rungs march together; where noise is symmetric and the class approaches annihilation, the Shannon rung goes blind quadratically and only the enriched rung remains first-order. Remark 40.3's continuity ladder now has its moduli: the exact rung \textbf{jumps} (Proposition 40.2; the half-gap of \hyperlink{stmt:69.2}{Proposition~69.2} is the reason there is nowhere to drift); the enriched rung is the \textbf{Lipschitz scale itself} (Proposition 40.1); the Shannon rung is continuous with entropy modulus---\hspace{0pt}infinitely steep where zero-error content is lost (the derivative of \(1 - h(c)\) at \(c = 0\)), quadratically flat where classes die (the square law).
 \end{thmrem}
 
 \secn{71}{71}{Part VIII's exhibits, evaluated}
 
 \begin{thmplain}[\hypertarget{stmt:71.1}{Proposition~71.1}\ {\normalfont\upshape(the lever's enriched fate: three curve shapes)}]
 
-On \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration, the enriched quantum of the policy class:
+On Theorem 46.3's configuration, the enriched quantum of the policy class:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -160,10 +160,10 @@ On \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration, the enriched quantum of 
   \[
   \nu_\delta(\varepsilon) \;=\; \tfrac12 \max\big(0,\ (1-\varepsilon)\tau - \varepsilon\big),
   \]
-  linear in \(\varepsilon\) with a \textbf{hard zero exactly at \hyperlink{stmt:62.1}{Lemma~62.1}'s threshold} \(\varepsilon^* = \tau/(1+\tau) = d/(2+d)\)---\hspace{0pt}for the lever, \(\tfrac12\max(0, 1 - 2\varepsilon)\), dead at \(\tfrac12\).
+  linear in \(\varepsilon\) with a \textbf{hard zero exactly at Lemma 62.1's threshold} \(\varepsilon^* = \tau/(1+\tau) = d/(2+d)\)---\hspace{0pt}for the lever, \(\tfrac12\max(0, 1 - 2\varepsilon)\), dead at \(\tfrac12\).
 \end{enumerate}
 
-\hyperlink{stmt:62.2}{Theorem~62.2}'s trichotomy is thereby a statement about \textbf{curve shapes}: a jump (exact), a square law with soft zero at \(1\) (blind), a line with hard zero at \(d/(2+d)\) (targeted).
+Theorem 62.2's trichotomy is thereby a statement about \textbf{curve shapes}: a jump (exact), a square law with soft zero at \(1\) (blind), a line with hard zero at \(d/(2+d)\) (targeted).
 \end{thmplain}
 
 \begin{proof}
@@ -181,7 +181,7 @@ On \hyperlink{stmt:46.3}{Theorem~46.3}'s configuration, the enriched quantum of 
 \item
   The magnitude of \hyperlink{stmt:61.1}{Theorem~61.1}(1)'s violation---\hspace{0pt}the deficiency of the budgeted ceiling for the achieved reading---\hspace{0pt}is exactly \(\nu_\delta\big([E_\delta^{(2)},\ \widetilde{P}_S]\big) = \delta^2/2\): second order in the erasure budget (upper: pass any reveal, guess uniformly on the double erasure, which has probability \(\delta^2\); lower: uniform-prior guessing, Bayes errors \(\delta^2/2\) against \(0\)). The scheduling attack's profit is precisely the independence assumption's quadratic term.
 \item
-  The enriched width of \hyperlink{stmt:22.4}{Proposition~22.4}(2)'s coupling fiber is \(\tfrac12\), attained between the product coupling (Blackwell-null) and the perfect coupling (diagonal under \(Z\), antidiagonal under \(Z'\)---\hspace{0pt}equivalent to full information for the dichotomy): \(\Delta = \delta(\text{null}, \text{full}_2) = \tfrac12\), and no fiber pair exceeds it since \(\delta(A, B) \le \delta(\text{null}, B) \le \tfrac12\) for dichotomies (Proposition 68.2(3)). \hyperlink{stmt:55.5}{Remark~55.5}'s three-rung column is complete: exact---\hspace{0pt}\(\sigma^{=}\) takes both \(\bot\) and \(\top\) on the fiber; Shannon---\hspace{0pt}width \(1\) bit; enriched---\hspace{0pt}width \(\tfrac12\). \(\square\)
+  The enriched width of \hyperlink{stmt:22.4}{Proposition~22.4}(2)'s coupling fiber is \(\tfrac12\), attained between the product coupling (Blackwell-null) and the perfect coupling (diagonal under \(Z\), antidiagonal under \(Z'\)---\hspace{0pt}equivalent to full information for the dichotomy): \(\Delta = \delta(\text{null}, \text{full}_2) = \tfrac12\), and no fiber pair exceeds it since \(\delta(A, B) \le \delta(\text{null}, B) \le \tfrac12\) for dichotomies (Proposition 68.2(3)). Remark 55.5's three-rung column is complete: exact---\hspace{0pt}\(\sigma^{=}\) takes both \(\bot\) and \(\top\) on the fiber; Shannon---\hspace{0pt}width \(1\) bit; enriched---\hspace{0pt}width \(\tfrac12\). \(\square\)
 \end{enumerate}
 \end{thmplain}
 
@@ -191,12 +191,12 @@ The policy lever's class, evaluated at every rung across the corruption regimes 
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1616}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1616}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1919}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1616}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1616}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1616}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1689}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1351}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1802}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1779}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1757}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1622}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 rung
@@ -221,9 +221,9 @@ enriched & \(\tfrac12\) & \(\tfrac{9}{32} \approx 0.281\) & \(\tfrac18 = 0.125\)
 \end{longtable}
 }
 
-Readings, one per structural theorem. The exact row is the half-gap: at any positive rate there is no value in \((0, \tfrac12)\) for the exact quantum to take, so it is gone, not diminished (Proposition 69.2). The blind columns follow the square law---\hspace{0pt}the Shannon entry is \(1 - h(\tfrac12 - \text{enriched entry})\) exactly, both columns (Theorem 70.2)---\hspace{0pt}and decay with soft zeros at \(\varepsilon = 1\). The targeted columns are the piecewise-linear regime: the enriched entries lie on the line \(\tfrac12(1 - 2\varepsilon)\) with its hard zero at the threshold (Proposition 71.1(3); the targeted-\(\tfrac14\) perceived class is a \(\mathrm{BSC}(\tfrac14)\), consistent across rungs). Down a noisy column the zero-error rung and the other two rungs \textbf{do disagree} about whether their respective notions of content survive; they disagree---\hspace{0pt}this is the part's point---\hspace{0pt}about \emph{the geometry of its dying}: jump, square law, line. And on the honest column the two nonzero rungs report the same class at \(\tfrac12\) and \(1\) bit with no functional relation between them across configurations---\hspace{0pt}Example E's reflection quantum shares the \(\tfrac12\) with a different Shannon value (\(\log_2 3 - \tfrac23\)): the rungs are genuinely independent coordinates, which is why the manuscript needed all three.
+Readings, one per structural theorem. The exact row is the half-gap: at any positive rate there is no value in \((0, \tfrac12)\) for the exact quantum to take, so it is gone, not diminished (Proposition 69.2). The blind columns follow the square law---\hspace{0pt}the Shannon entry is \(1 - h(\tfrac12 - \text{enriched entry})\) exactly, both columns (Theorem 70.2)---\hspace{0pt}and decay with soft zeros at \(\varepsilon = 1\). The targeted columns are the piecewise-linear regime: the enriched entries lie on the line \(\tfrac12(1 - 2\varepsilon)\) with its hard zero at the threshold (Proposition 71.1(3); the targeted-\(\tfrac14\) perceived class is a \(\mathrm{BSC}(\tfrac14)\), consistent across rungs). Down a noisy column the zero-error rung and the other two rungs disagree about whether content survives at all. The two quantitative rungs agree about survival---\hspace{0pt}it persists under blind corruption and dies at the targeted threshold---\hspace{0pt}and disagree, which is the point of this part, about \emph{the geometry of its decay}: jump, square law, line. And on the honest column the two nonzero rungs report the same class at \(\tfrac12\) and \(1\) bit with no functional relation between them across configurations---\hspace{0pt}Example E's reflection quantum shares the \(\tfrac12\) with a different Shannon value (\(\log_2 3 - \tfrac23\)): the rungs are genuinely independent coordinates, which is why the manuscript needed all three.
 
-Finally, the chain defect in the field: adjoin to the lever's domain a third context class to make the verdict ternary, and the exact chain \(\bot \le \{c_0 \mid c_1 c_2\}\text{-lift} \le\) (full verdict kernel) reproduces \hyperlink{stmt:69.3}{Theorem~69.3}'s triple inside a policy design space---\hspace{0pt}the Fano exchange rate of \hyperlink{stmt:63.2}{Theorem~63.2} prices the endpoints in bits additively, while the enriched pricing of the same chain is strictly subadditive with defect \(\tfrac13\): \textbf{a designer budgeting classes in bits can decompose the purchase into stages; a designer budgeting worst-case simulability cannot}---\hspace{0pt}stage costs overstate the direct route. The two rungs give different, and differently correct, procurement advice.
+Finally, the chain defect in the field: adjoin to the lever's domain a third context class to make the verdict ternary, and the exact chain \(\bot \le \{c_0 \mid c_1 c_2\}\text{-lift} \le\) (full verdict kernel) reproduces Theorem 69.3's triple inside a policy design space---\hspace{0pt}the Fano exchange rate of \hyperlink{stmt:63.2}{Theorem~63.2} prices the endpoints in bits additively, while the enriched pricing of the same chain is strictly subadditive with defect \(\tfrac13\): \textbf{a designer budgeting classes in bits can decompose the purchase into stages; a designer budgeting worst-case simulability cannot}---\hspace{0pt}stage costs overstate the direct route. The two rungs give different, and differently correct, procurement advice.
 
 \secn{73}{73}{Established results and scope}
 

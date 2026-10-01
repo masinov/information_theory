@@ -94,12 +94,12 @@ function BlockQuote(bq)
     env = kinds[kind or '']
     if not env then return nil end
     rest = head:sub(#kind + 1)
-    local num = rest:match('^%s+([%u]?%.?[%d%.]*%d)')
+    local num = rest:match('^%s+([%u]?%.?[%d%.]*%d%l?)')
     if not num then return nil end
-    local prime = rest:match('^%s+[%u]?%.?[%d%.]*%d(′)') and '′' or ''
+    local prime = rest:match('^%s+[%u]?%.?[%d%.]*%d%l?(′)') and '′' or ''
     label = num .. prime
     display = kind .. ' ' .. label
-    rest = rest:gsub('^%s+[%u]?%.?[%d%.]*%d', '')
+    rest = rest:gsub('^%s+[%u]?%.?[%d%.]*%d%l?', '')
     if prime ~= '' then rest = rest:sub(#prime + 1) end
   end
   local name = rest:match('^%s*%((.*)%)%.?%s*$')
@@ -139,25 +139,50 @@ function BlockQuote(bq)
   return out
 end
 
--- Table column widths proportional to content length (pandoc otherwise splits evenly when cells are long).
+-- Table column widths: proportional to the average cell length, but never narrower than the
+-- column's longest word (so words are not broken); pandoc otherwise splits long tables evenly.
+local function visible_text(blocks)
+  -- approximate printed width: drop TeX control words in math, keep their arguments
+  local s = pandoc.utils.stringify(blocks)
+  s = s:gsub('\\%a+', ''):gsub('[{}_%^]', '')
+  -- cross-references such as 'Theorem 24.2' are typeset with a tie and cannot break
+  s = s:gsub('(%a+) (%d)', '%1~%2')
+  return s
+end
+
 function Table(tbl)
   local ncol = #tbl.colspecs
-  local tot = {}
-  local rows = 0
-  for i = 1, ncol do tot[i] = 0 end
+  local tot, word, rows = {}, {}, 0
+  for i = 1, ncol do tot[i] = 0; word[i] = 4 end
   local function scan(row)
     for i, cell in ipairs(row.cells) do
       if i <= ncol then
-        local len = #pandoc.utils.stringify(cell.contents)
-        tot[i] = tot[i] + math.min(len, 90)
+        local s = visible_text(cell.contents)
+        tot[i] = tot[i] + math.min(#s, 120)
+        for w in s:gmatch('%S+') do word[i] = math.max(word[i], math.min(#w, 18)) end
       end
     end
   end
   for _, r in ipairs(tbl.head.rows) do scan(r); rows = rows + 1 end
   for _, b in ipairs(tbl.bodies) do for _, r in ipairs(b.body) do scan(r); rows = rows + 1 end end
   if rows == 0 then return nil end
-  local w, sum = {}, 0
-  for i = 1, ncol do w[i] = math.max(20, tot[i] / rows); sum = sum + w[i] end
-  for i = 1, ncol do tbl.colspecs[i] = { tbl.colspecs[i][1], w[i] / sum } end
+  -- reserve each column's longest word (line width ~ 74 characters at the table size, padding
+  -- included), then share the remaining width in proportion to how much longer the cells run
+  local LINE = 74
+  local minw, extra, summin, sumextra = {}, {}, 0, 0
+  for i = 1, ncol do
+    minw[i] = (word[i] + 4) / LINE
+    extra[i] = math.max(0, tot[i] / rows - word[i])
+    summin = summin + minw[i]; sumextra = sumextra + extra[i]
+  end
+  local f = {}
+  if summin >= 1 then
+    for i = 1, ncol do f[i] = minw[i] / summin end
+  elseif sumextra == 0 then
+    for i = 1, ncol do f[i] = minw[i] / summin end
+  else
+    for i = 1, ncol do f[i] = minw[i] + (1 - summin) * extra[i] / sumextra end
+  end
+  for i = 1, ncol do tbl.colspecs[i] = { tbl.colspecs[i][1], f[i] } end
   return tbl
 end

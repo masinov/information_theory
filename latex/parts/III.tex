@@ -71,7 +71,7 @@ A generalized view is \textbf{soundly and uniquely anchored} if for every \(Z \i
 
 \begin{thmrem}[\hypertarget{stmt:19.8}{Remark~19.8}\ {\normalfont\upshape(anchoring is channel-shaped)}]
 
-The interface deliberately types anchoring so that it is not merely a pre-processing stage. The composite \(Z \mapsto o(Z)\) is itself a view on \(D\) in the sense of \hyperlink{stmt:4.2}{Definition~4.2}---\hspace{0pt}the \textbf{identity view}---\hspace{0pt}and the graded versions of the components are channels: emission \(e_v : D \to \Pr(Y_v)\), attribution \(Y_v \times C_v \to \Pr(\widehat{T})\), and their composite a channel \(D \to \Pr(\widehat{T})\) over the same domain as the feature views. Anchoring quality thereby becomes Blackwell-comparable to feature content, and the substantive H1 theory should be expected to \emph{couple} to the graded order of §§20--24 rather than sit orthogonally upstream of it. For this reason the interface fixes types and nothing else: freezing a pipeline (anchor first, then register) would prejudge a coupling that the graded theory is equipped to analyze.
+The interface deliberately types anchoring so that it is not merely a pre-processing stage. The composite \(Z \mapsto o(Z)\) is itself a view on \(D\) in the sense of Definition 4.2---\hspace{0pt}the \textbf{identity view}---\hspace{0pt}and the graded versions of the components are channels: emission \(e_v : D \to \Pr(Y_v)\), attribution \(Y_v \times C_v \to \Pr(\widehat{T})\), and their composite a channel \(D \to \Pr(\widehat{T})\) over the same domain as the feature views. Anchoring quality thereby becomes Blackwell-comparable to feature content, and the substantive H1 theory should be expected to \emph{couple} to the graded order of §§20--24 rather than sit orthogonally upstream of it. For this reason the interface fixes types and nothing else: freezing a pipeline (anchor first, then register) would prejudge a coupling that the graded theory is equipped to analyze.
 \end{thmrem}
 
 \textbf{What is deliberately not done here.} No dynamics of attribution (how \(\eta\) and \(a\) are computed, from what evidence, at what reliability); no interaction between anchoring and content (how ambiguity, selection error, or irreparable mis-anchoring coarsens, distorts, or corrupts each stratum of content); no graded attribution theory---\hspace{0pt}although every slot of \hyperlink{stmt:19.6}{Definition~19.6} is typed so that grading is a substitution, not a redesign (Remark 19.8). These constitute the substantive H1 theory and are deferred to a later part; the graded machinery about to be built---\hspace{0pt}channels, Blackwell comparison, confusability, sufficiency---\hspace{0pt}is precisely the toolkit that theory will need, which is the reason for the present ordering. Under (A4′), nothing in §§20--24 depends on this section beyond type compatibility.
@@ -94,13 +94,21 @@ A channel \(P'\) is a \textbf{garbling} of \(P\), written \(P \succeq_B P'\), if
 
 Given a channel \(P : D \to \Pr(Y)\), a map \(T : Y \to Q\) is a \textbf{sufficient statistic} for the family \(\{P(\cdot \mid Z)\}_{Z \in D}\) if the conditional distribution of the presentation given \(T\) is the same for all candidates: for all \(t\) with \(\Pr(T = t \mid Z) > 0\), the distribution \(P(\,\cdot \mid T = t, Z)\) does not depend on \(Z\).
 
-\textbf{\hyperlink{stmt:20.1}{Fact~20.1} (factorization; finite case).} \(T\) is sufficient iff there exist functions \(g, h \ge 0\) with \(P(y \mid Z) = g(T(y), Z)\, h(y)\) for all \(y, Z\). \emph{Proof sketch:} (\(\Leftarrow\)) compute the conditional given \(T = t\) and observe cancellation of \(g(t, Z)\). (\(\Rightarrow\)) take \(h(y) = P(y \mid T = T(y))\) (well defined by sufficiency) and \(g(t, Z) = \Pr(T = t \mid Z)\). \(\square\) (Fisher; \textcite{halmos1949})
+\begin{thmplain}[\hypertarget{stmt:20.1}{Fact~20.1}\ {\normalfont\upshape(factorization; finite case)}]
+
+\(T\) is sufficient iff there exist functions \(g, h \ge 0\) with \(P(y \mid Z) = g(T(y), Z)\, h(y)\) for all \(y, Z\) \autocite{halmos1949}.
+\end{thmplain}
+
+\begin{proof}[Proof sketch.]
+
+(\(\Leftarrow\)) Compute the conditional given \(T = t\) and observe cancellation of \(g(t, Z)\). (\(\Rightarrow\)) Take \(g(t, Z) = \Pr(T = t \mid Z)\) and \(h(y) = P(y \mid T = T(y), Z)\) for any \(Z\) with \(\Pr(T = T(y) \mid Z) > 0\) (independent of \(Z\) by sufficiency; set \(h(y) = 0\) if no such \(Z\) exists).
+\end{proof}
 
 A sufficient statistic \(T\) is \textbf{minimal} if it is a function of every sufficient statistic on the realized outcomes. Minimal sufficient statistics exist in the finite case and are constructed in \hyperlink{stmt:22.6}{Theorem~22.6} below \autocite{lehmann1950,bahadur1954}.
 
 \subsecn{3}{20.3}{Information measures}
 
-For jointly distributed finite variables, \(H(\cdot)\), \(H(\cdot \mid \cdot)\), \(I(\cdot\,;\cdot)\), and \(I(\cdot\,;\cdot \mid \cdot)\) denote entropy, conditional entropy, mutual information, and conditional mutual information \autocite{cover2006}. Three standard facts are used repeatedly: \(H(U \mid W) = 0\) iff \(U\) is almost surely a function of \(W\); the \textbf{data processing inequality (DPI)}: if \(Z \to Y \to Y'\) is a Markov chain then \(I(Z; Y') \le I(Z; Y)\), with equality iff \(Z\) and \(Y\) are conditionally independent given \(Y'\) under that joint law (full support of the state prior is needed to conclude sufficiency at every candidate); the \textbf{chain rule}: \(I(Z; Y, Y') = I(Z; Y) + I(Z; Y' \mid Y)\); and \textbf{Fano's inequality}: for any estimator \(\widehat{q}\) of a variable \(q\) with \(M \ge 2\) values, \(\Pr(\widehat q \ne q) \ge \big(H(q \mid Y) - 1\big)/\log_2 M\) \autocite{cover2006}.
+For jointly distributed finite variables, \(H(\cdot)\), \(H(\cdot \mid \cdot)\), \(I(\cdot\,;\cdot)\), and \(I(\cdot\,;\cdot \mid \cdot)\) denote entropy, conditional entropy, mutual information, and conditional mutual information \autocite{cover2006}. Four standard facts are used repeatedly: \(H(U \mid W) = 0\) iff \(U\) is almost surely a function of \(W\); the \textbf{data processing inequality (DPI)}: if \(Z \to Y \to Y'\) is a Markov chain then \(I(Z; Y') \le I(Z; Y)\), with equality iff \(Z\) and \(Y\) are conditionally independent given \(Y'\) under that joint law (full support of the state prior is needed to conclude sufficiency at every candidate); the \textbf{chain rule}: \(I(Z; Y, Y') = I(Z; Y) + I(Z; Y' \mid Y)\); and \textbf{Fano's inequality}: for any estimator \(\widehat{q}\) of a variable \(q\) with \(M \ge 2\) values, \(\Pr(\widehat q \ne q) \ge \big(H(q \mid Y) - 1\big)/\log_2 M\) \autocite{cover2006}.
 
 \subsecn{4}{20.4}{Zero-error notions}
 
@@ -128,7 +136,7 @@ A \textbf{coherent graded view family} on \(D\) is a set \(V\) of graded views t
 
 \begin{thmrem}[\hypertarget{stmt:21.3}{Remark~21.3}\ {\normalfont\upshape(coupling indeterminacy)}]
 
-Distinct coherent families can share all their single-view channels and differ in every compound \(P_T\). Content over view sets therefore depends on data the kernel never needed: the coupling. Moreover, a projectively consistent family of \emph{pairwise} joints need not extend to a global joint at all---\hspace{0pt}the classical marginal problem \autocite{vorobev1962}---\hspace{0pt}which is exactly the no-global-section phenomenon analyzed sheaf-theoretically in \autocite{abramsky2011}. Coupling indeterminacy is thus the graded theory's native entry point to hook H4 and is flagged here for that purpose. It is convenient to name the object: the \textbf{coupling fiber} over a marginal system \(\{v\}_{v \in V}\) is the class of coherent families extending it. Vorob'ev's theorem characterizes, in the exact case, the overlap structures over which the fiber is never empty; content over view sets is a function on the fiber, constant across it exactly when the coupling mechanism of \hyperlink{stmt:22.4}{Proposition~22.4}(2) is absent. (The flag is cashed in Part V, \hyperlink{sec:39}{§39}: Vorob'ev's theorem is the unconditional-descent criterion of the coupling presheaf, and the fiber named here carries both of H4's failure modes---\hspace{0pt}contextual evidence as its emptiness, underdetermination as its multiplicity---\hspace{0pt}with coupling superadditivity located as non-constancy of \(\sigma^{=}\) on fibers; \hyperlink{stmt:39.2}{Theorem~39.2}, \hyperlink{stmt:39.3}{Proposition~39.3}.)
+Distinct coherent families can share all their single-view channels and differ in every compound \(P_T\). Content over view sets therefore depends on data the kernel never needed: the coupling. Moreover, a projectively consistent family of \emph{pairwise} joints need not extend to a global joint at all---\hspace{0pt}the classical marginal problem \autocite{vorobev1962}---\hspace{0pt}which is exactly the no-global-section phenomenon analyzed sheaf-theoretically in \autocite{abramsky2011}. Coupling indeterminacy is thus the graded theory's native entry point to hook H4 and is flagged here for that purpose. It is convenient to name the object: the \textbf{coupling fiber} over a marginal system \(\{v\}_{v \in V}\) is the class of coherent families extending it. Vorob'ev's theorem characterizes the overlap structures over which the fiber is never empty; content over view sets is a function on the fiber, constant across it exactly when the coupling mechanism of \hyperlink{stmt:22.4}{Proposition~22.4}(2) is absent. (The flag is cashed in Part V, \hyperlink{sec:39}{§39}: Vorob'ev's theorem is the unconditional-descent criterion of the coupling presheaf, and the fiber named here carries both of H4's failure modes---\hspace{0pt}contextual evidence as its emptiness, underdetermination as its multiplicity---\hspace{0pt}with coupling superadditivity located as non-constancy of \(\sigma^{=}\) on fibers; \hyperlink{stmt:39.2}{Theorem~39.2}, \hyperlink{stmt:39.3}{Proposition~39.3}.)
 \end{thmrem}
 
 \subsecn{2}{21.2}{Graded content: three strata}
@@ -166,7 +174,7 @@ Z \approx_S Z' \;:\iff\; \mathrm{supp}\, P_S(\cdot \mid Z) \,\cap\, \mathrm{supp
 a reflexive and symmetric relation that is \textbf{not} transitive in general. The \textbf{zero-error content} \(\sigma^{0}(S) \in \mathrm{Part}(D)\) is the partition of \(D\) into connected components of \(\approx_S\).
 \end{thmdef}
 
-\hyperlink{stmt:21.5}{Definition~21.5} is the graded \hyperlink{stmt:5.1}{Definition~5.1}--5.2: the registered representation of a candidate is no longer the set of unexcluded alternatives but the likelihood it induces, and indistinguishability is equality of likelihoods. \hyperlink{stmt:21.6}{Definition~21.6} captures a strictly more demanding operational notion---\hspace{0pt}single-observation certainty---\hspace{0pt}and its non-transitivity is the first structural novelty of grading: exact indistinguishability was an equivalence; confusability is only a tolerance, and content extraction must pass to components.
+\hyperlink{stmt:21.5}{Definition~21.5} is the graded Definition 5.1--5.2: the registered representation of a candidate is no longer the set of unexcluded alternatives but the likelihood it induces, and indistinguishability is equality of likelihoods. \hyperlink{stmt:21.6}{Definition~21.6} captures a strictly more demanding operational notion---\hspace{0pt}single-observation certainty---\hspace{0pt}and its non-transitivity is the first structural novelty of grading: exact indistinguishability was an equivalence; confusability is only a tolerance, and content extraction must pass to components.
 
 \begin{thmplain}[\hypertarget{stmt:21.7}{Lemma~21.7}\ {\normalfont\upshape(the strata are ordered)}]
 
@@ -224,7 +232,7 @@ Theorem 6.4)}]
 (\(\Leftarrow\)) There are finitely many distinct likelihoods \(\{\widehat R_S(Z)\}\); let \(\delta > 0\) be the minimum total-variation distance between distinct ones. Let \(\widehat p_n\) be the empirical distribution of the \(n\) copies; define \(\alpha_n\) to output \(q(Z^*)\) for any \(Z^*\) minimizing \(\|\widehat p_n - \widehat R_S(Z^*)\|_{TV}\). Given \(Z\), the law of large numbers gives \(\|\widehat p_n - \widehat R_S(Z)\| \to 0\) a.s., so eventually the minimizer's likelihood equals \(\widehat R_S(Z)\), i.e.~\(Z^* \sim_{\sigma^=} Z\); since \(q\) is constant on \(\sigma^=\)-blocks, \(\alpha_n\) is eventually correct, and finiteness of \(D\) upgrades this to uniform error \(\to 0\) (standard concentration, e.g.~via Hoeffding on each cell). (\(\Rightarrow\)) If \(\widehat R_S(Z) = \widehat R_S(Z')\) with \(q(Z) \ne q(Z')\), then for any rule \(\alpha_n\) the two error probabilities are computed under the \emph{same} output distribution, and since \(\alpha_n\) cannot equal both values at once, \(\Pr(\alpha_n \ne q(Z) \mid Z) + \Pr(\alpha_n \ne q(Z') \mid Z') \ge 1\); the worst-case error is \(\ge 1/2\) for every \(n\).
 \end{proof}
 
-\hyperlink{stmt:22.1}{Theorems~22.1}--22.2 give the strata their meaning and show the kernel's single answerability criterion (Proposition 5.6) splits into inequivalent graded criteria with the \emph{same lattice form}: factorization below a content partition. By contrast, \(\varepsilon\)-answerability at fixed \(\varepsilon \in (0, \tfrac12)\) is a down-set condition on \(\ker(q)\) (coarsening a question cannot increase its Bayes error: post-compose the optimal rule) but \textbf{not} a principal ideal in general---\hspace{0pt}the same non-principality already met in the budget-type admissibility of \hyperlink{sec:16.2}{§16.2}, now arising intrinsically. Both instances, and a third at \hyperlink{stmt:23.1}{Definition~23.1}, are consolidated by the ideal completion of \hyperlink{sec:24}{§24} (Remark 24.6).
+Theorems 22.1--22.2 give the strata their meaning and show the kernel's single answerability criterion (Proposition 5.6) splits into inequivalent graded criteria with the \emph{same lattice form}: factorization below a content partition. By contrast, \(\varepsilon\)-answerability at fixed \(\varepsilon \in (0, \tfrac12)\) is a down-set condition on \(\ker(q)\) (coarsening a question cannot increase its Bayes error: post-compose the optimal rule) but \textbf{not} a principal ideal in general---\hspace{0pt}the same non-principality already met in the budget-type admissibility of \hyperlink{sec:16.2}{§16.2}, now arising intrinsically. Both instances, and a third at \hyperlink{stmt:23.1}{Definition~23.1}, are lower sets that are not principal; \hyperlink{stmt:24.6}{Remark~24.6} names this property (representability) and states the limits of representing such classes by lower sets.
 
 \subsecn{2}{22.2}{Fate of T1: the adjunction breaks twice}
 
@@ -253,7 +261,7 @@ Two views, each singly incapable of certifying anything with certainty, jointly 
 
 The mechanism can, however, be located with complete precision, and doing so shows that the zero-error stratum has a lossless invariant on which compositionality survives.
 
-\begin{thmplain}[\hypertarget{stmt:22.3′}{Proposition~22.3′}\ {\normalfont\upshape(the confusability graph is the lossless zero-error
+\begin{thmplain}[\hypertarget{stmt:22.3�′}{Proposition~22.3�′}\ {\normalfont\upshape(the confusability graph is the lossless zero-error
 object)}]
 
 Let \(\mathrm{Tol}(D)\) be the set of reflexive symmetric relations (\textbf{tolerances}) on \(D\)---\hspace{0pt}a complete lattice under inclusion of edge sets---\hspace{0pt}and order it by \emph{reverse} inclusion, written \(\sqsubseteq\) (fewer confusions \(=\) more information), under which it is again a complete lattice with joins given by intersection of edge sets. Define the \textbf{graph-valued zero-error content} of finite \(S\) as
@@ -272,7 +280,7 @@ Under CI, \(\mathrm{supp}\, P_S(\cdot \mid Z) = \prod_{v \in S} \mathrm{supp}\, 
 
 \textbf{Mathematical scope.} Here ``lossless'' refers to retaining the confusability relation, not the full experiment. With the reverse-edge order, component formation is a \textbf{right} adjoint to inclusion of equivalence relations: \(\pi\sqsubseteq R\iff\pi\le\operatorname{comp}(R)\). Its failure to preserve joins is therefore unsurprising. ``Reflection'' remains the manuscript's descriptive mechanism name, not the orientation of this adjunction.
 
-\hyperlink{stmt:22.3′}{Proposition~22.3′} diagnoses \hyperlink{stmt:22.3}{Proposition~22.3} exactly. The partition \(\sigma^{0}(S)\) is the image of \(\sigma^{G}(S)\) under the reflection of tolerances onto equivalence relations (transitive closure; connected components), and the superadditivity of \(\sigma^{0}\) on CI families is precisely the failure of that reflection to commute with edge-intersection---\hspace{0pt}an order-theoretic fact about a closure operator, not a fact about channels. At the graph level, zero-error content over CI families is strictly compositional; the mechanism of this second anomaly is thus better named \textbf{reflection}, with support geometry as its carrier, and off the CI class the joint support is no longer a product, so the law fails through coupling---\hspace{0pt}consistently with the mechanism ladder below. Taking the graph as the primary invariant also aligns the stratum with the zero-error literature, where the confusability graph, not its component partition, carries the theory \autocite{shannon1956,lovasz1979}.
+Proposition 22.3′ diagnoses \hyperlink{stmt:22.3}{Proposition~22.3} exactly. The partition \(\sigma^{0}(S)\) is the image of \(\sigma^{G}(S)\) under the reflection of tolerances onto equivalence relations (transitive closure; connected components), and the superadditivity of \(\sigma^{0}\) on CI families is precisely the failure of that reflection to commute with edge-intersection---\hspace{0pt}an order-theoretic fact about a closure operator, not a fact about channels. At the graph level, zero-error content over CI families is strictly compositional; the mechanism of this second anomaly is thus better named \textbf{reflection}, with support geometry as its carrier, and off the CI class the joint support is no longer a product, so the law fails through coupling---\hspace{0pt}consistently with the mechanism ladder below. Taking the graph as the primary invariant also aligns the stratum with the zero-error literature, where the confusability graph, not its component partition, carries the theory \autocite{shannon1956,lovasz1979}.
 
 The statistical stratum sits strictly between the zero-error stratum and the full one, and its union behavior completes the picture:
 
@@ -334,7 +342,7 @@ y \equiv y' \;:\iff\; \exists\, c > 0\ \ \forall Z \in D:\ \ P_S(y \mid Z) = c\,
 \item
   sufficiency is exactly losslessness: a statistic \(T\) is sufficient iff \(I(Z; T(Y_S)) = I(Z; Y_S)\) for every prior on \(D\) (equality in the DPI);
 \item
-  in the deterministic case, \(Y^+ = \mathrm{Im}\,\langle v \rangle_{v \in S}\), the classes of \(\equiv\) are singletons, and \(m\) is (up to iso) the identity on \(\mathrm{Im}\,\langle v\rangle_{v\in S} \cong D/\sigma(S)\): \hyperlink{stmt:6.7}{Theorem~6.7}'s terminal consolidation is recovered exactly.
+  in the deterministic case, \(Y^+ = \mathrm{Im}\,\langle v \rangle_{v \in S}\), the classes of \(\equiv\) are singletons, and \(m\) is (up to iso) the identity on \(\mathrm{Im}\,\langle v\rangle_{v\in S} \cong D/\sigma(S)\): Theorem 6.7's terminal consolidation is recovered exactly.
 \end{enumerate}
 \end{thmplain}
 
@@ -355,7 +363,6 @@ Fix a coherent family, finite \(S\), a question \(q\), and a \textbf{full-suppor
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \(H\big(q(Z) \mid Y_S\big) = 0\) for one (equivalently, every) full-support prior iff \(\ker(q) \le \sigma^{0}(S)\)---\hspace{0pt}the vanishing of conditional entropy is exactly zero-error answerability.
 \item
@@ -379,8 +386,8 @@ This is the promised enrichment of the Shannon base, and its shape deserves emph
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4288}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5712}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4423}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5577}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 kernel (exact)
@@ -400,7 +407,7 @@ graded / entropic
 \end{longtable}
 }
 
---- so mutual information enters not as a replacement for the distinction-structure account but as its prior-weighted shadow, exactly as anticipated in Part I (§8, H3). The information bottleneck \autocite{tishby1999} now also finds its place: it is the \emph{lossy} relaxation of \hyperlink{stmt:22.6}{Theorem~22.6}---\hspace{0pt}minimize retained rate subject to retaining a stipulated amount of question-relevant information---\hspace{0pt}i.e., the graded form of budget-type (non-monotone) admissibility from \hyperlink{sec:16.2}{§16.2}.
+--- so mutual information enters not as a replacement for the distinction-structure account but as its prior-weighted shadow, exactly as anticipated in Part I (§8, H3). The information bottleneck \autocite{tishby1999} now also finds its place: it is the \emph{lossy} relaxation of Theorem 22.6---\hspace{0pt}minimize retained rate subject to retaining a stipulated amount of question-relevant information---\hspace{0pt}i.e., the graded form of budget-type (non-monotone) admissibility from \hyperlink{sec:16.2}{§16.2}.
 
 \secn{23}{23}{Graded admissibility and the anatomy of synergy}
 
@@ -454,7 +461,7 @@ e_\mu\big(q \mid \Gamma_{\widehat K}(S)\big)
 \;\ge\;
 e_\mu\big(q \mid P_S\big),
 \]
-the graded form of \hyperlink{stmt:14.6}{Proposition~14.6}'s bracket.
+the graded form of Proposition 14.6's bracket.
 \end{thmplain}
 
 \begin{proof}
@@ -485,9 +492,11 @@ each coordinate is \emph{independent} of parity, yet the pair determines it. In 
 
 The examples distinguish changes in prior-relative information, admissible resolving power, and support geometry. A general axiomatic decomposition connecting these mechanisms is not established by those examples. Part VII gives exact-chain evaluations and coupling-fiber excess as separate constructions, and Appendix D.4 proves how the latter changes under quotient averaging. Neither construction alone proves a PID impossibility theorem.
 
-A closing note on \hyperlink{sec:23.1}{§23.1}'s accumulation phenomenon, which stands to these three mechanisms as their reverse. Where each of (1)--(3) makes the whole read \emph{more} than the sum of its parts, accumulation makes separable readings exceed a joint \emph{ceiling}---\hspace{0pt}an anti-synergetic divergence tied not to the joint distribution but to the multiplicity of admissible readings and the choice of ceiling. PID cannot see it even in principle: PID decomposes a \emph{fixed} joint distribution of sources and target, so mechanisms that vary with the ceiling assignment or with how many admissible looks a decoder takes lie outside its object of study altogether. Accumulation is related to, but distinct from, PID's redundancy: redundant information is carried by each source separately \emph{within} one fixed joint; accumulated information is created by compounding looks \emph{across} readings that no single fixed joint represents. It is recorded here as a fourth entry in the anatomy---\hspace{0pt}the one that only the admissibility-plus-grading combination exposes.
+A closing note on §23.1's accumulation phenomenon, which stands to these three mechanisms as their reverse. Where each of (1)--(3) makes the whole read \emph{more} than the sum of its parts, accumulation makes separable readings exceed a joint \emph{ceiling}---\hspace{0pt}an anti-synergetic divergence tied not to the joint distribution but to the multiplicity of admissible readings and the choice of ceiling. PID cannot see it even in principle: PID decomposes a \emph{fixed} joint distribution of sources and target, so mechanisms that vary with the ceiling assignment or with how many admissible looks a decoder takes lie outside its object of study altogether. Accumulation is related to, but distinct from, PID's redundancy: redundant information is carried by each source separately \emph{within} one fixed joint; accumulated information is created by compounding looks \emph{across} readings that no single fixed joint represents. It is recorded here as a fourth entry in the anatomy---\hspace{0pt}the one that only the admissibility-plus-grading combination exposes.
 
 \secn{24}{24}{The zero-noise limit: recovery of the kernel}
+
+\subsecn{1}{24.1}{Recovery}
 
 \begin{thmplain}[\hypertarget{stmt:24.1}{Lemma~24.1}\ {\normalfont\upshape(deterministic Blackwell order is view refinement)}]
 
@@ -507,7 +516,7 @@ Restrict a coherent family to deterministic channels (equivalently, let all nois
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  couplings are unique, so the family is determined by its single views, and \hyperlink{stmt:21.3}{Remark~21.3}'s indeterminacy disappears;
+  couplings are unique, so the family is determined by its single views, and Remark 21.3's indeterminacy disappears;
 \item
   the Blackwell preorder restricts to the refinement preorder, on which suprema exist and are computed in \(\mathrm{Part}(D)\) (Lemma 24.1, \hyperlink{stmt:3.3}{Fact~3.3});
 \item
@@ -517,7 +526,7 @@ Restrict a coherent family to deterministic channels (equivalently, let all nois
 \item
   the minimal sufficient statistic is the terminal consolidation \(D/\sigma(S)\) (Theorem 22.6(4) = \hyperlink{stmt:6.7}{Theorem~6.7});
 \item
-  the entropic criteria specialize: \(H(q(Z) \mid R_S(Z)) = 0\) for full-support priors iff \(\ker(q) \le \sigma(S)\), and the DPI holds with equality precisely for registrations preserving \(\ker\)-structure, recovering \hyperlink{stmt:14.2}{Lemma~14.2}'s equality case.
+  the entropic criteria specialize: \(H(q(Z) \mid R_S(Z)) = 0\) for full-support priors iff \(\ker(q) \le \sigma(S)\), and the DPI holds with equality precisely for registrations preserving \(\ker\)-structure, recovering Lemma 14.2's equality case.
 \end{enumerate}
 \end{thmplain}
 
@@ -528,16 +537,16 @@ Each item collects the deterministic specializations established in the lemma or
 
 The exact theory of Parts I--II is thus not an idealization discarded by the graded theory but its precise zero-noise fiber---\hspace{0pt}the sublocus on which couplings are canonical, the content order is a complete lattice, the three strata coincide, and every graded theorem collapses onto its kernel ancestor.
 
-\subsubsection{The structural collapse}\label{the-structural-collapse}
+\subsecn{2}{24.2}{The structural collapse}
 
 The recovery theorem invites a reading of Parts I--III as a single object: a record of how much algebraic structure the notion of content retains as the standing assumptions are relaxed one by one. Two things degrade, and they degrade independently, so the record must track both: the \textbf{codomain} in which content lives (is it still a lattice?), and the \textbf{compositionality of the content map} over unions of view sets (does content over \(S \cup S'\) still decompose as a join of the contents over the parts?). The table collects the verdicts established across the three parts.
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1522}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1488}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2324}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4666}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2297}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1892}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2973}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2838}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 layer
@@ -564,7 +573,7 @@ graded admissibility (§23) & readings under \(\widehat K\) & Blackwell preorder
 
 The partition-valued strata keep a lattice codomain even when their content maps fail to preserve joins. The full experiment order adds a different issue: in general some joins fail to exist, and even where they exist a supplied joint experiment can be strictly above the join. These distinctions motivate separate exact and decision-theoretic comparisons; they do not make every noisy experiment a nonlattice case.
 
-\subsubsection{The content-system schema}\label{the-content-system-schema}
+\subsecn{3}{24.3}{The content-system schema}
 
 The collapse table invites, and the accumulated results now permit, a single definition of which every content notion in Parts I--III is an instance. Let \(\mathcal{F}(V)\) denote the finite subsets of \(V\), a join-semilattice under union.
 
@@ -581,9 +590,9 @@ The manuscript's content maps are then classified by two coordinates---\hspace{0
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2315}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2373}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5311}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1622}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1994}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.6385}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 content map
@@ -623,16 +632,18 @@ Let \(\mathsf C\) be a complete lattice and let \(\mathcal C:\mathcal P(V)\to\ma
 Equip \(\mathcal{F}(V)\) with the \textbf{positive union coverage}: a nonempty family \(\{T_i\}_i\) covers \(T\) iff \(\bigcup_i T_i = T\). Grounding at \(\varnothing\) is imposed separately. This convention is needed for the witness presheaf of \hyperlink{sec:38}{§38}. A content system \textbf{glues} if its comparison cells are invertible on covers: \(\bigvee_i \mathcal{C}(T_i) = \mathcal{C}(T)\) whenever \(\{T_i\}\) covers \(T\). Separability (Definition 15.3) is exactly gluing for \(\sigma^{\mathrm{jnt}}_K\); \hyperlink{stmt:6.3}{Propositions~6.3}, 22.3′, and 22.4(3) are gluing statements; and the sheaf-theoretic extension H4 is, in this vocabulary, the obstruction theory of non-invertible cells, with the interval-typed anomaly (Definition 15.3) supplying composable coefficients. This covariant join equation is the definition used here; it is distinct from the contravariant Set-valued sheaf axiom. That obstruction theory is executed in Part V (Theorems 37.3, 37.5, 38.4, 39.2, 41.2, 42.1), with \textbf{descent} installed as a tracked coordinate of the architecture alongside the collapse table's two, representability (Remark 24.6), and fidelity (Part IV, \hyperlink{sec:32.2}{§32.2}).
 \end{thmdef}
 
-\begin{thmrem}[\hypertarget{stmt:24.6}{Remark~24.6}\ {\normalfont\upshape(down-set completion and its limits)}]
+\begin{thmrem}[\hypertarget{stmt:24.6}{Remark~24.6}\ {\normalfont\upshape(representability; down-set completion and its limits)}]
 
-For an information preorder \(P\), let \(\operatorname{Down}(P)\) be all lower sets, ordered by inclusion. Intersections and unions give a complete lattice and \(p\mapsto\downarrow p\) is an order embedding modulo equivalence. These lower sets need not be directed ideals. A lower set represents available alternative experiments, not their assembled joint experiment. In particular \(\downarrow a\cup\downarrow b\) can be strictly smaller than \(\downarrow(a\vee b)\) even when the latter join exists.
+Three classes met so far are lower sets of an information order that are not principal: output-budget admissibility (§16.2), \(\varepsilon\)-answerable questions (§22.1), and resource-limited graded admissibility (§23.1). Call a content notion \textbf{representable} when it is a principal down-set---\hspace{0pt}the down-set of a single element, such as a ceiling---\hspace{0pt}and only \textbf{lower-set valued} otherwise. Representability is the third tracked coordinate, alongside the codomain and compositionality of the collapse table.
+
+For an information preorder \(P\), let \(\operatorname{Down}(P)\) be all lower sets, ordered by inclusion. Intersections and unions give a complete lattice and \(p\mapsto{\downarrow}p\) is an order embedding modulo equivalence, so every such class can be \emph{represented} as an element of \(\operatorname{Down}(P)\). This representation does not repair the classes. These lower sets need not be directed ideals. A lower set represents available alternative experiments, not their assembled joint experiment. In particular \({\downarrow}a\cup{\downarrow}b\) can be strictly smaller than \({\downarrow}(a\vee b)\) even when the latter join exists.
 
 For a \textbf{specified} closure rule on lower-set assignments that is preserved by intersections, intersections of closed majorants yield a least closed assignment. This formal fact does not prove that graded accumulation closure for arbitrary supplied couplings has such a rule, that the assignment is principal, or that its generator is achievable. Those are additional obligations. The Blackwell no-join obstruction is general, with the binary-state exception of \hyperlink{stmt:22.5}{Proposition~22.5}. Appendix D.5 treats unconstrained coupling minima directly.
 \end{thmrem}
 
 \begin{thmrem}[\hypertarget{stmt:24.7}{Remark~24.7}\ {\normalfont\upshape(quantitative cells)}]
 
-Le Cam deficiency (§25) makes experiments a generalized metric space in the sense of enriched category theory \autocite{lawvere1973,lecam1964}, and an ideal-valued content system a metrically enriched one. The approximate-gluing programme flagged for H4 is then the study of comparison cells invertible up to a stated deficiency---\hspace{0pt}a quantitative laxity---\hspace{0pt}rather than a separate theory.
+Le Cam deficiency (§25) makes experiments a generalized metric space in the sense of enriched category theory \autocite{lawvere1973,lecam1964}. The approximate-gluing programme flagged for H4 is then the study of comparison cells that hold up to a stated deficiency---\hspace{0pt}a quantitative laxity---\hspace{0pt}rather than a separate theory. Section 40 develops one such measure and its limitations.
 \end{thmrem}
 
 \secn{25}{25}{Established results and scope}

@@ -29,6 +29,7 @@ Exact presentation, context, and verdict records are ordinary views in an extend
 Nothing needs to be re-founded: the atomic record views satisfy (P2), the compounds are ordinary compound views, and the kernel operates on $\widehat{V}$ as it does on $V$. The first dividend is the exact record calculus.
 
 > **Proposition 45.2 (exact record calculus; the leak anatomy).** For an exact anchored view $v$:
+>
 > 1. **(Exact attribution processing inequality.)** $\ker(\tau_v) \le \ker(N_v) \vee \ker(\chi_v)$, since $\tau_v$ factors through $e_v$ (Lemma 14.2); hence $\ker(F_v) = \ker(N_v) \vee \ker(\chi_v)$, and adjoining the verdict to any set containing $N_v$ and $\chi_v$ changes no $\sigma$. This is the exact shadow of Proposition 27.8: attribution is informationally free given the full raw presentation.
 > 2. **(Leakage, exactly.)** $\ker(S_v) = \ker(N_v) \vee \ker(\tau_v)$, and $v$ **leaks** (under its policy) iff $\ker(\tau_v) \not\le \ker(N_v)$, iff $\ker(S_v) > \ker(N_v)$ — the exact form of Proposition 28.2's phenomenon.
 > 3. **(Anatomy.)** Call a pair $Z, Z'$ **critical** if $N_v(Z) = N_v(Z')$ and $\chi_v(Z) \ne \chi_v(Z')$, and write $e_v(Z) = (y, c)$, $e_v(Z') = (y, c')$. Then exactly one of three cases holds:
@@ -47,13 +48,14 @@ Nothing needs to be re-founded: the atomic record views satisfy (P2), the compou
 
 ### 45.2 Determination restriction and the coherence theorem
 
-The ladder maps $F_v \twoheadrightarrow S_v \twoheadrightarrow N_v$ are not coordinate projections between view *sets*; they are surjections *within* single views. Question (a) of §43 asks whether Proposition 14.4′'s closure notion extends to them. It does — and the correct generality is not the ladder but determination itself.
+The ladder maps $F_v \twoheadrightarrow S_v \twoheadrightarrow N_v$ are not coordinate projections between view *sets*; they are surjections *within* single views. Does Proposition 14.4′'s closure notion extend to them? It does — and the correct generality is not the ladder but determination itself.
 
 > **Definition 45.3 (determination restriction; determination-monotone structures).** Let $T', T \subseteq \widehat{V}$ be finite with $\sigma(T') \le \sigma(T)$. Then the compound $c_T$ determines $c_{T'}$: the map $m_{T',T}$ defined on realized profiles by $m_{T',T}(c_T(Z)) = c_{T'}(Z)$ is well defined (equal $T$-profiles lie in one $\sigma(T)$-block, hence in one $\sigma(T')$-block, hence have equal $T'$-profiles), extended arbitrarily off the image. The family of reading classes $\{\mathcal{K}(T)\}_{T \in \mathcal{F}(\widehat V)}$ (Proposition 14.4′) is **closed under determination restriction** if $\sigma(T') \le \sigma(T)$ and $\kappa' \in \mathcal{K}(T')$ imply $\kappa' \circ m_{T',T} \in \mathcal{K}(T)$. The structure $K$ is **determination-monotone** if $\sigma(T') \le \sigma(T) \Rightarrow \gamma_K(T') \le \gamma_K(T)$.
 
 For $T' \subseteq T$ the map $m_{T',T}$ is the coordinate projection (up to profile identification), so determination restriction extends Proposition 14.4′'s notion; and the record ladder is the case $T' = \{N_v\}$ or $\{N_v, \tau_v\}$ against $T = \{N_v, \chi_v, \tau_v\}$ and its relatives, since $\ker(N) \le \ker(S) \le \ker(F)$ makes each ladder surjection a determination restriction between the corresponding singletons of $\widehat V$'s compounds.
 
 > **Theorem 45.4 (the coherence law for records).** For an admissibility structure $K$ on $\mathcal{F}(\widehat{V})$, the following are equivalent:
+>
 > 1. $\{\mathcal{K}(T)\}$ is closed under determination restriction;
 > 2. $K$ is determination-monotone;
 > 3. $\gamma_K$ factors through the content map as a monotone assignment: $\gamma_K = g \circ \sigma$ for a unique monotone $g : \mathrm{Ach}(\widehat{V}) \to \mathrm{Part}(D)$;
@@ -63,7 +65,7 @@ For $T' \subseteq T$ the map $m_{T',T}$ is the coordinate projection (up to prof
 
 > **Corollary 45.5 (record coherence and repackaging).** Reading classes are closed along **all determinations** iff $K$ is determination-monotone, equivalently monotone and determination-stable. Invariance ceilings $P_G\wedge\sigma(T)$ satisfy this condition. Closure along nested sets of record atoms alone follows already from monotonicity.
 >
-> The presentation-only structure $\gamma(T)=\sigma(T\cap\mathcal N)$ is monotone. It can fail all-determination closure when a non-presentation view $\tau$ determines a nonconstant presentation $N'$: $\ker N'\le\ker\tau$ but $\gamma(\{N'\})=\ker N'>\bot=\gamma(\{\tau\})$. Thus its possible incoherence concerns repackaging, not the nested atomic ladder. If these kernels are equal, it directly violates stability; if they are strictly ordered, monotonicity plus Theorem 45.4 implies failure of stability somewhere in the family.
+> Let $\mathcal N$ be the set of presentation atoms $N_v$. The presentation-only structure $\gamma(T)=\sigma(T\cap\mathcal N)$ is monotone. It can fail all-determination closure when a non-presentation view $\tau$ determines a nonconstant presentation $N'$: $\ker N'\le\ker\tau$ but $\gamma(\{N'\})=\ker N'>\bot=\gamma(\{\tau\})$. Thus its possible incoherence concerns repackaging, not the nested atomic ladder. If these kernels are equal, it directly violates stability; if they are strictly ordered, monotonicity plus Theorem 45.4 implies failure of stability somewhere in the family.
 >
 > *Proof.* The equivalence and last inference are Theorem 45.4. Meets are monotone, giving the invariance example. Intersecting nested view sets with $\mathcal N$ preserves their inclusion, proving the presentation-only monotonicity and the stated counterexample. $\square$
 
@@ -81,6 +83,7 @@ Theorem 45.4 combines projection coherence with invariance under repackaging. Ne
 > $$
 
 > **Proposition 46.2 (conservativity; the interaction identity).** Let $K$ be monotone on $\mathcal{F}(\widehat V)$.
+>
 > 1. Mixed covers are covers in $\mathcal{F}(\widehat{V})$, so Definition 37.1, Proposition 37.2, Theorem 37.3, and Lemma 37.4 apply **verbatim**: the composite theory adds no new law, and every mixed anomaly is an ordinary anomaly of the extended family.
 > 2. Refining the layer cover by singletons, Lemma 37.4 gives the factorization
 > $$
@@ -94,13 +97,14 @@ Theorem 45.4 combines projection coherence with invariance under repackaging. Ne
 
 ### 46.2 Both interaction modes, on one configuration
 
-> **Theorem 46.3 (compounding and absorption; answer to §43(b)).** There is a four-element contrast domain, an invariance structure, one feature view, and one exact anchored view such that:
+> **Theorem 46.3 (compounding and absorption).** There is a four-element contrast domain, an invariance structure, one feature view, and one exact anchored view such that:
+>
 > 1. **(Compounding: the leak completes the share.)** Under the context-reading policy $a$, the mixed pair $T = \{v, \tau_a\}$ has both pure-layer anomalies degenerate and cross-layer defect **maximal**, $X_{K_G}(T) = [\bot, P_G]$; under the loyal policy $\ell$, the same pair has $X_{K_G}(\{v, \tau_\ell\})$ degenerate. The cross-layer anomaly is **policy-created**: the loyalty anomaly of Proposition 30.2 and the witness anomaly of §16.1 compound, the erring policy's verdict acting as the missing share of the parity scheme.
 > 2. **(Absorption.)** On $T = \{v, w, \tau_a\}$, the layer cover $\{\{v,w\}, \{\tau_a\}\}$ has degenerate defect while its feature stage carries the maximal anomaly $\Delta_{K_G}(\{v,w\}) = [\bot, P_G]$: the feature anomaly is absorbed at the layer cover. Symmetrically, the mixed cover $\{\{v, \tau_a\}, \{w\}\}$ is degenerate while its mixed member internally carries $[\bot, P_G]$.
 >
-> Hence the answer to §43's question (b) is: **both** — the registration anomaly and the loyalty anomaly can compound, and either can absorb the other, and which occurs is a property of the cover and the policy, not of the layers. Moreover the compound instance is itself a witness anomaly of the extended family ($v$ and $\tau_a$ are relabeled parity shares; the witness nerve of the relevant orbit pair is $\partial\Delta^1$), confirming Proposition 46.2's conservativity: composition creates new *instances* across layers, never a new *kind*.
+> Hence, asked whether the registration anomaly and the loyalty anomaly compound or absorb each other, the answer is: **both** — the registration anomaly and the loyalty anomaly can compound, and either can absorb the other, and which occurs is a property of the cover and the policy, not of the layers. Moreover the compound instance is itself a witness anomaly of the extended family ($v$ and $\tau_a$ are relabeled parity shares; the witness nerve of the relevant orbit pair is $\partial\Delta^1$), confirming Proposition 46.2's conservativity: composition creates new *instances* across layers, never a new *kind*.
 >
-> *Proof.* Take §16.1's configuration: $D = \{00, 01, 10, 11\}$, $G$ the global flip with orbit partition $P_G$ (the parity partition), invariance structure $K_G$, feature view $v = $ first bit, and (for item 2) $w = $ second bit; recall $\gamma_G(\{v\}) = P_G \wedge \ker(v) = \bot = \gamma_G(\{w\})$ and $\gamma_G(\{v,w\}) = P_G$. The anchored view $u$ is tracked-target ($o \equiv t^*$) with a distractor $d$: $Y_u = \{y_0\}$ (so $N_u$ is constant), $C_u = \{0,1\}$ with $e_u(Z) = (y_0, b_2(Z))$, and $\eta(y_0, 0) = \eta(y_0, 1) = \{t^*, d\}$ — every status ambiguous, every critical pair optional (Proposition 45.2(3)). The loyal policy has $\tau_\ell \equiv t^*$, $\ker(\tau_\ell) = \bot$, $\varepsilon_\ell \equiv 0$; the context-reading policy $a$ (select $t^*$ on $c = 0$, $d$ on $c = 1$) has $\ker(\tau_a) = \ker(w)$ and errs with certainty on every candidate with $b_2 = 1$ — the exact skeleton of Proposition 30.2.
+> *Proof.* Take §16.1's configuration: $D = \{00, 01, 10, 11\}$, $G$ the global flip with orbit partition $P_G$ (the parity partition), invariance structure $K_G$, feature view $v =$ first bit, and (for item 2) $w =$ second bit; recall $\gamma_G(\{v\}) = P_G \wedge \ker(v) = \bot = \gamma_G(\{w\})$ and $\gamma_G(\{v,w\}) = P_G$. The anchored view $u$ is tracked-target ($o \equiv t^*$) with a distractor $d$: $Y_u = \{y_0\}$ (so $N_u$ is constant), $C_u = \{0,1\}$ with $e_u(Z) = (y_0, b_2(Z))$, and $\eta(y_0, 0) = \eta(y_0, 1) = \{t^*, d\}$ — every status ambiguous, every critical pair optional (Proposition 45.2(3)). The loyal policy has $\tau_\ell \equiv t^*$, $\ker(\tau_\ell) = \bot$, $\varepsilon_\ell \equiv 0$; the context-reading policy $a$ (select $t^*$ on $c = 0$, $d$ on $c = 1$) has $\ker(\tau_a) = \ker(w)$ and errs with certainty on every candidate with $b_2 = 1$ — the exact skeleton of Proposition 30.2.
 > 1: For $T = \{v, \tau_a\}$ the pure-layer anomalies are anomalies of singletons, hence degenerate. The defect: $\gamma_G(\{\tau_a\}) = P_G \wedge \ker(w) = \bot$, and $\gamma_G(T) = P_G \wedge (\ker(v) \vee \ker(w)) = P_G \wedge \top = P_G$; so $X = [\bot \vee \bot, P_G] = [\bot, P_G]$, and the invariant question $q_G$ (kernel $P_G$) is answerable under the ceiling from the pair jointly and from neither member — a witness anomaly with shares $v, \tau_a$, nerve $\partial\Delta^1$ exactly as for $\{v, w\}$ in Theorem 37.7's parity computation. Under $\ell$: $\gamma_G(\{v, \tau_\ell\}) = P_G \wedge (\ker(v) \vee \bot) = \bot$, so $X = [\bot, \bot]$.
 > 2: $\gamma_G(\{v,w,\tau_a\}) = P_G \wedge \top = P_G$; the layer cover's left endpoint is $\gamma_G(\{v,w\}) \vee \gamma_G(\{\tau_a\}) = P_G \vee \bot = P_G$: degenerate, with the feature stage anomaly $[\bot, P_G]$ intact one level down — Lemma 37.4's absorption, now across layers. The mixed cover $\{\{v,\tau_a\},\{w\}\}$ has left endpoint $P_G \vee \bot = P_G$: degenerate, with its mixed member's internal defect maximal by item 1. $\square$
 
@@ -116,7 +120,7 @@ Proposition 46.4 gives a presentation-shadow reduction for N-complete sets and m
 
 ## 47. The graded corner I: fixed-decoder robustness
 
-The remaining sections compose all three relaxations, in the half where composition is tame. Throughout, admissibility constrains readings of the **perceived** data (the typing decision of §44), and patterns are as in Definition 29.1.
+The remaining sections compose all three relaxations, in the half where composition is tame. Throughout, admissibility constrains readings of the **perceived** data (a modelling choice: admissibility constrains what the interpreter can do with the data it actually receives), and patterns are as in Definition 29.1.
 
 > **Proposition 47.1 (fixed-decoder statistical invariance).** For candidate-blind contamination with common rate $\varepsilon<1$ and a fixed decoder $g$,
 > $$g\widetilde v=(1-\varepsilon)gv+\varepsilon gQ,$$
@@ -148,12 +152,11 @@ Theorem 47.3 supplies a sufficient fixed-decoder robustness mechanism by equaliz
 >
 > Product preprocessing is sufficient, not necessary. Appendix D.6 extends this argument to candidate-independent mixtures whose branchwise composite decoders are admissible. Joint blindness alone does not supply those branchwise bounds.
 
-
 > **Proposition 48.2 (extremality survives principal ceilings).** In the setting of Theorem 30.4 (tracked target, sterile context, clean scene), let admissibility on record readings be of ceiling type: a reading $g$ of a record $R$ is admissible iff its output experiment satisfies $g \circ R \preceq_B \Gamma$ for a fixed ceiling experiment $\Gamma$ (the (K2̂) form). Then for every compatible policy $A$, the admissible achievable set of $A$'s accepted record is contained in that of the loyal record:
 > $$
 > \{\, g \circ \tilde v_A \;:\; g \text{ admissible} \,\} \;\subseteq\; \{\, h \circ \tilde v_\ell \;:\; h \text{ admissible} \,\},
 > $$
-> so loyalty remains extremal under **every** principal graded ceiling. Inversion of the comparison requires admissible classes that are not determined by their output experiments — form-restricted (pointed) classes, the graded recurrence of §16.2's inversion — and it dissolves in the ideal completion of Remark 24.6, where admissible classes are down-sets of experiments and hence output-determined.
+> so loyalty remains extremal under **every** principal graded ceiling. Inversion of the comparison requires admissible classes that are not determined by their output experiments — for example classes that fix the format of the reading as well as its output experiment, the graded analogue of §16.2's inversion. Admissibility criteria given by a lower set of experiments (Remark 24.6) are output-determined, so the proposition covers them as well.
 >
 > *Proof.* Theorem 30.4 gives $\tilde v_A = G_A \circ \tilde v_\ell$; for admissible $g$ put $h = g \circ G_A$, whose output experiment $h \circ \tilde v_\ell = g \circ \tilde v_A$ is the same, hence admissible under any output-determined criterion. $\square$
 
@@ -167,7 +170,7 @@ The configuration of Theorem 46.3, with measurement semantics. Two binary assays
 
 Assay A is registered as the feature view $v$. Assay B's value is never registered as a feature: it survives only as the *context* of a linkage step — the record is attributed to the tracked batch $t^*$ or to a distractor batch $d$, with both attributions admissible in every context (all statuses ambiguous; every critical pair optional, Proposition 45.2(3)).
 
-The loyal linkage attributes everything to $t^*$: zero anchoring error, constant verdict, and the meaningful question is unanswerable from anything in the file — $\gamma_G(\{v, \tau_\ell\}) = \bot$. The context-reading linkage errs on half the candidates with certainty, and its verdict is worth a share: $\gamma_G(\{v, \tau_a\}) = P_G$, with cross-layer defect $[\bot, P_G]$ — the agreement of the assays, the only meaningful content in the problem, is recoverable exactly from *assay A plus the pattern of linkage decisions*, and from nothing less (Theorem 46.3(1)). An auditor who reads only features and discards verdicts operates the structure $K_\varnothing$ of Corollary 45.5(3): the leak is closed by fiat at the cost of the entire interval, and the auditor's reading discipline is provably incoherent across the record ladder (not determination-stable). Adding assay B as a feature view restores comfort and exhibits absorption: over $\{v, w, \tau_a\}$ the layer cover glues, the verdict is redundant, and the famous anomaly of $\{v,w\}$ survives untouched one level down (Theorem 46.3(2)). In the graded regime, blind transcription noise on the assays changes none of the admissible statistical content (Proposition 47.1); noise whose direction depends on the batch is neutralized exactly if the calibration-invariant readings cannot see its variation (Theorem 47.3); and a laboratory that demands readings *distributionally* immune to arbitrary contamination has, by Proposition 47.4, demanded readings that measure nothing.
+The loyal linkage attributes everything to $t^*$: zero anchoring error, constant verdict, and the meaningful question is unanswerable from anything in the file — $\gamma_G(\{v, \tau_\ell\}) = \bot$. The context-reading linkage errs on half the candidates with certainty, and its verdict is worth a share: $\gamma_G(\{v, \tau_a\}) = P_G$, with cross-layer defect $[\bot, P_G]$ — the agreement of the assays, the only meaningful content in the problem, is recoverable exactly from *assay A plus the pattern of linkage decisions*, and from nothing less (Theorem 46.3(1)). An auditor who reads only features and discards verdicts operates the presentation-only structure of Corollary 45.5: the leak is closed by fiat at the cost of the entire interval, and the auditor's reading discipline is provably incoherent across the record ladder (not determination-stable). Adding assay B as a feature view restores comfort and exhibits absorption: over $\{v, w, \tau_a\}$ the layer cover glues, the verdict is redundant, and the famous anomaly of $\{v,w\}$ survives untouched one level down (Theorem 46.3(2)). In the graded regime, blind transcription noise on the assays changes none of the admissible statistical content (Proposition 47.1); noise whose direction depends on the batch is neutralized exactly if the calibration-invariant readings cannot see its variation (Theorem 47.3); and a laboratory that demands readings *distributionally* immune to arbitrary contamination has, by Proposition 47.4, demanded readings that measure nothing.
 
 ---
 
@@ -185,7 +188,7 @@ The three relaxations now have all their pairwise interactions on record; the ma
 
 | | registration (A3) | determinism (A2) | anchoring (A4′) |
 |---|---|---|---|
-| **registration (A3)** | Part II: $\Delta_K$; separability $=$ gluing; Part V §37: universal defect, vanishing theorem, orbit formula, reflection $\cdot$ witness | §23: accumulation refutes the bracket; (K3̂) restores it at the price of budget semantics; the trade-off is representability (Rem. 24.6) | **Part VI**: conservative calculus (Prop. 46.2); coherence $\iff$ determination-monotone $=$ monotone $+$ stable (Thm. 45.4); compounding *and* absorption, policy-created classes (Thm. 46.3); memberwise N-complete sterile-shadow reduction (Prop. 46.4) |
+| **registration (A3)** | Part II: $\Delta_K$; separability $=$ gluing; Part V §37: universal defect, vanishing theorem, orbit formula, reflection $\cdot$ witness | §23: accumulation refutes the bracket; (K3̂) restores it at the price of budget semantics; budget classes are representable only as non-principal lower sets (Rem. 24.6) | **Part VI**: conservative calculus (Prop. 46.2); coherence $\iff$ determination-monotone $=$ monotone $+$ stable (Thm. 45.4); compounding *and* absorption, policy-created classes (Thm. 46.3); memberwise N-complete sterile-shadow reduction (Prop. 46.4) |
 | **determinism (A2)** | — | Part III: strata; coupling fiber; Part V §39: Vorob'ev descent, contextual evidence / underdetermination | Part IV: fidelity trichotomy; Part V §§40–41: blind $=$ neutral endomorphism, $2\varepsilon$-stable enriched cells; marginal blindness creates; targeted severs |
 | **anchoring (A4′)** | — | — | Part IV: leak anatomy now exact (Prop. 45.2(3)): forced (correspondence) vs. optional (policy) |
 
@@ -193,7 +196,7 @@ Part VIII supplies explicit joint- and marginal-blind transfer failures and comp
 
 Reading the matrix against the tracked coordinates: codomain and compositionality (§24), representability (Remark 24.6), fidelity (§32.2), and descent (Part V §42.2) all remain in force over $\widehat{V}$ without modification, and Part VI adds no sixth coordinate — its finding is that the composite theory needs none. The interactions are governed by the coordinates already installed, plus one new *lever*: the policy, the single datum of the architecture set by the interpreter, whose reach into the obstruction classes is Theorem 46.3(1).
 
-### 50.3 The discharged cell
+### 50.3 Summary of the composite results
 
 The exact record-reading result is all-determination closure iff determination monotonicity. The graded results are fixed-decoder statistical invariance and sufficient budget-bracketing constructions; they are not an extension of that exact equivalence to every graded record class. Mixed exact defects are computed by the same interval calculus, with sterility reducing memberwise N-complete covers to their shadows.
 

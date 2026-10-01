@@ -5,6 +5,15 @@ Scope: Parts I–XI and Appendices A–D of `monograph/`, read end to end. The r
 dangling cross-references; (3) theoretical gaps and leaps; (4) prose and register; (5) formatting.
 Locations are section/statement numbers of the Markdown sources. Each item gives a suggested repair.
 
+**Progress (first revision pass).** Done: §1.3 (new Part I §8 "How the theory grows from the kernel", with the assumption
+ledger and the kernel-theorem template; §4.1 and §3.4 updated); §1.4 contextuality wording (Lemma 38.1, §38.4,
+Remark 42.2) and the tracked-coordinate count (Remark 24.6 now defines representability; §84 names the algebra
+coordinate); §2 items 1–15 and 17–24 (Remark 24.6 and its nine dependents; §40's measure now stated as a deliberately
+weak proxy); §5 items 1–4 and 6 (statements in blockquotes throughout, Appendices A and D in proper math, broken `$`
+spans, list/heading spacing via `latex/tools/normalize_md.py`, numbered §24 subsections). Open: §1.4 P3 justification
+and categorical vocabulary; §2 items 16 (reflection naming), 25, 26; all of §3 except §40; §4 (part introductions,
+"Mathematical scope" paragraphs, closing summaries, vocabulary, notation table); §5 items 5, 7.
+
 Severity tags: **[A]** affects correctness or the reader's ability to follow the theory; **[B]** visible inconsistency or
 missing detail; **[C]** style/formatting.
 

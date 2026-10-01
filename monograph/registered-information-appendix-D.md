@@ -1,169 +1,178 @@
 # Registered Information over Contrast Domains
 
+> **Integrated edition, 2026-10-01.** Statements, proofs, and scope conditions in this manuscript are authoritative. Results are finite unless explicitly stated otherwise. Appendix D contains the supplementary theorems; the external review documents record the revision history.
+
 ## Appendix D: Supplementary finite theorems
 
 This appendix is part of the monograph. D.1–D.7 integrate the results developed during the proof review. D.8–D.13 close additional finite questions about sites, witness certificates, propagation, robust transfer, the relationship to contextuality, and commutation of extraction. These are additions to this exposition, without a literature-priority claim.
 
-All state and observation spaces are finite and nonempty. Information order is coarser-to-finer for partitions; `E≼B F` means that `E` is a garbling of `F`, and `δ(E,F)` measures the error of simulating `F` from `E`. A prior is specified for each Shannon quantity. When a hypothesis restricts the alphabet, coupling, site, or adversary, it is part of the theorem.
+All state and observation spaces are finite and nonempty. Information order is coarser-to-finer for partitions; $E\preceq_B F$ means that $E$ is a garbling of $F$, and $\delta(E,F)$ measures the error of simulating $F$ from $E$. A prior is specified for each Shannon quantity. When a hypothesis restricts the alphabet, coupling, site, or adversary, it is part of the theorem.
 
-### D.1. Maximal certified partial answer
+### D.1 Maximal certified partial answer
 
-**Theorem D.1.** Let a deterministic registered representation be `r:D→X` and a question be `q:D→A`. With a fresh abstention symbol, a sound partial decoder `d:X→A∪{abstain}` may answer `a` only when every candidate in the realized fiber `r⁻¹(x)` has question value `a`. The maximal answerable domain is exactly the union of the fibers on which `q` is constant. On that domain the answer is unique. Under a full-support prior this decoder uniquely maximizes the probability of answering, up to unrealized outputs.
-
-**Proof.** If a fiber contains two question values, any non-abstaining answer is wrong for at least one candidate. If the fiber is constant, its common value is safe. Thus decisions can be made independently on each realized fiber, and including every constant fiber gives the maximal domain. Full support makes omission of any such fiber strictly reduce retained probability. ∎
+> **Theorem D.1.** Let a deterministic registered representation be $r:D\to X$ and a question be $q:D\to A$. With a fresh abstention symbol, a sound partial decoder $d:X\to A\cup\{\mathrm{abstain}\}$ may answer $a$ only when every candidate in the realized fiber $r^{-1}(x)$ has question value $a$. The maximal answerable domain is exactly the union of the fibers on which $q$ is constant. On that domain the answer is unique. Under a full-support prior this decoder uniquely maximizes the probability of answering, up to unrealized outputs.
+>
+> *Proof.* If a fiber contains two question values, any non-abstaining answer is wrong for at least one candidate. If the fiber is constant, its common value is safe. Thus decisions can be made independently on each realized fiber, and including every constant fiber gives the maximal domain. Full support makes omission of any such fiber strictly reduce retained probability. $\square$
 
 This adds a useful intermediate notion between total zero-error answerability and probabilistic loss: how much of the domain permits a certified answer. With non-full-support priors the maximal domain is unchanged, but probability-maximizing decoders need not be unique on zero-mass fibers.
 
-**Semantic caution.** Equality of registered pieces can encode distinctions beyond what an individual piece entails. For `D={0,1}`, registrations `κ(0)={0}`, `κ(1)=D` are sound and distinct. Observing which piece was emitted identifies the candidate, although the constraint `D` alone entails no answer. The manuscript's equality-kernel answerability concerns observation of the registered representation. Constraint entailment is a different semantics and should be named when intended.
+**Semantic caution.** Equality of registered pieces can encode distinctions beyond what an individual piece entails. For $D=\{0,1\}$, the registrations $\kappa(0)=\{0\}$ and $\kappa(1)=D$ are sound and distinct. Observing which piece was emitted identifies the candidate, although the constraint $D$ alone entails no answer. The manuscript's equality-kernel answerability concerns observation of the registered representation. Constraint entailment is a different semantics and should be named when intended.
 
-### D.2. Saturation algebra and its support boundary
+### D.2 Saturation algebra and its support boundary
 
-**Lemma D.2.** For a partition `π`, saturation satisfies
+> **Lemma D.2.** For a partition $\pi$, saturation satisfies
+> $$
+> s_\pi(\varnothing)=\varnothing,\qquad E\subseteq s_\pi(E),\qquad s_\pi\big(s_\pi(E)\cap F\big)=s_\pi(E)\cap s_\pi(F).
+> $$
+> If $\rho\le\pi$, then $s_\rho s_\pi=s_\rho=s_\pi s_\rho$. If $E$ is $\pi$-saturated and $F$ is $\rho$-saturated, then $E\cap F$ is $(\pi\vee\rho)$-saturated.
+>
+> *Proof.* A $\pi$-block meets $s_\pi(E)\cap F$ exactly when it meets both $E$ and $F$: once it meets $E$, the whole block lies in $s_\pi(E)$. This proves the displayed identity block by block. Nested partitions give nested block unions, proving both compositions. A $(\pi\vee\rho)$-block lies within one block of each partition, so membership in $E\cap F$ is constant on it. $\square$
 
-```
-sπ(∅)=∅,   E⊆sπ(E),   sπ(sπ(E)∩F)=sπ(E)∩sπ(F).
-```
+These identities support combination by intersection, units $D$, nulls $\varnothing$, and downward focusing by saturation on any join-closed domain family, in the generalized set-algebra sense. They do not require commuting extraction for incomparable domains.
 
-If `ρ≤π`, then `sρ sπ=sρ=sπ sρ`. If `E` is `π`-saturated and `F` is `ρ`-saturated, then `E∩F` is `(π∨ρ)`-saturated.
+> **Proposition D.2a.** If the domain family is finite, contains a support of $E$, and is closed under ambient nonempty meets, then $E$ has a least support in that family. Join closure alone does not suffice.
+>
+> *Proof.* Saturation of $E$ under a partition says its equivalence relation never crosses from $E$ to its complement. The relation of the ambient meet is generated by unions of the supporting equivalence relations; every path still stays on one side. Thus $E$ is saturated for the meet of all its supports, and meet closure places that least support in the family. For a counterexample take $D=\{1,2,3,4\}$, $a=12|3|4$, $b=1|23|4$, and the join-closed label family $\{\bot,a,b,\top\}$. The piece $\{4\}$ is supported by $a$, $b$, and $\top$ but not by $\bot$, so it has no least support. Its missing ambient-meet support is $a\wedge b=123|4$. $\square$
 
-**Proof.** A π-block meets `sπ(E)∩F` exactly when it meets both `E` and `F`: once it meets `E`, the whole block lies in `sπ(E)`. This proves the displayed identity block by block. Nested partitions give nested block unions, proving both compositions. A `(π∨ρ)`-block lies within one block of each partition, so membership in `E∩F` is constant on it. ∎
+### D.3 Exactly when independent replication is idempotent
 
-These identities support combination by intersection, units `D`, nulls `∅`, and downward focusing by saturation on any join-closed domain family, in the generalized set-algebra sense. They do not require commuting extraction for incomparable domains.
+> **Theorem D.3.** For a finite experiment $P$, the following are equivalent:
+>
+> 1. $P\otimes P$ is Blackwell equivalent to $P$, where the two outputs are independent given the state.
+> 2. Every pair of rows of $P$ is either identical or has disjoint support.
+> 3. The zero-error partition $\sigma^0(P)$ equals the equal-law partition $\sigma^{=}(P)$.
+> 4. $P$ is Blackwell equivalent to the deterministic experiment reporting its row-equivalence class.
+>
+> *Proof.* Give the state a full-support prior, and let $Y,Y'$ be the independent replicates. Under (1), data processing in both directions gives $I(Z;Y,Y')=I(Z;Y)$, so $I(Z;Y'\mid Y)=0$. For any realized $y$ and any state $z$ with $P(y\mid z)>0$, conditional independence of replicates gives $\mathrm{Law}(Y'\mid Z=z,Y=y)=P(\cdot\mid z)$. Vanishing conditional mutual information forces this law to depend only on $y$. Therefore states sharing any positive-probability output have identical rows, proving (2).
+>
+> Under (2), each realized output identifies the row class, and sampling the common row from that class simulates $P$. This proves (4). The support-overlap graph then has exactly the row classes as components, giving (3). Conversely (3) forbids an overlap edge between unequal rows, proving (2). Finally (4) makes replication equivalent to repetition of a deterministic class label, proving (1). $\square$
 
-**Proposition D.2a.** If the domain family is finite, contains a support of `E`, and is closed under ambient nonempty meets, then `E` has a least support in that family. Join closure alone does not suffice.
+Thus strict accumulation under independent replication is exactly the failure of the experiment to be equivalent to deterministic information. This supplies a structural replacement for the erroneous "posterior $1/2$ is impossible" argument: a BSC can always be garbled to posterior $1/2$ by discarding its output. For crossover $c\in(0,1/2)$, two concordant outputs instead yield a posterior outside $[c,1-c]$, which one BSC cannot produce. At $c=0.3$ the deficiency of one copy for two is $0.084$ (Appendix B.6).
 
-**Proof.** Saturation of `E` under a partition says its equivalence relation never crosses from `E` to its complement. The relation of the ambient meet is generated by unions of the supporting equivalence relations; every path still stays on one side. Thus `E` is saturated for the meet of all its supports. Meet closure places that least support in the family. For a counterexample take $D=\{1,2,3,4\}$, $a=12|3|4$, $b=1|23|4$, and the join-closed label family $\{\bot,a,b,\top\}$. The piece $\{4\}$ is supported by $a,b,\top$ but not $\bot$, so has no least support. Its missing ambient-meet support is $a\wedge b=123|4$. ∎
+### D.4 Quotient averaging enlarges the feasible coupling choices
 
-### D.3. Exactly when independent replication is idempotent
+Let $\mu$ have full support on $D$, and let $q:D\to A$ be surjective. For a fine-state channel $P$, define $(M_qP)(\cdot\mid a)=\sum_{z:\,q(z)=a}\mu(z\mid a)\,P(\cdot\mid z)$. Let $F_D$ be the fiber of joint channels with specified fine-state marginals, and $F_A$ the fiber with their averaged marginals. Write
+$$
+m_D=\min_{Q\in F_D} I_\mu\big(q(Z);Y\big),\qquad
+m_A=\min_{R\in F_A} I_{\mu q}(A;Y).
+$$
 
-**Theorem D.3.** For a finite experiment `P`, the following are equivalent:
+> **Theorem D.4.** $m_A\le m_D$. For an actual fine coupling $P$, its coarse fiber excess is at least its fine fiber excess, and their difference is exactly $m_D-m_A$. Equality holds precisely when some coarse minimizer has a lift in $F_D$.
+>
+> *Proof.* Averaging maps $F_D$ into $F_A$ and leaves the joint law of $(q(Z),Y)$ unchanged. Hence minimizing on its image cannot improve on minimizing over all of $F_A$. Both fibers are compact finite-dimensional polytopes, and mutual information is continuous, so minima exist. Equality holds exactly when a fine minimizer maps to a coarse minimizer, equivalently when some coarse minimizer has a feasible lift. Subtracting the two minima from the same actual mutual information gives the excess formula. $\square$
 
-1. `P⊗P` is Blackwell equivalent to `P`, where the two outputs are independent given the state.
-2. Every pair of rows of `P` is either identical or has disjoint support.
-3. The zero-error partition `σ⁰(P)` equals the equal-law partition `σ⁼(P)`.
-4. `P` is Blackwell equivalent to the deterministic experiment reporting its row-equivalence class.
-
-**Proof.** Give the state a full-support prior, and let `Y,Y′` be the independent replicates. Under (1), data processing in both directions gives `I(Z;Y,Y′)=I(Z;Y)`, so `I(Z;Y′|Y)=0`. For any realized `y` and any state `z` with `P(y|z)>0`, conditional independence of replicates gives `Law(Y′|Z=z,Y=y)=P(·|z)`. Vanishing conditional mutual information forces this law to depend only on `y`. Therefore states sharing any positive-probability output have identical rows, proving (2).
-
-Under (2), each realized output identifies the row class, and sampling the common row from that class simulates `P`. This proves (4). The support-overlap graph then has exactly the row classes as components, giving (3). Conversely (3) forbids an overlap edge between unequal rows, proving (2). Finally (4) makes replication equivalent to repetition of a deterministic class label, proving (1). ∎
-
-Thus strict accumulation under independent replication is exactly the failure of the experiment to be equivalent to deterministic information. This supplies a structural replacement for the erroneous “posterior 1/2 is impossible” argument: a BSC can always be garbled to posterior 1/2 by discarding its output. For crossover `c∈(0,1/2)`, two concordant outputs instead yield a posterior outside `[c,1-c]`, which one BSC cannot produce. At `c=.3`, the independently checked deficiency is `.084`.
-
-### D.4. Quotient averaging enlarges the feasible coupling choices
-
-Let `μ` have full support on `D`, and let `q:D→A` be surjective. For a fine-state channel `P`, define `(M_qP)(·|a)=Σ_{z:q(z)=a} μ(z|a)P(·|z)`. Let `F_D` be the fiber of joint channels with specified fine-state marginals, and `F_A` the fiber with their averaged marginals. Write
-
-```
-m_D = min_{Q∈F_D} Iμ(q(Z);Y),
-m_A = min_{R∈F_A} Iμq(A;Y).
-```
-
-**Theorem D.4.** `m_A≤m_D`. For an actual fine coupling `P`, its coarse fiber excess is at least its fine fiber excess, and their difference is exactly `m_D−m_A`. Equality holds precisely when some coarse minimizer has a lift in `F_D`.
-
-**Proof.** Averaging maps `F_D` into `F_A` and leaves the joint law of `(q(Z),Y)` unchanged. Hence minimizing on its image cannot improve on minimizing over all `F_A`. Both fibers are compact finite-dimensional polytopes, and mutual information is continuous, so minima exist. Equality holds exactly when a fine minimizer maps to a coarse minimizer, equivalently when some coarse minimizer has a feasible lift. Subtract the two minima from the same actual mutual information to obtain the excess formula. ∎
-
-**Lemma D.4a.** `δ(M_qE,M_qF)≤δ(E,F)`.
-
-**Proof.** Any fixed output simulator for the fine experiments also simulates their averages. Convexity of total variation bounds each averaged error by the maximum fine-state error. Infimize over simulators. ∎
+> **Lemma D.4a.** $\delta(M_qE,M_qF)\le\delta(E,F)$.
+>
+> *Proof.* Any fixed output simulator for the fine experiments also simulates their averages. Convexity of total variation bounds each averaged error by the maximum fine-state error. Take the infimum over simulators. $\square$
 
 Averaging therefore contracts simulation error, but need not preserve determinism or conditional independence. In the XOR example deterministic fine-state marginals force a unique fine coupling, while their question-averages admit different couplings. The excess difference is a concrete measure of a lost lifting constraint, not evidence that ordinary question-level information decompositions are undefined.
 
-### D.5. Least coupling and the Blackwell join
+### D.5 Least coupling and the Blackwell join
 
-**Theorem D.5.** Fix finitely many finite marginal experiments `P_i` on the same state space. Their full, unconstrained coupling fiber has a Blackwell-least member if and only if the `P_i` have a least upper bound in the finite-experiment Blackwell order. When they exist, these two experiments are equivalent.
+> **Theorem D.5.** Fix finitely many finite marginal experiments $P_i$ on the same state space. Their full, unconstrained coupling fiber has a Blackwell-least member if and only if the $P_i$ have a least upper bound in the finite-experiment Blackwell order. When they exist, these two experiments are equivalent.
+>
+> *Proof.* Suppose a join $H$ exists. Choose simulators $G_i$ with $P_i=G_iH$, and, conditional on an output of $H$, sample the outputs of the $G_i$ independently. The resulting joint $Q$ lies in the coupling fiber and is a garbling of $H$. Its marginals show that it is an upper bound of all $P_i$, so $H\preceq_B Q$ as well. Every fiber member is an upper bound, hence dominates $H$ and therefore $Q$.
+>
+> Conversely, suppose the fiber has a least member $L$. Any upper bound $H$ of the marginals yields a joint $Q$ by the same conditional simulation construction, with $Q\preceq_B H$. Since $L\preceq_B Q$, we have $L\preceq_B H$. As $L$ itself has the required marginals, it is their least upper bound. $\square$
 
-**Proof.** Suppose a join `H` exists. Choose simulators `G_i` with `P_i=G_i H`, and, conditional on an output of `H`, sample the outputs of the `G_i` independently. The resulting joint `Q` lies in the coupling fiber and is a garbling of `H`. Its marginals show that it is an upper bound of all `P_i`, so `H≼B Q` as well. Every fiber member is an upper bound, hence dominates `H` and therefore `Q`.
+Consequently binary-state finite coupling fibers always have a least Blackwell class, by the binary lattice theorem [Bertschinger & Rauh 2014, Proposition 16]. The state-conditionally-independent coupling need not represent it. For two equal noisy marginals, the diagonal coupling is equivalent to one copy, whereas independent replication can be strictly stronger by D.3. Two incomparable fiber points do not exclude a least point elsewhere in the fiber. This theorem concerns the entire unconstrained fiber; budget, causal, or restricted-corruption subsets need a separate existence argument.
 
-Conversely, suppose the fiber has a least member `L`. Any upper bound `H` of the marginals yields a joint `Q` by the same conditional simulation construction, with `Q≼B H`. Since `L≼B Q`, we have `L≼B H`. As `L` itself has the required marginals, it is their least upper bound. ∎
+### D.6 A sufficient transfer rule for graded budgets
 
-Consequently binary-state finite coupling fibers always have a least Blackwell class, by the [binary lattice theorem, Proposition 16](https://arxiv.org/abs/1401.3146). The state-conditionally-independent coupling need not represent it. For two equal noisy marginals, the diagonal coupling is equivalent to one copy, whereas independent replication can be strictly stronger by D.3. Two incomparable fiber points do not exclude a least point elsewhere in the fiber. This theorem concerns the entire unconstrained fiber; budget, causal, or restricted-corruption subsets need a separate existence argument.
-
-### D.6. A sufficient transfer rule for graded budgets
-
-**Proposition D.6.** Let the honest family satisfy graded separable bracketing under a joint ceiling `Γ_S`. Suppose a perceived family is obtained by a candidate-independent random choice `r` followed by a product of local output channels `M_i^r`. Fix perceived local decoders `G_i`. If, for every branch of positive probability, each composite `G_i M_i^r` is admissible under its honest singleton ceiling, then the joint perceived reading is a garbling of `Γ_S`.
-
-**Proof.** In each branch, honest separable bracketing supplies a simulator `L_r` from `Γ_S` to the joint decoded experiment. Mixing these simulators with the candidate-independent branch probabilities gives a simulator for the perceived joint reading. ∎
+> **Proposition D.6.** Let the honest family satisfy graded separable bracketing under a joint ceiling $\Gamma_S$. Suppose a perceived family is obtained by a candidate-independent random choice $r$ followed by a product of local output channels $M_i^r$. Fix perceived local decoders $G_i$. If, for every branch of positive probability, each composite $G_iM_i^r$ is admissible under its honest singleton ceiling, then the joint perceived reading is a garbling of $\Gamma_S$.
+>
+> *Proof.* In each branch, honest separable bracketing supplies a simulator $L_r$ from $\Gamma_S$ to the joint decoded experiment. Mixing these simulators with the candidate-independent branch probabilities gives a simulator for the perceived joint reading. $\square$
 
 For a single product branch, admissibility of the perceived readings is exactly the needed composite admissibility. For a mixture, admissibility after averaging branches does not imply branchwise admissibility; it cannot be silently substituted. This is a useful sufficient criterion, not a characterization of all robust corruptions.
 
-**Order caution.** The down-set completion embeds any poset by `x↦↓x` and supplies unions as joins. It does not generally preserve joins already present: for incomparable `a,b` with a join, `↓a∪↓b` omits `a∨b`. In particular it encodes available alternatives, not an assembled joint experiment. The manuscript's `min_i δ(E_i,F)` similarly chooses one local resource; it is not deficiency from a bundle of all resources.
+**Order caution.** The down-set completion embeds any poset by $x\mapsto{\downarrow}x$ and supplies unions as joins. It does not generally preserve joins already present: for incomparable $a,b$ with a join, ${\downarrow}a\cup{\downarrow}b$ omits $a\vee b$. In particular it encodes available alternatives, not an assembled joint experiment. The manuscript's $\min_i\delta(E_i,F)$ similarly chooses one local resource; it is not deficiency from a bundle of all resources.
 
-### D.7. Sharp committed-bit detection, including adaptive forgers
+### D.7 Sharp committed-bit detection, including adaptive forgers
 
-**Theorem D.7.** In each of `n` rounds the honest audit reveals a fresh independent fair bit `Y_i` and an honest verdict `A_i=Y_i`. Under forgery, `A_i` must be chosen before `Y_i` is revealed and may depend on the entire past and private randomness, but that information is independent of the fresh bit. For equal prior odds between honesty and forgery, the minimax error probability over all such adaptive forgers is exactly `2^(−n−1)`.
+> **Theorem D.7.** In each of $n$ rounds the honest audit reveals a fresh independent fair bit $Y_i$ and an honest verdict $A_i=Y_i$. Under forgery, $A_i$ must be chosen before $Y_i$ is revealed and may depend on the entire past and private randomness, but that information is independent of the fresh bit. For equal prior odds between honesty and forgery, the minimax error probability over all such adaptive forgers is exactly $2^{-n-1}$.
+>
+> *Proof.* Accept honesty if and only if every verdict matches. Honesty is never rejected. Conditional on any past and precommitted verdict, the fresh bit matches with probability $1/2$; iterated conditioning gives probability $2^{-n}$ of all matches under every allowed forgery. The equal-prior risk is therefore $2^{-n-1}$.
+>
+> For a lower bound, allow the forger to choose independent fair verdict bits. Its joint law is uniform on all $4^n$ bit/verdict sequences. The honest law is uniform on the $2^n$ matching sequences and zero elsewhere. The optimal simple-hypothesis equal-prior Bayes error is one half the sum of the smaller probability at each outcome, namely $\tfrac12\,2^n\,4^{-n}=2^{-n-1}$. No test can beat that against this allowed forger. $\square$
 
-**Proof.** Accept honesty if and only if every verdict matches. Honesty is never rejected. Conditional on any past and precommitted verdict, the fresh bit matches with probability `1/2`; iterated conditioning gives probability `2^(−n)` of all matches under every allowed forgery. The equal-prior risk is therefore `2^(−n−1)`.
+At $n=20$ the exact risk is $2^{-21}\approx4.77\times10^{-7}$, sharper than the Bhattacharyya bound of Theorem 78.3. This does not cover partial-round attacks, leaked fresh bits, biased or dependent future bits, or noisy honest verdicts. Those are separate models with potentially different rates.
 
-For a lower bound, allow the forger to choose independent fair verdict bits. Its joint law is uniform on all `4^n` bit/verdict sequences. The honest law is uniform on the `2^n` matching sequences and zero elsewhere. The optimal simple-hypothesis equal-prior Bayes error is one half the sum of the smaller probability at each outcome, namely `(1/2)2^n 4^(−n)=2^(−n−1)`. No test can beat that against this allowed forger. ∎
+### D.8 Exactly when join covers form a site
 
-At `n=20`, the exact risk is `2^(−21)≈4.77×10^(−7)`, sharper than the original Bhattacharyya bound. This does not cover partial-round attacks, leaked fresh bits, biased/dependent future bits, or noisy honest verdicts. Those are separate models with potentially different rates.
-
-### D.8. Exactly when join covers form a site
-
-**Theorem D.8.** Let $L$ be a finite lattice. Declare a nonempty family $(x_i\le x)_i$ to cover $x$ when $\bigvee_i x_i=x$. These covers are stable under pullback along $y\le x$, namely $(x_i\wedge y)_i$ covers $y$, iff $L$ is distributive. In that case they form a subcanonical pretopology. The corresponding assertion is about the internal lattice operations of $L$, not the ambient meet of a containing partition lattice.
-
-**Proof.** Distributivity gives $\bigvee_i(x_i\wedge y)=(\bigvee_i x_i)\wedge y=x\wedge y=y$. Identity covers and composition of covers follow from singleton joins and associativity of joins. Conversely apply pullback stability to the cover $\{a,b\}$ of $a\vee b$ and the object $y=c\wedge(a\vee b)$. It gives
-$$c\wedge(a\vee b)=(a\wedge c)\vee(b\wedge c),$$
-since $a\wedge y=a\wedge c$ and likewise for $b$. This distributive identity characterizes distributive lattices. For subcanonicity, the representable presheaf $\operatorname{Hom}(-,z)$ on a poset is empty or a singleton at each object. Local sections on a cover mean $x_i\le z$ for every $i$, hence $x=\bigvee_i x_i\le z$, which gives the unique amalgamation. ∎
+> **Theorem D.8.** Let $L$ be a finite lattice. Declare a nonempty family $(x_i\le x)_i$ to cover $x$ when $\bigvee_i x_i=x$. These covers are stable under pullback along $y\le x$, namely $(x_i\wedge y)_i$ covers $y$, iff $L$ is distributive. In that case they form a subcanonical pretopology. The corresponding assertion is about the internal lattice operations of $L$, not the ambient meet of a containing partition lattice.
+>
+> *Proof.* Distributivity gives $\bigvee_i(x_i\wedge y)=(\bigvee_i x_i)\wedge y=x\wedge y=y$. Identity covers and composition of covers follow from singleton joins and associativity of joins. Conversely apply pullback stability to the cover $\{a,b\}$ of $a\vee b$ and the object $y=c\wedge(a\vee b)$. It gives
+> $$
+> c\wedge(a\vee b)=(a\wedge c)\vee(b\wedge c),
+> $$
+> since $a\wedge y=a\wedge c$ and likewise for $b$. This distributive identity characterizes distributive lattices. For subcanonicity, the representable presheaf $\operatorname{Hom}(-,z)$ on a poset is empty or a singleton at each object. Local sections on a cover mean $x_i\le z$ for every $i$, hence $x=\bigvee_i x_i\le z$, which gives the unique amalgamation. $\square$
 
 **Counterexample and consequence.** In $\mathrm{Part}(\{1,2,3\})$, put $a=12|3$, $b=13|2$, $c=23|1$. The family $\{a,b\}$ covers $\top$, but its pullback along $c$ is $\{\bot,\bot\}$, which does not cover $c$. Thus the general achievable-partition theory must retain the positive subset site of §35, restrict to a distributive achievable lattice, or specify another topology. It cannot simply rename all join equations a Grothendieck topology. This settles the direct join-cover question in P2; it does not identify arbitrary registration with sheafification.
 
-### D.9. When a witness defect changes the information partition
+### D.9 When a witness defect changes the information partition
 
-**Theorem D.9 (cut criterion).** Let $H=(U,E_H)$ and $J=(U,E_J)$ be finite undirected graphs with $E_J\subseteq E_H$. The component partition of $J$ strictly refines that of $H$ iff there is a nonempty proper subset $A$ of some $H$-component $C$ such that every $H$-edge between $A$ and $C\setminus A$ is absent from $J$. Equivalently, $J[C]$ is disconnected for some $H$-component $C$. When exactly one edge is deleted, strict refinement occurs iff that edge is a bridge of $H$.
+> **Theorem D.9 (cut criterion).** Let $H=(U,E_H)$ and $J=(U,E_J)$ be finite undirected graphs with $E_J\subseteq E_H$. The component partition of $J$ strictly refines that of $H$ iff there is a nonempty proper subset $A$ of some $H$-component $C$ such that every $H$-edge between $A$ and $C\setminus A$ is absent from $J$. Equivalently, $J[C]$ is disconnected for some $H$-component $C$. When exactly one edge is deleted, strict refinement occurs iff that edge is a bridge of $H$.
+>
+> *Proof.* Each $J$-component lies within an $H$-component. If refinement is strict, choose one $J$-component $A$ inside a split $H$-component $C$. No $J$-edge leaves $A$ inside $C$, so every $H$-edge in that cut was deleted. Conversely such a cut prevents a $J$-path between its sides. Because $C$ was $H$-connected, both sides belonged to the same old component; therefore the new partition is strictly finer. A single deleted edge can remove a nonempty cut exactly when it is a bridge. $\square$
 
-**Proof.** Each $J$-component lies within an $H$-component. If refinement is strict, choose one $J$-component $A$ inside a split $H$-component $C$. No $J$-edge leaves $A$ inside $C$, so every $H$-edge in that cut was deleted. Conversely such a cut prevents a $J$-path between its sides. Because $C$ was $H$-connected, both sides belonged to the same old component; therefore the new partition is strictly finer. A single deleted edge can remove a nonempty cut exactly when it is a bridge. ∎
-
-For §37.7 take $H=\bigcap_v\Gamma_{\{v\}}$ and $J=\Gamma_T$. This is an exact necessary-and-sufficient certificate for a nonzero witness **interval**. A nerve certifies the loss of a particular edge; D.9 supplies the missing step from that loss to an interval. Under a full-support prior, some question detects the strict interval by Proposition 53.2; an arbitrary fixed question need not.
+For §37.4 take $H=\bigcap_v\Gamma_{\{v\}}$ and $J=\Gamma_T$. This is an exact necessary-and-sufficient certificate for a nonzero witness **interval**. A nerve certifies the loss of a particular edge; D.9 supplies the missing step from that loss to an interval. Under a full-support prior, some question detects the strict interval by Proposition 53.2; an arbitrary fixed question need not.
 
 **Absorption example.** On six candidates with orbits $\{1,2\},\{3,4\},\{5,6\}$, take $v=(0,0,0,0,0,1)$ and $w=(0,0,0,1,1,0)$. The singleton-graph intersection is a triangle and the joint graph removes only the edge between the first and third orbits. That pair's nerve consists of two isolated vertices and has nonzero reduced $H_0$, but the remaining graph is connected. Its witness interval is zero, exactly as D.9 predicts.
 
-### D.10. Exact propagation on coordinate join trees
+### D.10 Exact propagation on coordinate join trees
 
-**Theorem D.10 (finite constraint propagation).** Let the scene be a genuine finite Cartesian product $D=\prod_{i\in I}D_i$. Let bags $B_j\subseteq I$ cover $I$ and form a tree with the running-intersection property: the bags containing any fixed coordinate form a connected subtree. At bag $j$ let $E_j\subseteq\prod_{i\in B_j}D_i$ be a constraint. For a directed tree edge $j\to k$, let $S_{jk}=B_j\cap B_k$ and define the message
-$$M_{j\to k}=\operatorname{proj}_{S_{jk}}\left(E_j\cap\bigcap_{\ell\sim j,\ell\ne k}\operatorname{cyl}_{B_j}(M_{\ell\to j})\right),$$
-computed from leaves inward on the component left after deleting $jk$. Cylinders here restrict precisely the coordinates in the message's separator. Then
-$$E_r\cap\bigcap_{j\sim r}\operatorname{cyl}_{B_r}(M_{j\to r})$$
-is exactly the projection onto $B_r$ of the global feasible set $\bigcap_j\operatorname{cyl}_{I}(E_j)$. Empty constraints and empty separators are allowed: the latter have one assignment, and a message can be empty or that singleton.
-
-**Proof.** Induct over the component sending a message. The induction invariant is that the message comprises exactly the separator assignments that extend to a feasible assignment of that component's bags. A feasible component assignment gives the displayed projection by restriction. Conversely a bag assignment in the displayed intersection has, by induction, a feasible extension into each neighboring component. Running intersection implies that two such components share coordinates only through the central bag, and that a component shares coordinates with that bag only through its separator. The extensions therefore agree on every overlap and can be united. This proves the invariant and, at the root, the stated projection identity. ∎
+> **Theorem D.10 (finite constraint propagation).** Let the scene be a genuine finite Cartesian product $D=\prod_{i\in I}D_i$. Let bags $B_j\subseteq I$ cover $I$ and form a tree with the running-intersection property: the bags containing any fixed coordinate form a connected subtree. At bag $j$ let $E_j\subseteq\prod_{i\in B_j}D_i$ be a constraint. For a directed tree edge $j\to k$, let $S_{jk}=B_j\cap B_k$ and define the message
+> $$
+> M_{j\to k}=\operatorname{proj}_{S_{jk}}\Big(E_j\cap\bigcap_{\ell\sim j,\ \ell\ne k}\operatorname{cyl}_{B_j}(M_{\ell\to j})\Big),
+> $$
+> computed from leaves inward on the component left after deleting $jk$. Cylinders here restrict precisely the coordinates in the message's separator. Then
+> $$
+> E_r\cap\bigcap_{j\sim r}\operatorname{cyl}_{B_r}(M_{j\to r})
+> $$
+> is exactly the projection onto $B_r$ of the global feasible set $\bigcap_j\operatorname{cyl}_{I}(E_j)$. Empty constraints and empty separators are allowed: the latter have one assignment, and a message can be empty or that singleton.
+>
+> *Proof.* Induct over the component sending a message. The induction invariant is that the message comprises exactly the separator assignments that extend to a feasible assignment of that component's bags. A feasible component assignment gives the displayed projection by restriction. Conversely a bag assignment in the displayed intersection has, by induction, a feasible extension into each neighboring component. Running intersection implies that two such components share coordinates only through the central bag, and that a component shares coordinates with that bag only through its separator. The extensions therefore agree on every overlap and can be united. This proves the invariant and, at the root, the stated projection identity. $\square$
 
 This provides the exact local-computation result relevant to P7 on coordinate domains. It relies on the overlap/extension property supplied by the Cartesian scene and running intersection. Arbitrary partitions of a constrained common scene need not satisfy it; generalized saturation alone does not license this message-passing rule. The result concerns feasible constraints, not graded coupled channels or additive anomaly messages.
 
-### D.11. Finite certificates for polyhedral transfer classes
+### D.11 Finite certificates for polyhedral transfer classes
 
-**Proposition D.11.** Let $\mathcal A=\operatorname{conv}\{Q_1,\ldots,Q_N\}$ be a class of finite experiments on fixed state and output alphabets, and let $\Gamma$ be a fixed finite budget experiment. Then
-$$Q\preceq_B\Gamma\text{ for every }Q\in\mathcal A
-\quad\Longleftrightarrow\quad
-Q_j\preceq_B\Gamma\text{ for every }j.$$
-More generally, $\sup_{Q\in\mathcal A}\delta(\Gamma,Q)=\max_j\delta(\Gamma,Q_j)$.
-
-**Proof.** Necessity follows because each vertex belongs to the class. For sufficiency choose simulators $G_j$ with $Q_j=G_j\Gamma$. If $Q=\sum_j\alpha_jQ_j$, the stochastic matrix $G=\sum_j\alpha_jG_j$ gives $Q=G\Gamma$. For the approximate statement use an optimal simulator for each vertex; convexity of TV gives $\delta(\Gamma,Q)\le\sum_j\alpha_j\delta(\Gamma,Q_j)\le\max_j\delta(\Gamma,Q_j)$. The reverse inequality again uses membership of each vertex. ∎
+> **Proposition D.11.** Let $\mathcal A=\operatorname{conv}\{Q_1,\ldots,Q_N\}$ be a class of finite experiments on fixed state and output alphabets, and let $\Gamma$ be a fixed finite budget experiment. Then
+> $$
+> Q\preceq_B\Gamma\ \text{ for every } Q\in\mathcal A
+> \quad\Longleftrightarrow\quad
+> Q_j\preceq_B\Gamma\ \text{ for every } j.
+> $$
+> More generally, $\sup_{Q\in\mathcal A}\delta(\Gamma,Q)=\max_j\delta(\Gamma,Q_j)$.
+>
+> *Proof.* Necessity follows because each vertex belongs to the class. For sufficiency choose simulators $G_j$ with $Q_j=G_j\Gamma$. If $Q=\sum_j\alpha_jQ_j$, the stochastic matrix $G=\sum_j\alpha_jG_j$ gives $Q=G\Gamma$. For the approximate statement use an optimal simulator for each vertex; convexity of total variation gives $\delta(\Gamma,Q)\le\sum_j\alpha_j\delta(\Gamma,Q_j)\le\max_j\delta(\Gamma,Q_j)$. The reverse inequality again uses membership of each vertex. $\square$
 
 For a single-record finite corruption model at fixed rate, linear normalization, nonnegativity, and prescribed knowledge-cell restrictions define a compact polytope of clutter kernels; the perceived channel is an affine image and hence a polytope. A declared finite policy family can similarly be convexified by candidate-independent randomization. D.11 reduces adequacy of a proposed budget to finitely many simulation LPs and supplies a maximizing attack vertex for the worst deficiency. This is a certificate for a **specified** transfer, not a proof of existence of a least transfer among all experiments. Arbitrary sequential factorizations and independently chosen products need not form this polytope without a separate realization argument.
 
-### D.12. Witness anomalies do not imply marginal contextuality
+### D.12 Witness anomalies do not imply marginal contextuality
 
-**Proposition D.12.** A coherent finite channel family $(P_T)_T$, restricted to any cover of a finite set $T$, has a global distributional amalgamation at each candidate and under every prior. Consequently a nonzero admissibility or witness interval in such a family does not imply nonextendability of its marginal empirical model. Parity with its invariance ceiling supplies a nonzero witness interval in a model admitting a global distribution.
-
-**Proof.** At a candidate $z$, the channel row $P_T(\cdot\mid z)$ is the required global law by coherence. Under a prior $\mu$, the mixture $\sum_z\mu(z)P_T(\cdot\mid z)$ has all the specified mixed marginals because marginalization is linear. In the parity example, sample the two-bit candidate and report its coordinate values; this gives an explicit global law on both measurements, while §37.7 computes a nonzero witness interval under the orbit-invariance ceiling. ∎
+> **Proposition D.12.** A coherent finite channel family $(P_T)_T$, restricted to any cover of a finite set $T$, has a global distributional amalgamation at each candidate and under every prior. Consequently a nonzero admissibility or witness interval in such a family does not imply nonextendability of its marginal empirical model. Parity with its invariance ceiling supplies a nonzero witness interval in a model admitting a global distribution.
+>
+> *Proof.* At a candidate $z$, the channel row $P_T(\cdot\mid z)$ is the required global law by coherence. Under a prior $\mu$, the mixture $\sum_z\mu(z)P_T(\cdot\mid z)$ has all the specified mixed marginals because marginalization is linear. In the parity example, sample the two-bit candidate and report its coordinate values; this gives an explicit global law on both measurements, while §37.4 computes a nonzero witness interval under the orbit-invariance ceiling. $\square$
 
 The presheaf of candidate-pair witnesses uses inclusion restrictions retaining the entire pair. The event presheaf in contextuality uses coordinate restriction of outcome assignments; at the empty context it has one assignment, whereas $W_\varnothing=O\times O'$ generally has several. Even their empty-context objects preclude an unqualified identification. An empty coupling fiber for merely local, mutually compatible channels is a genuine marginal-extension problem (§39); it cannot simultaneously be the restriction of a coherent global family. A richer construction relating selected witness obstructions to contextuality may be useful, but no such equivalence is needed for the finite witness calculus proved here.
 
-### D.13. Exactly when partition extractions commute
+### D.13 Exactly when partition extractions commute
 
-**Theorem D.13 (rectangular intersection criterion).** Let $a,b$ be partitions of a finite nonempty set $D$, with saturation operators $s_a,s_b$. The following are equivalent:
+> **Theorem D.13 (rectangular intersection criterion).** Let $a,b$ be partitions of a finite nonempty set $D$, with saturation operators $s_a,s_b$. The following are equivalent:
+>
+> 1. $s_a s_b=s_b s_a$ on every subset of $D$.
+> 2. $s_a s_b=s_b s_a=s_{a\wedge b}$.
+> 3. Within each block $C$ of the ambient meet $a\wedge b$, every $a$-block contained in $C$ meets every $b$-block contained in $C$.
+>
+> Equivalently, each connected component of the bipartite incidence graph of $a$-blocks and $b$-blocks is complete bipartite. This is a precise additional condition under which the two focusing operations commute.
+>
+> *Proof.* Write $R_a,R_b$ for the equivalence relations of the partitions. Equality of the saturation composites on singleton sets is equality of the corresponding relational composites. If the composites commute, their common value is reflexive and symmetric; it is transitive because
+> $$
+> (R_aR_b)(R_aR_b)=R_aR_aR_bR_b=R_aR_b.
+> $$
+> It contains both relations and is contained in the equivalence relation they generate, so it equals $R_{a\wedge b}$. This proves that (1) implies (2); the reverse is immediate.
+>
+> Assume (2), choose an $a$-block $A$ and a $b$-block $B$ in the same meet block, and choose $x\in B$. The set $s_a s_b(\{x\})$ is the union of the $a$-blocks meeting $B$. By (2) it is the whole meet block containing $x$, so it contains $A$, and $A\cap B\ne\varnothing$. Conversely, (3) implies that starting in any $b$-block, one $b$-saturation followed by an $a$-saturation reaches its whole meet block; the reverse order does likewise. This proves (2) on singletons and hence on all subsets, because saturation preserves unions. Finally, paths in the incidence graph are precisely alternating block-identification chains, whose unions are the meet blocks. Thus (3) is exactly the complete-bipartite condition. $\square$
 
-1. $s_a s_b=s_b s_a$ on every subset of $D$.
-2. $s_a s_b=s_b s_a=s_{a\wedge b}$.
-3. Within each block $C$ of the ambient meet $a\wedge b$, every $a$-block contained in $C$ meets every $b$-block contained in $C$.
-
-Equivalently, each connected component of the bipartite incidence graph of $a$-blocks and $b$-blocks is complete bipartite. This is a precise additional condition under which the two focusing operations commute.
-
-**Proof.** Write $R_a,R_b$ for the equivalence relations of the partitions. Equality of the saturation composites on singleton sets is equality of the corresponding relational composites. If the composites commute, their common value is reflexive and symmetric; it is transitive because
-$$(R_aR_b)(R_aR_b)=R_aR_aR_bR_b=R_aR_b.$$
-It contains both relations and is contained in the equivalence relation they generate, so it equals $R_{a\wedge b}$. This proves (1) implies (2); the reverse is immediate.
-
-Assume (2), choose an $a$-block $A$ and a $b$-block $B$ in the same meet block, and choose $x\in B$. The set $s_a s_b(\{x\})$ is the union of the $a$-blocks meeting $B$. By (2) it is the whole meet block containing $x$, so it contains $A$, and $A\cap B\ne\varnothing$. Conversely, (3) implies that starting in any $b$-block, one $b$-saturation followed by an $a$-saturation reaches its whole meet block; the reverse order does likewise. This proves (2) on singletons and hence on all subsets, because saturation preserves unions. Finally paths in the incidence graph are precisely alternating block-identification chains, whose unions are the meet blocks. Thus (3) is exactly the complete-bipartite condition. ∎
-
-The partitions $12|3$ and $1|23$ fail this condition: they have one meet block but their singleton blocks $\{3\}$ and $\{1\}$ do not meet. Coordinate projections of a Cartesian product satisfy it. The generalized set algebra of §6 does not require this criterion for every label pair; invoking a commuting-extraction or propagation law requires checking the relevant intersection/extension conditions instead of inferring them from join closure.
+The partitions $12|3$ and $1|23$ fail this condition: they have one meet block, but their singleton blocks $\{3\}$ and $\{1\}$ do not meet. Coordinate projections of a Cartesian product satisfy it. The generalized set algebra of §6 does not require this criterion for every label pair; invoking a commuting-extraction or propagation law requires checking the relevant intersection/extension conditions instead of inferring them from join closure.
