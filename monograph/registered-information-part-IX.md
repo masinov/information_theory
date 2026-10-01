@@ -6,9 +6,11 @@
 
 ---
 
-## 67. Decision-theoretic evaluation
+## 67. Overview of Part IX
 
-Deficiency measures the error of simulating one finite experiment from another. A simulator gives an upper bound and a decision problem gives a lower bound. Partition intervals have the exact splitting formula; composition obeys a triangle inequality rather than an additive potential law. An interval with value strictly between zero and one half cannot be equivalent to an exact partition interval. Zero alone carries no such certificate.
+Part IX replaces the Shannon evaluation of Part VII by a decision-theoretic one. The evaluation of an interval $[E,F]$ of experiments is the **Le Cam deficiency** $\delta(E,F)$: the smallest worst-case total-variation error with which $F$ can be simulated from $E$ (§68). It requires no prior or question, detects every nondegenerate interval on its own (Proposition 68.2), and every value is certified by a pair — a simulating channel from above and a decision problem from below (Proposition 68.3).
+
+On exact intervals the deficiency measures the worst-case number of blocks into which a block splits (Proposition 69.1); consequently no exact interval has value strictly between $0$ and $\tfrac12$, so such a value certifies noise (Proposition 69.2). Unlike the Shannon evaluation, deficiency is not additive along chains, already on three points (Theorem 69.3); triangle equality holds exactly when one decision problem is tight on both legs (Theorem 69.4). Section 70 compares the two evaluations and finds that, on binary symmetric classes, the Shannon value is asymptotically the square of the deficiency (Theorem 70.2). Section 71 evaluates the exhibits of Part VIII.
 
 ---
 
@@ -142,8 +144,8 @@ Finally, the chain defect in the field: adjoin to the lever's domain a third con
 
 ---
 
-## 73. Established results and scope
+## 73. Summary of Part IX
 
-The finite LP and decision certificates establish the partition formula, strict triangle example, alignment criterion, and erasure geodesics. Shannon evaluation is additive along a fixed chain; deficiency is not. The square law is a local expansion on the specified binary-symmetric class, not an identity for arbitrary experiments. Appendix B distinguishes exact certificates from numerical validation, including an explicit optimal repeated-BSC certificate.
+Linear-programming duality and explicit certificate pairs establish the partition formula, the half-gap, the strict triangle example, the alignment criterion for triangle equality, and the erasure geodesics (Propositions 69.1–69.2, Theorems 69.3–69.4). Shannon evaluation is additive along a fixed chain; deficiency is only subadditive. The square law is a local expansion on binary symmetric classes, not an identity for arbitrary experiments, and one-sided channels behave differently (Remark 70.3). Appendix B distinguishes exact certificates from numerical checks.
 
 **References added in Part IX:** none. The part is built from Le Cam 1964, Torgersen 1991, and Cover & Thomas 2006 — all cited since Parts III and V — and the manuscript's own results: the fifth part of the last six to add nothing.

@@ -6,9 +6,13 @@
 
 ---
 
-## 34. Three local-to-global problems
+## 34. Overview of Part V
 
-Work with finite view families, or with their finitely achievable content and explicitly stated extensions. The base for witness sheaves is the positive subset site: covering families are nonempty unions. Content gluing is a covariant join equation. Witness sets instead use inclusion restrictions retaining a candidate pair, while distributional data restrict by marginalization. These objects have distinct gluing questions. Orbit graphs compute exact admissibility intervals; their witness edges and component partitions must be distinguished.
+Part V relaxes no assumption. It asks of every layer built so far the question of hook H4: when do contents attached to parts of a view family determine the content of the whole, and when do locally coherent data admit a global description?
+
+Three different problems answer to this description, and the part keeps them apart. **Content gluing** asks whether content over a union equals the join of the contents over its parts — a covariant join equation. The **witness problem** asks whether candidate pairs that are confusable view by view are confusable jointly; it uses inclusion restrictions and has a sheaf property. **Distributional amalgamation** asks whether channels on overlapping view sets that agree on overlaps extend to a joint channel — the classical marginal problem.
+
+Section 35 fixes the base: finite view sets with covers by nonempty unions, and compares it with the cover notion promised in §8 (Theorem 35.5). Section 36 separates the three levels and shows that, at the level of readings, local readings always combine; the anomaly is a failure of the combinations to reach the resolving power of joint readings (Proposition 36.3). Section 37 develops the exact calculus: cover defects, the vanishing theorem (Theorem 37.3), composition and absorption (Lemma 37.4), and, for invariance ceilings, an orbit-graph formula and a split of the anomaly into a reflection and a witness component (Theorems 37.5, 37.7). Section 38 studies witness nerves and their homology, including a threshold hierarchy realizing every dimension (Theorem 38.4) and the limits of nerve certificates (Proposition 38.5). Section 39 identifies Vorob'ev's theorem as the descent criterion at the distribution level (Theorem 39.2). Sections 40–41 study approximate descent and the effect of corruption, and §42 proves recovery.
 
 ---
 
@@ -76,7 +80,7 @@ Two structural remarks organize everything that follows.
 >
 > *Proof.* 1: Soundness: each factor contains $Z$, so the intersection does. The registered partition: equality of all factors implies equality of the intersection, so $\rho(\kappa) \le \bigvee_v \rho(\kappa_v)$; the remaining inequalities are Definition 14.5 and Proposition 14.6. 2: Blocks of a join are intersections of blocks (Fact 3.3), giving the displayed identity, hence $\rho(\kappa) = \sigma^{\mathrm{sep}}_K(T)$ for that combination; domination then sweeps out the down-set. 3: Immediate from 2 and Lemma 14.4. $\square$
 
-Proposition 36.3 fixes the shape of the exact obstruction theory. The failure mode is not the non-existence of a glued object — the cosheaf-chirality glue always exists — but the failure of glued objects to be *cofinal*: joint readings exist that no assembly of local readings dominates. The defect is an interval, and intervals are what §37 computes with. It also settles the division of labor announced in the plan of §34: the reading level is primary, the content level is its faithful shadow (the interval endpoints are exactly the class tops), and the distribution level is the graded fiber over both.
+Proposition 36.3 fixes the shape of the exact obstruction theory. The failure mode is not the non-existence of a glued object — the cosheaf-chirality glue always exists — but the failure of glued objects to be *cofinal*: joint readings exist that no assembly of local readings dominates. The defect is an interval, and intervals are what §37 computes with. It also settles the division of labor among the three levels of §34: the reading level is primary, the content level is its faithful shadow (the interval endpoints are exactly the class tops), and the distribution level is the graded fiber over both.
 
 ---
 
@@ -197,7 +201,7 @@ The decomposition also settles a question of mechanism left open by the mechanis
 
 ## 38. The witness nerve and the linearized track
 
-This section carries out the linearized program promised in §34 and determines exactly what it can and cannot see.
+This section studies witness nerves — the homological record of which view sets retain a joint witness — and determines exactly what they can and cannot certify.
 
 ### 38.1 The witness presheaf is a sheaf
 
@@ -211,11 +215,11 @@ so that $(O,O')$ is an edge of $\Gamma_{T'}$ iff $W_{T'}(O,O') \ne \varnothing$.
 > $$
 > W_{T}(O, O') \;=\; \bigcap_i W_{T_i}(O, O'),
 > $$
-> and since restrictions are inclusions, every matching family is constant and amalgamates uniquely. Consequently the witness anomaly is **not** a failure of compatible local data to glue; it is the emptiness of the global-section set despite nonemptiness of every local one. This all-local-sections, no-global-section pattern has the same possibilistic form as the logical contextuality of [Abramsky & Brandenburger 2011], but the two presheaves differ (see the scope note below and Appendix D.12), and no identification is claimed.
+> and since restrictions are inclusions, every matching family is constant and amalgamates uniquely. Consequently the witness anomaly is **not** a failure of compatible local data to glue; it is the emptiness of the global-section set despite nonemptiness of every local one. This all-local-sections, no-global-section pattern has the same possibilistic form as the logical contextuality of [Abramsky & Brandenburger 2011], but the two presheaves differ (see the cautions below and Appendix D.12), and no identification is claimed.
 >
 > *Proof.* Agreement on $T = \bigcup T_i$ is agreement on every $T_i$; the intersection identity follows. A matching family assigns $w_i \in W_{T_i}$ agreeing under restriction; restrictions being inclusions into common supersets, agreement forces $w_i = w_j$ as pairs, and the common value lies in the intersection. $\square$
 
-**Mathematical scope.** The lemma uses the positive union coverage of §35. If the empty family covers $\varnothing$, a Set-valued sheaf must have a singleton there, whereas $W_\varnothing=O\times O'$ generally does not. Further, this is an intersection-consistency problem with inclusion restrictions retaining the *entire candidate pair*. It is not, without a comparison construction, the Abramsky–Brandenburger event/support presheaf with coordinate restrictions. Nonempty local sets need not form a matching family; their empty total intersection violates no sheaf axiom.
+Two cautions accompany the lemma. First, it uses the positive union coverage of §35: if the empty family were allowed to cover $\varnothing$, a Set-valued sheaf would need a singleton there, whereas $W_\varnothing=O\times O'$ generally has several elements. Second, the witness presheaf restricts by inclusion and retains the entire candidate pair, whereas the event presheaf of Abramsky and Brandenburger restricts outcome assignments to smaller contexts; without a comparison construction the two are not identified. Nonempty local witness sets need not form a matching family, and their empty total intersection violates no sheaf axiom.
 
 ### 38.2 The nerve and its characterizations
 
@@ -376,8 +380,10 @@ The asymmetry worth naming: at the exact levels the glue always *exists* and the
 
 ---
 
-## 43. Established results and scope
+## 43. Summary of Part V
 
-The interval calculus, orbit formula, reflection/witness split, and threshold examples are finite results. Nerves detect missing witness edges; Appendix D.9 gives the additional cut criterion for a nonzero partition interval. Appendix D.8 settles the join-cover site criterion. Marginal nonextendability concerns merely local channel data; a coherent global family already supplies an amalgamation (D.12). The witness presheaf is not automatically the event/support presheaf of contextuality. The universal acyclicity converse in Theorem 39.2 is an explicitly imported result.
+The exact results are finite and complete for monotone structures: every cover defect is a sub-interval of the registration anomaly, all covers glue exactly when the structure is separable, defects compose with possible absorption, and for invariance ceilings the anomaly is computed on orbit graphs and splits into reflection and witness components (Theorems 37.3, 37.5, 37.7). Witness nerves detect missing joint witnesses edge by edge; Appendix D.9 gives the cut criterion that decides when such a loss changes the content partition, and Appendix D.8 decides when join covers form a site.
+
+At the distribution level, acyclic covers are exactly the covers over which every matching family amalgamates (Theorem 39.2; the converse is Vorob'ev's theorem, imported), and fibers of amalgamations carry the underdetermination of coupled content. The witness presheaf is not the event presheaf of contextuality, and a coherent global family always amalgamates (Appendix D.12), so witness anomalies and marginal contextuality are distinct phenomena. Under blind corruption the statistical stratum's descent data are preserved exactly (Theorem 41.2), while marginal blindness alone can create obstructions at any rate (Proposition 41.3).
 
 **References added in Part V:** none. The part is built entirely from sources already cited in Parts I–IV — Abramsky & Brandenburger, Vorob'ev, Le Cam, Torgersen, Shamir, and the manuscript's own results — a fact worth recording, since it certifies that the obstruction theory was latent in the assembled material rather than imported.

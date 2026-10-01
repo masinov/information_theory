@@ -6,9 +6,18 @@
 
 ---
 
-## 10. Admissible exact readings
+## 10. Overview of Part II
 
-The examples specialize the exact kernel to diagnosis, database dependencies, and finite-machine observability. The admissibility layer then separates raw content, joint admissible content, and the content attainable by separate per-view readings. Monotone ceilings guarantee a bracket; separability is the stronger join-preservation property. Adjoint claims use the full subset lattice, with the finite-view convention or the explicit arbitrary-join extension in Corollary 15.4.
+Part II has two halves. Sections 11–13 test the kernel against three settings where the right answer is already known: a small diagnostic problem, functional dependencies in relational databases, and observability of a finite machine. In each case the induced quotient, answerability, and the marginal-value theorem reproduce the established notions.
+
+Sections 14–16 relax standing assumption (A3). Canonical registration — the most informative sound registration, by Lemma 4.7 — is replaced by an **admissibility structure**: for each finite set of views, a ceiling on the distinctions an admissible decoder may draw. This models interpreters that cannot realize the canonical registration, such as decoders constrained by an invariance or by an output budget. Assumptions (A1), (A2), (A4), and (A5) remain in force.
+
+The main results are:
+
+- every ceiling is realized by some sound registration (Lemma 14.4), and monotonicity of the ceilings is exactly the condition that admissible readings stay admissible when more data are supplied (Proposition 14.4′);
+- for monotone structures, admissible content is bracketed between nothing and canonical content (Proposition 14.6);
+- content obtained by reading each view separately keeps the kernel's adjunction and its corollaries (Theorem 15.1), while content obtained by reading the views jointly keeps it exactly when the structure is *separable* (Corollary 15.4);
+- the gap between joint and separate content, the **registration anomaly**, is realized at full strength by an invariance structure on two bits (§16.1), and can be inverted by non-monotone structures (§16.2).
 
 ---
 
@@ -86,9 +95,7 @@ the agreement partition of the union of attributes. By Theorem 6.7(3), the induc
 >
 > *Proof.* Reflexivity: $\pi_X$ pairs $\pi_Y$ with $\pi_{X\setminus Y}$, so $\ker_X=\ker_Y\vee\ker_{X\setminus Y}\ge\ker_Y$. Augmentation and transitivity are monotonicity of $\vee$ and transitivity of $\le$, as displayed. $\square$
 
-**Mathematical scope.** These are sound rules for the fixed view family. Completeness of Armstrong inference over all relational models is a separate classical theorem; the displayed lattice proof does not prove that every dependency true in this particular family is derivable from an arbitrarily chosen dependency basis.
-
-What the lattice view does show is that, in a fixed instance, the agreement partitions $\{\ker_X\}_{X\subseteq\mathcal U}$ form a join-subsemilattice of $\mathrm{Part}(D)$ (since $\ker_{X\cup Z}=\ker_X\vee\ker_Z$) and that the dependencies holding in the instance are exactly its order. The partition view of dependencies is the basis of dependency-discovery algorithms [Huhtala et al. 1999], and its appearance here as a special case is evidence that the kernel's primitives are the right ones: a theory built for heterogeneous views specializes, with no adjustment, to the attribute-incidence case that classical dependency theory and Formal Concept Analysis already treat [Armstrong 1974; Ganter & Wille 1999].
+The rules are sound for the fixed view family. Completeness of Armstrong inference over all relational models is a separate classical theorem [Armstrong 1974], which this lattice proof does not reprove: it does not show that every dependency true in a given instance follows by the rules from an arbitrarily chosen basis. What the lattice view does show is that, in a fixed instance, the agreement partitions $\{\ker_X\}_{X\subseteq\mathcal U}$ form a join-subsemilattice of $\mathrm{Part}(D)$ (since $\ker_{X\cup Z}=\ker_X\vee\ker_Z$) and that the dependencies holding in the instance are exactly its order. The partition view of dependencies is the basis of dependency-discovery algorithms [Huhtala et al. 1999], and its appearance here as a special case is evidence that the kernel's primitives are the right ones: a theory built for heterogeneous views specializes, with no adjustment, to the attribute-incidence case that classical dependency theory and Formal Concept Analysis already treat [Armstrong 1974; Ganter & Wille 1999].
 
 ---
 
@@ -343,9 +350,11 @@ Part V develops positive union covers, orbit graphs, and witness sets. Appendix 
 
 ---
 
-## 17. Established results and scope
+## 17. Summary of Part II
 
-The exact admissibility theory proves realizability, projection coherence, bracketing, and the separability criterion. The anomaly is a failure of local readings to be cofinal among joint readings, not a failure to construct their combination. Its graph and positive-cover analysis is developed in Part V; Appendix D.8 identifies exactly when join covers on achievable partitions form a site.
+The worked examples show that the kernel carries out a diagnostic audit and reproduces functional dependency theory and observability without adjustment. The admissibility layer proves that ceilings are realizable (Lemma 14.4), that monotonicity is coherence across view sets (Proposition 14.4′), that admissible content is bracketed by canonical content (Proposition 14.6), and that the kernel's adjunction survives for separable content and, for joint content, exactly at separable structures (Theorem 15.1, Corollary 15.4). The registration anomaly $\Delta_K$ is the obstruction, and §16 realizes it in both directions.
+
+Two points are deliberately left for later. The anomaly is a failure of combined local readings to reach the resolving power of joint readings; it is not a failure to combine local readings at all, which always succeeds (Proposition 36.3). Its local-to-global analysis is the subject of Part V, which also shows when join covers form a site (Appendix D.8).
 
 **References added in Part II** (see Part I, §References, for those already cited):
 

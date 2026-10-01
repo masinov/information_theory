@@ -55,6 +55,9 @@
 \usepackage{etoolbox}
 \AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.25}\hyphenpenalty=2500\exhyphenpenalty=2500}
 
+% ---- page breaking: ragged bottoms avoid stretched vertical gaps around statements
+\raggedbottom
+
 % ---- line breaking
 \setlength{\emergencystretch}{2.5em}
 \tolerance=800

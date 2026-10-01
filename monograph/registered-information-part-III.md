@@ -6,9 +6,17 @@
 
 ---
 
-## 18. Finite experiments and anchoring signatures
+## 18. Overview of Part III
 
-This part defines the anchoring interface and the finite stochastic theory. A coherent family specifies joint channels, including their couplings; repeated looks use distinct acquisition indices. Zero-error support components, equal-law partitions, and Blackwell experiment classes answer different questions. Conditional independence restores the relevant singleton-generated laws for the first two objects, but supplied joint experiments need not be Blackwell joins. Binary-state finite experiments are a lattice; the general larger-state order is not.
+Part III does two things. Section 19 fixes the *interface* for anchoring: it introduces the types — raw presentations, contexts, attribution spaces, correspondences, selection policies — in which the attribution step will be modelled in Part IV, and adopts the standing assumption (A4′) that every view is soundly and uniquely anchored. It proves no theorems.
+
+Sections 20–24 relax (A2). A view becomes a channel $D \to \Pr(Y)$, and a view family must specify the joint channels of its subsets, since marginal channels do not determine how their noises are coupled. The finiteness assumption (A6) is adopted for the whole stochastic theory. The kernel's single content object $\sigma(S)$ then splits into three:
+
+- **zero-error content** $\sigma^0(S)$, which governs what can be answered with certainty from one observation (Theorem 22.1);
+- **statistical content** $\sigma^{=}(S)$, which governs what can be answered with vanishing error under unlimited repetition (Theorem 22.2);
+- **full content** $\widehat\sigma(S)$, the Blackwell class of the joint channel, which retains every trade-off between error and prior.
+
+Section 22 determines the fate of the kernel theorems at each stratum: the adjunction fails for zero-error content even under conditional independence but survives on its confusability graph, holds for statistical content exactly on conditionally independent families, and has no join to refer to at the full stratum (Propositions 22.3–22.5); the terminal consolidation becomes the minimal sufficient statistic (Theorem 22.6); and the entropic criteria connect the strata to Shannon quantities (Theorem 22.7). Section 23 combines noise with admissibility and finds that independent noisy readings can accumulate past a joint ceiling (Proposition 23.3). Section 24 proves that the deterministic channels recover the kernel exactly (Theorem 24.2) and organizes the results in a common schema.
 
 ---
 
@@ -197,9 +205,7 @@ The mechanism can, however, be located with complete precision, and doing so sho
 >
 > *Proof.* Under CI, $\mathrm{supp}\, P_S(\cdot \mid Z) = \prod_{v \in S} \mathrm{supp}\, v(\cdot \mid Z)$, and products of nonempty sets intersect iff every pair of corresponding factors intersects; so $Z \approx_S Z'$ iff $Z \approx_{\{v\}} Z'$ for every $v \in S$, which is the displayed join law. The adjunction then follows exactly as in Theorem 15.1: any content map given as a join of singleton generators into a complete lattice is a left adjoint. $\square$
 
-**Mathematical scope.** Here “lossless” refers to retaining the confusability relation, not the full experiment. With the reverse-edge order, component formation is a **right** adjoint to inclusion of equivalence relations: $\pi\sqsubseteq R\iff\pi\le\operatorname{comp}(R)$. Its failure to preserve joins is therefore unsurprising. “Reflection” remains the manuscript's descriptive mechanism name, not the orientation of this adjunction.
-
-Proposition 22.3′ diagnoses Proposition 22.3 exactly. The partition $\sigma^{0}(S)$ is the image of $\sigma^{G}(S)$ under the reflection of tolerances onto equivalence relations (transitive closure; connected components), and the superadditivity of $\sigma^{0}$ on CI families is precisely the failure of that reflection to commute with edge-intersection — an order-theoretic fact about a closure operator, not a fact about channels. At the graph level, zero-error content over CI families is strictly compositional; the mechanism of this second anomaly is thus better named **reflection**, with support geometry as its carrier, and off the CI class the joint support is no longer a product, so the law fails through coupling — consistently with the mechanism ladder below. Taking the graph as the primary invariant also aligns the stratum with the zero-error literature, where the confusability graph, not its component partition, carries the theory [Shannon 1956; Lovász 1979].
+Proposition 22.3′ diagnoses Proposition 22.3 exactly. ("Lossless" refers to retaining the confusability relation, not the full experiment.) The partition $\sigma^{0}(S)$ is obtained from $\sigma^{G}(S)$ by passing to connected components, that is, to the transitive closure of the tolerance. In the information order this passage is a right adjoint to the inclusion of equivalence relations into tolerances — $\pi\sqsubseteq R$ iff $\pi\le\operatorname{comp}(R)$ — and right adjoints preserve meets but not, in general, joins. The superadditivity of $\sigma^{0}$ on CI families is precisely this failure: an order-theoretic fact about component formation, not a fact about channels. At the graph level, zero-error content over CI families is strictly compositional. We call the mechanism **reflection** (of tolerances onto partitions); the name is descriptive and does not refer to the orientation of the adjunction. Support geometry is its carrier, and off the CI class the joint support is no longer a product, so the law fails through coupling — consistently with the mechanism ladder below. Taking the graph as the primary invariant also aligns the stratum with the zero-error literature, where the confusability graph, not its component partition, carries the theory [Shannon 1956; Lovász 1979].
 
 The statistical stratum sits strictly between the zero-error stratum and the full one, and its union behavior completes the picture:
 
@@ -407,9 +413,11 @@ Three facts hold at the level of the schema itself.
 
 ---
 
-## 25. Established results and scope
+## 25. Summary of Part III
 
-The finite answerability and sufficiency results establish the three information strata. Accumulation explains why monotone local ceilings alone need not bound joint readings; Appendix D.3 characterizes precisely when independent replication is idempotent. Down-set completion describes alternatives but does not preserve all existing joins or choose a physical coupling. Appendix A gives one finite-state Borel extension and states the additional hypotheses needed elsewhere.
+Noise separates three operational questions — certainty from one look, identifiability under repetition, and decision value — and the three content strata answer them (Theorems 22.1, 22.2, Definition 21.4). The kernel's adjunction survives in different forms at different strata, and its failures are located precisely: in the passage from confusability graphs to partitions, in the coupling of noises, and in the absence of joins in the Blackwell order. Minimal sufficiency replaces the terminal consolidation, and the Shannon bridge of §22.4 makes the exact criteria quantitative.
+
+Accumulation explains why monotone local ceilings need not bound joint readings (Proposition 23.3); Appendix D.3 characterizes exactly when independent replication adds nothing. Non-principal classes can be represented by lower sets, but that representation neither preserves existing joins nor selects a physical coupling (Remark 24.6). The recovery theorem (Theorem 24.2) identifies the kernel as the deterministic part of the graded theory. Appendix A gives one extension beyond finite observation spaces and lists the hypotheses needed for others.
 
 **References added in Part III** (see Parts I–II for those already cited):
 

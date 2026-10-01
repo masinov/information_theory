@@ -6,9 +6,11 @@
 
 ---
 
-## 74. Finite-horizon information and commitment
+## 74. Overview of Part X
 
-Finite trajectories are contrast domains, but a stochastic stream must satisfy joint causal factorization, not merely causal one-coordinate marginals. Online policies obey a horizon-level entropy bound and can improve the achievable cost/value frontier. Causal attacks form a restricted feasible class whose annihilation threshold must be compared with the same unconstrained model. Provenance testing requires a specified retained-record law and information available to the forger; commitment helps only when it enforces a positive coupling gap.
+Part X drops the reduced-form assumption (A7): observations, attributions, and corruptions now unfold over time. Section 75 defines dynamical scenes. Trajectories form the contrast domain, a view at time $t$ may depend only on the trajectory up to $t$, and stochastic streams must factor causally as a whole, not merely coordinate by coordinate. The finite theory of the earlier parts applies to trajectory domains, and content becomes a filtration indexed by time (Proposition 75.4).
+
+Section 76 studies online policies. The Fano bound of Part VIII holds over any horizon, whatever the policy's memory (Theorem 76.1), but memory can lower the error at which a class is purchased: on a two-round example, an adaptive policy obtains the same half bit at half the cost of every memoryless one (Theorem 76.2). Section 77 compares attackers who see only the past with attackers who see the whole trajectory; the former can face a strictly higher annihilation threshold (Theorem 77.1). Section 78 studies provenance: a causal forger can simulate an honest verdict process when the honest policy's conditional law is available to it (Theorem 78.1), whereas committing verdicts before a shared fresh observation is revealed separates honest from forged records, with exponentially small error over many rounds (Theorem 78.3; sharpened in Appendix D.7). Section 80 recovers the static theory at horizon one.
 
 ---
 
@@ -125,8 +127,8 @@ The laboratory examples can be read as three separate model-based design calcula
 
 ---
 
-## 81. Established results and scope
+## 81. Summary of Part X
 
-The finite results include the adaptive-policy exhibit, the single-record causal threshold gap, conditional counterfeit simulation, and committed-bit testing. Appendix D.7 sharpens the latter to an exact minimax risk against adaptive precommitted forgers. Horizon one removes history and future-state restrictions but need not remove a co-registration gap. Infinite horizons, partial-round attacks, and general measurable causal optimization require additional hypotheses.
+The finite results include the horizon-robust Fano bound and the adaptivity example (Theorems 76.1–76.2), the single-record gap between causal and clairvoyant annihilation thresholds (Theorem 77.1), conditional simulation by a causal forger (Theorem 78.1), and the committed-bit test (Theorem 78.3), whose exact minimax risk against adaptive precommitted forgers is $2^{-n-1}$ (Appendix D.7). Horizon one removes history and the restriction to past information, but need not remove the gap created by committing to a shared observation (Theorem 80.1). Infinite horizons, partial-round attacks, and general measurable causal optimization require additional hypotheses (Appendix A).
 
 **References added in Part X:** none. The Bhattacharyya bound is derived elementarily in-proof; everything else is Cover & Thomas, Le Cam, and the manuscript's own results — the sixth part of the last seven to add nothing.

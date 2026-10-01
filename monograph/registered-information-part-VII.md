@@ -6,9 +6,13 @@
 
 ---
 
-## 52. Two quantitative decompositions
+## 52. Overview of Part VII
 
-A fixed question and prior evaluate an ordered exact partition interval by a mutual-information difference. This potential makes exact chains additive. Separately, a coupling fiber gives its minimum mutual information and the excess of the observed coupling above that minimum. These are two well-defined decompositions on different objects; no universal sum of their terms is assumed. Prior averaging changes the feasible coupling fiber, with the precise inequality and lifting criterion of Appendix D.4.
+The exact calculus of Parts V and VI produces intervals of partitions. Part VII asks how much information an interval represents. It introduces two measurements on two different objects and keeps them separate.
+
+The first is an **evaluation of exact intervals** (§53). Fixing a prior $\mu$ and a question $q$, an interval $[a,b]$ of partitions is assigned the difference $I(q;[Z]_b) - I(q;[Z]_a)$. This is nonnegative, additive along chains, and detects every nondegenerate interval when the question is allowed to vary (Proposition 53.2), so every interval identity of the exact calculus becomes an additive identity in bits (Proposition 53.3). Section 54 evaluates the witness and reflection examples of Part V.
+
+The second is the **coupling excess** of a stochastic family (§55): the mutual information of its actual joint channel minus the minimum over all joint channels with the same marginals. Section 55 computes a pure example and shows that the synergy measure of Bertschinger, Rauh, Olbrich, Jost, and Ay is the coupling excess of the family obtained by averaging over the question (Proposition 55.4). Section 56 shows that this averaging can move the same bit from a witness interval to the coupling excess (Theorem 56.2). Section 57 collects the two measurements in one statement, emphasizing that they are separate identities on separate objects (Theorem 57.1, Remark 57.2).
 
 ---
 
@@ -166,9 +170,11 @@ Because the factors are independent and the question is a product, each row can 
 
 ---
 
-## 59. Established results and scope
+## 59. Summary of Part VII
 
-The exact interval identities telescope, and the coupling excess is nonnegative. Parity exhibits different fine/coarse assignments under a specified invariance ceiling. This does not prove a standard PID impossibility theorem. Zero excess means attainment of the fiber minimum, not necessarily a singleton fiber. An additive unified chain for arbitrary graded ceilings remains a separately formulated research problem.
+Exact interval evaluations telescope along chains and give bits to the witness and reflection examples (Proposition 53.3, Theorem 54.1). Coupling excess is nonnegative, vanishes on singleton fibers, and coincides with the BROJA synergy of the question-averaged family (Propositions 55.2, 55.4). Averaging over the question can transfer a bit from a witness interval under an invariance ceiling to coupling excess (Theorem 56.2), so labels attached to the same bit depend on which description is fixed (Corollary 56.3).
+
+What is not established: a single additive decomposition combining interval evaluations and coupling excess for arbitrary graded ceilings, and any impossibility theorem for partial information decomposition beyond the specific statement of Corollary 56.3. Zero coupling excess means that the actual joint attains the fiber minimum, not that the fiber is a singleton.
 
 **References added in Part VII:**
 

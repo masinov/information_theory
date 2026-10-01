@@ -6,9 +6,15 @@
 
 ---
 
-## 26. Records, attribution, and corruption
+## 26. Overview of Part IV
 
-The record includes a presentation, possibly context, and an attribution verdict. Their projections define an information hierarchy; attribution accuracy and information content are different criteria. Whole-record blind contamination gives the stated mixture laws. Partial replacement and candidate-dependent coupling require their own hypotheses. Unique correct attribution does not make context uninformative; presentation/full-evidence equivalence uses sterility.
+Part IV relaxes (A4′): attribution may now be ambiguous, may fail, and may be wrong. Using the interface of §19, a view consists of an emission of presentation and context, a correspondence listing the admissible attributions, and a policy selecting one. The question is what attribution does to information.
+
+Section 27 grades the interface. Mis-anchoring has an irreparable floor set by the correspondence (Lemma 27.4); the floor is attainable by a uniform policy when presentations are of a single tracked target, but not when the candidates are possible identities (Proposition 27.5). The interpreter receives one of several *records* — the full record, the presentation with its verdict, or the presentation alone — and attribution never adds information to the full record (Proposition 27.8).
+
+Section 28 shows that attribution is itself a question, answered by the same theory (Corollary 28.1), and that a verdict can nonetheless carry information about the candidate that the presentation alone lacks, by transmitting the context after the context is discarded (**leakage**, Proposition 28.2).
+
+Section 29 models mis-anchoring as contamination of a feature view by foreign presentations, under the reduced-form assumption (A7). The organizing result is that **mis-anchoring is noise exactly when it is blind**: contamination that does not depend on the candidate is a garbling with a precise effect on each stratum (Theorems 29.3–29.4), while candidate-dependent contamination can make the perceived experiment better, worse, or incomparable (Theorem 29.6). Section 30 compares attribution policies: error-minimizing and information-maximizing policies differ in general (Proposition 30.2) and coincide when context carries no information beyond the presentation (Theorem 30.4). Section 32 proves recovery and introduces the fidelity axis.
 
 ---
 
@@ -251,7 +257,7 @@ The mechanism is §28's leakage wearing a different coat: $a$'s errors are conte
 >
 > *Proof.* For a compatible attribution $A$, define the acceptance rate $s_A(y) = \sum_c \gamma(c \mid y)\, A(t^* \mid y, c)$ — independent of $Z$ by sterility. The accepted record is $\tilde v_A(y \mid Z) = v(y \mid Z)\, s_A(y)$ and $\tilde v_A(\varnothing \mid Z) = 1 - \sum_y v(y \mid Z)\, s_A(y)$. Compatibility gives $A(t^* \mid y, c) \le \mathbb{1}\{t^* \in \eta(y,c)\}$ pointwise, with equality for loyal $\ell$; hence $s_A(y) \le s_\ell(y)$ for all $y$. Define a channel $G$ on $Y \cup \{\varnothing\}$: on $y$ with $s_\ell(y) > 0$, pass $y$ with probability $s_A(y)/s_\ell(y)$ and output $\varnothing$ otherwise; on $y$ with $s_\ell(y) = 0$ (then $s_A(y) = 0$ and $y$ is never emitted by $\tilde v_\ell$), act arbitrarily; on $\varnothing$, output $\varnothing$. Then $(G \circ \tilde v_\ell)(y \mid Z) = v(y \mid Z)\, s_\ell(y) \cdot s_A(y)/s_\ell(y) = \tilde v_A(y \mid Z)$, and the $\varnothing$-masses match by complementation; so $\tilde v_A = G \circ \tilde v_\ell$. $\square$
 
-**Mathematical scope.** Sterility is a sufficient uniform hypothesis, not a necessary condition for extremality in each fixed scenario. Nonsterile context with a forced loyal correspondence is an immediate counterexample to necessity. Proposition 30.2 establishes failure in some nonsterile scenarios only.
+Sterility is a sufficient hypothesis, not a necessary one. When the correspondence leaves no choice, every compatible policy is loyal and extremality holds trivially, whatever the context carries; Proposition 30.2 shows only that extremality fails in some nonsterile scenarios.
 
 The shape is exactly Lemma 4.7's: an extremal element (loyal $\ell$, as canonical $\kappa^{\mathrm{can}}$ there) dominating a class (compatible attributions, as sound registrations there) that is not itself totally ordered — different sub-loyal policies' records are in general Blackwell-incomparable, just as different sound registrations are. And the theorem's boundary is the leak: sterility says the context has nothing to smuggle, whence errors can only *thin* the record; the moment context is informative, the loyalty anomaly is available. In the collapse idiom of §24: the fidelity and informativeness orders coincide on a kernel-like sublocus and come apart off it, with leakage as the responsible mechanism.
 
@@ -315,9 +321,11 @@ Read against §24: the kernel was the maximal-structure fiber of the *algebra*; 
 
 ---
 
-## 33. Established results and scope
+## 33. Summary of Part IV
 
-The part establishes the irreparable attribution floor, record processing order, leakage examples, explicit corruption comparisons, and sterile-context loyalty extremality. Selective acceptance is a separate channel from forgetting verdicts. Jointly blind partial replacement is a garbling but need not destroy zero-error information. Recovery is exactly the record relation and metric convergence stated in Theorem 32.1.
+The part establishes the irreparable attribution floor and its attainability dichotomy (Lemma 27.4, Proposition 27.5), the record hierarchy (Proposition 27.8), leakage (Proposition 28.2), the behaviour of blind and targeted contamination at every stratum (Theorems 29.3, 29.4, 29.6), intrusion coupling (Proposition 29.8), and the comparison of policies (Proposition 30.2, Theorem 30.4, Proposition 30.6).
+
+Three distinctions recur later and should be kept apart. Forgetting verdicts while keeping every presentation is a different channel from accepting presentations selectively (Corollary 28.3, Definition 30.1). Jointly blind partial replacement is a garbling but need not destroy zero-error information (Proposition 29.8). Recovery of the kernel requires sound unique anchoring for the verdicts and, in addition, sterile context for the full record (Theorem 32.1).
 
 **References added in Part IV** (see Parts I–III for those already cited):
 

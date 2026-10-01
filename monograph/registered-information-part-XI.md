@@ -6,19 +6,15 @@
 
 ---
 
-## 82. Purpose: the last hook is the last assumption
+## 82. Overview of Part XI
 
 One hook and one assumption remain, and they are the same promise. Hook H5 — multiple domains and information algebra — was introduced in §8 as the extension that relaxes (A5), the kernel's restriction to a single fixed contrast domain, with the brief: reintroduce the ambient class of targets and a family of related contrast domains, and establish "coherence of registration with extraction, and functoriality of $\sigma$ along maps between contrast domains (restriction, refinement, and coarsening of $D$), extending Theorem 6.2." Proposition 6.11 already supplies the single-domain case: the saturated-set pieces form a **labeled idempotent information algebra** over the achievable-quotient lattice, with combination as intersection, focusing as Pawlak's upper approximation, and the whole structure functorial in the view family. What remains is the multi-domain step, the behaviour of the algebra's laws under the earlier relaxations, and a consolidated statement of the recovery results.
 
-Part XI establishes a finite generated-domain construction, subject to the common-scene hypothesis in Definition 83.4. Appendix A does not extend it automatically to arbitrary measurable domains. General extraction systems and unrestricted domain diagrams remain additional problems.
+The part works with finitely many finite domains related by three kinds of maps — coarsening a domain by a partition, restricting it to a subset, and forming products of domains for distinct targets — and requires that all domains be quotients of one common finite scene (Definition 83.4). Deterministic and stochastic transport must be kept apart throughout: pulling views back along these maps is exact, whereas averaging channels over a question (the operation of Part VII) does not preserve the same identities (Appendix D.4).
 
-Section 83 supplies the deterministic transport calculus. Surjective pullback is an isomorphism onto a principal ideal and preserves nonempty ambient meets; factor products preserve the stated lattice operations; restriction preserves joins and is meet-lax. Prior-averaging channels onto a question is a separate operation, studied by Appendix D.4, and does not inherit all these identities. The resulting labeled saturated sets form the generalized set information algebra of Theorem 83.5; least supports require an additional ambient-meet-closure hypothesis.
+Section 83 develops the transport calculus. Pullback along a coarsening is a lattice isomorphism onto a principal ideal; restriction preserves joins but only laxly preserves meets, because chains of identification may pass through candidates the restriction removes; products preserve both operations (Lemma 83.2). Consequently the content map is functorial along all three kinds of maps (Proposition 83.3), and the labeled saturated sets over the common scene form a generalized set information algebra (Theorem 83.5). Least supporting labels require an additional closure hypothesis.
 
-Section 84 distinguishes the generalized set information algebra from a possible future graded algebra. Independent tensor combination can fail idempotency; Appendix D.3 characterizes exactly when it does. Separability is a cofinality condition for admissible exact readings, not their closure under combination.
-
-Section 85 collects finite recovery results under their separate hypotheses. They do not establish a product of commuting extension axes. Sections 86–89 distinguish the proved finite construction from additional research questions; Appendix D supplies the finite closure results.
-
-**Assumptions and conventions.** Finite nonempty domains and observation spaces remain in force. The common-scene representation requires specified surjections to the member domains. Deterministic pullback, trace, and factor products must be distinguished from prior-averaging of channels. Appendix B distinguishes exact certificates from numerical checks.
+Section 84 records how far the algebra's laws extend: independent combination of noisy experiments is well defined but need not be idempotent (Theorem 84.1; Appendix D.3 characterizes when it is), and separability is a cofinality condition rather than closure under combination (Proposition 84.2). Section 85 collects the recovery results of the whole monograph under their separate hypotheses; it does not assert that the relaxations commute. Section 86 lists the open problems, and §§87–89 close with a worked example, the last recovery theorem, and a statement of what the monograph does and does not establish. Finite nonempty domains and observation spaces remain in force.
 
 ---
 
@@ -34,7 +30,7 @@ Section 85 collects finite recovery results under their separate hypotheses. The
 
 > **Lemma 83.2 (transport calculus; the part's core).**
 >
-> 1. **(Coarsening: a lattice isomorphism onto an ideal.)** The pullback $c_\pi^* : \mathrm{Part}(D/\pi) \to \mathrm{Part}(D)$, $\bar\rho \mapsto \{c_\pi^{-1}(B) : B \in \bar\rho\}$, is an isomorphism of complete lattices onto the principal ideal ${\downarrow}\pi$ — the partitions coarser than $\pi$, i.e. the $\pi$-saturated ones. It preserves arbitrary joins and nonempty meets in the ambient partition lattice (all meets internally in the principal ideal): a transitive-closure chain downstairs lifts, because within-fiber moves are available by reflexivity, so $c_\pi^*(\bar\rho \wedge \bar\rho') = c_\pi^*\bar\rho \wedge c_\pi^*\bar\rho'$. Consequently expressions built from transported kernels, joins, and nonempty meets commute with this pullback. Internal top is $\pi$, so the empty ambient meet is excluded. This is deterministic pullback, not prior averaging of channels.
+> 1. **(Coarsening: a lattice isomorphism onto an ideal.)** The pullback $c_\pi^* : \mathrm{Part}(D/\pi) \to \mathrm{Part}(D)$, $\bar\rho \mapsto \{c_\pi^{-1}(B) : B \in \bar\rho\}$, is an isomorphism of complete lattices onto the principal ideal ${\downarrow}\pi$ — the partitions coarser than $\pi$, i.e. the $\pi$-saturated ones. It preserves arbitrary joins and nonempty meets in the ambient partition lattice (all meets internally in the principal ideal): a transitive-closure chain downstairs lifts, because within-fiber moves are available by reflexivity, so $c_\pi^*(\bar\rho \wedge \bar\rho') = c_\pi^*\bar\rho \wedge c_\pi^*\bar\rho'$. Consequently expressions built from transported kernels, joins, and nonempty meets commute with this pullback. Internal top is $\pi$, so the empty ambient meet is excluded. This is deterministic pullback, not prior averaging of channels: prior-averaging a channel onto a quotient is a different operation and preserves neither products nor determinism (uniform XOR is a counterexample).
 > 2. **(Restriction: exact on joins, lax on meets.)** The trace $\rho \mapsto \rho|_{D'}$ commutes with joins (blockwise intersection with $D'$ commutes with common refinement) but only laxly with meets, with the definite direction
 > $$
 > (\rho \wedge \rho')\big|_{D'} \;\le\; \rho|_{D'} \wedge \rho'|_{D'},
@@ -44,8 +40,6 @@ Section 85 collects finite recovery results under their separate hypotheses. The
 > 3. **(Products: both operations factorize.)** For factor-local data, $(\rho_1 \times \rho_2) \vee (\rho_1' \times \rho_2') = (\rho_1 \vee \rho_1') \times (\rho_2 \vee \rho_2')$ and likewise for $\wedge$: a transitive-closure chain in the product interleaves into per-factor chains, holding the other coordinate fixed by reflexivity, and conversely per-factor chains concatenate. Hence contents *and ceilings* over factor-local views factorize — the lemma used ad hoc in Worked example I, established once.
 >
 > *Proof.* All three as sketched, each direction elementary; 1 and 3 additionally machine-verified on 200 randomized instances each, and 2's counterexample computed. $\square$
-
-**Mathematical scope.** The ideal has top $\pi$, not ambient top $\top_D$; thus the empty meet is not preserved by its inclusion into $\mathrm{Part}(D)$. These transport statements concern deterministic pullback. Prior-averaging a channel onto a quotient is a different operation and does not preserve products or determinism (uniform XOR is a counterexample).
 
 > **Proposition 83.3 (functoriality of $\sigma$; Theorem 6.2 extended; H5's first obligation).** Along the three constructors:
 > $$
@@ -87,7 +81,7 @@ The laws satisfied by combination and focusing form the sixth and last tracked c
 
 ---
 
-## 85. The consolidated collapse theorem
+## 85. The recovery results, consolidated
 
 > **Theorem 85.1 (scope of the recovery results).** The deterministic, fully admissible, correctly anchored presentation-only, static, single-domain specialization recovers the exact quotient theory of Part I. Its partition, answerability, and canonical-combination identities are Theorems 6.2–6.7. Finite stochastic experiments additionally recover the classical Blackwell, sufficiency, and Shannon statements of Part III under their own hypotheses; classical noisy information theory is not confined to a deterministic fiber.
 >

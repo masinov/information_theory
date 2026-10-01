@@ -6,9 +6,15 @@
 
 ---
 
-## 60. Corruption and policy design
+## 60. Overview of Part VIII
 
-This part studies explicit failures of budget transfer, finite annihilation thresholds, and the cost of verdict policies. Independent coordinate replacement and whole-record contamination are distinct models. A least adequate transfer is an order-theoretic supremum question; an incomparable pair does not refute its existence. Appendix D.5 resolves the full unconstrained coupling-fiber case, while D.11 certifies specified budgets for polyhedral attack classes.
+Part VIII returns to corruption, now equipped with the measurements of Part VII. It asks three questions.
+
+Do the robustness results of Part VI survive without their hypotheses? Section 61 shows that accumulation closure can fail under corruption in two ways — anti-correlated erasures that inject nothing, and coupled intrusions that each look harmless — and separates the hypothesis that does the work (independence of the per-view corruptions) from the one that does not (blindness) (Theorem 61.1). Whether a least adequate replacement ceiling exists is an order-theoretic question, open in general (Proposition 61.2).
+
+What happens to the policy-created bit of Theorem 46.3 under attack? Section 62 gives the exact rate at which targeted whole-record contamination annihilates a class and shows that blind contamination never does (Lemma 62.1); it computes the fate of the bit at each stratum (Theorem 62.2), and shows that targeted corruption can forge the bit perfectly on a record produced by an error-free policy (Theorem 62.3).
+
+What does a policy cost? Section 63 separates a policy's value, which depends only on the partition induced by its verdicts, from its error, and bounds value by error through Fano's inequality (Proposition 63.1, Theorem 63.2).
 
 ---
 
@@ -139,8 +145,10 @@ The triple cell of the interaction matrix (§50.2) is now closed in both halves,
 
 ---
 
-## 66. Established results and scope
+## 66. Summary of Part VIII
 
-The finite examples establish closure failures, blind decay, targeted cancellation, and counterfeit under the declared retained-record model. The policy entropy bound includes the baseline gap S0 and uses the realized verdict alphabet. The one-bit/half-error conclusion requires its stated zero-baseline binary case. Restricted transfer classes may need separate existence proofs; no binary antichain is used as a no-join certificate.
+The finite examples establish closure failures under jointly and marginally blind corruption (Theorem 61.1), the targeted annihilation threshold $d/(2+d)$ and blind survival (Lemma 62.1), the stratum-by-stratum fate of the policy bit, including its decay curve under blind noise (Theorem 62.2), and perfect counterfeit under targeted corruption (Theorem 62.3). The policy bound $V \le S_0 + h(E) + E\log_2(m-1)$ includes the baseline gap $S_0$ and uses the alphabet of verdicts actually emitted; the conclusion that one bit costs error one half requires the zero-baseline binary case (Theorem 63.2).
+
+Two limits are stated explicitly. Restricted classes of transfers may need their own existence proofs, and no pair of incomparable experiments is used as evidence that a least transfer fails to exist. Provenance of a class cannot be read from the record; it requires fidelity information external to the record (Corollary 63.4).
 
 **References added in Part VIII:** none. The part is built from Cover & Thomas (Fano's inequality, already cited in §22.4), Bertschinger–Rauh (lattice-freeness, already cited at Definition 23.1), and the manuscript's own results — the fourth part of the last five to add nothing, which is the intended sense in which the theory is by now consuming its own capital.

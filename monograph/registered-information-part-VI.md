@@ -6,9 +6,13 @@
 
 ---
 
-## 44. Records under admissibility
+## 44. Overview of Part VI
 
-Exact presentation, context, and verdict records are ordinary views in an extended family. All-determination coherence is equivalent to monotonicity plus determination stability; nested atomic record closure alone is weaker. Mixed covers obey the existing interval calculus. Sterile record atoms are redundant only relative to retained presentations, so cover comparisons require memberwise N-completeness. In the graded setting we distinguish a fixed decoder, a fixed budget experiment, and an achievable ceiling.
+Part VI studies two relaxations together: admissible registration (Part II) and anchoring (Part IV). The device that makes this possible is simple. In the exact setting, the presentation, the context, and the verdict of an anchored view are themselves views on the contrast domain, so the records of Part IV become compound views of an extended view family, and the whole of Parts II and V applies to them unchanged.
+
+Section 45 develops the exact record calculus: the attribution processing inequality and the anatomy of leaks (Proposition 45.2), and the coherence law, by which admissible readings are preserved along every map between records exactly when the admissibility structure is monotone and insensitive to redundant views (Theorem 45.4). Section 46 applies the interval calculus to covers that mix feature views and record views. No new law appears (Proposition 46.2), but the policy becomes a parameter that creates and destroys cross-layer anomalies (Theorem 46.3), and sterile records reduce to their presentations (Proposition 46.4).
+
+Sections 47–48 add noise. They give sufficient conditions under which corruption leaves admissible content unchanged — fixed decoders under blind contamination (Proposition 47.1), decoders that cannot see the clutter's variation (Theorem 47.3) — show that demanding immunity to all contamination forces a null decoder (Proposition 47.4), and show that budget brackets and loyalty extremality survive under stated hypotheses (Propositions 48.1, 48.2). Section 50 proves recovery and collects the pairwise interactions of the three relaxations in a single matrix.
 
 ---
 
@@ -202,8 +206,10 @@ The exact record-reading result is all-determination closure iff determination m
 
 ---
 
-## 51. Established results and scope
+## 51. Summary of Part VI
 
-The exact part proves record coherence and examples of compounding and absorption. Fixed-decoder statistical invariance and clutter equalization give sufficient corruption-robustness results. Product preprocessing preserves the budget bracket; branchwise admissible mixtures extend this in Appendix D.6. Neither result automatically makes the old budgets achievable from corrupted data. Loyalty extremality is preserved by output-determined admissibility under the sterile-context hypotheses.
+The exact part proves that records are ordinary views of an extended family, characterizes coherence of admissible readings along all record maps (Theorem 45.4), and exhibits compounding and absorption of the registration and loyalty anomalies on one configuration (Theorem 46.3), with the policy as the interpreter's control over cross-layer anomalies.
+
+The graded results are sufficient conditions, not characterizations: fixed-decoder invariance and clutter equalization give robustness under blind or equalized contamination (Proposition 47.1, Theorem 47.3); product preprocessing preserves the budget bracket (Proposition 48.1), with an extension to branchwise-admissible mixtures in Appendix D.6; and loyalty extremality survives admissibility criteria determined by output experiments (Proposition 48.2). None of these makes the honest budgets achievable from corrupted data, and Part VIII shows how they fail without their hypotheses.
 
 **References added in Part VI:** none. Like Part V, the part is built entirely from sources already cited — Huber, the measurement-theoretic literature, Fellegi–Sunter, and the manuscript's own results — which certifies that the interaction theory, too, was latent in the assembled material.
