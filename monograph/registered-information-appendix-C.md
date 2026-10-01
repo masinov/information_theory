@@ -24,7 +24,7 @@ The monograph's named objects, one line each, with the defining location. Terms 
 | coupling; coupling fiber | Rem 21.3, Def 39.1 | the joint behavior marginals do not determine; the space of its possibilities |
 | accumulation | Prop 23.3, Thm 84.1 | independent looks compound — the failure of idempotent combination |
 | presentation / context / verdict; policy | §19, Def 27.6 | the anchored record's three atoms; the selection resolving ambiguous attribution |
-| leak | Prop 28.2, Prop 45.2 | verdict distinctions exceeding the presentation's — content smuggled by attribution |
+| leak | Prop 28.2, Prop 45.2 | verdict distinctions exceeding the presentation's — content carried by attribution |
 | blind / targeted pattern | Def 29.1 | corruption indifferent to the candidate / conditioned on it |
 | loyalty anomaly; sterility | Prop 30.2, Def 30.3 | erring policies can outinform loyal ones; contexts that cannot leak |
 | ◆ fidelity | §32.2 | the record-vs-world axis: provenance, certification, forgery |
@@ -34,7 +34,7 @@ The monograph's named objects, one line each, with the defining location. Terms 
 | address | Part VII | the mechanism-and-side location of an information quantum (witness / reflection / coupling) |
 | ledger | §52 | the data held fixed while alternatives range — fine (candidatewise) vs coarse (question-relative) |
 | evaluation; rung | Def 53.1, Def 68.1, Rem 40.3 | the anomaly measured — in bits ($\nu_{\mu,q}$) or deficiency ($\nu_\delta$); the coefficient level (exact / Shannon / enriched) |
-| lever | Thm 46.3, §63 | the policy, as the one interpreter-set dial into the obstruction classes |
+| lever | Thm 46.3, §63 | the policy, as the one interpreter-set parameter that reaches the obstruction classes |
 | half-gap | Prop 69.2 | nondegenerate exact intervals have value $\ge \tfrac12$; only a strictly positive smaller value certifies grading |
 | adaptivity premium; causal gap; commitment | Thms 76.2, 77.1, Def 78.2 | history's value to the policy; futurity's cost to the adversary; write-ahead as internalized provenance |
 | domain family; vacuous extension | Defs 83.1, 83.4 | related contrast domains under coarsening/restriction/products; pullback of pieces |

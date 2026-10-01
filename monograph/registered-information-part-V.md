@@ -18,7 +18,7 @@ Section 35 fixes the base: finite view sets with covers by nonempty unions, and 
 
 ## 35. The base: covering systems and the comparison theorem
 
-Descent needs a base. Two candidates were promised: Part I (§8, H4) designated the view-refinement preorder $(V, \preceq)$ as "the future base site," with coverings by families that jointly determine a view; Definition 24.5 equipped $\mathcal{F}(V)$, the finite subsets of $V$, with the union coverage. This section shows the two are compatible in a precise and instructive way, and fixes the primary base.
+Descent needs a base. Two candidates are available. The view-refinement preorder $(V, \preceq)$ of P3 suggests covers by families that jointly determine a view (§4.2 records this original intention); Definition 24.5 equipped $\mathcal{F}(V)$, the finite subsets of $V$, with the union coverage. This section shows the two are compatible in a precise and instructive way, and fixes the primary base.
 
 > **Definition 35.1 (covering systems on $\mathcal{F}(V)$).** A **covering system** on $\mathcal{F}(V)$ assigns to each finite $T$ a collection of **covers**: families of subsets of $T$. Two systems are used below:
 >
@@ -113,7 +113,7 @@ Throughout this section $K$ is a monotone admissibility structure and all view s
 >
 > *Proof.* (1)$\Rightarrow$(2) trivially; (2)$\Leftrightarrow$(3) is Proposition 37.2(2) and Definition 15.3. (3)$\Rightarrow$(1): for any cover $\mathcal{U}$, Proposition 37.2 squeezes $\sigma^{\mathrm{sep}}_K(T) \le \bigvee_i \gamma_K(T_i) \le \gamma_K(T)$; degeneracy of the outer interval forces degeneracy of the inner. The global statement collects Corollary 15.4. $\square$
 
-The vanishing theorem is the promised statement "the invariant vanishes iff descent holds," in its exact form: the invariant is the universal defect interval, descent is gluing over the union coverage, and the equivalence is complete — no cover can fail if the singleton cover succeeds, and no cover can carry an obstruction the anomaly does not already contain.
+The vanishing theorem is the exact form of the statement "the invariant vanishes iff descent holds": the invariant is the universal defect interval, descent is gluing over the union coverage, and the equivalence is complete — no cover can fail if the singleton cover succeeds, and no cover can carry an obstruction the anomaly does not already contain.
 
 ### 37.2 Composition and absorption
 
@@ -270,7 +270,7 @@ Two closing connections. First, chirality (Remark 36.1): the witness presheaf is
 
 ## 39. Coupling descent: the marginal problem as a sheaf condition
 
-The distribution level is where descent takes its classical sheaf form, and where a sixty-year-old theorem was waiting to be recognized as the descent criterion.
+The distribution level is where descent takes its classical sheaf form, and Vorob'ev's theorem on consistent families of measures turns out to be the descent criterion.
 
 > **Definition 39.1 (coupling presheaf; fibers).** Under (A6), the **coupling presheaf** on $\mathcal{F}(V)$ assigns to finite $T'$ the set $\mathcal{P}(T')$ of channels $D \to \Pr(\prod_{v \in T'} Y_v)$, with restriction along $T'' \subseteq T'$ given by marginalization. A **matching family** over a cover $\{T_i\}$ of $T$ is a family $p_i \in \mathcal{P}(T_i)$ agreeing under marginalization on all intersections $T_i \cap T_j$; an **amalgamation** is $p \in \mathcal{P}(T)$ restricting to every $p_i$. The **fiber** over a matching family is its set of amalgamations. A coherent graded family (Definition 21.2) is exactly a compatible choice of amalgamations at every level; the coupling fiber of Remark 21.3 is the fiber over the singleton-cover matching family (the marginal system), for every $T$ at once.
 

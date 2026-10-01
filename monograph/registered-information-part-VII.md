@@ -49,7 +49,7 @@ Item 4 deserves a sentence against Part V's linearized track. Per-pair nerve hom
 
 ## 54. The exact addresses, in bits
 
-> **Theorem 54.1 (the cosheaf addresses quantified).** Let $K_G$ be an invariance structure, $\mu$ full-support, $q$ a question.
+> **Theorem 54.1 (the exact addresses quantified).** Let $K_G$ be an invariance structure, $\mu$ full-support, $q$ a question.
 >
 > 1. **(Additive reflection–witness split.)** $\nu(\Delta_{K_G}(T)) = \nu(\Delta^{\mathrm{refl}}(T)) + \nu(\Delta^{\mathrm{wit}}(T))$, with both terms computed from the orbit-graph data of Theorem 37.5 and the evaluation of Definition 53.1.
 > 2. **(Pure witness: one bit.)** On the parity configuration (§16.1; uniform $\mu$; $q = q_G$): $\nu(\Delta^{\mathrm{refl}}) = 0$ and $\nu(\Delta^{\mathrm{wit}}) = I(q_G; [Z]_{P_G}) - I(q_G; [Z]_\bot) = 1 - 0 = 1$ bit — the XOR bit of §23.2, now carrying an address: witness, cosheaf, exact. More generally, on the cyclic hierarchy $C_{k+1}$ (Theorem 38.4; uniform $\mu$): the pure witness quantum is $1$ bit **at every arity**, all-or-nothing — $\nu(\Delta^{\mathrm{wit}}(T)) = H(q_G) = 1$ for the full family and the admissible information of every proper subfamily is $0$.
@@ -160,13 +160,13 @@ Section 23.2's mechanism (1) — prior-marginalization — is not an address; Re
 
 Assemble the three pure generators on one contrast domain: $D = D_1 \times D_2 \times D_3$ with independent uniform prior, where $D_1 = \{00,01,10,11\}$ carries the parity configuration (views $v, w$ reading the $D_1$ coordinates), $D_2 = \{Z, Z'\}$ carries Proposition 22.4(2)'s coupled pair (graded views $s, t$ reading the $D_2$ factor), and $D_3$ carries Worked example E (views $v_3, w_3$ reading the $D_3$ factor). The group $G_1 \times 1 \times G_3$ acts factorwise; its orbit partition is the product $P_{G_1} \times \top \times P_{G_3}$, and since kernels of factor-local views are cylinder partitions and both lattice operations of Fact 3.3 factorize on products of factor-local data, the invariance ceiling computes factorwise. The question is the joint $q = (q_{G_1}, \mathrm{id}_{D_2}, q_{G_3})$; readings are admissible exact readings on the deterministic factors tensored with arbitrary channels on the graded factor. (This product structure is what admissibility means in this example; no general admissibility structure mixing exact and graded views is defined in the monograph.) Under the declared independent factor construction, the displayed Shannon contributions add, and the ledger reads:
 
-| address | carrier | quantum (bits) | invariant | dial |
+| address | carrier | quantum (bits) | invariant | controlled by |
 |---|---|---|---|---|
 | witness (cosheaf, exact) | $D_1$: parity | $1$ | nerve non-fullness ($\partial\Delta^1$; §38) | the cover; or Part VI's policy (Theorem 54.1(4)) |
 | reflection (cosheaf, exact) | $D_3$: Example E | $\log_2 3 - \tfrac23 \approx 0.918$ | components/meet non-commutation (Theorem 37.7) | the ceiling |
 | coupling (sheaf, graded) | $D_2$: the pair | $\tfrac32 - \tfrac34\log_2 3 \approx 0.311$ | fiber non-constancy; excess and width (§55) | the coupling — a point of the fiber |
 
-Because the factors are independent and the question is a product, each row can be switched by its own dial without affecting the others. The three quanta are values of different functionals — two interval evaluations and one fiber excess — so their sum ($\approx 2.230$ bits) is not itself a term of any decomposition proved here (Remark 57.2). Marginalizing the prior onto $q$ transports the first row's bit to the third row's address (Theorem 56.2) — the table is a table *per ledger*, which is the resolution in one picture.
+Because the factors are independent and the question is a product, each row can be switched by its own control without affecting the others. The three quanta are values of different functionals — two interval evaluations and one fiber excess — so their sum ($\approx 2.230$ bits) is not itself a term of any decomposition proved here (Remark 57.2). Marginalizing the prior onto $q$ transports the first row's bit to the third row's address (Theorem 56.2) — the table is a table *per ledger*.
 
 ---
 

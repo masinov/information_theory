@@ -52,7 +52,7 @@ On exact intervals the deficiency measures the worst-case number of blocks into 
 >
 > *Proof.* Upper: the channel sending the $a$-block $B$ to the uniform distribution on its $k_B$ sub-blocks has, at every $Z \in B$, $\mathrm{TV} = 1 - 1/k_B$; mass placed outside $B$'s own sub-blocks is wasted, and uniform is minimax within them. Lower: let $B$ attain the maximum, take the uniform prior on one representative per sub-block of $B$, and the $0$–$1$ loss of guessing the $b$-block: $E_b$ has Bayes risk $0$, while $E_a$'s output is constant across the representatives, forcing risk $(k_B - 1)/k_B$. $\square$
 >
-> Consequently the four canonical quanta of Theorem 54.1 all evaluate to $\tfrac12$: the parity witness interval $[\bot, P_G]$ ($k = 2$), the hierarchy $C_{k+1}$'s interval at **every arity** ($k = 2$: two orbits — the arity-independence of Theorem 54.1(2), starker here), Worked example E's reflection interval $[\bot, \mathrm{lift}(\{O_1O_2 \mid O_3\})]$ ($k = 2$), and the policy lever's class $[\bot, P_G]$. The enriched rung does not distinguish witness from reflection by value; per Part VII's dictum, the evaluation is the measure and the address is the geometry.
+> Consequently the four canonical quanta of Theorem 54.1 all evaluate to $\tfrac12$: the parity witness interval $[\bot, P_G]$ ($k = 2$), the hierarchy $C_{k+1}$'s interval at **every arity** ($k = 2$: two orbits — the arity-independence of Theorem 54.1(2), now in a stronger form), Worked example E's reflection interval $[\bot, \mathrm{lift}(\{O_1O_2 \mid O_3\})]$ ($k = 2$), and the policy lever's class $[\bot, P_G]$. The enriched rung does not distinguish witness from reflection by value; per Part VII's dictum, the evaluation is the measure and the address is the geometry.
 
 > **Proposition 69.2 (the half-gap).** Every nondegenerate exact interval has $\nu_\delta \ge \tfrac12$ (some block splits, so some $k_B \ge 2$), while graded intervals realize every value in $(0, \tfrac12)$ (erasure legs, Theorem 69.4). Hence an enriched evaluation in $(0, \tfrac12)$ **certifies grading**: the exact/graded boundary, qualitative since Part III, is metrically visible as a gap. This is the enriched face of the discontinuity results (Proposition 40.2, Theorem 62.2(1)): exact anomalies cannot decay continuously *because there is nowhere in $(0, \tfrac12)$ for them to go* — they switch, as Remark 40.3 said, rather than drift. $\square$
 
@@ -115,7 +115,7 @@ On exact intervals the deficiency measures the worst-case number of blocks into 
 > $$
 > \nu_\delta(\varepsilon) \;=\; \tfrac12 \max\big(0,\ (1-\varepsilon)\tau - \varepsilon\big),
 > $$
-> linear in $\varepsilon$ with a **hard zero exactly at Lemma 62.1's threshold** $\varepsilon^* = \tau/(1+\tau) = d/(2+d)$ — for the lever, $\tfrac12\max(0, 1 - 2\varepsilon)$, dead at $\tfrac12$.
+> linear in $\varepsilon$ with a **hard zero exactly at Lemma 62.1's threshold** $\varepsilon^* = \tau/(1+\tau) = d/(2+d)$ — for the policy class, $\tfrac12\max(0, 1 - 2\varepsilon)$, which vanishes at $\tfrac12$.
 >
 > Theorem 62.2's trichotomy is thereby a statement about **curve shapes**: a jump (exact), a square law with soft zero at $1$ (blind), a line with hard zero at $d/(2+d)$ (targeted).
 >

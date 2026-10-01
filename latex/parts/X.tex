@@ -32,9 +32,9 @@ A dynamical scene's trajectory domain with its causal views is a contrast domain
 an increasing sequence in \(\mathrm{Part}(D)\) (monotonicity of \(\sigma\)), with the graded and admissible analogues defined the same way. A question is \textbf{answerable at time \(t\)} iff \(\ker(q) \le \sigma_t(S)\) (respectively the stratum-wise and ceiling-wise forms); \textbf{prediction} is answerability at \(t\) of a question measurable only in coordinates beyond \(t\)---\hspace{0pt}a special case, not a new notion. Each increment \([\sigma_t, \sigma_{t+1}]\) is an interval of the exact calculus, so the evaluations of Parts VII and IX apply to the \emph{time} axis as they did to the cover axis: \(\nu_{\mu,q}\) decomposes the stream's information additively over rounds (chain additivity), while \(\nu_\delta\) is subadditive over rounds with the defect calculus of §69---\hspace{0pt}so the quasi-cocycle theorem has a temporal reading as well. \(\square\)
 \end{thmplain}
 
-\begin{thmrem}[\hypertarget{stmt:75.5}{Remark~75.5}\ {\normalfont\upshape(two Part VIII phenomena are dynamical)}]
+\begin{thmrem}[\hypertarget{stmt:75.5}{Remark~75.5}\ {\normalfont\upshape(two earlier phenomena are dynamical)}]
 
-Accumulation (§23.1) is native here: each time step is a fresh look, so (K3̂)'s trade-off is not an exotic corner but the stream's default condition, and \hyperlink{stmt:61.1}{Theorem~61.1}(1)'s scheduling attack is literally temporal---\hspace{0pt}anti-correlated duty cycles across slots---\hspace{0pt}as Worked example J's instruments anticipated. Part X adds no new theorem to either; it observes that their natural habitat has now been built, and that both were provable in reduced form precisely because (A7)'s marginal already carried them (as \hyperlink{stmt:29.2}{Remark~29.2} anticipated).
+Accumulation (§23.1) is native here: each time step is a fresh look, so (K3̂)'s trade-off is not an exotic corner but the stream's default condition, and \hyperlink{stmt:61.1}{Theorem~61.1}(1)'s scheduling attack is literally temporal---\hspace{0pt}anti-correlated duty cycles across slots---\hspace{0pt}as Worked example J's instruments anticipated. Part X adds no new theorem to either; it observes that both phenomena are naturally dynamical, and that both were provable in reduced form because the single-record marginal of (A7) already carried them (as \hyperlink{stmt:29.2}{Remark~29.2} anticipated).
 \end{thmrem}
 
 \secn{76}{76}{Online control}
@@ -73,7 +73,7 @@ with \(o \equiv t^*\). Then, with \(B = \{f_1, v_2\}\):
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{(Memoryless frontier.)} The four memoryless policies \(\tau(e_2)\) realize exactly \((E, V) \in \{(0,0),\, (\tfrac12, \tfrac12),\, (\tfrac12, \tfrac12),\, (1, 0)\}\): the loyal policy buys nothing, either single-cell erring policy buys \(\tfrac12\) bit at cost \(\tfrac12\), and the always-err policy has kernel \(\bot\) again---\hspace{0pt}the \(\bar d\) pathology of \hyperlink{stmt:63.3}{Proposition~63.3}, in a stream.
+  \textbf{(Memoryless frontier.)} The four memoryless policies \(\tau(e_2)\) realize exactly \((E, V) \in \{(0,0),\, (\tfrac12, \tfrac12),\, (\tfrac12, \tfrac12),\, (1, 0)\}\): the loyal policy buys nothing, either single-cell erring policy buys \(\tfrac12\) bit at cost \(\tfrac12\), and the always-err policy has kernel \(\bot\) again---\hspace{0pt}the failure mode of policy \(\bar d\) in \hyperlink{stmt:63.3}{Proposition~63.3}, now in a stream.
 \item
   \textbf{(Adaptive point.)} The policy ``err on \(A\) iff \(k = 1\)''---\hspace{0pt}a function of \((e_1, e_2)\)---\hspace{0pt}achieves \((E, V) = (\tfrac14, \tfrac12)\): \textbf{the same class at half the cost}, strictly dominating the memoryless frontier.
 \item
@@ -172,7 +172,15 @@ The committed audit compares its honest joint law with the forger's allowed laws
 
 \secn{79}{79}{Worked example L: the write-ahead audit log}
 
-The laboratory examples can be read as three separate model-based design calculations. The branch policy of \hyperlink{stmt:76.2}{Theorem~76.2} obtains half a bit at half the deterministic memoryless error cost. The single-record model of \hyperlink{stmt:77.1}{Theorem~77.1} at \(\beta=3/4\) has causal threshold \(1/2\) versus clairvoyant threshold \(1/3\). For a fresh independent fair checksum bit, an honest matching verdict, and an all-round precommitted forger, Appendix D.7 gives equal-prior minimax audit error \(2^{-21}\) after twenty rounds. A real archive would need to establish those fresh-noise and attack assumptions before using that number; the bound is not a posterior probability of forgery for an arbitrary log.
+The laboratory of §§49 and 64 keeps a log of its linkage verdicts and wants the log itself to certify that the verdicts were produced by its declared policy, not written afterwards by someone who saw the outcome.
+
+\textbf{Setup.} In each round \(t\) the instrument draws a fresh checksum bit \(y_t\), uniform and independent of everything before it. The declared policy records the verdict \(a_t = y_t\), and the instrument later reveals \(y_t\) as a retained feature. The round record is the co-registered pair \((y_t, a_t)\) of \hyperlink{stmt:78.2}{Definition~78.2}; under honest operation it is the diagonal law, uniform on \(\{(0,0),(1,1)\}\).
+
+\textbf{Without commitment.} If a forger may write the verdict after seeing \(y_t\), it simply copies \(y_t\), and the forged log has exactly the honest law (Theorem 78.3(1)). No audit of the log can distinguish the two.
+
+\textbf{With commitment.} Under a write-ahead discipline the verdict is fixed before \(y_t\) is revealed to anything that could rewrite it. Whatever the forger writes is then independent of \(y_t\) given the past, so each forged round has a product law \(\mathrm{unif}\otimes\nu\), at total-variation distance exactly \(\tfrac12\) from the diagonal for every \(\nu\) (Theorem 78.3(2)). An auditor who accepts the log if and only if every verdict matches its revealed bit never rejects an honest log, and accepts a forged one with probability at most \(2^{-n}\) over \(n\) rounds, even against adaptive forgers; with equal prior odds the minimax error is exactly \(2^{-n-1}\) (Appendix D.7). For a twenty-round log this is \(2^{-21}\approx 4.8\times10^{-7}\), compared with the Bhattacharyya bound \(2^{-11}\) of \hyperlink{stmt:78.3}{Theorem~78.3}(3).
+
+\textbf{Scope.} The number is a property of the model, not of an arbitrary archive. It requires that the checksum bits be fresh, unbiased, and unknown to the forger before commitment, that the forger replace whole rounds rather than parts of them, and that honest verdicts be noiseless (Remark 78.4). The same laboratory's other calculations in this part are of the same kind: the adaptive linkage policy of \hyperlink{stmt:76.2}{Theorem~76.2} obtains half a bit at half the error of every memoryless policy, and an attacker restricted to the past faces annihilation threshold \(\tfrac12\) where a clairvoyant one needs only \(\tfrac13\) (Theorem 77.1(3) at \(\beta=\tfrac34\)).
 
 \secn{80}{80}{Recovery: the static fiber}
 

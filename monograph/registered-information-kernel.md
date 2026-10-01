@@ -8,7 +8,7 @@
 
 ## 0. Purpose and scope
 
-These notes develop, constructively and progressively, a theory of how raw presentations of things become information about those things, relative to questions. The long-term aim is a framework rich enough to (i) supply the layer that classical information theory and information algebra both presuppose — the passage from raw material to constituted information pieces — and (ii) support practical analyses such as dataset sufficiency auditing, missing-information analysis, model interpretability, and principled criteria for when a system overclaims relative to its inputs.
+This monograph develops, constructively and progressively, a theory of how raw presentations of things become information about those things, relative to questions. The long-term aim is a framework rich enough to (i) supply the layer that classical information theory and information algebra both presuppose — the passage from raw material to constituted information pieces — and (ii) support practical analyses such as dataset sufficiency auditing, missing-information analysis, model interpretability, and principled criteria for when a system overclaims relative to its inputs.
 
 This first part builds only the **deterministic kernel**: the smallest closed mathematical system in which the theory's central object — the quotient of a contrast domain induced by a family of views — can be defined, and in which its basic structural theorems can be stated and proved exactly. Everything that makes the intended theory distinctive but difficult (anchoring, admissible registration, noise, sheaf-theoretic gluing) is deliberately excluded from the kernel, but each exclusion is recorded as a named standing assumption with an explicit attachment point for later relaxation (§8). The discipline throughout is: the kernel must be provable and closed before any extension is attempted, so that extensions become controlled relaxations of named assumptions rather than renegotiations of the framework.
 
@@ -68,7 +68,7 @@ The kernel is not built in a vacuum. This section states, briefly and with sourc
 
 **Information algebra.** [Kohlas 2003; Kohlas 2017; Shenoy & Shafer 1990] axiomatize information pieces $\phi \in \Phi$ with combination $\phi_1 \cdot \phi_2$, extraction (focusing) onto questions, and an information order $\phi \le \psi$. This is the closest formal neighbor and the intended downstream algebra. It begins, however, at $\phi \in \Phi$: the pieces exist. The present theory targets the interface *before* that point. In the kernel, the algebra is instantiated in its simplest canonical form (the subset algebra, §3.4), which is sufficient for all kernel results; the general algebra re-enters as a deferred extension (§8, H5).
 
-**Sheaf-theoretic accounts of local data.** Sheaf theory formalizes local data on overlapping contexts and the conditions under which local data glue to a global description; failures of gluing have been used to characterize contextuality [Abramsky & Brandenburger 2011] and to fuse heterogeneous sensor data [Robinson 2017]. The kernel's view-refinement preorder (§4, P3) is designed to serve as the future base site for such semantics, and the kernel's coherence law (Proposition 6.3) is the exact-case shadow of the gluing axiom. This is the deferred extension H4 (§8), carried out in Part V.
+**Sheaf-theoretic accounts of local data.** Sheaf theory formalizes local data on overlapping contexts and the conditions under which local data glue to a global description; failures of gluing have been used to characterize contextuality [Abramsky & Brandenburger 2011] and to fuse heterogeneous sensor data [Robinson 2017]. The kernel's coherence law (Proposition 6.3) is the exact, deterministic form of a gluing condition. Local-to-global questions of this kind are hook H4 (§8), taken up in Part V.
 
 **The gap targeted.** None of the above provides a general, formal account of the passage
 $$
@@ -146,7 +146,7 @@ The kernel operates under five standing assumptions. They are not claims about t
 - **(A2) Determinism.** Views are functions: a target yields exactly one presentation per view; there is no noise. *(Relaxed in Part III.)*
 - **(A3) Canonical registration.** Registration is the canonical one (Definition 4.6); the general theory of admissible registration classes is deferred. *(Relaxed in Part II.)*
 - **(A4) Anchoring suppressed.** Each view arrives *pre-anchored*: it is given as a function on $D$, so the assignment of aboutness has already succeeded. The theory of anchoring — including ambiguity and failure — is deferred. *(Interface in Part III, §19; relaxed in Part IV.)*
-- **(A5) Single fixed domain.** One contrast domain $D$ is fixed throughout; the interaction of multiple domains (and, with it, nontrivial extraction) is deferred. *(Relaxed in Part XI.)*
+- **(A5) Single fixed domain.** One contrast domain $D$ is fixed throughout; the interaction of multiple domains, and extraction across them, is deferred. *(Relaxed in Part XI.)*
 
 ### 4.2 Primitives
 
@@ -176,7 +176,7 @@ The preorder is recorded as a primitive because later layers use it directly. Th
 
 > **Definition 4.5.** The kernel's information algebra over $D$ is the subset algebra $\Phi_D = (\mathcal{P}(D), \cap, \le)$ of Definition 3.5.
 
-The choice is a deliberate stub: the subset algebra is the minimal genuine information algebra, it is universal for the exact case (any exact information about "which candidate?" is a set of surviving candidates), and it keeps the kernel closed — no external algebra to negotiate with. General $\Phi$ re-enters at §8, H5.
+The choice is deliberately minimal: the subset algebra is the smallest genuine information algebra, it is universal for the exact case (any exact information about "which candidate?" is a set of surviving candidates), and it keeps the kernel closed — no external algebra to negotiate with. General $\Phi$ re-enters at §8, H5.
 
 **P5. Registration.**
 
@@ -205,7 +205,7 @@ The choice is a deliberate stub: the subset algebra is the minimal genuine infor
 
 A bookkeeping caution, worth internalizing here because it recurs throughout: the set inclusion and the information order run in opposite directions — larger subsets of $D$ exclude less and are therefore *weaker* as information (Definition 3.5).
 
-By (A3), the kernel henceforth fixes $\kappa_v = \kappa^{\mathrm{can}}_v$ for all views and drops the superscript. Lemma 4.7 is what will later give the admissibility class $K$ a birthplace: general admissible registrations will be carved out of the sound ones, with the canonical registration as the extremal case (§8, H2).
+By (A3), the kernel henceforth fixes $\kappa_v = \kappa^{\mathrm{can}}_v$ for all views and drops the superscript. Lemma 4.7 is the starting point of the admissibility theory: admissible registrations are carved out of the sound ones, with the canonical registration as the extremal case (§8, H2; Part II).
 
 **P6. Questions.**
 
@@ -356,7 +356,7 @@ The final kernel theorem upgrades the induced quotient from a construction to an
 >
 > *Proof.* 1: $\ker(v) \le \sigma(S) = \ker(\pi_S)$ for each $v \in S$, so Fact 3.2 gives the factorization. 2: If $e$ is an $S$-consolidation, then for each $v \in S$ the factorization $v = f_v \circ e$ gives $e(Z) = e(Z') \Rightarrow v(Z) = v(Z')$, i.e. $\ker(v) \le \ker(e)$. As this holds for all $v \in S$, $\sigma(S) = \bigvee_{v \in S} \ker(v) \le \ker(e)$. By Fact 3.2 (with $f = e$, $g = \pi_S$) there is $u : Q_e \to D/\sigma(S)$, unique since $e$ is surjective, with $\pi_S = u \circ e$; $u$ is surjective because $\pi_S$ is. 3: Image factorization (Fact 3.1) of the pairing $\langle v \rangle_{v \in S}$, whose kernel is $\sigma(S)$ by (3.1). $\square$
 
-Theorem 6.7 is the result that makes "answerability as factorization" contentful rather than definitional: the induced quotient is not merely *a* structure through which answerable questions factor; it is *the* universal such structure — the free lossless summary of the data over the contrast domain. It is also the precise point at which the sheaf-theoretic extension will attach a second universal construction (sheafification as registration-plus-consolidation; §8, H4).
+Theorem 6.7 is the result that makes "answerability as factorization" contentful rather than definitional: the induced quotient is not merely *a* structure through which answerable questions factor; it is *the* universal such structure — the free lossless summary of the data over the contrast domain. Whether this universal property is an instance of sheafification over a suitable site is an open question (§86, P3).
 
 ### 6.5 Corollaries: the kernel's operational content
 
@@ -391,9 +391,9 @@ One further result belongs here, because it converts the positioning claim of §
 
 ## 7. What the kernel does and does not establish
 
-It is worth being precise about the epistemic status of §6. The individual proofs are short, and several facts (notably Proposition 5.6) are elementary once the definitions are in place; the kernel's contribution is not their difficulty but their *arrangement*: a fixed, closed base of primitives (P1–P6), a derived layer provably adequate to the operational notions (sufficiency, missing information, marginal value, entailment), and two structural results — the adjunction (Theorem 6.2) and the universal property (Theorem 6.7) — that characterize the central object rather than merely constructing it. These are the load-bearing walls on which every planned extension rests, and the discipline that nothing in §§4–6 refers to anything deferred is what will keep the extensions modular.
+It is worth being precise about the epistemic status of §6. The individual proofs are short, and several facts (notably Proposition 5.6) are elementary once the definitions are in place; the kernel's contribution is not their difficulty but their *arrangement*: a fixed, closed base of primitives (P1–P6), a derived layer provably adequate to the operational notions (sufficiency, missing information, marginal value, entailment), and two structural results — the adjunction (Theorem 6.2) and the universal property (Theorem 6.7) — that characterize the central object rather than merely constructing it. Every later extension rests on these results, and the discipline that nothing in §§4–6 refers to anything deferred is what keeps the extensions modular.
 
-It is also worth pre-empting a deflationary reading. The kernel's ingredients are classical — kernels of maps, partition lattices, factorization, Galois connections — and none is claimed as new; in the special case of a single object–attribute table the induced quotient is Pawlak's indiscernibility partition (§2). The novelty claimed is architectural: the role this quotient is assigned. It is simultaneously the registration target of raw presentations, the audit object for datasets, the base object that the admissibility layer bounds, the designated zero-noise fiber of the graded theory, and the attachment interface for anchoring, extraction, and gluing. The contribution is the load-bearing arrangement; the anomaly and stratification results of the later parts are its returns.
+It is also worth pre-empting a deflationary reading. The kernel's ingredients are classical — kernels of maps, partition lattices, factorization, Galois connections — and none is claimed as new; in the special case of a single object–attribute table the induced quotient is Pawlak's indiscernibility partition (§2). The novelty claimed is architectural: the role this quotient is assigned. It is simultaneously the registration target of raw presentations, the audit object for datasets, the base object that the admissibility layer bounds, the designated zero-noise fiber of the graded theory, and the attachment interface for anchoring, extraction, and gluing. The contribution is this arrangement; the anomaly and stratification results of the later parts are what it makes possible.
 
 What the kernel does **not** contain, by design:
 

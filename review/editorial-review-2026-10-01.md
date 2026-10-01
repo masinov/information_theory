@@ -5,15 +5,18 @@ Scope: Parts I–XI and Appendices A–D of `monograph/`, read end to end. The r
 dangling cross-references; (3) theoretical gaps and leaps; (4) prose and register; (5) formatting.
 Locations are section/statement numbers of the Markdown sources. Each item gives a suggested repair.
 
-**Progress (first revision pass).** Done: §1.3 (new Part I §8 "How the theory grows from the kernel", with the assumption
-ledger and the kernel-theorem template; §4.1 and §3.4 updated); §1.4 contextuality wording (Lemma 38.1, §38.4,
-Remark 42.2) and the tracked-coordinate count (Remark 24.6 now defines representability; §84 names the algebra
-coordinate); §2 items 1–15 and 17–24 (Remark 24.6 and its nine dependents; §40's measure now stated as a deliberately
-weak proxy); §5 items 1–4 and 6 (statements in blockquotes throughout, Appendices A and D in proper math, broken `$`
-spans, list/heading spacing via `latex/tools/normalize_md.py`, numbered §24 subsections). Second pass: §4.1, §4.2 and §4.3 done (new overview and summary sections for Parts II–XI; the six
-"Mathematical scope" paragraphs folded into remarks and surrounding text); §2 item 16 resolved by defining
-"reflection" once as a descriptive name (§22.2). Open: §1.4 P3 justification and categorical vocabulary; §2 items 25,
-26; all of §3 except §40; §4.4–4.7 (vocabulary, process language, forward pointers, notation table); §5 items 5, 7.
+**Resolution (2026-10-01).** All items of §§1–5 have been addressed in three revision passes (commits `bd81c37`,
+`027421f`, `a04d269` and the final pass), with these deliberate exceptions:
+
+- *Statement numbering* (§5 item 5): primed and lettered numbers (Proposition 14.4′, 22.3′, Remark 30.4′,
+  Proposition D.2a, Lemma D.4a) and Definition 22.0 are kept, to preserve every existing cross-reference; they are
+  typeset and hyperlinked correctly.
+- *Overloaded notation* (§4 item 7): symbols are disambiguated by a notation guide in Appendix C rather than renamed
+  throughout; the one same-part collision (view sets vs. the standard record in Part IV) was removed by renaming.
+- *"Reflection"* (§2 item 16): kept as a descriptive mechanism name, defined once in §22.2 with the correct
+  orientation of the adjunction.
+- *Categorical vocabulary* (§1.4): "sheaf/cosheaf chirality" is declared descriptive (Remark 36.1); "ledger functor"
+  became "ledger map".
 
 Severity tags: **[A]** affects correctness or the reader's ability to follow the theory; **[B]** visible inconsistency or
 missing detail; **[C]** style/formatting.

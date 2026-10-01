@@ -126,7 +126,7 @@ The three states become pairwise distinguishable at horizon $1$: the machine is 
 
 **Reading the kernel notions in automata terms.** The induced quotient $\sigma(S_H)$ is exactly the partition that identifies states not separable within horizon $H$; its stabilization $\sigma(S_\infty)$ is the Nerode/observability partition, and the machine is minimal/observable iff $\sigma(S_\infty)=\top$. Unresolved pairs (Definition 5.5) for the identity question are precisely the *indistinguishable state pairs*; Theorem 6.5 says a longer horizon helps exactly when a newly observed output separates some still-merged pair — the partition-refinement step of state-minimization algorithms [Hopcroft & Ullman 1979]. The observability special case of the kernel thus coincides with the classical construction, and control-theoretic observability [Kalman 1963] is its dynamical-state instance.
 
-Taken together, Examples A–C show the kernel is neither vacuous nor ad hoc: two of the three instances recover established theories on the nose, and the third yields the operationally correct diagnosis-and-remedy. With the kernel thus anchored, the remainder of Part II relaxes canonical registration.
+Taken together, Examples A–C show the kernel is neither vacuous nor ad hoc: two of the three instances recover established theories exactly, and the third yields the operationally correct diagnosis-and-remedy. With the kernel thus anchored, the remainder of Part II relaxes canonical registration.
 
 ---
 

@@ -38,7 +38,7 @@ The scene of Theorem 76.2 ($D = \{1,2\} \times \{0,1\}^2$ uniform; $q = b_1 \opl
 | $(t^*, t^*)$ | $0$ | $0$ | $\ker \tau = \bot$; $\gamma(B) = \ker(k)$, $I(q; \cdot) = 0$ |
 | $(d, t^*)$ (err on $A$) | $\tfrac12$ | $\tfrac12$ | branch $1$: $\sigma$ full, meet with $P_G$ = the two orbits ($+\tfrac12$); branch $2$: $A$-cell $\subseteq \ker v_2$, no new distinction ($+0$) |
 | $(t^*, d)$ (err on $B$) | $\tfrac12$ | $\tfrac12$ | symmetric (complement cells) |
-| $(d, d)$ | $1$ | $0$ | $\ker \tau = \bot$ again — Proposition 63.3's $\bar d$ pathology |
+| $(d, d)$ | $1$ | $0$ | $\ker \tau = \bot$ again — the failure mode of policy $\bar d$ in Proposition 63.3 |
 
 The adaptive policy "err on $A$ iff $k = 1$" has $E = \tfrac14$, $V = \tfrac12$ (Theorem 76.2's proof), strictly dominating. All five $(E, V)$ policy pairs were additionally re-derived by machine over the eight-candidate partition lattice (join = common refinement; meet = transitive closure of the union, computed by union–find).
 
