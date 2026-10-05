@@ -1,0 +1,625 @@
+% A Minimal Epistemic Core -- LuaLaTeX.  Build: sh build.sh  (or: lualatex epistemic_core.tex, twice)
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+
+% ---- page and type ------------------------------------------------------------
+\usepackage[textwidth=29pc,textheight=46\baselineskip,top=1.15in,headsep=2.2\baselineskip,
+            footskip=3\baselineskip,heightrounded]{geometry}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmainfont{Libertinus Serif}[Numbers=OldStyle]
+\setsansfont{Libertinus Sans}
+\setmathfont{Libertinus Math}
+\usepackage[babel=true]{microtype}
+\usepackage[english]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{booktabs,tabularx,array}
+\usepackage{flafter} % floats never precede their place in the text
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+% Figure conventions: terms are marks (positions), never areas; F and R are column headings (roles),
+% never enclosures; one arrow style is reserved for receptive dependence; grey marks what belongs
+% only to the theorist's description.
+\colorlet{desc}{black!45}
+\tikzset{
+  term/.style  = {circle, fill, inner sep=0pt, minimum size=3.4pt},
+  rel/.style   = {line width=.5pt},
+  corr/.style  = {densely dotted, line width=.6pt, desc},
+  dep/.style   = {-{Stealth[length=2.6mm,width=2mm]}, line width=.8pt},
+  side/.style  = {font=\scriptsize\scshape, text=desc},
+  note/.style  = {font=\footnotesize, text=desc, align=center},
+  panel/.style = {font=\footnotesize},
+}
+\usepackage[backend=biber,style=authoryear,maxcitenames=2,giveninits=true,uniquename=false,
+            doi=false,url=false,isbn=false,dashed=false]{biblatex}
+\addbibresource{refs.bib}
+\renewcommand*{\bibfont}{\small}
+\setlength{\bibhang}{1.4em}
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\usepackage{scrlayer-scrpage}
+\deffootnote[1.4em]{1.4em}{1em}{\makebox[1.4em][l]{\thefootnotemark.}}
+\setlength{\footnotesep}{.7\baselineskip}
+\setkomafont{footnote}{\small}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\scshape}
+\setcapindent{0pt}
+\renewcommand*{\captionformat}{.\enskip}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+\linespread{1.06}
+\setlength{\parindent}{1.4em}
+\widowpenalty=4000 \clubpenalty=4000 \interfootnotelinepenalty=0
+\setlength{\emergencystretch}{1.5em}
+
+% ---- running heads --------------------------------------------------------------
+\newcommand{\shorttitle}{A Minimal Epistemic Core}
+\newcommand{\theauthor}{Mario Asis}
+\clearpairofpagestyles
+\ohead{\textsc{\MakeLowercase{\shorttitle}}}
+\ihead{\textsc{\MakeLowercase{\theauthor}}}
+\cfoot*{\pagemark}
+\setkomafont{pageheadfoot}{\normalfont\footnotesize}
+\setkomafont{pagenumber}{\normalfont\small}
+\pagestyle{scrheadings}
+
+% ---- headings ---------------------------------------------------------------------
+\setkomafont{disposition}{\normalfont}
+\setkomafont{section}{\normalfont\large\scshape}
+\RedeclareSectionCommand[beforeskip=-2.2\baselineskip plus -.4\baselineskip, % negative: no indent after heading
+                         afterskip=.9\baselineskip]{section}
+\renewcommand*{\sectionformat}{\thesection.\enskip}
+
+% ---- displayed commitments and definitions -------------------------------------
+% Indented block with a small-capitals label; the statement itself is set in italics.
+\makeatletter
+% Optional argument: the tag by which the text refers back to the statement, e.g. (D).
+\newenvironment{thesis}[2][]
+  {\@beginparpenalty=\@M % keep the announcing sentence with the statement
+   \begin{list}{}{\setlength{\leftmargin}{2.2em}\setlength{\rightmargin}{2.2em}
+                  \setlength{\topsep}{.9\baselineskip plus .2\baselineskip}}%
+   \item\relax{\upshape\if\relax\detokenize{#1}\relax\else(#1)\enspace\fi\scshape\MakeLowercase{#2}}\par\nopagebreak\vspace{.2\baselineskip}\itshape\ignorespaces}
+  {\end{list}}
+\makeatother
+
+% ---- notation ----------------------------------------------------------------------
+\newcommand{\F}{\ensuremath{F}}
+\newcommand{\R}{\ensuremath{R}}
+\newcommand{\C}{\ensuremath{C}}
+
+\hypersetup{pdftitle={A Minimal Epistemic Core},pdfauthor={Mario Asis},
+            pdfsubject={Necessary conditions of any epistemic relation: differentiation, receptive dependence, and registration}}
+
+% ===================================================================================
+\begin{document}
+
+\thispagestyle{plain.scrheadings}
+\begin{center}
+  \vspace*{.2\baselineskip}
+  {\LARGE A Minimal Epistemic Core\par}
+  \vspace{.7\baselineskip}
+  {\large\itshape Differentiation, Receptive Dependence, and Registration\par}
+  \vspace{1.6\baselineskip}
+  {\scshape \MakeLowercase{Mario Asis}\par}
+  \vspace{1.8\baselineskip}
+\end{center}
+
+\begin{center}
+\begin{minipage}{24pc}
+  \small
+  \noindent{\scshape abstract.}\enspace
+  This paper proposes a minimal core of necessary conditions for any epistemic relation: conditions
+  without which nothing could be perceived, registered, or claimed about anything, whatever the
+  domain in which the relation is realized. The core consists of three commitments, none of which can
+  be derived from the others: that the field under consideration admits differentiation; that there
+  is a second relatum admitting differentiation of its own; and that a relation of receptive
+  dependence matches a contrast realized in the field with a contrast in the second relatum, the
+  latter obtaining partly in virtue of the former. Contrasts are throughout between actual terms,
+  never between alternatives, so that the core requires no repertoire of possibilities on either
+  side. On this basis, registration is defined in a strictly structural sense that presupposes
+  neither understanding, nor representation, nor order. The commitments are formal: they presuppose
+  no spatial, temporal, or physical structure, and they are claimed to be necessary, not sufficient.
+  The paper further shows that target and receiver are positions in the relation of dependence
+  rather than natures of its relata, that specifying an articulation selects it without creating
+  it, and that acquisition and retention require an ordering which the core does not contain and
+  whose kind it leaves open.
+\end{minipage}
+\end{center}
+\vspace{1.2\baselineskip}
+
+% -----------------------------------------------------------------------------------
+\section{Introduction}\label{sec:intro}
+
+Theories of knowledge ordinarily begin with a subject who believes, judges, or is justified, and ask
+under what conditions such states amount to knowledge. This paper addresses a prior question: what
+must be admitted for any epistemic relation to be possible at all---for anything to be perceived,
+registered, or claimed about anything else. Its answer is a set of necessary conditions, not a
+sufficient account. It identifies what any theory of perception, belief, or knowledge presupposes,
+and leaves to such theories what makes a relation epistemic in the full sense. The assessment of
+judgement, in particular, lies outside its scope.
+
+The guiding premise is that an epistemic relation is always a relation to something in particular.
+To perceive or claim anything about $X$, $X$ must be distinguishable from what it is not, and that
+distinguishing must depend on $X$; otherwise what is perceived or claimed would not be about $X$.
+The commitments introduced below are what this premise requires when no further assumption is made:
+a differentiation in what is concerned, a differentiation elsewhere, and a dependence of the second
+on the first.
+
+The conditions are formal. They are stated without reference to space, time, matter, or causation,
+and they are meant to hold whatever the domain in which an epistemic relation is realized, whether
+perceptual, physical, linguistic, or mathematical. Examples drawn from particular domains show how
+the conditions are met there; they do not fix what the conditions are. For the same reason,
+necessity is claimed only where it can be argued for, and features of the presentation that are
+conventions rather than commitments are marked as such.
+
+The reconstruction proceeds by minimal commitment. Each condition is introduced only at the point
+where the account cannot proceed without it, and each is accompanied by a statement of what it does
+not establish. One methodological caution applies throughout. The exposition necessarily employs
+ordinary logical resources---identity, distinction, relation, and inference---but using them to state
+the commitments does not attribute them to what the commitments describe, and in particular not to a
+knowing subject. A distinction drawn in the exposition is not thereby a distinction drawn by its
+object.
+
+The proposal has close neighbours. \textcite{dretske1981} analyses the information carried by a
+signal in terms of nomic dependence and conditional probability, and separates it from meaning and
+belief. Floridi's diaphoric definition of data takes a lack of uniformity---a difference---as the
+most elementary constituent of information \autocite{floridi2011}. Enactivist accounts describe
+cognition as the structural coupling of a system with a medium, both of which belong to a larger
+organization \autocite{maturana1987,thompson2007}. The present account differs from each in three
+respects. It separates the differentiability of what is known, the differentiability of what
+receives it, and the dependence that connects them, and treats each as an independent commitment. It
+states that dependence between contrasts of actual terms, without probabilities, causes, or
+alternatives on either side, so that it applies beyond the physical domain and requires no
+repertoire of possibilities. And it distinguishes the direction of dependence from any order of
+occurrences, leaving open what kind of order further epistemic operations require.
+
+Section~\ref{sec:diff} introduces the differentiability of the field, and Section~\ref{sec:art}
+distinguishes that capacity from any particular articulation. Section~\ref{sec:recv} introduces a
+second relatum, and Section~\ref{sec:dep} the relation of receptive dependence that connects the two
+and defines their roles. Section~\ref{sec:reg} defines registration on that basis and states what it
+does not include, and Section~\ref{sec:order} shows that the resulting structure contains no order.
+Section~\ref{sec:concl} summarizes the commitments, the limits of what they establish, what they
+exclude, and the questions they leave open.
+
+% -----------------------------------------------------------------------------------
+\section{Differentiability}\label{sec:diff}
+
+Let \F{} designate the \emph{field}: whatever is under consideration. The term fixes the scope of the
+inquiry; it implies neither a spatial region, nor a collection of discrete objects, nor something
+already presented to a subject. Nor does the notation establish a boundary intrinsic to reality:
+\F{} identifies what the account concerns, and any claim about its actual boundaries would require
+separate justification. The first commitment is the following.
+
+\begin{thesis}[D]{Differentiability}
+  \F{} admits differentiation, although no particular differentiation is thereby realized or
+  specified.
+\end{thesis}
+
+Thesis (D) is stronger than the claim that different descriptions of \F{} can be devised. It
+attributes to \F{} a capacity to enter into a differentiated articulation, so that differentiation is
+not wholly attributable to the theorist's notation. At the same time, it is weaker than any claim
+about which articulation is possible: it leaves open whether some articulation is uniquely
+privileged, and whether its terms would be objects, qualities, regions, values, or something else.
+
+(D) is accordingly a modal commitment; it concerns what \F{} admits. The capacity it attributes
+belongs to \F{} itself. It is not a stock of possible configurations held anywhere, whether in a mind
+or in some other repository, and it implies nothing about change or about any order, since the
+possibility of differentiating something is distinct from the possibility of its changing.
+
+(D) is not deduced from the mere existence of \F, for the fact that something is under consideration
+establishes nothing about the structure it possesses. It is admitted on the following ground. A
+rival view holds that all differentiation is drawn by whatever receives it: that distinctions are
+made, not found.\footnote{The view has many forms. Spencer-Brown's calculus of indications begins
+from the injunction to draw a distinction \autocite{spencerbrown1969}; Kant holds that the
+combination of a manifold can never come to us through the senses \autocite[B129--130]{kant1998},
+although for him a manifold is still given; and enactivist accounts treat the significance of a
+difference as brought forth by the system for which it is significant \autocite{thompson2007}.} The
+present account does not deny that a receiver contributes differentiations of its own;
+Section~\ref{sec:recv} requires that it do so. But if every differentiation were supplied by the
+receiver, nothing in \F{} would correspond to it, and the registration of a difference in \F{} could
+not be distinguished from the receiver's merely differing within itself. By the guiding premise, what
+was registered would then not be about \F. (D) is the condition under which that distinction can be
+drawn. It is therefore a necessary condition of the explanation pursued here, not a sufficient
+account of epistemic possibility. It also involves no knowing subject: that \F{} admits
+differentiation does not imply that anything differentiates it.
+
+% -----------------------------------------------------------------------------------
+\section{Differentiability and Articulation}\label{sec:art}
+
+Differentiability must be distinguished from the realization of any particular differentiation:
+that \F{} admits differentiation does not entail that a differentiation has been
+realized.\footnote{The refusal to ground a difference in terms identified before it has a precedent
+in Deleuze's critique of the subordination of difference to identity \autocite[ch.~1]{deleuze1994},
+and his distinction between \emph{differentiation} and \emph{differenciation}---the determination of
+a structure and its actualization (ch.~4)---is akin to the distinction drawn in this section.
+Deleuze also rejects the possible as a mere image of the real; the present account shares the
+refusal of a stock of possibilities, although it retains, in (D), a modal claim about what \F{}
+admits.}
+
+A particular differentiation of \F{} will be called an \emph{articulation} and written
+\[
+  \langle a,\delta,b\rangle_F ,
+\]
+where $a$ and $b$ are its \emph{terms} and $\delta$ is its \emph{contrast}, the respect in which the
+terms differ. An articulation is \emph{realized} when \F{} exhibits it, that is, when its terms are
+actual and differ in the respect $\delta$. The terms of a realized articulation are both actual. They
+are not alternatives of which one obtains rather than the other, and the contrast is not a choice
+between them; it is the difference between two terms that are both there. The schema has two terms
+for simplicity; the account requires only that an articulation have at least two. Nor does the
+schema presuppose that $a$ and $b$ exist prior to the articulation as independent objects; it marks
+positions within the articulation described.
+
+Two misreadings of the schema should be excluded. First, $\delta$ is not a third item situated
+between $a$ and $b$. To treat it as a separator would presuppose spatial organization, whereas
+$\delta$ expresses the differentiation itself. Second, $b$ need not comprise everything that remains
+once $a$ has been selected. That reading would require an exhaustive partition of \F, and a contrast
+between two terms is not equivalent to a division into \enquote{this} and \enquote{everything else
+within the field}: the latter adds the requirement that every case within the scope fall on one
+side or the other. Figure~\ref{fig:contrast} sets the two constructions side by side.
+
+\begin{figure}[tp]
+  \centering\small
+  \begin{tikzpicture}
+    % (a) a contrast: two positions and the respect in which they differ
+    \node[term, label=below:$a$] (a) at (0,0) {};
+    \node[term, label=below:$b$] (b) at (2.2,0) {};
+    \draw[rel] (a) to[bend left=55] node[above] {$\delta$} (b);
+    \node[panel] at (1.1,-1.35) {(a) contrast};
+    % (b) an exhaustive partition, deliberately drawn as a region
+    \begin{scope}[xshift=4.1cm]
+      \draw[desc, fill=desc!12, rounded corners=5pt] (0,-0.8) rectangle (4.4,0.9);
+      \draw[desc] (1.4,-0.8) -- (1.4,0.9);
+      \node[term, label=below:$a$] at (0.7,-0.05) {};
+      \node[note] at (0.7,0.5) {this};
+      \node[note] at (2.9,0.05) {everything else\\[-1pt]within the field};
+      \node[panel] at (2.2,-1.35) {(b) exhaustive partition};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Two constructions over \F. (a)~An articulation $\langle a,\delta,b\rangle_F$: $a$ and $b$
+    mark positions, both actual, and the contrast $\delta$, drawn as a relation rather than as an
+    item between them, is the respect in which they differ. (b)~An exhaustive partition, which adds
+    the requirement that every case fall on one side or the other. Only (b) is drawn as a region,
+    because only (b) carries the extensional commitment that a region suggests; in (a) the
+    placement of the marks has no spatial meaning.}
+  \label{fig:contrast}
+\end{figure}
+
+An articulation is \emph{specified} when its terms and contrast are fixed, and it is the account, not
+\F, that specifies it. This might seem to reintroduce the dependence on notation that (D) excludes.
+It does not. Specifying an articulation selects one of the differentiations that \F{} is claimed to
+admit; it does not make \F{} admit it, still less realize it. Whether \F{} realizes the specified
+articulation, and whether anything depends on it, are not settled by the specification, which can
+therefore fail. Specification fixes what an inquiry concerns, as \F{} fixes its scope; it does not
+supply what the inquiry finds.
+
+These qualifications mark the first limit of the reconstruction. Differentiability permits
+articulation, but it neither produces an actual articulation nor determines its form. An account of
+any particular case must therefore specify the articulation it concerns; it cannot derive that
+articulation from possibility alone. Moreover, a realized articulation remains an articulation of
+\F, and nothing established so far implies that it is registered anywhere else.
+
+% -----------------------------------------------------------------------------------
+\section{The Second Relatum}\label{sec:recv}
+
+For an articulation of \F{} to be registered, a differentiation must obtain somewhere other than in
+the articulation itself. Let \R{} designate a second relatum, distinct from \F, in which it
+obtains.\footnote{The vocabulary of reception recalls Kant's characterization of sensibility as
+receptivity, the capacity to acquire representations through being affected by objects
+\autocite[A19/B33; cf.\ A50/B74]{kant1998}. The receiver introduced here is thinner: it involves no
+representations, and nothing is claimed about forms of intuition.} \R{} is not a person, a conscious
+subject, or an independently bounded system, and it may ultimately prove to be an aspect of a larger
+organization that also includes \F, since a distinction of relata does not entail a distinction of
+substances.
+
+\R{} must admit differentiation of its own. Otherwise the account could describe a contrast in \F{}
+but nothing in \R{} that would distinguish its registration from its non-registration. The
+requirement concerns the organization of \R, not the possession of concepts or classifications. The
+second commitment is therefore the following.
+
+\begin{thesis}[R]{Second relatum}
+  There is a second relatum \R, distinct from \F, that admits differentiation of its own.
+\end{thesis}
+
+The terms of a realized differentiation of \R{} will be called its \emph{conditions} and written
+$r, r', \dots$. As with articulations of \F, the conditions of a realized differentiation are both
+actual: $r$ and $r'$ are not alternatives between which \R{} is poised, but distinct conditions that
+\R{} exhibits. Nothing requires that a differentiation of \R{} have the same form as an articulation
+of \F; the notation names its terms without assigning them any organization.
+
+That (R) is a separate commitment can be shown without a theory of cognition. A contrast in \F{} and
+a contrast between conditions of \R{} are not the same fact: an articulation of \F{} may be realized
+while nothing in \R{} answers to it, and \R{} may exhibit contrasts that answer to nothing in \F. (R)
+therefore does not follow from (D); it becomes necessary only when the account passes from
+differentiation to registration.
+
+(R) also fixes how much individuation the account admits. There must be enough to distinguish \F{}
+from \R, and to take $r$ and $r'$ as conditions of one and the same relatum. There need not be
+enough to identify enduring objects or successive states of a continuing subject: $r$ and $r'$ are
+co-present conditions of \R, neither alternatives nor stages in its history. To treat these stronger
+forms of individuation as already established would build into the foundation a persisting, bounded
+bearer---which is precisely what an account of a knowing subject must eventually explain.
+
+% -----------------------------------------------------------------------------------
+\section{Receptive Dependence}\label{sec:dep}
+
+Theses (D) and (R) leave \F{} and \R{} unconnected, for a field that admits differentiation and a
+second relatum that admits differentiation of its own may be entirely unrelated. A further,
+relational commitment is therefore required. Let \C{} designate \emph{receptive dependence}.
+
+\begin{thesis}[C]{Receptive dependence}
+  Through \C, the contrast of a specified articulation realized in \F{} is matched by a contrast
+  between conditions of \R, and the latter contrast obtains partly in virtue of the former.
+\end{thesis}
+
+The thesis has two clauses, and both are needed. The first, \emph{matching}, requires that the terms
+of the articulation be paired with conditions of \R{} that differ: $a$ with $r$ and $b$ with $r'$,
+where $r$ and $r'$ are distinct. Were every term paired with the same condition, nothing in \R{}
+would answer to the contrast $\delta$. Matching alone, however, is not dependence. Two structures may
+resemble one another without either registering the other,\footnote{\textcite[ch.~1]{goodman1976}
+makes the parallel point about representation: resemblance is reflexive and symmetric, whereas
+representation is neither, so resemblance cannot be what representation consists in.} and two
+contrasts may correspond term by term without either obtaining because of the other
+(Figure~\ref{fig:correspondence}). Matching is symmetric: a correspondence that pairs $a$ with $r$
+pairs $r$ with $a$, and can be read from \R{} to \F{} as well as from \F{} to \R.
+
+\begin{figure}[tp]
+  \centering\small
+  \begin{tikzpicture}
+    \foreach \x/\lab/\links in {0/{(a) resemblance}/0, 5.4/{(b) correspondence}/1} {
+      \begin{scope}[xshift=\x cm]
+        \node[side] at (0,1.25) {field (\F)};
+        \node[side] at (2.4,1.25) {second relatum (\R)};
+        \node[term, label=above:$a$]  (a) at (0,0.5)  {};
+        \node[term, label=below:$b$]  (b) at (0,-0.5) {};
+        \node[term, label=above:$r$]  (r) at (2.4,0.5)  {};
+        \node[term, label=below:$r'$] (s) at (2.4,-0.5) {};
+        \draw[rel] (a) to[bend right=60] node[left] {$\delta$} (b);
+        \draw[rel] (r) to[bend left=60] (s);
+        \ifnum\links=1
+          \draw[corr] (a) -- (r);
+          \draw[corr] (b) -- (s);
+        \fi
+        \node[panel] at (1.2,-1.55) {\lab};
+      \end{scope}
+    }
+  \end{tikzpicture}
+  \caption{Two relations that fall short of receptive dependence. (a)~Resemblance: a contrast in
+    \F{} and a contrast between conditions of \R{} share a form, but neither registers the other.
+    (b)~Correspondence: $a$ is paired with $r$, and $b$ with $r'$. The pairing satisfies the first
+    clause of~(C) but is drawn without direction, since it can be read either way. Neither panel
+    establishes~(C).}
+  \label{fig:correspondence}
+\end{figure}
+
+The second clause supplies what matching lacks. The contrast in \R{} obtains \emph{in virtue of} the
+contrast in \F: because of it, and not conversely or merely alongside it. The phrase is not meant to
+identify \C{} with metaphysical ground; it borrows only two features that the literature on ground
+has made familiar, namely that dependence of this kind is asymmetric and that it relates what
+actually obtains, without appeal to what would obtain otherwise \autocite{fine2012}. (C) is
+accordingly not a counterfactual claim. It does not say what \R{} would be if \F{} were otherwise; it
+relates two contrasts that are both realized.\footnote{Counterfactual analyses of dependence require
+alternatives to the actual case. Where contrasts are necessary, as in mathematics, they meet a
+further difficulty: on the standard semantics, counterfactuals with impossible antecedents are all
+vacuously true \autocite{lewis1973}; for an alternative semantics, see \textcite{nolan1997}. Neither
+difficulty affects (C).}
+
+The dependence is partial. Which condition of \R{} answers to which term depends also on the
+manner in which \R{} is receptive, that is, on the organization of \R. The clause requires only that
+the contrast in \R{} obtain \emph{partly} in virtue of the contrast in \F, the remainder being
+supplied by \R{} itself.\footnote{This accommodates the enactivist point that a perturbation
+triggers, but does not specify, the changes it occasions in a system, which are fixed by the
+system's own structure \autocite{maturana1987}.} The point is captured in Bateson's definition of
+information as \enquote{a difference which makes a difference} \autocite{bateson1972}, which
+compresses into one phrase what the present account keeps apart: the first difference belongs to
+\F, the second to \R, and the making is the dependence \C. For the same reason, the content of (C)
+should not be concealed behind appeals to \enquote{systematic} or \enquote{relevant} coupling, which
+import what the argument has not supplied, namely a standard of relevance or a regularity across
+cases.
+
+The asymmetry of \C{} defines the roles of its relata. In an instance of \C, the \emph{target} is the
+relatum whose contrast is depended upon, and the \emph{receiver} is the relatum whose contrast
+depends. Roles are thus positions in a relation, not natures of relata. The same relatum may be
+target in one instance of \C{} and receiver in another, and two relata may each depend on the other
+in different respects. This also shows that the account is not circular. Neither (R) nor the
+definition of \C{} uses the notion of a receiver: \C{} is introduced as an asymmetric relation between
+contrasts, and the roles are read off it. \F{} and \R{} were named in anticipation of the positions
+they occupy in the instances considered here.
+
+Two limitations of (C) should be noted. First, the dependence is admitted, not derived from the
+existence of differentiated relata; a relation cannot be obtained merely by describing its relata.
+\C{} is introduced because registration requires a connection that neither relatum supplies on its
+own. Second, the asymmetry of \C{} is primitive in the core. What grounds it in a particular domain
+is a question for that domain: in physical domains it may be causal, in others it may be logical or
+constitutive. The core requires that there be such an asymmetry, not that it be of any one kind.
+
+% -----------------------------------------------------------------------------------
+\section{Registration}\label{sec:reg}
+
+The three commitments permit a definition of registration in a restricted, structural sense.
+
+\begin{thesis}{Definition of registration}
+  A specified articulation realized in \F{} is registered by \R{} when \C{} holds between them: its
+  contrast is matched by a contrast between conditions of \R, which obtains partly in virtue of it.
+\end{thesis}
+
+\begin{figure}[tp]
+  \centering\small
+  \begin{tikzpicture}
+    \node[side] at (0,1.45) {target (\F)};
+    \node[side] at (5.0,1.45) {receiver (\R)};
+    % target-side articulation
+    \node[term, label=above:$a$] (a) at (0,0.6)  {};
+    \node[term, label=below:$b$] (b) at (0,-0.6) {};
+    \draw[rel] (a) to[bend left=55] coordinate[pos=.5] (dm) (b);
+    \node[anchor=east, inner sep=2pt] at (dm) {$\delta$};
+    % receiving contrast, with a different organization
+    \node[term, label=below:$r$]  (r) at (4.3,-0.45) {};
+    \node[term, label=below:$r'$] (s) at (5.7,-0.45) {};
+    \draw[rel] (r) to[bend left=55] coordinate[pos=.5] (rm) (s);
+    % receptive dependence
+    \draw[dep] ([xshift=3pt]dm) -- node[above, pos=.5] {$C$} ([yshift=5pt]rm);
+    % the three contributions
+    \node[note] at (0,-1.65)   {realized\\[-1pt]articulation};
+    \node[note] at (2.5,-1.65) {receptive\\[-1pt]dependence};
+    \node[note] at (5.0,-1.65) {receiving\\[-1pt]contrast};
+    \draw[desc, line width=.4pt] (-1.4,-2.25) -- (6.4,-2.25);
+    \node[note, below] at (2.5,-2.25) {relative to the manner in which \R{} is receptive};
+  \end{tikzpicture}
+  \caption{Registration. Through \C, the contrast $\delta$ of the realized articulation
+    $\langle a,\delta,b\rangle_F$ is matched by the contrast between the conditions $r$ and $r'$ of
+    \R, which obtains partly in virtue of it. All four terms are actual. The receiving contrast is
+    drawn with a different organization, since it need neither resemble nor reproduce the
+    articulation. The arrow denotes receptive dependence only: it represents neither a transfer nor
+    an order of occurrences, and the columns are positions in \C, not regions.}
+  \label{fig:registration}
+\end{figure}
+
+Registration is thus nothing over and above an instance of \C, and it is always registration
+\emph{of} a specified articulation: to say that \R{} registers \F{} without qualification is to leave
+the claim incomplete. It is also an actual relation between actual contrasts, not a standing
+disposition of \R{} to respond. Figure~\ref{fig:registration} depicts the structure so defined.
+
+The definition attributes to the receiver no understanding, identification, or judgement, since none
+of these capacities has been introduced. Where registration is realized physically, it is found in
+systems to which nobody would attribute knowledge, and by itself it does not place anything
+\enquote{in the logical space of reasons}.\footnote{The phrase is from \textcite[§\,36]{sellars1956};
+\textcite[ch.~4]{brandom1994} develops the contrast between such reliable differential
+responsiveness and conceptual capacities.} Nor does registration move anything from \F{} to \R: the
+receiving contrast need neither resemble the articulation nor reproduce its organization, provided
+that the dependence obtains. Nor, finally, does it require a representational space, or any
+repertoire of alternatives, in \R. Registration relates contrasts that are realized, and nothing in
+\R{} need stand for conditions that \R{} does not exhibit.
+
+Registration so defined is supplied by neither relatum in isolation. It comprises three distinct
+contributions: from the target, the realized articulation; from the receiver, the contrast between
+its conditions; and between them, the dependence that connects the two. Keeping these contributions
+distinct prevents registration from being attributed to the target merely because the target is
+differentiated, or to the receiver merely because its conditions differ. This does not explain the
+emergence of a knowing subject, but it identifies what such an explanation would have to elaborate.
+
+What is registered, on this account, is always a difference within \F, never which way \F{} is. The
+core provides for registering that $a$ differs from $b$; it does not provide for registering that
+\F{} is $a$ rather than $b$, since that would require $b$ to be an alternative to $a$ rather than a
+term beside it. Accounts of information and knowledge built on that richer form presuppose a set of
+alternatives among which the actual case is singled out.\footnote{Shannon's theory measures
+information as selection from a set of possible messages \autocite{shannon1948}, and Dretske's
+informational content is defined by conditional probabilities over such alternatives
+\autocite{dretske1981}. In epistemology, relevant-alternatives theories and contrastivism analyse
+knowledge as the elimination of alternatives \autocite{dretske1970,lewis1996,schaffer2004};
+counterfactual and interventionist analyses of dependence share the same structure
+\autocite{lewis1973,woodward2003}.} The core deliberately admits no such set, since it would require
+a repertoire of possibilities, held in \F, in \R, or elsewhere, that nothing in the guiding premise
+demands. Whether registration of which way \F{} is can be reconstructed from contrasts between actual
+terms, without admitting alternatives, is left open.
+
+% -----------------------------------------------------------------------------------
+\section{Registration and Order}\label{sec:order}
+
+The core contains no order of any kind. Its contrasts are not sequences, and the conditions of \R{}
+are co-present, not successive. \C{} is asymmetric, but the asymmetry of a relation between its
+positions is not an ordering of occurrences: that the contrast in \R{} obtains in virtue of the
+contrast in \F{} does not place either before the other.
+
+The core therefore cannot describe the receiver as \emph{acquiring} a contrast, \emph{retaining} it,
+or \emph{comparing} it with another, and each of these operations requires something
+different.\footnote{The three operations closely parallel the synthesis of apprehension,
+reproduction, and recognition in the first edition of Kant's Transcendental Deduction
+\autocite[A98--A110]{kant1998}, and Husserl's distinction between retention and recollection
+\autocite{husserl1991} analyses the second of them. Both treat the operations as presupposing temporal
+form; the present account requires only order, of which temporal order is one kind.} Comparison
+requires that two receiving contrasts be available together; this is a relation of co-availability,
+not of order. Retention requires that one receiver be identified across distinct positions of some
+ordering. Acquisition requires that a condition of \R{} in which a contrast is unmatched stand in an
+asymmetric relation to one in which it is matched. Only retention and acquisition require order, and
+neither follows from (C).
+
+What they require is order in the loosest sense: an asymmetric relation among positions, with no
+requirement that any two positions be comparable, and with no metric, no linearity, and no universal
+index. Whether this relation must also be transitive, and so form a strict partial order, may be left
+open. Temporal succession is one way of realizing such an order; the order of steps in an inference
+or a proof is another, which is not temporal. The core is compatible with either and requires
+neither.
+
+For the same reason, if receptive dependence is written with a directed symbol, such as an arrow from
+\F{} to \R, that symbol should not also serve, without further explanation, to represent order. The
+asymmetry of dependence and the asymmetry of an ordering play different roles in the account and
+should be kept notationally distinct.
+
+% -----------------------------------------------------------------------------------
+\section{Conclusion}\label{sec:concl}
+
+Table~\ref{tab:commitments} summarizes the elements of the account, what each permits, and what each
+leaves unestablished. The specified articulation is listed alongside the three commitments, although
+it is specified in each application rather than admitted once and for all.
+
+\begin{table}[htbp]
+  \centering\small
+  \renewcommand{\arraystretch}{1.3}
+  \setlength{\tabcolsep}{5pt}
+  \captionabove{The elements of the account, with what each permits and what each leaves
+                unestablished.}
+  \label{tab:commitments}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{8.8em}
+                                    >{\raggedright\arraybackslash}X
+                                    >{\raggedright\arraybackslash}X@{}}
+    \toprule
+    \scshape element & \scshape what it permits & \scshape what it does not establish \\
+    \midrule
+    (D) Differentiability
+      & A differentiation attributable to \F{} itself.
+      & Any particular articulation, or its realization. \\
+    Specified articulation
+      & Terms and the contrast in which they differ.
+      & Its own realization, registration, exhaustive partition, or objecthood. \\
+    (R) Second relatum
+      & Differentiation of \R's own.
+      & A knowing subject, or any dependence on \F. \\
+    (C) Receptive \mbox{dependence}
+      & Registration of a realized articulation; the roles of target and receiver.
+      & Which way \F{} is; understanding, representation, order, acquisition, or retention. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+The reconstruction does not derive everything from differentiability. It shows, rather, why further
+commitments are needed, and it distinguishes those commitments from what they make it possible to
+define; in particular, neither the second relatum nor its dependence on the target is concealed in
+the initial claim about \F. The resulting proposal is that any epistemic relation, in whatever domain
+it is realized, requires \emph{differentiation and receptive dependence} between contrasts of actual
+terms, with target and receiver distinguished as positions within that dependence. The claim is one
+of necessity only: these conditions are required, by the guiding premise, for anything to be
+perceived, registered, or claimed about anything, and they are not sufficient for any of these.
+
+The core is minimal, but it is not empty: its commitments exclude several views of what an epistemic
+relation presupposes. They exclude, first, the view that all differentiation is supplied by the
+receiver, since registration requires a contrast attributable to the field itself
+(Section~\ref{sec:diff}). They exclude, second, the view that registration consists in resemblance or
+in term-by-term correspondence, since both are symmetric and neither supplies the dependence required
+by the second clause of (C) (Section~\ref{sec:dep}). Third, they exclude any conception of
+registration as a transfer from target to receiver, since the receiving contrast need neither
+resemble nor reproduce the articulation (Section~\ref{sec:reg}). Fourth, they exclude the view that a
+repertoire of alternatives, whether held in the field, in the receiver, or elsewhere, is a
+precondition of registration, since every contrast in the core is between actual terms
+(Sections~\ref{sec:art} and~\ref{sec:reg}). Fifth, they exclude the view that time, or order of any
+kind, is such a precondition, since registration has been defined without either
+(Section~\ref{sec:order}). Finally, they exclude the view that a knowing subject, concepts, or
+representations precede registration, since none of these figures in (D), (R), or (C). None of these
+exclusions denies that the structures concerned are present in particular epistemic relations. What
+is denied is only that they belong to the core: wherever they are needed, they must enter as further
+commitments, stated as such.
+
+Four questions remain open. The first is what grounds the asymmetry of \C{} in a given domain. The
+second is whether receptive dependence can itself be explained in terms of more elementary
+relations; an arrow whose meaning is left unspecified would not answer it. The third is whether
+registration of which way \F{} is can be reconstructed without admitting alternatives. The fourth is
+what order acquisition and retention require, and whether anything stronger than an asymmetric
+relation is needed. The reconstruction ends at structural registration. Order, memory, recognition,
+and representation have not been presupposed in reaching it, and none of them has yet been derived
+from it.
+
+\begin{center}
+  \vspace{1.2\baselineskip}
+  {\large ⁂}
+\end{center}
+
+\printbibliography[heading=bibintoc,title={References}]
+
+\end{document}
