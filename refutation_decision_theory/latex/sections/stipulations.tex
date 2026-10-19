@@ -1,0 +1,47 @@
+% -----------------------------------------------------------------------------------
+\section{Register of stipulations}\label{app:stipulations}
+
+The results are theorems about the definitions displayed in the text. The following choices are made
+there, and each could be made differently; where a different choice is known to change a result, the
+section that discusses it is given.
+
+\begin{enumerate}[label=\arabic*.,leftmargin=2em,itemsep=.3em]
+  \item Policies are deterministic unless a mixed variant is stated (Sections~\ref{sec:robust},
+        \ref{sec:mixed}).
+  \item Every admissible policy induces a well-defined probability law (Definition~\ref{def:welldefined});
+        self-referential problems that lack one are excluded (Remark~\ref{rem:skalse}).
+  \item No information set occurs twice on a path (Definition~\ref{def:problem}).
+  \item Structural environment plans, including responses on branches not taken, are part of the problem
+        (Definition~\ref{def:structural}); how outcomes on alternative branches are coupled is fixed by
+        them.
+  \item Causal deviations freeze the baseline distribution over plans, and a local deviation keeps the
+        policy's other prescriptions (definition of $Q_\pi$).
+  \item Dominance quantifies over structural states, including those of probability zero under the
+        evaluated policy (Section~\ref{sec:criteria}); with supported states only, \cri{2} becomes
+        unsatisfiable in Death in Damascus.
+  \item Positive reach is measured under the evaluated policy.
+  \item Predictor error is given by a kernel; the Newcomb calculations use symmetric error.
+  \item A predictor targets specified policy coordinates; \enquote{the same computation} is represented
+        by a stipulated dependence (Sections~\ref{sec:twin}, \ref{sec:bomb}).
+  \item Commitment is irrevocable, precedes the environment's response, offers the full policy set, and
+        uses a specified coupling and structural state set (Definition~\ref{def:commit},
+        Section~\ref{sec:couplings}).
+  \item Commitment extensions are tagged and well founded, and the class is closed under them.
+  \item \cri{5} is the totality already built into the definition of a theory.
+  \item The evidential criterion uses the reference-policy law and the null-event convention displayed in
+        Section~\ref{sec:evidential}; other evidential semantics change the map (Section~\ref{sec:evsem}).
+  \item Mixed variants specify sampling, predictor access, information, counterfactual coupling, and
+        continuity (Sections~\ref{sec:mixedexist}, \ref{sec:mixed}).
+  \item Cross-problem rules output a reflexive relation whose maximal elements are required to be nonempty
+        (Definition~\ref{def:rule}); neutrality acts by bijections between label sets, and invariances act
+        on the relation.
+  \item Ordering concerns the output relation at each input, not rationalisability of each choice set.
+  \item Menu restriction is principal unless stated otherwise; principal restriction is forced by
+        law-preserving removal, and column and fixed-reference restriction require additional data
+        (Section~\ref{sec:menus}).
+  \item Non-triviality is existential unless a universe is specified (Theorem~\ref{thm:five}).
+  \item On restricted domains, an invariance applies when both a matrix and its transform are admissible
+        (Section~\ref{sec:translations}).
+  \item Equivalence of problems and parameterisation of rules are made precise before taxonomy claims are
+        stated (Section~\ref{sec:taxonomy}).
+\end{enumerate}

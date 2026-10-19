@@ -1,0 +1,141 @@
+% -----------------------------------------------------------------------------------
+\section{Decision problems with prediction}\label{sec:model}
+
+This section fixes the class of problems on which decision theories are compared. The aim is a
+model rich enough to contain the problems that drive the debate (Newcomb's problem, the twin
+prisoner's dilemma, Death in Damascus, the Bomb, counterfactual mugging) and precise enough that
+every criterion to be considered has a determinate verdict on every problem. Each place where an
+informal notion---a counterfactual, \enquote{the same computation}, \enquote{holding the state
+fixed}---has to be settled by stipulation is marked as such; the stipulations are collected in
+Appendix~\ref{app:stipulations}.
+
+\subsection{Problems, policies, and structural plans}
+
+\begin{definition}[Decision problem]\label{def:problem}
+A \emph{decision problem} $D$ is a finite extensive-form tree with three kinds of non-terminal
+nodes and real payoffs at its leaves:
+\begin{enumerate}[label=(\roman*)]
+  \item \emph{nature nodes}, with fixed probability distributions over their successors;
+  \item \emph{prediction nodes}, nature nodes whose distribution may depend on the agent's policy,
+        but only through the actions that the policy prescribes at specified information sets;
+  \item \emph{agent nodes}, partitioned into a finite set $H_D$ of information sets, each $h\in H_D$
+        carrying a finite nonempty set $A_h$ of actions.
+\end{enumerate}
+It is required that no information set occurs twice on any path of the tree.
+\end{definition}
+
+Perfect recall implies the last requirement, which is all that will be used. A \emph{deterministic
+policy} for $D$ is a choice of action at every information set, and the policy space is
+\[
+  \Pol_D=\prod_{h\in H_D}A_h,
+\]
+a finite nonempty set. Mixed policies are deferred to Sections~\ref{sec:robust}
+and~\ref{sec:mixed}.
+
+The policy-dependent kernels of the prediction nodes determine the distribution of actual play,
+but they do not by themselves settle the causal counterfactuals that several criteria require:
+what would have happened had the agent acted otherwise, \emph{with the environment's responses
+held fixed}. To make these counterfactuals explicit, the tree is supplemented with a structural
+description of the environment.
+
+\begin{definition}[Structural representation]\label{def:structural}
+A \emph{structural representation} of $D$ consists of
+\begin{enumerate}[label=(\roman*)]
+  \item a finite nonempty set $S_D$ of \emph{environment plans}, each of which specifies the response
+        of every nature and prediction node, including nodes on branches not taken and responses that
+        depend on earlier physical actions;
+  \item for every policy $\pi\in\Pol_D$, a probability distribution $\mu_\pi\in\Delta(S_D)$;
+  \item the payoff $U_D(s,\pi)$ obtained by traversing the tree with plan $s$ and policy $\pi$.
+\end{enumerate}
+The \emph{ex-ante value} of $\pi$ is
+\[
+  V_D(\pi)=\sum_{s\in S_D}\mu_\pi(s)\,U_D(s,\pi).
+\]
+\end{definition}
+
+The representation separates two kinds of dependence. \emph{Ordinary causal dependence} of the
+environment on earlier actions is carried by the responses written into each plan $s$.
+\emph{Predictive dependence} on the policy is carried by the map $\pi\mapsto\mu_\pi$. A tree with
+policy-dependent kernels can always be given a structural representation by supplying potential
+outcomes for its nature and prediction nodes; how the outcomes on alternative branches are coupled
+is an additional modelling choice, which matters for the causal criteria and is fixed by the
+representation. Conversely, every structural representation is implemented by a tree whose root
+is a prediction node selecting $s$ according to $\mu_\pi$, followed by deterministic traversal.
+
+\subsection{Well-definedness and fairness}
+
+Two conditions on problems are distinguished.
+
+\begin{definition}[Well-definedness]\label{def:welldefined}
+$D$ is \emph{well defined} if $\mu_\pi$ is a probability distribution on $S_D$ for \emph{every}
+$\pi\in\Pol_D$.
+\end{definition}
+
+\begin{definition}[Fairness]\label{def:fair}
+$D$ is \emph{fair} if $S_D$, $U_D$, and the entire map $\pi\mapsto\mu_\pi$ are fixed features of $D$:
+the evaluation of an agent may depend on the actions its policy prescribes, but not on the
+identity, name, or source code of the decision theory that produced the policy. Fixed algorithms
+may occur as constants of the environment (\enquote{the predictor simulates the algorithm $g_0$}),
+provided $g_0$ does not vary with the agent being evaluated.
+\end{definition}
+
+Fairness excludes the trivial diagonal problem that pays an agent exactly when its action differs
+from that of a given theory $T$; such a problem defeats every $T$ and shows nothing about decision
+theory. Well-definedness is a separate requirement. A verbally described \enquote{perfect
+predictor} may satisfy an action-based fairness condition while its promised behaviour is
+logically inconsistent for some policy; Section~\ref{sec:bomb} gives an example. The presence of a
+fixed algorithm in the environment does not by itself make a self-referential specification well
+defined (Remark~\ref{rem:skalse}).
+
+Write $\cls^*$ for the class of well-defined, fair finite problems with a fixed structural
+representation, closed under the commitment construction of Section~\ref{sec:commit}.
+
+\begin{definition}[Decision theory]\label{def:theory}
+A \emph{decision theory} on a class $\cls$ of problems assigns to every $D\in\cls$ a policy
+$T_D\in\Pol_D$. No uniformity, computability, or generality is required: every lookup table is a
+decision theory.
+\end{definition}
+
+Totality is part of the definition. A proposed criterion that recommends nothing on some problem
+therefore fails to define a decision theory on any class containing that problem; it does not
+define a theory that is silent there.
+
+\subsection{Reach and local causal deviation}
+
+For a policy $\pi$ and an information set $h$, let
+\[
+  R_h(\pi)=\{s\in S_D: h\text{ is reached in the traversal with }(s,\pi)\},
+  \qquad
+  r_\pi(h)=\mu_\pi\bigl(R_h(\pi)\bigr).
+\]
+The number $r_\pi(h)$ is the actual probability that $h$ is reached under $\pi$; $h$ is
+\emph{positively reached} under $\pi$ if $r_\pi(h)>0$. For $a\in A_h$, let $\dev{\pi}{h}{a}$ denote the
+policy that agrees with $\pi$ everywhere except at $h$, where it prescribes $a$.
+
+\begin{lemma}\label{lem:local}
+For every $\pi$, $h$, and $a\in A_h$:
+\begin{enumerate}[label=(\roman*)]
+  \item $R_h(\dev{\pi}{h}{a})=R_h(\pi)$;
+  \item if $s\notin R_h(\pi)$, then $U_D(s,\dev{\pi}{h}{a})=U_D(s,\pi)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+With the plan $s$ fixed, the path through the tree is determined by the prescriptions at the
+information sets it visits. Up to its first visit to $h$, the path under $(s,\dev{\pi}{h}{a})$ uses
+only prescriptions at information sets other than $h$, which are unchanged; so it coincides with the
+path under $(s,\pi)$, and $h$ is reached under one exactly when it is reached under the other. If
+$h$ is not reached, the two paths coincide entirely. Since no information set recurs on a path, a
+visit to $h$ is the first and only one.
+\end{proof}
+
+The \emph{causal value} of $a$ at a positively reached $h$, with beliefs induced by $\pi$, is
+\[
+  Q_\pi(h,a)=\frac{1}{r_\pi(h)}\sum_{s\in R_h(\pi)}\mu_\pi(s)\,U_D\bigl(s,\dev{\pi}{h}{a}\bigr).
+\]
+This fixes the causal counterfactual completely: the distribution over environmental responses is
+the one the actual policy induces, the action at $h$ is changed, and the policy's other
+prescriptions are kept. The contrast with ex-ante evaluation lies in a single subscript:
+$Q_\pi(h,a)$ averages with $\mu_\pi$, whereas $V_D(\dev{\pi}{h}{a})$ averages with
+$\mu_{\dev{\pi}{h}{a}}$. Every within-problem conflict studied below is a consequence of that
+difference.

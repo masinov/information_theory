@@ -1,0 +1,195 @@
+% -----------------------------------------------------------------------------------
+\section{Introduction}\label{sec:intro}
+
+Is there a decision theory that gets every decision problem right? For half a century the question
+has been pursued case by case. A theory is proposed; a problem is constructed on which its verdict
+seems wrong; the theory is amended or a rival proposed; and the rival meets its own
+counterexample. The impression this history leaves is that no theory can be optimal everywhere,
+because the standards by which theories are judged pull in different directions. This paper tries to
+turn that impression into theorems. It asks, for precisely defined criteria of optimality and
+precisely defined classes of problems, when a decision theory satisfying them exists and when it
+does not, and it tries to close the question in the sense of determining every inconsistency among
+the criteria considered and exhibiting a witness for every consistent combination.
+
+\subsection{From dominance to Newcomb's problem}
+
+The expected-utility theories of \textcite{ramsey1931}, \textcite{vonneumannmorgenstern1944}, and
+\textcite{savage1954} model an agent's options as functions from states of the world to
+consequences, with the states not depending on what the agent does. Under that assumption, the
+principle of dominance---prefer an option that is better in every state---is a consequence of
+maximising expected utility, and the two principles never conflict. \textcite{jeffrey1965} replaced
+the act-independent states with a single algebra of propositions, valuing an act by the news it
+would bring; \textcite{bolker1966,bolker1967} supplied the representation theorem. In Jeffrey's theory
+the probability of a state may depend on the act, and dominance and expected utility can come apart.
+
+\textcite{nozick1969} made the possibility vivid. A reliable predictor has placed a large sum in an
+opaque box if and only if it predicted that the agent would take only that box; a transparent box
+contains a small sum. Taking both boxes dominates, since the contents are fixed; taking only the
+opaque box maximises expected utility conditional on the act. Nozick credited the problem to the
+physicist William Newcomb and proposed restricting dominance to cases where the states are
+probabilistically independent of the acts. \textcite{gibbardharper1978} gave the conflict its
+canonical form by distinguishing two expected utilities: one computed with the probabilities of
+counterfactual conditionals, which measures what an act would causally bring about, and Jeffrey's,
+which measures what it indicates. Causal decision theory, as the first came to be called, takes both
+boxes; evidential decision theory takes one. Gibbard and Harper also introduced Death in Damascus, in
+which Death, having predicted the agent's destination, waits there: whichever city the agent
+chooses, the other looks better. \textcite{lewis1979} observed that the prisoner's dilemma played
+against a sufficiently similar partner is a Newcomb problem, and \textcite{lewis1981cdt} unified the
+causal theories of Gibbard and Harper, \textcite{skyrms1980,skyrms1982}, and Sobel \autocite[see][]{sobel1994} by means of
+dependency hypotheses. Against the charge that causal decision theorists end up poorer, Lewis
+replied that Newcomb's problem rewards irrationality \autocite{lewis1981rich}. On the evidential side,
+the tickle defence of \textcite{eells1982} argued that a self-aware agent's own beliefs and desires screen
+off the correlations on which one-boxing relies, and \textcite{spohn1977} argued that deliberation
+crowds out prediction, so that an agent cannot coherently assign probabilities to its own current
+options. \textcite{joyce1999} gave causal decision theory a representation theorem, and by the end of
+the century it had become the orthodox view \autocite{weirich2024sep}.
+
+\subsection{Instability, ratifiability, and the counterexamples}
+
+Death in Damascus exposed a second fault line. \textcite{jeffrey1981,jeffrey1983} proposed that a
+rational choice should be \emph{ratifiable}: optimal relative to the beliefs the agent would have
+upon making it. In Death in Damascus no pure option is ratifiable. \textcite{harper1986} proposed
+maximising causal expected utility among ratifiable options and admitting mixed acts so that such
+options exist; \textcite{richter1984}, \textcite{weirich1985}, and \textcite{rabinowicz1988} studied the
+instability that makes every option look worse once chosen; and \textcite{skyrms1990dynamics}
+modelled deliberation as a dynamical process whose rest points are deliberational equilibria,
+connecting ratifiability with equilibrium in games \autocite{skyrms1990ratif}. \textcite{sobel1994}
+collected much of this work.
+
+\textcite{egan2007} reopened the debate with cases in which an act is evidence about the very causal
+structure that determines its outcome---shooting as evidence of a lesion that would make one miss,
+pressing a button that kills all psychopaths as evidence that one is a psychopath---and in which
+causal decision theory seems to give the wrong verdict. The responses define the current landscape.
+Deliberational theories recommend equilibria of a process of self-updating
+\autocite{arntzenius2008,joyce2012,joyce2018}; benchmark theory assesses each option against a
+state-dependent benchmark \autocite{wedgwood2013}; \textcite{spohn2012} argued that a properly
+formulated causal theory one-boxes; \textcite{ahmed2012,ahmed2014book,ahmed2014dicing} revived the
+evidential theory with cases in which causal reasoning fails; \textcite{harehedden2016} classified
+decisions as self-reinforcing or self-frustrating and criticised the stability-based remedies;
+\textcite{gallow2020} proposed a causal theory that manages the news an act carries; and
+\textcite{gallow2026} argues for comparativism, on which instrumental value is fundamentally a matter
+of pairwise comparison. The argument from wealth was reconsidered as well: \textcite{bales2018} and
+\textcite{spencerwells2019} argued that it compares agents who face different problems, and
+\textcite{wells2019} constructed a problem with equal opportunities in which causal reasoners
+predictably end up richer. The collection edited by \textcite{ahmed2018ed} surveys the state of play.
+
+\subsection{Policies, plans, and fairness}
+
+A third line of work evaluates not acts but policies. Kuhn's analysis of extensive games introduced
+perfect recall and the equivalence of mixed and behavioural strategies under it
+\autocite{kuhn1953}. \textcite{hammond1988} derived expected utility from consequentialism and dynamic
+consistency in decision trees; \textcite{mcclennen1990} defended resolute choice, the execution of an
+ex-ante plan even when it is not optimal ex post; and \textcite{gauthier1986,gauthier1994} argued that
+dispositions which are rational to adopt can make it rational to carry out assurances and threats.
+\textcite{piccionerubinstein1997} separated planning-stage from action-stage optimality in the
+absent-minded driver, and \textcite{aumannetal1997} showed that the planning-optimal strategy is
+action-optimal although the converse fails; \textcite{arntzeniusetal2004} described sequences of
+individually rational choices whose sum is disastrous and from which only binding escapes.
+
+In artificial intelligence the policy view became a family of decision theories.
+Updateless decision theory \autocite{dai2009} selects the input--output map that is optimal under
+the agent's prior; timeless decision theory \autocite{yudkowsky2010} treats a decision as the output
+of an abstract computation; and \textcite{soaresfallenstein2015} and \textcite{yudkowskysoares2017}
+developed these ideas into functional decision theory, with a peer-reviewed presentation by
+\textcite{levinsteinsoares2020}. Functional decision theory is claimed to do well on \emph{fair}
+problems, those in which the outcome depends only on the agent's behaviour in the problem at hand;
+its authors leave a formal criterion of fairness as future work and suggest that a general-purpose
+theory may match or outperform all rivals on fair problems if one can be found.
+\textcite{macaskill2019} objected with the Bomb, a problem in which the policy-optimal action is to take
+a box known to contain a bomb, violating the principle that under certainty one should choose the
+best outcome. \textcite{oesterheldconitzer2021} showed how to extract money from causal decision
+theorists by predictive offers; \textcite{everittetal2015} formulated sequential, act-based and
+policy-based versions of the causal and evidential theories; \textcite{belletal2021} showed that
+value-based reinforcement learners in Newcomb-like environments converge, if at all, to ratifiable
+policies, and that continuous environments always admit one; \textcite{halpern2020} gave conditions for
+the existence of ratifiable mixed acts; \textcite{macdermottetal2023} characterised the theories with
+mechanised causal graphs; and \textcite{oesterheldconitzer2024dese} and \textcite{cooperetal2024}
+studied when self-locating beliefs make act-level causal or evidential reasoning agree with the
+ex-ante optimal policy. \textcite{wolpertbenford2013} argued that the two Newcomb arguments presuppose
+incompatible formalisations of how choice and prediction are related.
+
+\subsection{Impossibility results}
+
+Three results are of the form this paper pursues. \textcite{skalse2021} proposed a general
+counterexample to any decision theory: an opaque box that is empty exactly when the target theory
+permits taking it. \textcite{briggs2010} proved that no completely general decision theory satisfies
+both a Pareto condition across the evaluations of an agent's possible post-decision selves and a
+self-sovereignty condition on which the comparison of two options depends only on how those two
+options evaluate all options, modelling decision-theoretic paradoxes on voting paradoxes and Sen's
+liberal paradox. \textcite{podgorski2022} proved that, for theories assigning each option an overall
+value, independence of irrelevant alternatives forces the comparison of two options to depend only
+on their values by their own lights, and so singles out the evidential theory; his tournament decision
+theory escapes the result by producing no overall value.
+
+These results draw on the theory of social choice, whose methods the present paper also uses.
+\textcite{arrow1951} established that no aggregation rule satisfies a handful of individually
+innocuous conditions on an unrestricted domain. The contraction condition on choice functions goes
+back to \textcite{chernoff1954}; \textcite{arrow1959} showed that choice from all finite subsets is
+rationalised by an ordering exactly when it satisfies the weak axiom of revealed preference; and
+\textcite{sen1970,sen1971,sen1977,sen1993} named and analysed the conditions $\alpha$, $\beta$, and $\gamma$
+and the limits of internal consistency of choice. Contraction consistency conflicts with majority
+choice through the binary cycle, a fact central to the theory of tournament solutions
+\autocite{moulin1986,laslier1997,brandtharrenstein2011,brandtbrillharrenstein2016}, and it continues to
+generate impossibilities \autocite{blairetal1976,basumallikbhattacharya2026}.
+
+\subsection{The question and the answer}
+
+The thesis this paper set out to prove was that no decision theory is optimal on all fair decision
+problems, the obstruction coming from mutually incompatible criteria of optimality rather than from
+any demand for a general rule. To make it precise, Section~\ref{sec:model} defines a class of finite
+problems with prediction in which every counterfactual the criteria need is fixed by a structural
+representation, and in which fairness and well-definedness are separate conditions. A decision theory
+is any assignment of policies to problems, lookup tables included, so an impossibility must hold for
+every such assignment.
+
+The thesis is false as stated. Since every finite problem has finitely many policies, choosing an
+ex-ante maximiser in each problem is a decision theory that is ex-ante optimal everywhere
+(Theorem~\ref{thm:universal}). What is true is subtler, and the paper establishes it at two levels.
+
+\emph{Within a single problem}, the conflicts among the natural criteria---ex-ante optimality,
+structural causal dominance, ratifiability, commitment stability, and an evidential criterion---are
+shallow. Every inconsistency has a core of one or two criteria (Theorems~\ref{thm:map15}
+and~\ref{thm:map16}), the central pair being Nozick's. A conflict between ex-ante optimality and
+dominance is possible exactly when the state law depends on the prescribed action
+(Theorem~\ref{thm:characterisation}); it survives imperfect prediction and randomisation, with an
+exact trade-off between the two kinds of regret (Proposition~\ref{prop:tradeoff}).
+
+\emph{Across problems}, each problem is reduced to its causal matrix, whose rows are the belief states
+induced by the agent's possible policies and whose diagonal is ex-ante value; every real square matrix
+arises (Theorem~\ref{thm:realise}). With common affine invariance, the cross-problem axioms again
+reduce to singleton and pairwise cores, one of which is Briggs's theorem
+(Theorem~\ref{thm:pairwise}). With invariance under row translations---the matrix form of evaluating
+options against the baseline of each belief state---a genuine four-axiom impossibility appears:
+neutrality, row-translation invariance, and contraction force a rule to choose every option
+(Theorem~\ref{thm:circulant}), on exactly those domains satisfying a reachability condition
+(Theorem~\ref{thm:DR}). Ex-ante evaluation, in turn, is characterised by principal binary
+independence together with neutrality, affine invariance, ordering, non-triviality, and monotonicity
+(Theorem~\ref{thm:selfesteem} and Corollary~\ref{cor:three}), whose core is Podgorski's theorem.
+
+Both cross-problem results depend on how a smaller menu is modelled. If removing options also removes
+the beliefs that those options would induce, the results hold. If the belief model is held fixed,
+row-baseline-invariant evaluation becomes menu coherent, and contraction no longer forces ex-ante
+evaluation (Section~\ref{sec:menus} and Theorem~\ref{thm:lambda}). The dichotomy that the earlier
+results suggest---menu coherence forces ex-ante evaluation, and causal evaluation cannot be menu
+coherent without triviality---is therefore false as stated. The precise replacement is the
+conclusion of the paper: \emph{the impossibilities concern the preservation of comparisons when the
+belief perspectives associated with removed options disappear, not the preservation of choices when
+options disappear.}
+
+Several results are known and are presented as such: the Newcomb conflict (Nozick), the absence of
+ratifiable pure acts (Gibbard and Harper; Jeffrey), mixed existence under continuity (Halpern; Bell
+and co-authors), the Pareto--self-sovereignty conflict (Briggs), and the core of the binary
+characterisation (Podgorski). The consistency maps, the characterisation of when dominance and
+ex-ante optimality can conflict, the trade-off identity, the analysis of noisy commitment, the
+circulant theorem and its exact domain criterion, the comparison of menu semantics, and the
+cardinality results on families of rules were not found in the literature searched; their ingredients
+are classical, and no claim of priority is made.
+
+Sections~\ref{sec:model}--\ref{sec:robust} treat single problems: the model, the criteria and the
+possibility theorem, the witness problems, commitment and the within-problem maps, and robustness.
+Sections~\ref{sec:matrix}--\ref{sec:exante} treat cross-problem axioms: the causal matrix, the
+pairwise reduction, row translations and contraction, menu semantics, and the characterisation of
+ex-ante evaluation. Section~\ref{sec:taxonomy} asks whether the relevant problem types are few,
+Section~\ref{sec:mixed} extends the results to mixed policies and two evidential semantics, and
+Section~\ref{sec:conclusion} states the final thesis and the questions left open.
+Appendix~\ref{app:stipulations} lists every stipulation made.

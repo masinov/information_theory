@@ -1,0 +1,152 @@
+% Is There an Optimal Decision Theory? -- LuaLaTeX.  Build: sh build.sh  (or: lualatex, biber, lualatex x2)
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+
+% ---- page and type ------------------------------------------------------------
+\usepackage[textwidth=31pc,textheight=47\baselineskip,top=1.1in,headsep=2.2\baselineskip,
+            footskip=3\baselineskip,heightrounded]{geometry}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{unicode-math}
+\setmainfont{Libertinus Serif}[Numbers=OldStyle]
+\setsansfont{Libertinus Sans}
+\setmathfont{Libertinus Math}
+\setmathfont{Latin Modern Math}[range={\mathcal,\mathbfcal,\mathscr}]
+\usepackage[babel=true]{microtype}
+\usepackage[english]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{booktabs,tabularx,array,enumitem,etoolbox}
+\AtBeginEnvironment{tabular}{\upshape} % tables inside theorem statements stay upright
+\usepackage{flafter} % floats never precede their place in the text
+\usepackage[backend=biber,style=authoryear-comp,useprefix=true,maxcitenames=2,maxbibnames=10,giveninits=true,
+            uniquename=false,uniquelist=false,doi=false,url=false,isbn=false,eprint=true,
+            dashed=false]{biblatex}
+\addbibresource{refs.bib}
+\renewcommand*{\bibfont}{\small}
+\setlength{\bibhang}{1.4em}
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\usepackage{scrlayer-scrpage}
+\deffootnote[1.4em]{1.4em}{1em}{\makebox[1.4em][l]{\thefootnotemark.}}
+\setlength{\footnotesep}{.7\baselineskip}
+\setkomafont{footnote}{\small}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\scshape}
+\setcapindent{0pt}
+\renewcommand*{\captionformat}{.\enskip}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+\linespread{1.05}
+\setlength{\parindent}{1.4em}
+\widowpenalty=4000 \clubpenalty=4000 \interfootnotelinepenalty=0
+\setlength{\emergencystretch}{1.5em}
+\setlist{itemsep=.25em,topsep=.5em,parsep=0pt}
+
+% ---- running heads --------------------------------------------------------------
+\newcommand{\shorttitle}{Is There an Optimal Decision Theory?}
+\newcommand{\theauthor}{Mario Asis}
+\clearpairofpagestyles
+\ohead{\textsc{\MakeLowercase{\shorttitle}}}
+\ihead{\textsc{\MakeLowercase{\theauthor}}}
+\cfoot*{\pagemark}
+\setkomafont{pageheadfoot}{\normalfont\footnotesize}
+\setkomafont{pagenumber}{\normalfont\small}
+\pagestyle{scrheadings}
+
+% ---- headings ---------------------------------------------------------------------
+\setkomafont{disposition}{\normalfont}
+\setkomafont{section}{\normalfont\large\scshape}
+\setkomafont{subsection}{\normalfont\normalsize\itshape}
+\RedeclareSectionCommand[beforeskip=-2\baselineskip plus -.4\baselineskip,
+                         afterskip=.8\baselineskip]{section}
+\RedeclareSectionCommand[beforeskip=-1.2\baselineskip plus -.3\baselineskip,
+                         afterskip=.4\baselineskip]{subsection}
+\renewcommand*{\sectionformat}{\thesection.\enskip}
+\renewcommand*{\subsectionformat}{\thesubsection.\enskip}
+
+% ---- statements ---------------------------------------------------------------------
+\newtheoremstyle{dtplain}{.8\baselineskip}{.8\baselineskip}{\itshape}{}{\scshape}{.}{.5em}{}
+\newtheoremstyle{dtdef}{.8\baselineskip}{.8\baselineskip}{\upshape}{}{\scshape}{.}{.5em}{}
+\theoremstyle{dtplain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{dtdef}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\proofname}{\scshape Proof}
+\renewcommand{\qedsymbol}{\openbox}
+
+% ---- notation ----------------------------------------------------------------------
+\newcommand{\Rl}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\Pol}{\Pi}                       % policy space
+\newcommand{\cls}{\mathcal{F}}               % class of problems
+\newcommand{\ax}[1]{\textup{\textsf{#1}}}    % cross-problem axiom
+\newcommand{\cri}[1]{\textup{C#1}}           % within-problem criterion
+\newcommand{\Cpr}{\ax{C}\ensuremath{_{\mathrm{pr}}}}
+\newcommand{\Ccol}{\ax{C}\ensuremath{_{\mathrm{col}}}}
+\newcommand{\Cref}{\ax{C}\ensuremath{_{\mathrm{ref}}}}
+\newcommand{\Bpr}{\ax{B}\ensuremath{_{\mathrm{pr}}}}
+\newcommand{\Bcol}{\ax{B}\ensuremath{_{\mathrm{col}}}}
+\newcommand{\Mon}{\ax{Mon}}
+\newcommand{\QJ}{\ax{Q}\ensuremath{_{J}}}
+\newcommand{\dev}[3]{#1[#2{\leftarrow}#3]} % local deviation pi[h <- a]
+\newcommand{\Reach}{\operatorname{Reach}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\cont}{\mathfrak{c}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\first}{first}
+
+\hypersetup{pdftitle={Is There an Optimal Decision Theory?},pdfauthor={Mario Asis},
+            pdfsubject={Possibility and impossibility theorems for decision theories: within-problem
+                        criteria, cross-problem axioms, and the semantics of menus}}
+
+% ===================================================================================
+\begin{document}
+
+\thispagestyle{plain.scrheadings}
+\begin{center}
+  \vspace*{.2\baselineskip}
+  {\LARGE Is There an Optimal Decision Theory?\par}
+  \vspace{.7\baselineskip}
+  {\large\itshape Within-Problem Conflicts, Cross-Problem Axioms,\\ and the Semantics of Menus\par}
+  \vspace{1.4\baselineskip}
+  {\scshape \MakeLowercase{\theauthor}\par}
+  \vspace{.3\baselineskip}
+  {\small October 2026\par}
+  \vspace{1.6\baselineskip}
+\end{center}
+
+\input{sections/abstract}
+
+\vspace{.8\baselineskip}
+{\small\setcounter{tocdepth}{1}\renewcommand{\contentsname}{\normalsize\scshape contents}\tableofcontents}
+
+\input{sections/introduction}
+\input{sections/model}
+\input{sections/criteria}
+\input{sections/witnesses}
+\input{sections/commitment}
+\input{sections/robustness}
+\input{sections/matrix}
+\input{sections/pairwise}
+\input{sections/translations}
+\input{sections/menus}
+\input{sections/exante}
+\input{sections/taxonomy}
+\input{sections/mixed}
+\input{sections/conclusion}
+
+\appendix
+\input{sections/stipulations}
+
+\begin{center}
+  \vspace{1.2\baselineskip}
+  {\large ⁂}
+\end{center}
+
+\printbibliography[heading=bibintoc,title={References}]
+
+\end{document}

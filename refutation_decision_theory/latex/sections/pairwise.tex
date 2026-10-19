@@ -1,0 +1,128 @@
+% -----------------------------------------------------------------------------------
+\section{A pairwise reduction under common affine invariance}\label{sec:pairwise}
+
+The first cross-problem result shows that, with common affine invariance as the only invariance,
+the axioms of Definition~\ref{def:axioms} behave like the within-problem criteria: every inconsistency
+has a core of size one or two.
+
+\begin{theorem}[Pairwise reduction]\label{thm:pairwise}
+On the domain of all finite real square matrices, under principal restriction, the
+inclusion-minimal inconsistent subsets of
+$\{\ax{N},\ax{F},\ax{P},\ax{L},\ax{D},\ax{J},\ax{B},\ax{S},\ax{C},\ax{O},\ax{Q}\}$ are exactly
+\[
+  \{\ax{L}\},\quad\{\ax{J}\},\quad\{\ax{P},\ax{D}\},\quad\{\ax{P},\ax{B}\},\quad
+  \{\ax{P},\ax{S}\},\quad\{\ax{P},\ax{C}\},
+\]
+and the maximal consistent subsets are exactly
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+  \toprule
+  maximal consistent subset & witness rule \\
+  \midrule
+  $\{\ax{N},\ax{F},\ax{P},\ax{O},\ax{Q}\}$ & rank by column sums $\sum_kM_{ki}$ \\
+  $\{\ax{N},\ax{F},\ax{D},\ax{B},\ax{S},\ax{C},\ax{O},\ax{Q}\}$ & rank by diagonal entries $M_{ii}$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+
+The proof consists of five obstructions and a containment argument.
+
+\begin{proposition}[Restricted Pareto alone]\label{prop:L}
+No rule satisfies \ax{L}.
+\end{proposition}
+
+\begin{proof}
+Consider
+\[
+  K=\begin{pmatrix}0&-1&1\\1&0&-1\\-1&1&0\end{pmatrix}.
+\]
+In rows $1$ and $2$, column $1$ reads $(0,1)$ and column $2$ reads $(-1,0)$, so \ax{L} forces $1\succ2$.
+Likewise rows $2,3$ force $2\succ3$ and rows $1,3$ force $3\succ1$. Every option has a strict
+defeater, so $G(K)=\varnothing$.
+\end{proof}
+
+If bare cyclic relations without a nonempty recommendation were allowed when \ax{O} is absent, the
+obstruction would instead be the pair $\{\ax{L},\ax{O}\}$; the convention of
+Definition~\ref{def:rule} makes it a singleton.
+
+\begin{proposition}[Global ratifiability alone]\label{prop:J}
+No rule satisfies \ax{J}.
+\end{proposition}
+
+\begin{proof}
+In $\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$ neither option maximises its own row.
+This is Death in Damascus in reduced form.
+\end{proof}
+
+\begin{proposition}[Pareto against the diagonal]\label{prop:PD}
+No rule satisfies \ax{P} and \ax{D}.
+\end{proposition}
+
+\begin{proof}
+In $N_0=\bigl(\begin{smallmatrix}2&3\\0&1\end{smallmatrix}\bigr)$, column $2$ strictly dominates column
+$1$, so \ax{P} gives $2\succ1$ and $G(N_0)=\{2\}$, while option $1$ uniquely maximises the diagonal.
+This is Newcomb's problem in reduced form.
+\end{proof}
+
+\begin{proposition}[Pareto against self-sovereignty; \cite{briggs2010}]\label{prop:PS}
+No rule satisfies \ax{P} and \ax{S}, and no rule satisfies \ax{P} and \ax{B}.
+\end{proposition}
+
+\begin{proof}
+Let
+\[
+  M^+=\begin{pmatrix}0&0&-1\\0&0&-1\\1&0&-1\end{pmatrix},\qquad
+  M^-=\begin{pmatrix}0&0&-1\\0&0&-1\\0&1&-1\end{pmatrix}.
+\]
+In $M^+$, column $1$ weakly dominates column $2$, strictly in row $3$, so \ax{P} gives $1\succ2$; in
+$M^-$ it gives $2\succ1$. Rows $1$ and $2$ are the same in both matrices, contradicting \ax{S}; so is
+the principal block on $\{1,2\}$, contradicting \ax{B}.
+\end{proof}
+
+This is an explicit instance of Briggs's theorem, which states the incompatibility of a Pareto
+condition and self-sovereignty for decision-theoretic rankings and does not require neutrality or
+transitivity \autocite[21--26]{briggs2010}. Causal decision theory satisfies her Pareto condition
+and violates self-sovereignty; evidential decision theory and Wedgwood's benchmark theory
+\autocite{wedgwood2013} satisfy self-sovereignty and violate Pareto. The conflict needs at least three
+options: on two-option problems the benchmark theory satisfies both. The pair
+$\{\ax{P},\ax{S}\}$ is therefore not new.
+
+\begin{proposition}[Pareto against contraction]\label{prop:PC}
+No rule satisfies \ax{P} and \ax{C}.
+\end{proposition}
+
+\begin{proof}
+Return to the matrix $K$ of Proposition~\ref{prop:L}. Its binary restrictions are
+\[
+  K|_{\{1,2\}}=K|_{\{2,3\}}=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad
+  K|_{\{1,3\}}=\begin{pmatrix}0&1\\-1&0\end{pmatrix},
+\]
+and \ax{P} forces $G(K|_{\{1,2\}})=\{1\}$, $G(K|_{\{2,3\}})=\{2\}$, $G(K|_{\{1,3\}})=\{3\}$. Each option
+of $K$ is rejected in one binary restriction containing it, so by \ax{C} none can be chosen from $K$.
+\end{proof}
+
+The mechanism is the classical binary cycle that makes contraction consistency incompatible with
+majority-type choice \autocite{sen1970,brandtharrenstein2011}; the modelling choice that gives it
+force here is that restriction deletes the rows of the removed options together with their columns.
+Section~\ref{sec:menus} shows that it disappears when the rows are retained.
+
+\begin{proof}[Proof of Theorem~\ref{thm:pairwise}]
+The six sets are inconsistent by Propositions~\ref{prop:L}--\ref{prop:PC}, and each proper subset of
+each pair is consistent by the witnesses. Column sums satisfy \ax{N}, \ax{F} (scores are multiplied by
+$a$ and shifted by $|I|b$), \ax{P} (a weakly dominant column with one strict entry has a strictly
+larger sum), \ax{O}, and \ax{Q}. Diagonal ranking satisfies \ax{N}, \ax{F}, \ax{D}, \ax{B} (and hence
+\ax{S} and \ax{C} by Lemma~\ref{lem:bimplies}), \ax{O}, and \ax{Q}. A consistent set contains neither
+\ax{L} nor \ax{J}. If it contains \ax{P}, it excludes \ax{D}, \ax{B}, \ax{S}, and \ax{C}, and lies in
+the column-sum set; otherwise it lies in the diagonal set.
+\end{proof}
+
+Two of the reference rules one might expect to appear do not. Maximin over rows violates the strong
+Pareto axiom: in $\bigl(\begin{smallmatrix}0&0\\2&1\end{smallmatrix}\bigr)$, column $1$ weakly dominates
+column $2$, but both column minima are $0$. Positive fixed-weight column averages satisfy \ax{P}, and
+uniform weights add \ax{N}, but fixed unequal weights require persistent labels or additional input.
+The selector $T^\nu$ of Proposition~\ref{prop:nu} is in general not a rule in the sense of
+\ax{A0}: it uses structural information that $M_D$ does not retain.
+
+With common affine invariance alone, then, there is no Arrow-style family among these axioms.

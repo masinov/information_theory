@@ -1,0 +1,128 @@
+% -----------------------------------------------------------------------------------
+\section{Types, parameters, and certification}\label{sec:taxonomy}
+
+A recurring hope in the debate is that the relevant problem types are few: that a decision theory
+could be settled by its behaviour on a small catalogue of representative problems. Whether this is
+so depends on what counts as the same type, and on which structural axioms a theory is already
+known to satisfy.
+
+\subsection{Problems}
+
+\emph{Boolean classifications are automatically finite.} For $k$ local criteria, the profile
+$\mathcal S(D)=\{I\subseteq\{1,\dots,k\}:\text{some policy satisfies every criterion in }I\}$ takes at most
+$2^{2^k}$ values. A finite classification by joint-satisfiability profiles thus exists trivially; it
+need not help to solve any problem, and \cri{4}, being a relation between problems, is not one of
+these local predicates.
+
+\emph{Exact recommendation structures are not finite.} Call two problems equivalent if a bijection of
+their policy spaces preserves the set of policies acceptable under each criterion.
+
+\begin{proposition}\label{prop:infinitetypes}
+Even with two actions and one always-reached information set, the continuous mixed model contains
+infinitely many pairwise inequivalent problems.
+\end{proposition}
+
+\begin{proof}
+For distinct $r_1,\dots,r_n\in(0,1)$, let a reward $Y\in\{0,1\}$, independent of the realised action,
+satisfy $\Pr(Y=1\mid p)=1-\prod_i(p-r_i)^2$, a continuous probability since each factor lies in $[0,1]$.
+The value is maximised exactly at $p\in\{r_1,\dots,r_n\}$, so exactly $n$ policies satisfy \cri{1}, while
+every policy satisfies \cri{2} and \cri{3}. A bijection preserving the \cri{1}-sets cannot identify
+problems with different $n$.
+\end{proof}
+
+For deterministic policies, Theorem~\ref{thm:realise} already shows that every finite recommendation
+structure occurs. The permissive definition of a theory has a further, direct consequence.
+
+\begin{proposition}[No finite benchmark suite]\label{prop:benchmark}
+No finite set of problems can establish that an arbitrary decision theory satisfies \cri{1}
+everywhere.
+\end{proposition}
+
+\begin{proof}
+Modify $T^{\mathrm{ex}}$ only on one two-action problem outside the suite, with a strictly better
+action, so as to select the worse action. The two theories agree on every benchmark, and only one
+satisfies \cri{1} everywhere.
+\end{proof}
+
+This holds even if the benchmarks and the omitted problem are of the same intuitive type.
+Representative testing requires an invariance requirement on theories. Note also that infinitely
+many equivalence classes do not by themselves preclude a finite-dimensional parameterisation: a
+single real parameter indexes infinitely many cases.
+
+\subsection{Rules}
+
+The question is sharper for rules on matrices, where invariance axioms are available. Finitely many
+parameters must then be read cardinally: a finite-dimensional input space does not make an
+arbitrary rule on it a finite-dimensional family.
+
+\begin{proposition}\label{prop:NFO}
+There are $2^{\cont}$ rules satisfying \ax{A0}, \ax{N}, \ax{F}, and \ax{O}. Finite benchmark suites cannot
+certify \ax{P} or \ax{D} for them.
+\end{proposition}
+
+\begin{proof}
+For $0<t<1$ let $N_t=\bigl(\begin{smallmatrix}0&-1\\t+1&t\end{smallmatrix}\bigr)$. These lie in distinct
+orbits of relabelling combined with positive affine maps, and each has trivial stabiliser: without a
+swap, preserving the entries $0$ and $-1$ forces the identity map; with a swap, the diagonal $(t,0)$
+must be mapped to $(0,s)$, which requires a negative scale. For each $E\subseteq(0,1)$, choose option $1$
+on $N_t$ when $t\in E$ and option $2$ otherwise, transport this ranking equivariantly over each orbit,
+and use diagonal ranking elsewhere. This gives $2^{\cont}$ distinct rules, whereas finite tuples of reals
+form a set of cardinality $\cont$. In $N_t$, column $1$ strictly dominates column $2$ and the second
+diagonal entry is larger; so modifying column sums, or diagonal ranking, on one untested orbit
+produces a violation of \ax{P}, or of \ax{D}, that no finite suite (even an adaptive one) detects.
+\end{proof}
+
+The construction uses the permission to have arbitrary lookup rules; it does not carry over unchanged
+to classes with continuity or measurability requirements.
+
+\begin{proposition}\label{prop:NFB}
+There are $2^{\cont}$ rules satisfying \ax{N}, \ax{F}, and \ax{B} (without \ax{O}), and finite suites cannot
+certify \ax{D} for them.
+\end{proposition}
+
+\begin{proof}
+For $E\subseteq\Rl$ and $M_{ii}>M_{jj}$, declare $i\succ_Mj$ if $(M_{ij}-M_{jj})/(M_{ii}-M_{jj})\in E$; never prefer a
+lower diagonal strictly to a higher one, and tie all other pairs. The ratio is invariant under positive
+affine maps and depends only on the principal block, and strict comparisons descend the diagonal, so
+choice sets are nonempty. On $M_t=\bigl(\begin{smallmatrix}1&t\\0&0\end{smallmatrix}\bigr)$ the choice is
+$\{1\}$ if $t\in E$ and $\{1,2\}$ otherwise. Starting from $E=\Rl$ (diagonal ranking) and removing one
+untested ratio defeats any finite suite.
+\end{proof}
+
+\begin{proposition}\label{prop:NFSO}
+There are $2^{\cont}$ rules satisfying \ax{N}, \ax{F}, \ax{S}, and \ax{O} that agree on every binary
+matrix.
+\end{proposition}
+
+\begin{proof}
+Let $r_i=(M_{ii}-\min_jM_{ij})/(\max_jM_{ij}-\min_jM_{ij})$, with $r_i=0$ for a constant row, and for
+$E\subseteq(0,1)$ rank by $s_i=\one\{r_i\in E\}$. These rules satisfy \ax{N}, \ax{F}, \ax{S}, and \ax{O}, even
+under separate positive affine transformations of rows. On binary matrices every $r_i$ is $0$ or $1$,
+so every score is zero; on
+$\Bigl(\begin{smallmatrix}t&0&1\\1&0&1\\1&1&0\end{smallmatrix}\Bigr)$ the scores are
+$(\one\{t\in E\},0,0)$.
+\end{proof}
+
+Together with Corollary~\ref{cor:three}, these results give the following picture.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{9em}
+                                  >{\raggedright\arraybackslash}X@{}}
+  \toprule
+  assumptions beyond \ax{A0} & size of the family; certification \\
+  \midrule
+  \ax{N}, \ax{F}, \ax{O} & $2^{\cont}$; finite suites certify neither \ax{P} nor \ax{D} \\
+  \ax{N}, \ax{F}, \ax{B} & $2^{\cont}$; finite suites do not certify \ax{D} \\
+  \ax{N}, \ax{F}, \ax{S}, \ax{O} & $2^{\cont}$; all binary behaviour can leave the rule undetermined \\
+  \ax{N}, \ax{F}, \ax{C}, \ax{O}, \ax{Q}, \Mon & $2^{\cont}$; finite suites do not certify \ax{D} (Section~\ref{sec:exante}) \\
+  \ax{N}, \ax{F}, \ax{B}, \ax{O} & exactly three rules; one unequal-diagonal test distinguishes them \\
+  \bottomrule
+\end{tabularx}
+\end{center}
+
+\enquote{The relevant types are few} is thus true in exactly one of these regimes, and there only
+conditionally: when principal binary independence and ordering are known to hold globally, a single
+binary test decides among the three possible rules. Finite observation never verifies those
+structural axioms themselves.

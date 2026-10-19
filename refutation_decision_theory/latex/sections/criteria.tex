@@ -1,0 +1,106 @@
+% -----------------------------------------------------------------------------------
+\section{Optimality criteria and the possibility of ex-ante optimality}\label{sec:criteria}
+
+\subsection{Within-problem criteria}
+
+The criteria below are the precise forms of the principles that the main decision theories are
+usually taken to satisfy. Each is a condition on the policy $T_D$ that a theory $T$ selects in a
+problem $D$; the commitment criterion \cri{4} and the evidential criterion \cri{6} are introduced in
+Section~\ref{sec:commit}, once the constructions they require are available.
+
+\begin{definition}[Ex-ante optimality, \cri{1}]
+$T$ satisfies \cri{1} on $D$ if \[ T_D\in\argmax_{\pi\in\Pol_D}V_D(\pi). \]
+\end{definition}
+
+\begin{definition}[Structural causal dominance, \cri{2}]
+$T$ satisfies \cri{2} on $D$ if, at every information set $h$ positively reached under $\pi=T_D$,
+there is no $a\in A_h$ such that
+\[
+  U_D\bigl(s,\dev{\pi}{h}{a}\bigr)>U_D\bigl(s,\dev{\pi}{h}{\pi(h)}\bigr)
+  \quad\text{for every }s\in R_h(\pi).
+\]
+\end{definition}
+
+The quantifier ranges over \emph{structural} states: all plans that reach $h$, including those to
+which $\mu_\pi$ assigns probability zero. This is a deliberate resolution of an ambiguity in
+\enquote{every state compatible with $h$}, and it matters. If compatibility meant only the states in
+the support of $\mu_\pi$, then in Death in Damascus with an infallible predictor (Section~\ref{sec:did})
+the single supported state places Death in the chosen city, so switching would strictly improve the
+payoff in every supported state and \cri{2} itself would be unsatisfiable. Likewise, on trees where
+prediction nodes follow $h$, \enquote{hold fixed the outcomes of the nodes preceding $h$} leaves open
+how the later prediction nodes are to be evaluated; freezing their policy dependence while
+averaging over their outcomes can make dominance collapse into an unsatisfiable best-response
+requirement. The structural plan fixes both matters at once.
+
+\begin{definition}[Ratifiability, \cri{3}]
+$T$ satisfies \cri{3} on $D$ if, at every information set $h$ positively reached under $\pi=T_D$,
+\[
+  \pi(h)\in\argmax_{a\in A_h}Q_\pi(h,a).
+\]
+\end{definition}
+
+\begin{definition}[Existence, \cri{5}]
+$T$ satisfies \cri{5} on $D$ if its own criterion is satisfiable there, that is, if $T_D$ is defined.
+\end{definition}
+
+Since decision theories are total by Definition~\ref{def:theory}, \cri{5} holds for every theory
+and imposes no restriction; it records the requirement that a criterion be satisfiable on every
+problem of the class. Were partial theories admitted, totality would become an independent axiom
+and the consistency maps of Section~\ref{sec:commit} would change.
+
+\begin{proposition}\label{prop:c3c2}
+\cri{3} implies \cri{2}.
+\end{proposition}
+
+\begin{proof}
+Suppose $h$ is positively reached under $\pi=T_D$ and some $a$ satisfies
+$U_D(s,\dev{\pi}{h}{a})>U_D(s,\pi)$ for every $s\in R_h(\pi)$. Since $r_\pi(h)>0$, the conditional
+distribution $\mu_\pi(\cdot\mid R_h(\pi))$ is a probability measure carried by $R_h(\pi)$, and a strict
+pointwise inequality on $R_h(\pi)$ gives $Q_\pi(h,a)>Q_\pi(h,\pi(h))$. Thus $\pi(h)$ is not a maximiser
+of $Q_\pi(h,\cdot)$, and \cri{3} fails.
+\end{proof}
+
+\subsection{Ex-ante optimality is always attainable}
+
+The opening question admits a direct answer once \enquote{decision theory} is taken in the
+permissive sense of Definition~\ref{def:theory}.
+
+\begin{theorem}[Universal ex-ante selection]\label{thm:universal}
+On every class of well-defined finite problems there is a decision theory satisfying \cri{1} on
+every problem of the class.
+\end{theorem}
+
+\begin{proof}
+Fix a tie-breaking order on each $\Pol_D$ and set
+$T^{\mathrm{ex}}_D=\first\argmax_{\pi\in\Pol_D}V_D(\pi)$. Each $\Pol_D$ is finite and nonempty, and
+$V_D$ is real valued on it because $D$ is well defined, so the maximum exists.
+\end{proof}
+
+The unqualified thesis that no decision theory is optimal on all fair problems is therefore false.
+What can be true is that particular \emph{combinations} of criteria are jointly unsatisfiable, and
+the remaining sections determine exactly which. A first observation shows how little such a result
+can depend on generality or uniformity. Call a criterion $C$ \emph{local} if whether a theory $T$
+satisfies $C$ on $D$ depends only on $T_D$; \cri{1}, \cri{2}, \cri{3}, and \cri{5} are local, while
+\cri{4} is not. For a local criterion $C_i$ let $A_i(D)\subseteq\Pol_D$ be the set of policies that
+satisfy it on $D$.
+
+\begin{lemma}[Pointwise reduction]\label{lem:pointwise}
+For local criteria $C_1,\dots,C_k$ and a class $\cls$,
+\[
+  \exists T\;\forall D\in\cls\;\bigwedge_{i}C_i(T,D)
+  \quad\Longleftrightarrow\quad
+  \forall D\in\cls\;\;\bigcap_{i}A_i(D)\neq\varnothing.
+\]
+\end{lemma}
+
+\begin{proof}
+From left to right, $T_D$ lies in the intersection. From right to left, let $T_D$ be the first
+element of the intersection under a fixed order.
+\end{proof}
+
+Because lookup tables are admitted, an impossibility for local criteria is never more than the
+exhibition of a single problem on which their acceptable sets are disjoint. No difficulty about
+general rules, computability, or self-reference is involved. This is the precise sense in which the
+within-problem impossibilities of the next two sections are shallow; non-local criteria, and the
+cross-problem axioms of Sections~\ref{sec:matrix}--\ref{sec:exante}, are where deeper structure
+can appear.

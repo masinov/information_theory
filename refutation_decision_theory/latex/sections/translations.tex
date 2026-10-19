@@ -1,0 +1,275 @@
+% -----------------------------------------------------------------------------------
+\section{Row-baseline invariance and contraction}\label{sec:translations}
+
+Adding row-translation invariance changes the picture. It produces a genuine impossibility among
+four independent axioms, none of which concerns Pareto, ordering, or ex-ante value.
+
+\subsection{The circulant theorem}
+
+The proof embeds an arbitrary matrix in a matrix with a transitive symmetry group. It rests on a
+distinct-differences lemma of the kind used by \textcite{finkruiz1986} to embed graphs in
+circulants.
+
+\begin{lemma}[Distinct differences]\label{lem:sidon}
+Let $k\ge2$, $v_i=2^i$ for $i=0,\dots,k-1$, and $m>2(2^{k-1}-1)$. The $k(k-1)$ ordered differences
+$v_j-v_i$, $i\ne j$, are distinct and nonzero modulo $m$.
+\end{lemma}
+
+\begin{proof}
+For $j>i$, $v_j-v_i=2^i(2^{j-i}-1)$; the power of two and the odd part determine $i$ and $j-i$, so the
+positive differences are distinct integers, and so are their negatives. Every difference has
+absolute value at most $D=2^{k-1}-1$, so two distinct differences differ by a nonzero integer of
+absolute value at most $2D<m$, and no difference is divisible by $m$.
+\end{proof}
+
+\begin{lemma}[Circulant embedding]\label{lem:embed}
+Every matrix $Z\in\Rl^{k\times k}$ with zero diagonal is a principal submatrix of a circulant matrix
+$A_{uv}=f(v-u\bmod m)$ on $\mathbb Z/m\mathbb Z$ with $f(0)=0$.
+\end{lemma}
+
+\begin{proof}
+With $v_i$ and $m$ as in Lemma~\ref{lem:sidon}, set $f(0)=0$ and $f(v_j-v_i)=Z_{ij}$ for $i\ne j$, which
+is well defined by the lemma, and give $f$ arbitrary values on the unused residues. Then
+$A_{v_iv_j}=f(v_j-v_i)=Z_{ij}$.
+\end{proof}
+
+\begin{theorem}[Neutrality, row translations, and contraction force universal choice]\label{thm:circulant}
+On the domain of all finite real square matrices, every rule satisfying \ax{N}, \ax{R}, and \ax{C}
+(principal restriction) has $G(M)=I$ for every matrix $(I,M)$. Consequently
+$\{\ax{N},\ax{R},\ax{C},\ax{Q}\}$ is inconsistent.
+\end{theorem}
+
+\begin{proof}
+Let $(I,M)$ be given with $|I|=k\ge2$ (the case $k=1$ is trivial), and let $Z=Z(M)$, which has zero
+diagonal; by \ax{R}, $G(Z)=G(M)$. By Lemma~\ref{lem:embed} and \ax{N} (relabelling the vertices of the
+circulant so that the embedded ones carry the labels of $I$), $Z$ is the principal restriction to $I$
+of a matrix $A$ whose symmetry group acts transitively on its indices: each cyclic shift
+$u\mapsto u+1$ of $\mathbb Z/m\mathbb Z$, transported by the relabelling, maps $A$ to itself. By \ax{N},
+$G(A)$ is invariant under these symmetries, and since it is nonempty it contains every index. By
+\ax{C}, $G(Z)=G(A|_I)\supseteq G(A)\cap I=I$. Hence $G(M)=I$, and no two matrices on the same index set
+have different choice sets.
+\end{proof}
+
+Without \ax{O} the conclusion is universal \emph{choice}, not universal indifference: incomparabilities
+may remain. The symmetry step is standard in the theory of tournament solutions, where neutral,
+nonempty solutions must select every vertex of a vertex-transitive tournament
+\autocite{brandt2011,brandtbrillharrenstein2016}; the embedding has the precedent noted above. What
+the theorem adds is the use of contraction to carry universal choice from symmetric matrices to all
+matrices, and of row-baseline invariance to reach every matrix from a zero-diagonal one. No
+published statement of this conclusion was found in the literature searched; its ingredients are
+established, and no priority is claimed.
+
+\begin{proposition}[Independence]\label{prop:indep}
+Each three-element subset of $\{\ax{N},\ax{R},\ax{C},\ax{Q}\}$ is satisfiable, so the family is
+minimally inconsistent:
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+  \toprule
+  omitted axiom & rule satisfying the other three \\
+  \midrule
+  \ax{N} & responsive fixed-label rule \\
+  \ax{R} & diagonal ranking \\
+  \ax{C} & row-range ranking, $r_i=\max_jM_{ij}-\min_jM_{ij}$ \\
+  \ax{Q} & universal indifference \\
+  \bottomrule
+\end{tabular}
+\end{center}
+All four rules also satisfy \ax{F} and \ax{O}.
+\end{proposition}
+
+\begin{proof}
+Row ranges are unchanged by row translations, multiplied by $a$ under \ax{F}, and permuted under
+relabelling; the rule is nonconstant. Diagonal ranking satisfies \ax{C} by Lemma~\ref{lem:bimplies}.
+The \emph{responsive fixed-label rule} fixes two labels $u,v$ and a well-order of $\mathbb L$ in which
+$u,v$ form an adjacent block above all other labels. When both occur, $u$ and $v$ are compared by the
+sign of $M_{uu}-M_{uv}$ (a tie if it is zero); all other comparisons follow the fixed order. The
+comparison of $u$ and $v$ uses a within-row difference of their principal block, so the rule satisfies
+\ax{R}, \ax{F}, and \ax{B}, hence \ax{C}; it is responsive, so \ax{Q} holds, but it is not neutral.
+\end{proof}
+
+If neutrality is regarded as part of the reduction \ax{A0} rather than as an axiom, the same result is
+a minimal three-axiom family $\{\ax{R},\ax{C},\ax{Q}\}$ relative to that background.
+
+\begin{proposition}\label{prop:NRBQ}
+$\{\ax{N},\ax{R},\ax{B},\ax{Q}\}$ is minimally inconsistent, and so is $\{\ax{R},\ax{D}\}$.
+\end{proposition}
+
+\begin{proof}
+Suppose $i\succ_Mj$ in some matrix. By \ax{B} the same holds in $M|_{\{i,j\}}$, and by \ax{R} in its
+row normalisation $H=\bigl(\begin{smallmatrix}0&x\\y&0\end{smallmatrix}\bigr)$, with $i$ first. Let
+\[
+  C=\begin{pmatrix}0&x&y\\y&0&x\\x&y&0\end{pmatrix}.
+\]
+Its principal blocks on $(1,2)$, $(2,3)$, and $(3,1)$ all equal $H$, so \ax{N} and \ax{B} give
+$1\succ2$, $2\succ3$, and $3\succ1$, and $G(C)=\varnothing$. Hence no strict comparison ever occurs and
+$G(M)=I$ always, contradicting \ax{Q}. Minimality follows from the witnesses of
+Proposition~\ref{prop:indep}, with row-range ranking now serving as the rule that omits \ax{B}. For $\{\ax{R},\ax{D}\}$: adding $2$ to the
+second row of $\bigl(\begin{smallmatrix}1&0\\0&0\end{smallmatrix}\bigr)$ changes the unique diagonal
+maximiser from option $1$ to option $2$, while \ax{R} keeps the choice fixed.
+\end{proof}
+
+Unlike Theorem~\ref{thm:circulant}, this argument uses the link between comparisons and nonempty
+maximal choice fixed in Definition~\ref{def:rule}.
+
+\begin{theorem}[Map with row translations]\label{thm:augmented}
+Adding \ax{R} to the family of Theorem~\ref{thm:pairwise} introduces exactly three new minimal
+inconsistent subsets,
+\[
+  \{\ax{R},\ax{D}\},\qquad\{\ax{N},\ax{R},\ax{B},\ax{Q}\},\qquad\{\ax{N},\ax{R},\ax{C},\ax{Q}\},
+\]
+and the maximal consistent subsets become
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+  \toprule
+  witness rule & maximal consistent subset \\
+  \midrule
+  column sums & $\{\ax{N},\ax{F},\ax{P},\ax{R},\ax{O},\ax{Q}\}$ \\
+  diagonal ranking & $\{\ax{N},\ax{F},\ax{D},\ax{B},\ax{S},\ax{C},\ax{O},\ax{Q}\}$ \\
+  row ranges & $\{\ax{N},\ax{F},\ax{R},\ax{S},\ax{O},\ax{Q}\}$ \\
+  responsive fixed-label rule & $\{\ax{F},\ax{R},\ax{B},\ax{S},\ax{C},\ax{O},\ax{Q}\}$ \\
+  universal indifference & $\{\ax{N},\ax{F},\ax{R},\ax{B},\ax{S},\ax{C},\ax{O}\}$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+
+\begin{proof}
+Column sums satisfy \ax{R} because a row translation shifts every column sum by $\sum_kb_k$; row ranges
+satisfy \ax{S} because each score depends only on its own row. Let a set avoid all minimal
+inconsistent subsets. If it contains \ax{P}, its pairwise conflicts confine it to the first row. If it
+omits \ax{P} and \ax{R}, it fits the second. If it contains \ax{R}, it omits \ax{D}; if it contains both
+\ax{N} and \ax{Q}, the two four-element obstructions exclude \ax{B} and \ax{C}, leaving the third row;
+without \ax{N} it fits the fourth, and without \ax{Q} the fifth.
+\end{proof}
+
+\subsection{An exact domain condition}
+
+Theorem~\ref{thm:circulant} needs matrices of unbounded size: with a fixed maximum size $n$, the rule
+that chooses everything below size $n$ and maximises row ranges at size $n$ satisfies \ax{N}, \ax{R},
+\ax{C}, and \ax{Q}. The exact requirement on the domain can be stated without quantifying over
+rules. Let $\mathcal D$ be a set of matrices closed under relabelling, and interpret each invariance as
+applying whenever both the matrix and its transform belong to $\mathcal D$. Form a directed graph on the
+\emph{pointed matrices} $\mathcal P_{\mathcal D}=\{(M,i):M\in\mathcal D,\ i\in I_M\}$, with
+\begin{enumerate}[label=(\roman*)]
+  \item edges in both directions between $(M,i)$ and $(\sigma\cdot M,\sigma(i))$ for admissible relabellings;
+  \item edges in both directions between $(M,i)$ and $(M+b\one^\top,i)$ for admissible row translations;
+  \item extension edges $(M|_K,i)\to(M,i)$ for $i\in K$, whenever $M|_K$ and $M$ are in $\mathcal D$.
+\end{enumerate}
+Let $\Reach(x)$ be the set of pointed matrices reachable from $x$ (including $x$), and let
+$\Phi_M=\{(M,i):i\in I_M\}$ be the fibre of $M$.
+
+\begin{theorem}[Exact domain criterion]\label{thm:DR}
+On $\mathcal D$, the axioms $\ax{N},\ax{R},\ax{C},\ax{Q}$ are jointly inconsistent if and only if
+\[
+  \text{for every }x\in\mathcal P_{\mathcal D}\text{ there is }M\in\mathcal D\text{ with }\Phi_M\subseteq\Reach(x).
+  \tag{DR}
+\]
+\end{theorem}
+
+\begin{proof}
+Say $(M,i)$ is \emph{rejected} if $i\notin G(M)$. Rejection propagates along relabelling and
+translation edges by \ax{N} and \ax{R}, and along extension edges by the contrapositive of \ax{C}. Under
+(DR), a single rejection at $x$ would reject the entire fibre of some $M$, contradicting $G(M)\neq\varnothing$;
+so nothing is ever rejected, and \ax{Q} fails. Conversely, if (DR) fails at $x=(M_0,i_0)$, set
+\[
+  G_x(M)=\{i:(M,i)\notin\Reach(x)\}.
+\]
+Each $G_x(M)$ is nonempty because no fibre lies in $\Reach(x)$. Since relabelling and translation
+edges are bidirectional, $\Reach(x)$ is closed under them, which gives \ax{N} and \ax{R}. If
+$i\in G_x(M)\cap K$ but $i\notin G_x(M|_K)$, the extension edge would put $(M,i)$ in $\Reach(x)$; so \ax{C}
+holds. Finally $i_0\notin G_x(M_0)$, so $G_x(M_0)$ is a nonempty proper subset of $I_{M_0}$, and some
+relabelling of $M_0$ on the same index set moves it, which gives \ax{Q}. Tying chosen options above
+rejected ones yields \ax{O} as well.
+\end{proof}
+
+The circulant condition is sufficient for (DR) but not necessary. If \ax{F} is also imposed, admissible
+affine transformations are added as bidirectional edges.
+
+\subsection{Physical restrictions on problems}
+
+Does the richness that (DR) demands survive natural restrictions on the problems themselves?
+
+\begin{proposition}[Bounded payoffs]\label{prop:bounded}
+On the domain of $[0,1]$-valued matrices, $\{\ax{N},\ax{R},\ax{C},\ax{Q}\}$ is consistent; adding \ax{F}
+makes it inconsistent again.
+\end{proposition}
+
+\begin{proof}
+Fix $r\in[\tfrac12,1)$ and put $i\to j$ if $M_{ii}-M_{ij}>r$ and $M_{ji}-M_{jj}>r$. An edge forces
+$M_{ii}>r\ge\tfrac12\ge1-r>M_{jj}$, so no vertex has both an incoming and an outgoing edge and the graph
+is acyclic. Choose the options with no incoming edge, tied above the rejected ones, which are tied
+among themselves. The conditions use only within-row differences, giving \ax{R}; edges depend only on
+principal $2\times2$ blocks and persist under restriction, giving \ax{C}; the rule is neutral, ordered,
+and responsive (it chooses $\{1\}$ from $\bigl(\begin{smallmatrix}1&0\\1&0\end{smallmatrix}\bigr)$ and
+both options from the zero matrix); and raising a diagonal entry only removes incoming and adds
+outgoing edges, so it satisfies \Mon. It fails \ax{F}, since scaling by a small $a>0$ removes every
+edge.
+
+With \ax{F}, given $M\in[0,1]^{n\times n}$ and small $\alpha>0$, pass from $M$ to $\alpha M$ by \ax{F} and
+then to $A_{ij}=\tfrac12+\alpha(M_{ij}-M_{ii})$ by \ax{R}; every intermediate matrix stays in $[0,1]$.
+Embed $A$ in a circulant as in Lemma~\ref{lem:embed}, filling unused residues with $\tfrac12$, and run
+the proof of Theorem~\ref{thm:circulant}.
+\end{proof}
+
+\begin{proposition}[Prediction bounded away from accuracy]\label{prop:noisy}
+Let $P_n=(1-\eta)I+\tfrac{\eta}{n}\one\one^\top$ with $0<\eta<1$, a prediction channel whose
+probability of a correct forecast is $1-\eta+\eta/n\le1-\eta/2$ for $n\ge2$. With unrestricted real
+payoffs, every $M\in\Rl^{n\times n}$ is the causal matrix of a problem whose predictor uses $P_n$. With
+payoffs in $[0,1]$ and \ax{F}, the circulant argument survives, uniformly in $n$.
+\end{proposition}
+
+\begin{proof}
+$P_n$ is invertible, with $P_n^{-1}=\frac1{1-\eta}I-\frac{\eta}{(1-\eta)n}\one\one^\top$. Let the state be
+the forecast label, drawn from row $i$ of $P_n$ when $i$ is chosen, and let $U=P_n^{-1}M$ be the
+state-by-action payoff table; then the causal matrix is $P_nU=M$. Since $P_n^{-1}\one\one^\top=\one\one^\top$,
+the constant matrix $\tfrac12\one\one^\top$ is mapped to itself, and the absolute row sums of $P_n^{-1}$ are
+at most $(1+\eta)/(1-\eta)$; so a neighbourhood of the constant matrix whose radius does not depend on
+$n$ is mapped into $[0,1]$, and the compressed matrices of Proposition~\ref{prop:bounded} remain
+realisable.
+\end{proof}
+
+An accuracy bound alone, then, does not destroy richness. Completely uninformative prediction is
+different: if all induced laws coincide, the channel loses rank, every row of the causal matrix is
+the same, and the problem is an ordinary causal one.
+
+\begin{proposition}[Bounded action sets]\label{prop:binarytree}
+For every $k\ge2$, the symmetric extensions required by Theorem~\ref{thm:circulant} are realisable
+by problems with perfect recall and at most $k$ actions per information set, provided contraction
+applies to arbitrary sets of policies.
+\end{proposition}
+
+\begin{proof}
+Take a complete binary decision tree of depth $m$, with the agent observing its own past actions
+and the prediction hidden until the end. It has $2^m-1$ information sets and $N=2^m$ action paths,
+and each path is produced by exactly $L=2^{2^m-1-m}$ policies, since prescriptions off the path are
+free. Let a predictor forecast the eventual path and let the payoff depend on the forecast and the
+actual path; any path matrix $C$ is then realisable, and the policy matrix is $C\otimes J_L$, with $J_L$
+the all-ones $L\times L$ matrix. If $C$ is circulant, rotating path blocks and permuting duplicate
+policies within blocks act transitively on the policies. Any target matrix embeds in a circulant
+whose size is a power of two (Lemma~\ref{lem:embed}), and is recovered by restricting to one
+representative policy from each designated block.
+\end{proof}
+
+The proviso matters: arbitrary sets of surviving policies are generally not obtained by pruning local
+action sets, which produces product-shaped sets. Restricting contraction to literal pruning is a
+different axiom (Section~\ref{sec:menus}).
+
+\begin{proposition}[A single bounded choice]\label{prop:ceiling}
+With one information set and an unbounded action set, every square matrix is realisable. With one
+information set and at most $k\ge2$ actions, the rule that is universally indifferent below size $k$
+and ranks by $M_{ii}-\frac1k\sum_jM_{ij}$ at size $k$ satisfies \ax{N}, \ax{F}, \ax{R}, \ax{C}, \ax{O},
+\ax{Q}, and \Mon.
+\end{proposition}
+
+\begin{proof}
+The first claim is Theorem~\ref{thm:realise}. For the second, every proper restriction of a
+size-$k$ matrix lands where every option is chosen, so \ax{C} holds; the score is a within-row
+difference, invariant under \ax{F} up to scale, neutral, responsive, and increasing in $M_{ii}$.
+\end{proof}
+
+No finite size ceiling, therefore, forces triviality under the existential form of \ax{Q}. If
+non-triviality is required specifically on binary menus, the three-option circulant
+$\bigl(\begin{smallmatrix}0&x&y\\y&0&x\\x&y&0\end{smallmatrix}\bigr)$ already blocks it as soon as
+three options are available.

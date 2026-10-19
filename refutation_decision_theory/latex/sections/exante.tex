@@ -1,0 +1,165 @@
+% -----------------------------------------------------------------------------------
+\section{What characterises ex-ante evaluation}\label{sec:exante}
+
+The second half of the dichotomy claimed that menu coherence forces ex-ante evaluation. This section
+shows that principal binary independence does force it, given symmetry, ordering, and monotonicity,
+and that contraction does not.
+
+\subsection{Binary independence: the Self-Esteem theorem}
+
+\begin{theorem}[Relational Self-Esteem theorem]\label{thm:selfesteem}
+On the domain of all finite real square matrices, a rule satisfies \ax{N}, \Bpr, and \ax{O} if and only if
+there is a complete transitive relation $\succeq^*$ on $\Rl$ such that, for every $M$ and all $i,j$,
+\[
+  i\succeq_Mj\iff M_{ii}\succeq^*M_{jj}.
+\]
+\end{theorem}
+
+\begin{proof}
+Consider
+\[
+  H=\begin{pmatrix}p&r&p\\q&s&u\\p&t&p\end{pmatrix}.
+\]
+The principal block on $\{1,3\}$ is constant, so the transposition of $1$ and $3$ fixes it; by \ax{N} and
+\Bpr{} the comparison of $1$ and $3$ is symmetric, and by completeness $1\sim3$. By transitivity, $1$ and
+$3$ compare in the same way with $2$. By \Bpr{} the first comparison is that of the first index with the
+second in $\bigl(\begin{smallmatrix}p&r\\q&s\end{smallmatrix}\bigr)$, and the second is that of the first
+index with the second in the principal block on $(3,2)$, which is
+$\bigl(\begin{smallmatrix}p&t\\u&s\end{smallmatrix}\bigr)$. Since $r,q,t,u$ are arbitrary, the comparison
+of two options does not depend on the off-diagonal entries of their block, and by \Bpr{} and \ax{N} it is
+a function of the ordered pair of diagonal values. Define $x\succeq^*y$ if the first index is weakly
+preferred in $\operatorname{diag}(x,y)$. Completeness is inherited, and transitivity follows by applying
+\Bpr{} to $\operatorname{diag}(x,y,z)$. Conversely, ranking by a weak order of the diagonal values satisfies
+\ax{N}, \Bpr, and \ax{O}, and has nonempty maximal sets on finite menus.
+\end{proof}
+
+This is the relational form of the \enquote{Self-Esteem Theorem} of \textcite{podgorski2022}: if
+the comparison of two options is a fixed function of the four values $V_X(X)$, $V_Y(Y)$, $V_X(Y)$,
+$V_Y(X)$ and overall verdicts respect independence of irrelevant alternatives, the comparison
+depends only on each option's value by its own lights, $V_X(X)$ and $V_Y(Y)$. Podgorski concludes
+that among overall-value views only the evidential one respects that independence, and his
+tournament decision theory escapes the theorem by producing no single overall value. Here the
+common comparison function is supplied by \ax{N} and \Bpr, and the scalar overall value by \ax{O};
+the relational version assumes no real-valued representation of $\succeq^*$.
+
+\begin{corollary}\label{cor:three}
+Adding \ax{F} leaves exactly three rules: increasing diagonal ranking, decreasing diagonal ranking,
+and universal indifference. Adding \ax{Q} and \Mon{} leaves only increasing diagonal ranking.
+\end{corollary}
+
+\begin{proof}
+Every pair $x>y$ is mapped to every other such pair by a positive affine transformation, so under \ax{F}
+all unequal pairs are oriented alike; equal values tie by reflexivity and \ax{N}. \ax{Q} excludes
+indifference. Under decreasing ranking, raising $M_{11}$ in the zero $2\times2$ matrix removes option $1$
+from the choice set, violating the choice clause of \Mon.
+\end{proof}
+
+Since $M_{ii}=V_D(i)$,
+\[
+  \ax{N}+\ax{F}+\Bpr+\ax{O}+\ax{Q}+\Mon
+\]
+characterises ex-ante policy ranking under the stated matrix semantics. Under the structural axioms
+\ax{N}, \ax{F}, \Bpr, \ax{O}, a single binary benchmark with unequal diagonal entries identifies which of the
+three rules applies; no finite benchmark, however, certifies that the structural axioms themselves
+hold everywhere.
+
+\begin{proposition}[Exact domain threshold]\label{prop:threshold}
+For domains consisting of all matrices up to a maximum size, the characterisation holds if and only if
+matrices of size three are included.
+\end{proposition}
+
+\begin{proof}
+With every matrix of sizes one to three, the proof of Theorem~\ref{thm:selfesteem} goes through, and
+\Bpr{} propagates the conclusion to any larger sizes present. With sizes at most two, \Bpr{} is vacuous,
+and ranking by $s_i=M_{ii}-M_{ij}$ satisfies \ax{N}, \ax{F}, \ax{O}, \ax{Q}, and \Mon; on
+$\bigl(\begin{smallmatrix}1&100\\0&0\end{smallmatrix}\bigr)$ it chooses option $2$.
+\end{proof}
+
+Merely having some three-option problems is not enough; a sufficient richness condition is that the
+domain contain all binary matrices, all the clone extensions $H$ above, and their relabellings (and,
+for the affine conclusion, the relevant affine transforms). The argument also works on
+$[0,1]$-valued matrices of sizes up to three, with \ax{F} interpreted internally.
+
+\subsection{Contraction does not force the diagonal}
+
+Can contraction replace binary independence? Under every menu semantics, the answer is no.
+
+\begin{theorem}[A contraction-consistent family without diagonal optimality]\label{thm:lambda}
+Write $d_i=M_{ii}$. For $\lambda\ge0$ let $i\to_\lambda j$ if $d_i-d_j>\lambda\lvert M_{ij}-M_{ji}\rvert$; choose
+the options with no incoming edge, tied at the top, and rank the rejected options below them by their
+diagonal entries. Every such rule satisfies \ax{N}, \ax{F}, \Cpr, \Ccol, \ax{O}, \ax{Q}, and \Mon. At
+$\lambda=0$ it is increasing diagonal ranking; for every $\lambda>0$ it sometimes recommends an option
+whose diagonal entry is not maximal.
+\end{theorem}
+
+\begin{proof}
+Every edge strictly lowers the diagonal, so the edge relation is acyclic and the choice set is
+nonempty. Whether $i\to_\lambda j$ depends only on $M_{ii},M_{jj},M_{ij},M_{ji}$, which survive both principal
+and column restriction; so a chosen option acquires no incoming edge under restriction, which gives
+both forms of contraction. Raising $d_i$ can only remove edges into $i$ and add edges out of $i$; hence
+$i$'s chosen status can only improve, other options' chosen status can only worsen, and if $i$ stays
+rejected its rank among the rejected improves, which gives \Mon. \ax{N} and \ax{F} are clear, since
+$\lvert M_{ij}-M_{ji}\rvert$ scales with $a$ and is translation invariant. For $\lambda>0$, in
+$\bigl(\begin{smallmatrix}1&0\\100/\lambda&0\end{smallmatrix}\bigr)$ there is no edge, and both options
+are chosen.
+\end{proof}
+
+Even an ordered, neutral, affine-invariant, monotone, contraction-consistent rule, therefore, need not
+maximise ex-ante value. The family also defeats finite certification: given finitely many benchmark
+matrices, choose $\lambda>0$ so small that every option with non-maximal diagonal in every benchmark
+receives an edge from a diagonal maximiser. The whole ranking then coincides with diagonal ranking on
+every benchmark, while a new binary matrix with a large off-diagonal asymmetry relative to its
+diagonal gap violates \ax{D}.
+
+\begin{proposition}[Maximal cardinality]\label{prop:cardinality}
+Let $\cont=\lvert\Rl\rvert$. There are $2^{\cont}$ rules satisfying \ax{N}, \ax{F}, \Cpr, \Ccol, \ax{O}, \ax{Q},
+and \Mon.
+\end{proposition}
+
+\begin{proof}
+For $E\subseteq\Rl$, put $i\to j$ if $d_i>d_j$, $s=M_{ji}-M_{ij}>0$, and either $d_i-d_j>s$, or $d_i-d_j=s$ and
+$(d_j-M_{ij})/s\in E$; complete as in Theorem~\ref{thm:lambda}. Edges descend the diagonal and depend only
+on principal blocks, so the choice set is nonempty and both contractions hold. Raising $d_i$ only
+decreases the gaps $d_k-d_i$, so it never creates an edge into $i$ (at the boundary it may delete one),
+and only increases the gaps $d_i-d_j$, so it never deletes an edge out of $i$; this gives \Mon. The
+boundary parameter $(d_j-M_{ij})/s$ is invariant under positive affine maps. On
+\[
+  M_r=\begin{pmatrix}r+1&0\\1&r\end{pmatrix}
+\]
+we have $d_1-d_2=s=1$ and boundary parameter $r$, so the choice is $\{1\}$ if $r\in E$ and $\{1,2\}$
+otherwise. Distinct sets $E$ give distinct rules, and $2^{\cont}$ is the number of all rules on finite real
+matrices over a countable label universe.
+\end{proof}
+
+The class cannot, therefore, be parameterised by finitely many real numbers, or even countably many.
+
+\subsection{Fixed-reference scores}
+
+Suppose that only the score vector $v_a=\sum_jw_jM_{ja}$ is available, and that restriction deletes
+coordinates. Even then rigidity does not return. The rule choosing the top $k\ge2$ scores, including
+boundary ties, $G_k(v)=\{a:\#\{b:v_b>v_a\}<k\}$, with the chosen options tied above the others and the
+others ranked by score, satisfies \ax{N}, \ax{F}, contraction, \ax{O}, \ax{Q}, and \Mon.
+
+\begin{proposition}\label{prop:scores}
+There are $2^{\cont}$ rules on finite score vectors satisfying \ax{N}, \ax{F}, contraction, \ax{O}, \ax{Q}, and
+\Mon, already distinguished on vectors of length four.
+\end{proposition}
+
+\begin{proof}
+Fix a set $E$ of normalised shapes of triples. For a candidate $j$ and a triple $T$ of other options,
+let $g=(v_i-v_j)_{i\in T}$. Reject $j$ if some triple has $\sum g>0$, or has $\sum g=0$, $g\ne0$, and
+sorted normalised shape in $E$; choose the rest, and complete the ranking as above. A score maximiser
+is never rejected, since all its gaps are non-positive. Deletion removes witnesses, so contraction
+holds. Raising $v_j$ lowers every gap sum for $j$, so a zero-sum rejection can only turn into a
+negative sum, and raises the relevant sums for other candidates; this gives \Mon. Positive affine
+maps preserve signs and normalised shapes. On $v=(0,-1,t,1-t)$ with $0<t<\tfrac12$, the option of
+score $0$ has the single triple $(-1,t,1-t)$, of sum zero, and is rejected exactly when its shape lies
+in $E$; these shapes are distinct for distinct $t$.
+\end{proof}
+
+With a fixed full-support $w$, raising $M_{jj}$ raises only $v_j$, so the matrix form of \Mon{} follows.
+The upshot is that the dichotomy fails in both directions: contraction under any of the three
+semantics is compatible with a rich family of non-ex-ante rules, and row-baseline-invariant
+evaluation is compatible with contraction once the belief model is fixed. What does force ex-ante
+evaluation is principal binary independence, which is a strong requirement: it imposes on every
+comparison the beliefs that the two compared options would induce, and no others.

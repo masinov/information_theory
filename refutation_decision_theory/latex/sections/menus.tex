@@ -1,0 +1,245 @@
+% -----------------------------------------------------------------------------------
+\section{The semantics of a smaller menu}\label{sec:menus}
+
+Theorems~\ref{thm:pairwise} and~\ref{thm:circulant} suggest a dichotomy: menu-coherent evaluation
+forces ex-ante evaluation, while causal evaluation cannot be menu-coherent without becoming trivial.
+Both theorems, however, rest on one way of removing options from a problem: principal restriction,
+which deletes the removed options' rows together with their columns. This section examines that
+step. It turns out to be where the dichotomy fails.
+
+\subsection{Three operations}
+
+A smaller menu can be modelled in at least three ways.
+\begin{description}[font=\normalfont\itshape,leftmargin=1.4em,itemsep=.35em]
+  \item[Principal restriction ($\Cpr$).] Delete the removed options' rows and columns. A smaller menu
+        then also removes the beliefs that the agent would have if it chose the removed options.
+  \item[Column restriction ($\Ccol$).] Keep every row and delete only the columns. The input becomes a
+        rectangular matrix of belief states by available options.
+  \item[Fixed-reference restriction ($\Cref$).] Evaluate options by averaging rows with a reference
+        distribution over belief states, as in fixed-prior causal decision theory, and keep that
+        distribution when options are removed.
+\end{description}
+
+\begin{proposition}[Law-preserving removal is principal]\label{prop:principal}
+Let $D'$ be obtained from $D$ by making only the policies in $K\subseteq\Pol_D$ available, and suppose
+that their response laws and consequences are unchanged: $\mu'_i=\mu_i$ and $U'(s,i)=U(s,i)$ for
+$i\in K$. Then $M_{D'}=M_D|_{K\times K}$.
+\end{proposition}
+
+\begin{proof}
+Immediate from Definition~\ref{def:matrix}: each entry of $M_{D'}$ involves only laws and
+consequences of policies in $K$.
+\end{proof}
+
+Principal restriction is thus forced by the definition of the causal matrix once law-preserving
+removal is stipulated. Two qualifications apply. First, arbitrary subsets $K$ do not arise by pruning
+local action sets, which produces product-shaped sets of policies; an arbitrary $K$ is realised by
+treating the surviving policies as macro-actions of a new one-choice predictive problem, which
+preserves the response laws but not the extensive form. Second, an intervention that actually
+announces a smaller menu may change how a predictor responds; the model does not require
+$\mu^{D'}_i=\mu^{D}_i$, and law preservation is an additional cross-problem assumption. Removal by
+macro-actions must also be distinguished from commitment before prediction
+(Definition~\ref{def:commit}), which changes the counterfactual structure and need not yield a
+principal submatrix. \textcite{spencerwells2019} make the related point that converting a
+simultaneous problem into a sequential one can create a different decision problem, and
+\textcite{gallow2026} explicitly defines a binary sub-decision by removing the other options
+\emph{and conditioning credences on the surviving disjunction}, which is yet another operation.
+
+\subsection{Rectangular and fixed-reference domains}
+
+\begin{definition}[Rectangular inputs]\label{def:rect}
+A \emph{rectangular input} is a triple $(J,A,M)$ with $J\subseteq\mathbb L$ finite, $\varnothing\neq A\subseteq J$,
+and $M\in\Rl^{J\times A}$. Here $J$ indexes the retained belief perspectives and $A$ the available
+options, and option $a\in A$ has its \emph{own row} $a$. Column restriction is
+$(J,A,M)|_K=(J,K,M_{J\times K})$ for $\varnothing\neq K\subseteq A$.
+\end{definition}
+
+The own-row association is what keeps diagonal optimality, self-sovereignty, and monotonicity
+meaningful. The off-menu rows are retained descriptions of the old conditional or counterfactual
+laws; they are additional data, not rows of the canonical causal matrix of the smaller problem,
+which remains square. Column restriction can therefore describe a fair augmented problem, but it does
+not follow from reduction to $M_{D'}$ alone.
+
+The axioms extend to rectangular inputs as follows: relabellings act on $J$ (and hence on $A$);
+\ax{R} adds $b_j$ to row $j$ for every $j\in J$; \ax{P} quantifies over all rows in $J$; \ax{D}
+maximises $M_{aa}$ over $a\in A$; \ax{S} compares inputs with the same $J$ and $A$; \ax{Q} asks for two
+inputs with the same $J$ and $A$ and different choice sets; and contraction becomes
+\[
+  \Ccol:\qquad G(J,A,M)\cap K\subseteq G(J,K,M_{J\times K}).
+\]
+Binary independence splits into two inequivalent axioms:
+\begin{description}[font=\normalfont,leftmargin=2.4em,labelwidth=1.6em,labelsep=.8em,itemsep=.35em]
+  \item[\Bpr] the comparison of $a,b$ agrees with their comparison in the principal square input
+        $(\{a,b\},\{a,b\},M_{\{a,b\}\times\{a,b\}})$;
+  \item[\Bcol] the comparison of $a,b$ agrees with their comparison in $(J,\{a,b\},M_{J\times\{a,b\}})$,
+        which keeps every row.
+\end{description}
+Both imply \Ccol, by the argument of Lemma~\ref{lem:bimplies}; \Bpr{} implies \ax{S}, while \Bcol{} does
+not, because it never compares inputs with different belief universes.
+
+For fixed-reference restriction, supply a probability vector $w\in\Delta(J)$, evaluate
+$v_a(M,w)=\sum_jw_jM_{ja}$, and restrict by $(J,A,M,w)|_K=(J,K,M_{J\times K},w)$; under relabelling, $w$
+is relabelled too, and uniform weights give a rule that depends on the rectangular matrix alone. A
+reference distribution over belief perspectives need not be the agent's probability over its
+\emph{available} choices: if it is meant to be, eliminating choices ordinarily requires conditioning,
+and keeping positive weight on eliminated choices requires a different interpretation. The next
+result shows that the reference cannot be updated while preserving contraction.
+
+\begin{theorem}[Weight preservation]\label{thm:weights}
+Let $w,w'$ be probability vectors on the same set $J$, let at least two columns survive a restriction,
+and suppose the update $w\mapsto w'$ does not depend on the payoff entries. Weighted averaging ranks
+every payoff matrix identically under $w$ and $w'$ if and only if $w'=w$, and contraction holds for
+every payoff matrix under the update only if $w'=w$.
+\end{theorem}
+
+\begin{proof}
+The difference of two columns can be any $x\in\Rl^J$, so identical rankings require
+$\operatorname{sign}(w^\top x)=\operatorname{sign}(w'^\top x)$ for all $x$; the two functionals are then
+positive multiples of each other, and normalisation gives $w'=w$. If $w'\ne w$, choose $x$ with
+$w^\top x=0<w'^\top x$ and replace it by $x-\epsilon\one$ for small $\epsilon>0$, so that $w^\top x<0<w'^\top x$.
+Realise $x$ as the difference of two surviving columns $a,b$, so that $b$ is preferred under $w$ and
+$a$ under $w'$, and set every removed column low enough that $b$ is a full-menu maximiser under $w$.
+After restriction $b$ is no longer chosen, and contraction fails.
+\end{proof}
+
+Deleting rows and renormalising their weights therefore preserves all rankings only when the deleted
+rows had total weight zero; with full-support weights, any proper row deletion changes the
+reference.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{7.2em}
+                                  >{\raggedright\arraybackslash}X
+                                  >{\raggedright\arraybackslash}X
+                                  >{\raggedright\arraybackslash}p{8.4em}@{}}
+  \toprule
+  operation & available columns & belief rows and reference & canonical law-preserving matrix? \\
+  \midrule
+  principal & delete unavailable options & delete the corresponding rows & yes, given law preservation \\
+  column & delete unavailable options & retain every row & needs augmented reference data \\
+  fixed reference & delete unavailable options & retain $J$ and $w$ & needs a supplied reference \\
+  delete and renormalise & delete unavailable options & change the reference & a different belief update \\
+  \bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Consistency maps under column restriction}
+
+\begin{theorem}[Column map with principal binary independence]\label{thm:colmap}
+On all finite rectangular inputs, the inclusion-minimal inconsistent subsets of
+\[
+  \{\ax{N},\ax{F},\ax{R},\ax{P},\ax{D},\Bpr,\ax{S},\Ccol,\ax{O},\ax{Q}\}
+\]
+are exactly
+\[
+  \{\ax{P},\ax{D}\},\quad\{\ax{P},\Bpr\},\quad\{\ax{P},\ax{S}\},\quad\{\ax{R},\ax{D}\},\quad
+  \{\ax{N},\ax{R},\Bpr,\ax{Q}\},
+\]
+and the maximal consistent subsets are
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+  \toprule
+  maximal consistent subset & witness \\
+  \midrule
+  $\{\ax{N},\ax{F},\ax{R},\ax{P},\Ccol,\ax{O},\ax{Q}\}$ & column sums $\sum_{j\in J}M_{ja}$ \\
+  $\{\ax{N},\ax{F},\ax{D},\Bpr,\ax{S},\Ccol,\ax{O},\ax{Q}\}$ & diagonal ranking \\
+  $\{\ax{N},\ax{F},\ax{R},\ax{S},\Ccol,\ax{O},\ax{Q}\}$ & full-menu relative scores \\
+  $\{\ax{F},\ax{R},\Bpr,\ax{S},\Ccol,\ax{O},\ax{Q}\}$ & responsive fixed-label rule \\
+  $\{\ax{N},\ax{F},\ax{R},\Bpr,\ax{S},\Ccol,\ax{O}\}$ & universal indifference \\
+  \bottomrule
+\end{tabular}
+\end{center}
+All the witnesses also satisfy \Mon.
+\end{theorem}
+
+\begin{proof}
+The \emph{full-menu relative-score rule} ranks by $s_a=M_{aa}-\frac1{|A|}\sum_{c\in A}M_{ac}$ when $A=J$
+and ties every option when $A\subsetneq J$. It is neutral and invariant under \ax{F} and \ax{R}; on full
+menus each score depends only on its own row, and inputs compared by \ax{S} have the same $J$ and $A$,
+so \ax{S} holds; every proper column restriction produces a non-full menu, on which everything is
+chosen, so \Ccol{} holds; and $s_a$ increases with $M_{aa}$. Column sums are unchanged on surviving
+columns by column restriction, which gives \Ccol, and shift uniformly under \ax{R}. The other
+witnesses are as in Theorem~\ref{thm:augmented}.
+
+The obstructions $\{\ax{P},\ax{D}\}$, $\{\ax{P},\ax{S}\}$, and $\{\ax{R},\ax{D}\}$ are proved as in
+Propositions~\ref{prop:PD}, \ref{prop:PS}, and~\ref{prop:NRBQ}, with square inputs; $\{\ax{P},\Bpr\}$
+follows from $\Bpr\Rightarrow\ax{S}$; and $\{\ax{N},\ax{R},\Bpr,\ax{Q}\}$ is proved by the three-cycle
+of Proposition~\ref{prop:NRBQ}, applied to square inputs. For completeness: a set containing \ax{P}
+excludes \ax{D}, \Bpr, and \ax{S}, and the column-sum witness covers it. Without \ax{P} and without
+\ax{R}, diagonal ranking covers it. With \ax{R}, \ax{D} is excluded and at least one of \ax{N}, \Bpr,
+\ax{Q} is omitted, and the last three witnesses cover these cases.
+\end{proof}
+
+The obstruction $\{\ax{P},\ax{C}\}$ of Theorem~\ref{thm:pairwise} has disappeared, and so has
+$\{\ax{N},\ax{R},\ax{C},\ax{Q}\}$. The matrix
+\[
+  W=\begin{pmatrix}0&-1&1\\1&0&-1\\-1&1&0\end{pmatrix}
+\]
+makes the difference visible. Its column sums tie. Under principal restriction, \ax{P} successively
+forces $1$ over $2$, $2$ over $3$, and $3$ over $1$ in the binary sub-menus. Under column restriction,
+the third row remains in every binary sub-menu and blocks those Pareto judgements, and column
+averaging continues to tie.
+
+\begin{theorem}[Column map with column binary independence]\label{thm:colmap2}
+Replacing \Bpr{} by \Bcol, the minimal inconsistent subsets are exactly
+\[
+  \{\ax{P},\ax{D}\},\qquad\{\ax{P},\ax{S}\},\qquad\{\ax{R},\ax{D}\},
+\]
+and the maximal consistent subsets are
+$\{\ax{N},\ax{F},\ax{R},\ax{P},\Bcol,\Ccol,\ax{O},\ax{Q}\}$ (column sums),
+$\{\ax{N},\ax{F},\ax{D},\Bcol,\ax{S},\Ccol,\ax{O},\ax{Q}\}$ (diagonal ranking), and
+$\{\ax{N},\ax{F},\ax{R},\Bcol,\ax{S},\Ccol,\ax{O},\ax{Q}\}$ (the binary-universe rule below).
+\end{theorem}
+
+\begin{proof}
+The \emph{binary-universe rule} ranks by $s_a=M_{aa}-M_{ab}$ when $J=A=\{a,b\}$ and ties everything when
+$|J|\ge3$; singleton menus are trivial. It satisfies \ax{Q} on a two-row universe, and \Bcol{} never
+connects different belief universes, so it does not force the two-row behaviour to extend to three
+rows. Column sums satisfy \Bcol{} because deleting other columns leaves the two sums unchanged. The
+containment argument is as before: \ax{P} excludes \ax{D} and \ax{S}; without \ax{P} and \ax{R},
+diagonal ranking applies; with \ax{R} and without \ax{P}, the binary-universe rule applies.
+\end{proof}
+
+The weakness here lies in the existential form of \ax{Q}. Fix a belief universe $J$ with $|J|\ge3$,
+allow all its menus, and let \QJ{} require non-triviality on that universe.
+
+\begin{theorem}[A five-axiom family]\label{thm:five}
+$\{\ax{N},\ax{R},\Bcol,\ax{S},\QJ\}$ is a minimal inconsistent family.
+\end{theorem}
+
+\begin{proof}
+If every binary comparison on $J$ were a tie, \Bcol{} would make every comparison on $J$ a tie, and
+every menu would be chosen entire, contradicting \QJ; so some strict binary comparison occurs on $J$.
+On a binary menu $\{a,b\}$, \ax{S} makes the comparison depend only on the principal block of $a$ and
+$b$, and \ax{R} lets its diagonal be normalised to zero. Neutrality, applied to the relabellings of
+$J$ that permute three of its elements cyclically, replicates the strict comparison around a three-cycle
+of binary menus, and \Bcol{} transfers the three comparisons to the menu of those three options, all of
+which are then strictly beaten. The witnesses omitting \ax{N}, \ax{R}, \Bcol, \ax{S}, \QJ{} are,
+respectively, the responsive fixed-label rule, diagonal ranking, full-menu relative scores, column
+sums, and universal indifference; they can additionally satisfy \ax{F}, \Ccol, \ax{O}, and \Mon.
+\end{proof}
+
+The strongest replacement thus depends on whether non-triviality is required on a universe large
+enough to support the obstruction.
+
+\subsection{What survives of the circulant theorem}
+
+\begin{proposition}\label{prop:colaverage}
+Uniform column averaging satisfies \ax{N}, \ax{F}, \ax{R}, \ax{P}, \Bcol, \Ccol, \ax{O}, \ax{Q}, and \Mon.
+The same holds for weighted averaging with any fixed full-support reference $w$ under $\Cref$ (with
+\ax{N} understood to relabel $w$).
+\end{proposition}
+
+\begin{proof}
+Each option's score is unaffected by the other columns and by their removal; row translations shift
+all scores equally; positive weights give \ax{P}; raising $M_{aa}$ raises only the score of $a$.
+\end{proof}
+
+Under column or fixed-reference restriction, then, no impossibility can be obtained from any subset
+of these axioms beyond those listed in Theorems~\ref{thm:colmap} and~\ref{thm:colmap2}. In
+particular, row-baseline-invariant evaluation \emph{can} be menu coherent when the belief model is
+held fixed, and the first half of the proposed dichotomy fails. The impossibility of
+Theorem~\ref{thm:circulant} concerns the preservation of comparisons when the belief perspectives
+associated with removed options disappear, not the preservation of choices when options disappear.

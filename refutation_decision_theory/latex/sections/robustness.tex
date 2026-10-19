@@ -1,0 +1,145 @@
+% -----------------------------------------------------------------------------------
+\section{Robustness of the within-problem conflict}\label{sec:robust}
+
+The central conflict between \cri{1} and \cri{2} was obtained with deterministic policies, a single
+always-reached choice, and a predictor targeting that choice. This section asks which of these
+features it needs.
+
+\subsection{Imperfect prediction}
+
+By Proposition~\ref{prop:newcomb}, the conflict holds for every $0\le\varepsilon<\tfrac14$ at the
+scaled payoffs, and for every $\varepsilon<\tfrac12$ at suitable stakes, since $m(1-2\varepsilon)>c$ can
+be arranged whenever $\varepsilon<\tfrac12$. At $\varepsilon=\tfrac12$ the symmetric predictor carries no
+policy dependence and this mechanism disappears. Theorem~\ref{thm:characterisation} gives the
+general statement: what is needed is not accuracy but any difference between the state laws that
+two prescriptions induce.
+
+\subsection{Randomisation does not reconcile ex-ante and causal evaluation}
+
+Let the agent one-box with probability $p$. Suppose first that the predictor observes the
+distribution, filling the box with probability $\varepsilon+(1-2\varepsilon)p$, and that the action is
+drawn independently given $p$. Expanding,
+\[
+  V(p)=p\cdot2\bigl(\varepsilon+(1-2\varepsilon)p\bigr)+(1-p)\bigl(2\varepsilon+2(1-2\varepsilon)p+1\bigr)
+      =1+2\varepsilon+(1-4\varepsilon)p .
+\]
+The same formula holds if the predictor instead observes the sampled action and predicts it with
+symmetric error $\varepsilon$. For $\varepsilon<\tfrac14$, \cri{1} requires $p=1$ and \cri{2} requires $p=0$.
+The conflict also admits an exact quantitative form. Put $g=1-4\varepsilon>0$, let
+$R_1(p)=\max_qV(q)-V(p)$ be ex-ante regret, and let $R_{\mathrm{causal}}(p)$ be the expected regret
+relative to the best action in the realised state.
+
+\begin{proposition}[Exact trade-off]\label{prop:tradeoff}
+In randomised Newcomb, $R_1(p)=g(1-p)$ and $R_{\mathrm{causal}}(p)=p$, so that
+\[
+  \frac{R_1(p)}{g}+R_{\mathrm{causal}}(p)=1 .
+\]
+Simultaneous tolerances $R_1\le\delta_1$ and $R_{\mathrm{causal}}\le\delta_2$ are achievable if and only
+if $\delta_1/g+\delta_2\ge1$. Under infallible prediction, every policy has regret at least $\tfrac12$
+by one of the two measures.
+\end{proposition}
+
+\begin{proof}
+$V$ is affine with slope $g$ and maximal at $p=1$, which gives $R_1$. In every realised state
+two-boxing is better by exactly one unit, so the causal regret is $1$ when the agent one-boxes and
+$0$ otherwise. The tolerances require $1-\delta_1/g\le p\le\delta_2$, a nonempty interval exactly
+under the stated inequality. At $\varepsilon=0$, $g=1$ and $\max(R_1,R_{\mathrm{causal}})\ge\tfrac12$.
+\end{proof}
+
+\subsection{Existence of optimal and ratifiable mixed policies}\label{sec:mixedexist}
+
+Admitting mixed policies does not by itself make either \cri{1} or \cri{3} satisfiable; regularity
+of the predictor's dependence on the distribution is what matters.
+
+\begin{proposition}\label{prop:mixedfail}
+\begin{enumerate}[label=(\roman*)]
+  \item Let a binary reward, independent of the realised action, succeed with probability $q(p)=p$ for
+        $p<1$ and $q(1)=0$. Then $V(p)=q(p)$ has supremum $1$ and no maximiser.
+  \item Let Death choose city $1$ if and only if $p\ge\tfrac12$, where $p$ is the probability of city $1$,
+        with payoff $1$ for avoiding Death. No mixture is ratifiable, although Death observes only the
+        distribution.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is immediate. (ii) If $p<\tfrac12$, Death is in city $0$, and city $1$ is the unique causal best
+response, so a ratifiable $p$ would put all its mass on city $1$; if $p\ge\tfrac12$, city $0$ is the
+unique best response. Either way $p$ is not supported on best responses to itself.
+\end{proof}
+
+\begin{theorem}[Existence under continuity]\label{thm:mixedexist}
+Let actions and states be finite, let the action be sampled independently given the mixed policy
+$p\in\Delta(A)$, and let $p\mapsto\mu_p\in\Delta(S)$ be continuous. Then a mixed policy satisfying
+\cri{1} exists, and so does a mixed policy all of whose supported actions are causal best responses
+to $\mu_p$.
+\end{theorem}
+
+\begin{proof}
+$V(p)=\sum_ap_a\sum_s\mu_p(s)u(s,a)$ is continuous on the compact simplex, so it attains its maximum.
+For ratifiability, let $Q(a;p)=\sum_s\mu_p(s)u(s,a)$ and $B(p)=\Delta\bigl(\argmax_aQ(a;p)\bigr)$. The
+correspondence $B$ has nonempty, compact, convex values, and its graph is closed because the
+finitely many functions $Q(a;\cdot)$ are continuous. By Kakutani's theorem
+\autocite{kakutani1941} there is $p\in B(p)$.
+\end{proof}
+
+Theorem~\ref{thm:mixedexist} is the one-shot core of two published existence results with
+stronger structure: Halpern's theorem on ratifiable acts, which assumes costless statewise mixing
+and conditional state laws that are affine in the mixture \autocite{halpern2020}, and the theorem of
+\textcite{belletal2021} that every continuous Newcomblike decision process has a strongly ratifiable
+policy. Neither identifies ratifiable policies with ex-ante maximisers, and
+Proposition~\ref{prop:tradeoff} shows that they cannot be identified.
+
+\begin{remark}[Predicting a realised sample]\label{rem:samples}
+If Death independently samples the agent's distribution, the usual symmetric model admits
+$p=\tfrac12$. If Death instead predicts the agent's realised private sample, the verdict depends on
+further semantics: whether the agent knows its sample, and whether a deviation preserves or
+replaces the randomness the predictor tracks. Conditioning on a revealed, perfectly predicted
+sample restores the deterministic instability. A marginal test of support-optimality can still
+accept $p=\tfrac12$ while ignoring the correlation between the prediction and the sample, and should
+not be confused with a criterion that preserves that correlation when the unchanged policy is
+evaluated. Skyrms already cautioned against an unconditional randomisation rescue
+\autocite{skyrms1990ratif}.
+\end{remark}
+
+\subsection{Restrictions on what predictors may target}\label{sec:targets}
+
+Some responses to Newcomb-type problems restrict prediction to information sets that are in some
+sense actual. Newcomb's problem has one information set, reached with probability one under every
+policy, so its conflict survives every such restriction except the last:
+
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{19em}c@{}}
+  \toprule
+  admissible prediction targets & Newcomb conflict survives \\
+  \midrule
+  information sets positively reached under the evaluated policy & yes \\
+  information sets reached under every admissible policy & yes \\
+  information sets on the realised path & yes \\
+  information sets already reached before the prediction occurs & no \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+The last restriction removes anticipatory dependence altogether: a \enquote{prediction} of an action
+already taken is an ordinary causal response, which belongs in the structural plan, so $\mu_\pi$ no
+longer depends on $\pi$. In that case ex-ante and causal evaluation agree.
+
+\begin{proposition}\label{prop:causaltree}
+If $\mu_\pi=\mu$ does not depend on $\pi$, then every \cri{1}-optimal policy satisfies \cri{3},
+and therefore \cri{2}.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:local},
+\begin{align*}
+  V_D(\dev{\pi}{h}{a})-V_D(\pi)
+  &=\sum_{s\in R_h(\pi)}\mu(s)\bigl(U_D(s,\dev{\pi}{h}{a})-U_D(s,\pi)\bigr)\\
+  &=r_\pi(h)\bigl(Q_\pi(h,a)-Q_\pi(h,\pi(h))\bigr).
+\end{align*}
+If $r_\pi(h)>0$ and $\pi(h)$ is not causally optimal at $h$, the deviation raises the ex-ante value.
+\end{proof}
+
+Removing predictions about unreached information sets eliminates particular witnesses, such as
+counterfactual mugging, and so changes the evidential part of the map in Theorem~\ref{thm:map16}.
+It leaves the central Newcomb incompatibility intact.

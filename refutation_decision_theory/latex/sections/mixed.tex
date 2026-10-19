@@ -1,0 +1,104 @@
+% -----------------------------------------------------------------------------------
+\section{Mixed policies and evidential semantics}\label{sec:mixed}
+
+\subsection{A canonical mixed extension}
+
+A pure causal matrix does not determine how prediction responds to a mixed policy, and continuity
+alone does not specify the extension. One precise extension takes the predictor's response to be
+linear in the policy and the action to be drawn independently of the response given the announced
+distribution:
+\[
+  \mu_p=\sum_ip_i\mu_i,\qquad g(p)=p^\top M,\qquad V(p)=p^\top Mp ,
+\]
+where $g(p)_j$ is the causal value of option $j$ under the beliefs induced by $p$. This differs from
+a predictor of the realised sample, which can instead yield the linear value $\sum_ip_iM_{ii}$. Define
+\begin{description}[font=\normalfont,leftmargin=2.4em,labelwidth=1.6em,labelsep=.8em,itemsep=.35em]
+  \item[$\ax{D}_m$] $p$ maximises $p^\top Mp$;
+  \item[$\ax{J}_m$] every action in the support of $p$ maximises $p^\top M$;
+  \item[$\ax{P}_m$] $p$ assigns probability zero to every weakly dominated column.
+\end{description}
+
+\begin{proposition}\label{prop:mixedPJ}
+In the canonical extension, $\ax{P}_m$ and $\ax{J}_m$ are jointly satisfiable on every matrix.
+\end{proposition}
+
+\begin{proof}
+For $0<\eta<1/|I|$ let $\Delta_\eta=\{p:p_i\ge\eta\text{ for all }i\}$. The correspondence
+$p\mapsto\argmax_{q\in\Delta_\eta}p^\top Mq$ on the compact convex set $\Delta_\eta$ has nonempty convex
+values and a closed graph, so Kakutani's theorem gives
+$p^\eta\in\argmax_{q\in\Delta_\eta}(p^\eta)^\top Mq$. If column $a$ weakly dominates column $b$, full support
+makes $(p^\eta)^\top Me_a>(p^\eta)^\top Me_b$, so $p^\eta_b=\eta$; otherwise moving mass from $b$ to $a$ would
+improve the response. Let $p$ be a limit point as $\eta\downarrow0$. It assigns zero mass to every
+dominated column. For any $q$, put $q^\eta=(1-|I|\eta)q+\eta\one\in\Delta_\eta$; then
+$(p^\eta)^\top Mp^\eta\ge(p^\eta)^\top Mq^\eta$, and in the limit $p^\top Mp\ge p^\top Mq$. Hence $p$ is supported on
+best responses to itself.
+\end{proof}
+
+\begin{proposition}\label{prop:mixedconflict}
+$\{\ax{P}_m,\ax{D}_m\}$ and $\{\ax{J}_m,\ax{D}_m\}$ are inconsistent.
+\end{proposition}
+
+\begin{proof}
+For $M=\bigl(\begin{smallmatrix}2&3\\0&1\end{smallmatrix}\bigr)$ and $p=(x,1-x)$, $V(p)=1+x$, so $\ax{D}_m$ selects
+$x=1$, while column $2$ dominates and is the unique best response to every $p$, so $\ax{P}_m$ and
+$\ax{J}_m$ select $x=0$.
+\end{proof}
+
+\begin{proposition}\label{prop:mixedN}
+For rules that select a single lottery, $\ax{N}$ and $\ax{D}_m$ are inconsistent.
+\end{proposition}
+
+\begin{proof}
+For $M=I_2$, the swap fixes $M$, so a neutral single lottery is $(\tfrac12,\tfrac12)$; but
+$V(p)=p_1^2+p_2^2$ is maximised only at the two pure endpoints.
+\end{proof}
+
+A neutral \emph{correspondence} of maximising lotteries exists; a single neutral maximising lottery
+need not. The pure consistency maps therefore cannot simply be relabelled as mixed maps.
+
+\subsection{Contraction for lotteries}
+
+For a rule $L$ that selects one lottery, the natural strengthening of contraction is
+conditional-renormalisation consistency:
+\[
+  \ax{C}_m:\qquad L(M|_K)=\frac{L(M)|_K}{L(M)(K)}\quad\text{whenever }L(M)(K)>0 .
+\]
+
+\begin{proposition}\label{prop:mixedcirculant}
+$\{\ax{N},\ax{R},\ax{C}_m,\ax{Q}\}$ is a minimal inconsistent family for single-lottery rules.
+\end{proposition}
+
+\begin{proof}
+In the circulant extension of Theorem~\ref{thm:circulant}, neutrality forces the uniform lottery;
+conditioning forces the uniform lottery on every embedded normalised matrix; row translations then
+force the uniform lottery everywhere. For minimality, take the uniform distribution over the
+choice set of, respectively, the responsive fixed-label rule, diagonal ranking, row-range ranking,
+and universal indifference. The first two maximise a binary-independent weak order, so that
+$G(M|_K)=G(M)\cap K$ whenever the right-hand side is nonempty, which is exactly what $\ax{C}_m$ requires of
+uniform lotteries; row-range ranking is the witness that omits $\ax{C}_m$.
+\end{proof}
+
+Support contraction alone is much weaker: $p_i\propto1+r_i/r_{\max}$, with $r_i$ the row ranges and the
+uniform lottery when $r_{\max}=0$, has full support everywhere, satisfies \ax{N}, \ax{F}, \ax{R}, and is
+nonconstant. A complete mixed consistency map requires choosing among genuinely different output and
+contraction semantics; the results above are the extensions established under the stated ones.
+
+\subsection{Two evidential semantics}\label{sec:evsem}
+
+The matrix does not supply an evidential criterion until the conditioning experiment is identified.
+Two natural choices give different answers.
+
+\emph{Reference-policy law.} With a full-support reference $\rho$ and $P(I=i,s)=\rho_i\mu_i(s)$,
+conditioning on the policy index $i$ yields $\mu_i$, and the evidential value of $i$ is
+$\E[U(s,i)\mid I=i]=M_{ii}$. This semantics gives diagonal optimality, and it is the matrix form of
+\cri{6}$^\kappa$ on single-choice problems.
+
+\emph{Conditioning on the realised action under a known mixed policy.} In the canonical extension the
+environment has law $\mu_p$, and observing a positive-probability realised action does not change it,
+so its conditional value is $g_i(p)$. With an explicit completion for zero-probability alternatives,
+the resulting support-optimality condition is ratifiability.
+
+The two condition on different variables under different joint laws, and neither can be silently
+substituted for the other. This is one precise sense in which \enquote{evidential decision theory}
+names a family rather than a criterion, as the literature on the tickle defence and on ratifiability
+has long made clear \autocite{eells1982,jeffrey1983}.

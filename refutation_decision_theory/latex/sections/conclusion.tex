@@ -1,0 +1,107 @@
+% -----------------------------------------------------------------------------------
+\section{Conclusion}\label{sec:conclusion}
+
+The question was whether a decision theory can be optimal on every fair decision problem, and the
+expectation was that conflicting criteria of optimality would rule it out. The answer has three
+parts.
+
+First, \emph{ex-ante optimality is always attainable}. On every class of well-defined finite
+problems, choosing an ex-ante maximiser in each problem is a decision theory
+(Theorem~\ref{thm:universal}). Because lookup tables count as decision theories, an impossibility
+for criteria that judge each problem separately is never more than a single problem on which their
+acceptable sets are disjoint (Lemma~\ref{lem:pointwise}).
+
+Second, \emph{within a problem the conflicts are shallow}. Among ex-ante optimality, structural
+causal dominance, ratifiability, existence, commitment stability, and a reference-policy evidential
+criterion, every inconsistency has a core of one or two criteria, and the maximal consistent
+combinations have explicit total witnesses (Theorems~\ref{thm:map15} and~\ref{thm:map16}). The
+central conflict is Nozick's. It is possible exactly when the law of the states preceding a choice
+depends on the prescription (Theorem~\ref{thm:characterisation}); it survives imperfect prediction,
+randomisation, and every restriction on prediction targets short of excluding anticipation; and it
+obeys an exact trade-off between ex-ante and causal regret (Proposition~\ref{prop:tradeoff}). The
+conflict between dominance and commitment stability, by contrast, is confined on its witness to
+infallible prediction, whereas its expectational counterpart persists whenever one-boxing has the
+higher ex-ante value (Proposition~\ref{prop:noisycommit}).
+
+Third, \emph{across problems, the depth depends on the semantics of menus}. On the causal matrix, with
+common affine invariance, the cross-problem axioms reduce to singleton and pairwise cores
+(Theorem~\ref{thm:pairwise}). Row-translation invariance---evaluation insensitive to the baseline
+of each belief state---produces a minimal four-axiom impossibility: neutrality, row translations,
+and contraction force universal choice (Theorem~\ref{thm:circulant}), exactly on domains satisfying
+(DR) (Theorem~\ref{thm:DR}), a condition that survives imperfect prediction, bounded action sets,
+and, with affine invariance, bounded payoffs. Principal binary independence, with neutrality, affine
+invariance, ordering, non-triviality, and monotonicity, characterises ex-ante evaluation
+(Corollary~\ref{cor:three}). Both results presuppose principal restriction, on which removing an
+option also removes the belief state it would induce. Under column or fixed-reference restriction,
+fixed-prior causal evaluation satisfies every axiom considered except diagonal optimality,
+self-sovereignty, and principal binary independence (Proposition~\ref{prop:colaverage}), and contraction under any semantics is compatible with
+$2^{\cont}$ rules that do not maximise ex-ante value (Proposition~\ref{prop:cardinality}).
+
+The thesis that the paper can defend is therefore the following.
+
+\begin{quote}
+\itshape
+On any class of well-defined, fair problems containing a sufficiently predictive Newcomb problem, no
+assignment of policies satisfies both ex-ante optimality and causal dominance, although an ex-ante
+optimal assignment exists. Within problems, every inconsistency among the natural criteria has a
+core of size at most two. Across problems, on the unrestricted causal-matrix domain, principal binary
+independence together with neutrality, ordering, affine invariance, non-triviality, and monotonicity
+characterises ex-ante ranking, and principal contraction together with neutrality is incompatible
+with non-trivial, baseline-invariant choice on every domain satisfying (DR). Neither cross-problem
+result survives when a smaller menu retains the belief model of the larger one.
+\end{quote}
+
+\begin{table}[htbp]
+  \centering\small
+  \renewcommand{\arraystretch}{1.25}
+  \setlength{\tabcolsep}{5pt}
+  \captionabove{The principal results, with their status. \enquote{Not found} means not found in the
+                literature searched; no priority is claimed.}
+  \label{tab:results}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
+                                    >{\raggedright\arraybackslash}p{6.8em}
+                                    >{\raggedright\arraybackslash}p{8.6em}@{}}
+    \toprule
+    result & where & status \\
+    \midrule
+    ex-ante optimality vs dominance (Newcomb) & Prop.~\ref{prop:newcomb} & \textcite{nozick1969} \\
+    no ratifiable pure act (Death in Damascus) & Prop.~\ref{prop:did} & \textcite{gibbardharper1978}; ratifiability literature \\
+    universal ex-ante selection; pointwise reduction & Thm.~\ref{thm:universal}, Lem.~\ref{lem:pointwise} & elementary \\
+    characterisation of the dominance conflict & Thm.~\ref{thm:characterisation} & not found \\
+    Bomb: ill-posedness and repair & Props.~\ref{prop:bombill}, \ref{prop:bomb} & case from \textcite{macaskill2019} \\
+    within-problem maps & Thms.~\ref{thm:map15}, \ref{thm:map16} & not found \\
+    noisy commitment and couplings & Props.~\ref{prop:noisycommit}, \ref{prop:strassen} & uses \textcite{strassen1965} \\
+    regret trade-off & Prop.~\ref{prop:tradeoff} & not found \\
+    mixed existence under continuity & Thm.~\ref{thm:mixedexist} & \textcite{halpern2020}; \textcite{belletal2021} \\
+    realisability of every causal matrix & Thm.~\ref{thm:realise} & elementary \\
+    \ax{R} as factorisation; \ax{R} is not causal rationality & Thm.~\ref{thm:factor}, Prop.~\ref{prop:regret} & not found \\
+    Pareto vs self-sovereignty & Prop.~\ref{prop:PS} & \textcite{briggs2010} \\
+    pairwise reduction under \ax{F} & Thm.~\ref{thm:pairwise} & not found \\
+    circulant theorem; map with \ax{R} & Thms.~\ref{thm:circulant}, \ref{thm:augmented} & not found; ingredients in \textcite{finkruiz1986}, \textcite{brandtbrillharrenstein2016} \\
+    exact domain criterion (DR); physical restrictions & Thm.~\ref{thm:DR}, Props.~\ref{prop:bounded}--\ref{prop:ceiling} & not found \\
+    menu semantics; weight preservation; column maps & Sec.~\ref{sec:menus} & not found; cf.\ \textcite{gallow2026} \\
+    binary characterisation of ex-ante ranking & Thm.~\ref{thm:selfesteem}, Cor.~\ref{cor:three} & core in \textcite{podgorski2022} \\
+    contraction without the diagonal; $2^{\cont}$ families & Thm.~\ref{thm:lambda}, Props.~\ref{prop:cardinality}--\ref{prop:NFSO} & not found \\
+    mixed and evidential extensions & Sec.~\ref{sec:mixed} & not found \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+Several questions remain open. The first is normative rather than mathematical: which semantics of
+menu restriction is the right one. Principal restriction is forced by the causal matrix once
+law-preserving removal is assumed, but an announced restriction may change a predictor's behaviour,
+and a fixed belief model is the natural reading of fixed-prior causal theories. The cross-problem
+impossibilities stand or fall with that choice, and the paper has shown only how they depend on it.
+The second is whether structural dominance and commitment stability are jointly satisfiable on a
+whole class of problems with imperfect prediction: Proposition~\ref{prop:noisycommit} removes the
+Newcomb witness, and Proposition~\ref{prop:strassen} decides dominance among commitments, but no
+general consistency theorem has been proved. The third concerns the reduced form. The causal matrix
+discards structural states and the local structure of multi-stage problems, so that column Pareto is
+not structural dominance and global ratifiability is not local ratifiability; a cross-problem theory
+on a richer reduced form might find obstructions that the matrix cannot express. The fourth concerns
+regularity: the cardinality results use the freedom to define rules arbitrarily on orbits, and the
+classification of rules subject to continuity or measurability is open. The fifth is a complete
+consistency map for mixed policies, which requires a choice among several inequivalent semantics for
+output, prediction, and contraction. Finally, the status in the literature of the circulant theorem
+and of the consistency maps has been checked only by a bounded search; their ingredients are
+classical, and an earlier statement may exist.

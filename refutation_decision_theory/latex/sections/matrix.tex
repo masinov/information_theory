@@ -1,0 +1,201 @@
+% -----------------------------------------------------------------------------------
+\section{The causal matrix and cross-problem axioms}\label{sec:matrix}
+
+Theorem~\ref{thm:map15} shows that within-problem criteria yield only singleton and pairwise
+obstructions. If a non-trivial impossibility in the style of Arrow exists, it must therefore come
+from requirements that relate a theory's choices on \emph{different} problems: invariance,
+independence, contraction. Such requirements need a common description of problems, which the
+following reduced form provides.
+
+\subsection{Reduced form}
+
+\begin{definition}[Causal matrix]\label{def:matrix}
+The \emph{causal matrix} of a problem $D$ is the square matrix indexed by $\Pol_D$,
+\[
+  M_D[\pi,\sigma]=\sum_{s\in S_D}\mu_\pi(s)\,U_D(s,\sigma),
+\]
+the value of running $\sigma$ while the environment responds as it would to $\pi$.
+\end{definition}
+
+Row $\pi$ is the causal evaluation of every policy under the beliefs that $\pi$ induces; column
+$\sigma$ records how $\sigma$ fares under every such belief state; and the diagonal is the ex-ante
+value, $M_D[\pi,\pi]=V_D(\pi)$. The matrix compresses the problem: it retains expectations under
+each induced law, and it forgets the structural states. Two consequences should be kept in view. The
+column-dominance axiom below compares expected values, whereas \cri{2} compares structural outcomes,
+including states of probability zero; and \enquote{$\pi$ maximises its own row} is a global form of
+ratifiability, which differs from the local, information-set form \cri{3} in multi-stage problems.
+For problems with a single choice, the matrix and the structural criteria agree, and all the
+witnesses below are of that kind.
+
+\begin{theorem}[Realisability]\label{thm:realise}
+Every finite real square matrix is the causal matrix of a fair, well-defined problem with a single
+information set. Deleting a set of indices together with their rows and columns is realised by
+deleting the corresponding actions while keeping the remaining laws.
+\end{theorem}
+
+\begin{proof}
+Given $M\in\Rl^{I\times I}$, let the agent choose $i\in I$ at a single information set; let the states
+be $S=I$; let an infallible predictor forecast the chosen index, $\mu_i=\delta_i$; and let
+$U(s,j)=M_{sj}$. Then $M_D[i,j]=U(i,j)=M_{ij}$. The problem is fair and well defined, and deleting
+actions leaves the laws of the others unchanged.
+\end{proof}
+
+In this realisation \cri{1} selects the maximal diagonal entries, and \cri{3} accepts exactly the
+indices $i$ whose diagonal entry is maximal in row $i$. Rules on matrices therefore have an
+unrestricted domain, as social welfare functions do in Arrow's theorem
+\autocite{arrow1951}, and the framework contains every finite recommendation structure.
+
+\begin{remark}[Self-referential problems]\label{rem:skalse}
+\textcite{skalse2021} proposes, for a fixed target theory $X$, a choice between a transparent box
+containing $1000$ and an opaque box whose content is $0$ if $X$ permits choosing it in that problem and
+$2000$ otherwise, and argues that another theory can outperform $X$. The target theory is an
+environmental constant, so this is not discrimination by the identity of the evaluated agent.
+Translated into the present model, however, the construction requires a fixed point: for a theory
+that maximises the diagonal, an empty opaque box makes it choose the transparent box, which requires
+the opaque box to be full, and conversely. Neither content yields a well-defined instance. In the
+same way, the diagonal family $D_b$ with $u(a)=\one\{a\neq b\}$, $b\in\{0,1\}$, would need $b=T(D_b)$,
+but an ex-ante optimiser has $T(D_0)=1$ and $T(D_1)=0$. The schema does not refute
+Theorem~\ref{thm:universal} on well-defined problems; its additional self-referential
+realisability assumption is where it leaves that class. \textcite{lewis1981rich} analysed a related
+failure: an announced reward for supposedly irrational choice can render the proposed scenario
+inconsistent.
+\end{remark}
+
+\subsection{Rules and axioms}
+
+Fix an infinite universe $\mathbb L$ of labels. A \emph{matrix} is a pair $(I,M)$ with $I\subseteq\mathbb L$
+finite and nonempty and $M\in\Rl^{I\times I}$; for $\varnothing\ne K\subseteq I$, $M|_K$ is the
+\emph{principal restriction} to $K\times K$, which keeps labels. A bijection $\sigma\colon I\to I'$ acts by
+$(\sigma\cdot M)_{\sigma(i)\sigma(j)}=M_{ij}$.
+
+\begin{definition}[Rule]\label{def:rule}
+A \emph{rule} assigns to every matrix a reflexive relation $\succeq_M$ on $I$, with strict part
+$\succ_M$, and recommends its maximal elements,
+\[
+  G(M)=\{i\in I:\text{there is no }j\in I\text{ with }j\succ_M i\},
+\]
+which are required to be nonempty for every $M$.
+\end{definition}
+
+The convention makes the comparison axioms below constrain the same relation that determines
+choice, and it prevents a rule that lacks an ordering from recommending nothing. A decision theory
+satisfies \emph{reduction} (\ax{A0}) if its choice on $D$ depends only on the labelled matrix $M_D$,
+so that it selects from $G(M_D)$ for some rule. A \emph{single-valued} deterministic selector
+cannot be neutral: on the zero $2\times2$ matrix, swapping the indices fixes the input but moves
+either possible answer. Choice correspondences avoid this separate obstruction.
+
+\begin{definition}[Cross-problem axioms]\label{def:axioms}
+A rule may satisfy the following conditions, for all matrices $M$ and all indices $i,j$.
+\begin{description}[font=\normalfont\sffamily,leftmargin=2.4em,labelwidth=1.6em,labelsep=.8em,itemsep=.35em]
+  \item[N] \emph{Neutrality.} For every bijection $\sigma\colon I\to I'$:
+        $i\succeq_Mj\iff\sigma(i)\succeq_{\sigma\cdot M}\sigma(j)$.
+  \item[F] \emph{Common affine invariance.} $\succeq_{aM+b\one\one^\top}=\succeq_M$ for $a>0$, $b\in\Rl$.
+  \item[R] \emph{Row translations.} $\succeq_{M+b\one^\top}=\succeq_M$ for every $b\in\Rl^I$
+        (adding $b_k$ to every entry of row $k$).
+  \item[P] \emph{Column Pareto.} If $M_{k\sigma}\ge M_{k\tau}$ for every $k\in I$, strictly for some $k$,
+        then $\sigma\succ_M\tau$.
+  \item[L] \emph{Restricted Pareto.} The same, with $k$ ranging only over $\{\sigma,\tau\}$.
+  \item[D] \emph{Diagonal optimality.} $G(M)\subseteq\argmax_iM_{ii}$.
+  \item[J] \emph{Global ratifiability.} Every $i\in G(M)$ satisfies $M_{ii}\ge M_{ij}$ for all $j$.
+  \item[B] \emph{Binary independence.} $i\succeq_Mj\iff i\succeq_{M|_{\{i,j\}}}j$.
+  \item[S] \emph{Self-sovereignty.} If $M,M'\in\Rl^{I\times I}$ have the same rows $i$ and $j$, then
+        $i\succeq_Mj\iff i\succeq_{M'}j$.
+  \item[C] \emph{Contraction.} $G(M)\cap K\subseteq G(M|_K)$ for every nonempty $K\subseteq I$.
+  \item[O] \emph{Ordering.} $\succeq_M$ is complete and transitive.
+  \item[Q] \emph{Non-triviality.} For some $I$ there are $M,M'\in\Rl^{I\times I}$ with $G(M)\ne G(M')$.
+\end{description}
+\end{definition}
+
+\ax{P} is the expectational counterpart of dominance; \ax{D} is \cri{1}; \ax{J} is ratifiability of
+pure choices; \ax{S} is the condition of \textcite[§6]{briggs2010}, under which the comparison of two
+options depends only on how each of them evaluates all options; \ax{C} is Chernoff's condition, Sen's
+property~$\alpha$ \autocite{chernoff1954,sen1971}; \ax{B} is an independence of irrelevant alternatives
+for binary comparisons, of the kind that \textcite{podgorski2022} imposes on overall-value theories,
+required here across menu sizes. Neutrality is
+stated for bijections between different label sets, because the proofs below transport choices from
+one menu to another; invariances are imposed on the relation, not only on its maximal elements.
+Ordering concerns the actual output relation at each input. Requiring only that each $G(M)$ be
+rationalisable by some weak order would be vacuous, since any nonempty set can be placed in a top
+indifference class; requiring one order to rationalise the choices from all restrictions of a
+given matrix is stronger and already entails contraction \autocite{arrow1959}.
+
+\begin{lemma}\label{lem:bimplies}
+\ax{B} implies \ax{S} and \ax{C}.
+\end{lemma}
+
+\begin{proof}
+If rows $i$ and $j$ coincide in $M$ and $M'$, so does the principal block on $\{i,j\}$, and \ax{B}
+transfers the comparison. For \ax{C}, let $i\in G(M)\cap K$. Any $j\in K$ with $j\succ_{M|_K}i$ would
+satisfy $j\succ_{M|_{\{i,j\}}}i$ and hence $j\succ_Mi$, contradicting the maximality of $i$ in $M$.
+\end{proof}
+
+The following monotonicity condition is used in Section~\ref{sec:exante}. Write $E_{ii}$ for the
+matrix with a single entry $1$ in position $(i,i)$.
+
+\begin{definition}[Diagonal monotonicity, \Mon]
+If $M'=M+\delta E_{ii}$ with $\delta\ge0$, then $i\in G(M)$ implies $i\in G(M')$, and every true
+comparison $i\succeq_Mj$ or $i\succ_Mj$ remains true in $M'$.
+\end{definition}
+
+\subsection{What row-translation invariance means}
+
+The axiom \ax{R} will turn out to be decisive, and it is tempting to read it as the matrix form of
+causal evaluation. It deserves a precise interpretation.
+
+\begin{theorem}[Factorisation]\label{thm:factor}
+A rule satisfies \ax{R} if and only if $\succeq_M$ depends on $M$ only through the row-normalised
+matrix $Z(M)_{ij}=M_{ij}-M_{ii}$, equivalently through the within-row differences of $M$.
+\end{theorem}
+
+\begin{proof}
+Row translations leave $Z$ unchanged. Conversely, if $Z(M)=Z(M')$, then
+$M'_{ij}-M_{ij}=M'_{ii}-M_{ii}$ is constant along each row, so $M'$ is a row translation of $M$.
+\end{proof}
+
+On a restricted domain, \ax{R} is factorisation through the image of $Z$; the zero-diagonal
+representative need not itself be admissible. With this, familiar criteria can be classified once a
+matrix semantics is fixed for each.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{9.6em}
+                                  >{\raggedright\arraybackslash}X
+                                  >{\raggedright\arraybackslash}p{6.6em}@{}}
+  \toprule
+  criterion & matrix semantics & satisfies \ax{R}? \\
+  \midrule
+  fixed-prior causal decision theory & rank by $w^\top M$ for a fixed weight vector $w$ & yes \\
+  pure global ratifiability & admit $i$ iff $M_{ii}\ge M_{ij}$ for all $j$ & yes, as an admissibility condition \\
+  mixed ratifiability & $p\in\operatorname{BR}(p^\top M)$ & yes, as an equilibrium set \\
+  deliberational causal decision theory & requires initial beliefs, update dynamics, and a final selection & depends on these \\
+  evidential theory with reference-policy law & maximise $M_{ii}$, with $P(i,s)=\rho_i\mu_i(s)$ & no \\
+  ex-ante policy maximisation & maximise $M_{ii}=V(i)$ & no \\
+  \bottomrule
+\end{tabularx}
+\end{center}
+
+Ratifiability's invariance does not establish that ratifiable options exist or supply a ranking.
+For deliberational theories, fixed-belief causal comparisons with difference-based update dynamics
+preserve row baselines, but arbitrary update dynamics need not; \textcite{joyce2012} distinguishes
+equilibrium credences from the act subsequently chosen, and \textcite{arntzenius2008} identifies
+the update rule as additional structure needed to define equilibrium. An \enquote{FDT-style} theory
+is ex-ante maximisation under stipulated functional counterfactuals and so fails \ax{R} under that
+stipulation \autocite{yudkowskysoares2017}.
+
+\begin{proposition}\label{prop:regret}
+\ax{R} does not characterise causal rationality: ranking by $r_i=M_{ii}-\max_jM_{ij}$ satisfies
+\ax{N}, \ax{F}, \ax{R}, \ax{O}, yet on
+\[
+  M=\begin{pmatrix}0&10&-1\\10&0&-1\\0&0&-1\end{pmatrix}
+\]
+it chooses option $3$, which both other columns strictly dominate.
+\end{proposition}
+
+\begin{proof}
+The scores are $(-10,-10,-1)$. Column $3$ is $(-1,-1,-1)^\top$, below both $(0,10,0)^\top$ and
+$(10,0,0)^\top$ in every row.
+\end{proof}
+
+So \ax{R} means exactly invariance to row-specific baselines. It captures a feature shared by several
+causal procedures, but it supplies neither causal expected-utility maximisation nor dominance.

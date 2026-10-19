@@ -1,0 +1,190 @@
+% -----------------------------------------------------------------------------------
+\section{The witness problems}\label{sec:witnesses}
+
+This section works through the problems that separate the criteria. Payoffs are scaled for
+arithmetic convenience; nothing depends on the particular numbers beyond the inequalities stated.
+
+\subsection{Newcomb's problem}\label{sec:newcomb}
+
+Let $O$ denote taking only the opaque box and $B$ taking both boxes. A predictor of symmetric error
+$\varepsilon\in[0,1]$ forecasts the agent's prescription at its single information set, which is
+reached with probability one; the opaque box is full if and only if the forecast is $O$. Payoffs are
+
+\begin{center}
+\small
+\begin{tabular}{@{}lcc@{}}
+  \toprule
+  & opaque box full & opaque box empty \\
+  \midrule
+  $O$ & 2 & 0 \\
+  $B$ & 3 & 1 \\
+  \bottomrule
+\end{tabular}
+\end{center}
+with $\Pr(\text{full}\mid O)=1-\varepsilon$ and $\Pr(\text{full}\mid B)=\varepsilon$. The structural
+states are the two contents of the opaque box.
+
+\begin{proposition}[\cite{nozick1969}]\label{prop:newcomb}
+In Newcomb's problem $V(O)=2(1-\varepsilon)$ and $V(B)=1+2\varepsilon$, so $V(O)-V(B)=1-4\varepsilon$
+and \cri{1} uniquely requires $O$ whenever $0\le\varepsilon<\tfrac14$. Since $U(s,B)-U(s,O)=1$ in both
+structural states, \cri{2} and \cri{3} uniquely require $B$ for every $\varepsilon$. Hence no theory
+satisfies \cri{1} and \cri{2} on any class containing Newcomb's problem with $\varepsilon<\tfrac14$.
+\end{proposition}
+
+With opaque prize $m$ and transparent bonus $c$, the same conflict holds exactly when
+$m(1-2\varepsilon)>c$. Any symmetric predictor better than chance therefore produces it for suitable
+stakes. The conflict is Nozick's original one between maximising expected utility and dominance;
+the content of Proposition~\ref{prop:newcomb} is only that the formal criteria reproduce it.
+
+The proposition shows that a conflict \emph{can} arise. The next result characterises exactly when
+it can, and shows that neither accurate prediction nor large stakes is needed.
+
+\begin{theorem}[Policy-dependent state laws characterise the conflict]\label{thm:characterisation}
+Let $A$ be a finite set of actions with $|A|\ge2$, $S$ a finite set of states, and $\mu_a\in\Delta(S)$
+the state law induced by prescribing $a$ at a single always-reached choice. The following are
+equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item for every payoff function $u\colon A\times S\to[0,1]$, some ex-ante maximising action is not
+        strictly dominated state by state;
+  \item the laws $\mu_a$, $a\in A$, are all equal.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(ii)$\Rightarrow$(i). Under a common law $\mu$, if $a$ strictly dominates $b$ in every state then
+$\E_\mu u(a,\cdot)>\E_\mu u(b,\cdot)$, so no ex-ante maximiser is strictly dominated; a maximiser
+exists because $A$ is finite.
+
+(i)$\Rightarrow$(ii). Suppose $\mu_a\neq\mu_b$. There is an event $E\subseteq S$ on which they differ;
+exchanging the names of $a$ and $b$ if necessary,
+$\delta=\mu_b(E)-\mu_a(E)>0$. Choose $0<c<\delta/(1+\delta)$ and set
+\[
+  u(b,s)=(1-c)\,\one_E(s),\qquad u(a,s)=(1-c)\,\one_E(s)+c,
+\]
+with payoff $0$ for every other action. All payoffs lie in $[0,1]$, and $a$ strictly dominates $b$ by
+$c$ in every state. Yet
+\[
+  V(b)-V(a)=(1-c)\mu_b(E)-(1-c)\mu_a(E)-c=(1-c)\delta-c>0,
+\]
+and $V(a)\ge c>0$ exceeds the value $0$ of every other action. So $b$ is the unique ex-ante
+maximiser, and it is strictly dominated.
+\end{proof}
+
+Any non-constant dependence of the preceding state law on the prescription thus suffices for some
+bounded payoff assignment to separate \cri{1} from \cri{2}; for fixed payoffs, the size of the
+dependence determines whether the conflict occurs.
+
+\subsection{The twin prisoner's dilemma}\label{sec:twin}
+
+Two copies of the same policy play a prisoner's dilemma with temptation $3$, reward $2$, punishment
+$1$, and sucker's payoff $0$. The twin is represented as a prediction node that copies the agent's
+prescription at its single information set; it is \emph{not} a second, independently assignable
+coordinate of $\Pol_D$, which would remove the stipulated identity of the two decisions. Then
+$V(\text{cooperate})=2$ and $V(\text{defect})=1$, so \cri{1} requires cooperation, while with the
+twin's action held fixed, defection gains one unit whether the twin cooperates or defects, so
+\cri{2} and \cri{3} require defection. The connection between this problem and Newcomb's is due to
+\textcite{lewis1979}. What the tree does not supply is the identity of the two decisions:
+\enquote{the same computation} enters only as a stipulated dependence of the prediction node on
+the agent's prescription.
+
+\subsection{Death in Damascus}\label{sec:did}
+
+Death predicts which of two cities the agent will choose and waits there
+\autocite{gibbardharper1978}. Let actions and states both be $\{1,2\}$, with
+$U(s,a)=\one\{a\neq s\}$ and $\mu_a=\delta_a$ (infallible prediction).
+
+\begin{proposition}\label{prop:did}
+In Death in Damascus no deterministic policy satisfies \cri{3}, whereas both deterministic policies
+satisfy \cri{2}. The failure of \cri{3} persists for every symmetric error $\varepsilon<\tfrac12$.
+\end{proposition}
+
+\begin{proof}
+Under the policy $a$, the induced state is $a$; staying has causal value $0$ and switching has causal
+value $1$. With error $\varepsilon$, staying has causal value $\varepsilon$ and switching $1-\varepsilon$,
+and $\varepsilon<1-\varepsilon$. For \cri{2}, neither city is better than the other in \emph{both}
+structural states, so no action is dominated.
+\end{proof}
+
+Consequently \cri{3}, read as a requirement on deterministic policies, is individually
+unsatisfiable on any class containing this problem: it fails to define a decision theory at all.
+The absence of ratifiable pure acts in this problem is well known from the ratifiability
+literature \autocite{skyrms1990ratif}; Section~\ref{sec:mixedexist} records how far randomisation
+repairs it.
+
+\subsection{The Bomb}\label{sec:bomb}
+
+\textcite{macaskill2019} describes a predictor of error $10^{-24}$ that places a bomb in the left
+box if and only if it predicts that the agent will take the right box, and leaves a note saying so.
+The agent sees the note and the bomb. Taking the left box is free; taking the right box costs $1$;
+burning to death costs $M=10^{9}$ in the scaling used here.
+
+Once the agent observes whether a bomb is present, there are \emph{two} information sets,
+$h_{\mathrm{bomb}}$ and $h_{\mathrm{clear}}$, and four policies
+$(a_{\mathrm{bomb}},a_{\mathrm{clear}})\in\{L,R\}^2$. This has a consequence for well-definedness.
+
+\begin{proposition}[The Bomb as stated is not well defined]\label{prop:bombill}
+No predictor whose forecast determines the observation (\enquote{predicts $R$: bomb; predicts $L$:
+no bomb}) and whose target is the agent's \emph{eventual} action can have an error bound below one
+uniformly over the four policies.
+\end{proposition}
+
+\begin{proof}
+Under the policy $(L,R)$, a forecast of $R$ produces a bomb and hence the action $L$; a forecast of $L$
+produces no bomb and hence the action $R$. The forecast is wrong in every case.
+\end{proof}
+
+A coherent version is obtained by letting the predictor target the fixed coordinate
+$\pi(h_{\mathrm{bomb}})$, whether or not $h_{\mathrm{bomb}}$ is eventually reached:
+\[
+  \Pr\bigl(\text{bomb}\mid a_{\mathrm{bomb}}=L\bigr)=\varepsilon,\qquad
+  \Pr\bigl(\text{bomb}\mid a_{\mathrm{bomb}}=R\bigr)=1-\varepsilon.
+\]
+
+\begin{proposition}\label{prop:bomb}
+In the repaired Bomb with death cost $M>1$, the ex-ante values are
+\begin{center}
+\small
+\begin{tabular}{@{}lc@{}}
+  \toprule
+  policy $(a_{\mathrm{bomb}},a_{\mathrm{clear}})$ & $V$ \\
+  \midrule
+  $(L,L)$ & $-M\varepsilon$ \\
+  $(L,R)$ & $-M\varepsilon-(1-\varepsilon)$ \\
+  $(R,L)$ & $-(1-\varepsilon)$ \\
+  $(R,R)$ & $-1$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+For $0<\varepsilon<1/(M+1)$, \cri{1} uniquely selects $(L,L)$, while \cri{2} and \cri{3} uniquely
+select $(R,L)$.
+\end{proposition}
+
+\begin{proof}
+The values follow by conditioning on the presence of the bomb. $(L,L)$ beats $(R,L)$ exactly when
+$M\varepsilon<1-\varepsilon$, that is $\varepsilon<1/(M+1)$; it beats $(L,R)$ and $(R,R)$ a fortiori. For
+$\varepsilon>0$ both information sets are positively reached under every policy. At
+$h_{\mathrm{bomb}}$, every structural state reaching it contains the bomb, and $R$ yields $-1>-M$;
+at $h_{\mathrm{clear}}$, $L$ yields $0>-1$. Hence $(R,L)$ is the only policy satisfying \cri{2},
+and, since it is causally optimal at both information sets, it satisfies \cri{3}.
+\end{proof}
+
+MacAskill's numbers satisfy the inequality. Two qualifications are essential. At $\varepsilon=0$,
+$h_{\mathrm{bomb}}$ is unreached under $(L,L)$, and the reached-only criteria \cri{2} and \cri{3} do
+not oppose that policy. And if the problem is instead taken to be the already-conditioned decision
+\enquote{a bomb is visibly present}, its two options have values $-M$ and $-1$, and \cri{1} itself
+selects $R$. The visible-bomb challenge is MacAskill's; the complete contingent-policy kernel above
+is the additional assumption under which it becomes a theorem.
+
+\subsection{Counterfactual mugging}\label{sec:mugging}
+
+A fair coin is tossed. On heads the agent receives $r$ if and only if an infallible predictor
+forecasts that the agent's prescription on tails is to pay; on tails the agent is asked to pay $c$,
+with $r>c>0$ \autocite{nesov2009}. There is one information set, reached on tails. Then
+\[
+  V(\text{Pay})=\tfrac12(r-c)>0=V(\text{Refuse}),
+\]
+so \cri{1} requires paying, while at the tails information set paying costs $c$ in every structural
+state reaching it, so \cri{2} and \cri{3} require refusing. The problem separates ex-ante from
+ex-post evaluation by a prediction about an information set that is unreached on half the paths; it
+is used in Section~\ref{sec:evidential} to locate evidential criteria and in
+Section~\ref{sec:targets} to test restrictions on what predictors may target.
