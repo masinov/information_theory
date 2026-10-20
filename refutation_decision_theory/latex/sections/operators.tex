@@ -1,0 +1,527 @@
+% -----------------------------------------------------------------------------------
+\section{Axioms for counterfactual operators}\label{sec:operators}
+
+Section~\ref{sec:inference} leaves one question: is there a coherent way to assign outcomes to the
+non-actual outputs of a computation? This is the problem of \emph{logical counterfactuals}. This
+section states candidate desiderata precisely and determines every consistent and inconsistent
+combination of them. There is a sharp impossibility among three individually satisfiable axioms,
+and it identifies exactly which notion of program equivalence is responsible. Under a different
+notion, all the desiderata hold together.
+
+\subsection{Preliminary repairs}
+
+Three features of a naive formulation produce failures before the substantive question is reached.
+They are recorded here and excluded below by stipulation.
+
+\emph{Transported contexts need not terminate.} Let a counterfactual operator be required to
+\emph{transport} dependence: a component $C[T]$ that computes a context $C$ applied to the agent is
+evaluated, under the alternative, as $C$ applied to the altered agent. It is natural to promise only
+that the host environment terminates when its components are replaced by tables. That promise is too
+weak. Let $T\equiv0$, let $C[P](x)$ return $0$ if $P(x)=0$ and diverge if $P(x)=1$, treat $g=C[T]$ as one
+opaque component, and let the host return $g(d)$. The host terminates under every whole-component table
+replacement, and $g$ is the total constant $0$, yet the transported execution $C[T^{d\leftarrow1}](d)$
+diverges. On this domain totality and execution-faithful transport are already inconsistent. The
+domain is therefore required to be \emph{intervention-total}: every supplied computational context
+terminates under every permitted substitution, as can be ensured by finite tables, a terminating
+language, certificates, or an explicit promise. Atomic boundaries matter, since replacing an opaque
+outer component by a table can hide divergence inside it.
+
+\emph{Source-changing replacement changes inputs.}
+
+\begin{proposition}\label{prop:rawsource}
+If the description supplied to the agent is the literal source and replacing a component changes it,
+baseline correctness is inconsistent with invariance under replacement of a component by an
+extensionally equal one.
+\end{proposition}
+
+\begin{proof}
+Let $E$ ignore the agent's action and return $g(d(E))$ with $g(x)=|x|\bmod2$. Replacing $g$ by an
+extensionally identical implementation padded by one character changes the parity of the source,
+and hence the actual payoff, while a constant agent takes the same action in both versions.
+\end{proof}
+
+The components are equal but are called on different inputs. Below, comparisons of implementations
+preserve the distinguished inputs, and counterfactual transformations retain the original
+observation.
+
+\emph{Single-input transport changes one input.} An intervention at $d$ replaces $T$ by
+\[
+  T^{d\leftarrow a}(x)=\begin{cases}a,&x=d,\\T(x),&x\ne d,\end{cases}
+\]
+and strong transport evaluates $C[T^{d\leftarrow a}]$. A context $C[T]=T\circ h$ does not in general
+become the constant $a$: if $h(d)\neq d$, then $C[T^{d\leftarrow a}](d)=T(h(d))$. Replacing the whole agent
+by a constant is a different, policy-level intervention.
+
+\subsection{The finite context domain}
+
+The main theorems use a finite domain in which termination and program equivalence raise no
+difficulty, so that what remains is the semantic question alone.
+
+\begin{definition}[Context environment]\label{def:context}
+A \emph{context environment} is $E=(u;c_1,\dots,c_k)$, where the action set is $A=\{0,1\}$, each
+component $c_i\colon A\to B_i$ is a table with values in a finite set $B_i$, and the host
+$u\colon A\times\prod_iB_i\to\mathbb Q$ is a finite payoff table. The argument of $c_i$ is the
+\emph{live parameter}: the agent's output at the distinguished input, as seen by component $i$. $E$ is
+\emph{independent} if every $c_i$ is constant. Write
+\[
+  V_E(a)=u\bigl(a,c_1(a),\dots,c_k(a)\bigr),\qquad
+  W_{E,b}(a)=u\bigl(a,c_1(b),\dots,c_k(b)\bigr).
+\]
+\end{definition}
+
+$V_E$ is coherent substitution through every context; $W_{E,b}$ changes the action at the port and
+freezes every component at its value under the baseline $b$. The definition of independence is not
+circular: it is invariance under every substitution of the declared live parameter, not the absence
+of an undefined relation of \enquote{depending on $T$}. The domain is the causal-matrix domain
+with its factorisation made explicit.
+
+\begin{proposition}\label{prop:contextmatrix}
+Let $M_E[b,a]=W_{E,b}(a)$. Then $M_E$ is the causal matrix of the one-shot problem in which an
+infallible predictor forecasts the agent's output $b$ and the components respond to the forecast, and
+$M_E[a,a]=V_E(a)$. Every real $2\times2$ matrix with rational entries is $M_E$ for some context
+environment, and $E$ is independent exactly when all rows of $M_E$ coincide.
+\end{proposition}
+
+\begin{proof}
+With structural states $b\in A$, $\mu_a=\delta_a$, and $U(b,a)=u(a,c(b))$, the causal matrix is
+$\sum_s\mu_b(s)U(s,a)=W_{E,b}(a)$. Given $M$, take one identity component $c(z)=z$ and $u(a,x)=M[x,a]$. If
+every $c_i$ is constant, $W_{E,b}$ does not depend on $b$; if some row differs from another, some
+component's value differs between the two baselines.
+\end{proof}
+
+Strictly, the converse in the last clause holds for the matrix, not for the environment: distinct
+component values may be invisible to the host. Nothing below uses the converse.
+
+\begin{definition}[Counterfactual kernel]\label{def:kernel}
+A \emph{kernel} assigns to every context environment $E$, baseline $b\in A$, and action $a\in A$ a value
+$\kappa(E,b,a)\in\mathbb Q\cup\{\bot\}$, where $\bot$ means undefined. The baseline is the agent's actual
+output, $b=T(d(E))$. A deterministic agent $\tau$ on context environments is
+\emph{$\kappa$-ratifiable} at $E$ if $\kappa(E,\tau(E),\cdot)$ is defined at every action and is
+maximised at $\tau(E)$.
+\end{definition}
+
+That the kernel depends on $T$ only through the local baseline is an explicit stipulation;
+the program extension in Section~\ref{sec:programmap} keeps the same interface. Agent extensionality
+is then automatic, because agents computing the same function have the same baseline. Two
+notions of extensionality for the environment must be distinguished.
+
+\begin{definition}[Grounded and parametric equivalence]
+$E\sim_bE'$ (\emph{grounded equivalence at $b$}) if $E$ and $E'$ have the same host and interfaces and
+$c_i(b)=c'_i(b)$ for every $i$. $E\approx E'$ (\emph{parametric equivalence}) if they have the same
+host and interfaces and $c_i=c'_i$ as functions on $A$.
+\end{definition}
+
+Grounded equivalence has a direct reading for programs. Once the actual agent is inserted, a
+component is a closed computation returning $c_i(b)$, and two closed computations can be
+extensionally equal although their open contexts would respond differently to another action. The
+function $x\mapsto T(x)$ and the constant function with value $T(d)$ agree at $d$, and after
+insertion of $T$ both are closed programs with output $T(d)$. Parametric equivalence identifies
+contexts only when they agree under every substitution, and keeps the information that grounded
+equivalence discards.
+
+\begin{definition}[Desiderata]\label{def:desiderata}
+A kernel may satisfy the following conditions, for all context environments $E$, $E'$ and all
+$a,b\in A$.
+\begin{description}[font=\normalfont\sffamily,leftmargin=3.2em,labelwidth=2.4em,labelsep=.8em,itemsep=.35em]
+  \item[CF1] \emph{Baseline.} $\kappa(E,b,b)=V_E(b)$.
+  \item[CF2] \emph{Totality.} $\kappa(E,b,a)\ne\bot$.
+  \item[CF3] \emph{Independent calibration.} If $E$ is independent, $\kappa(E,b,a)=V_E(a)$.
+  \item[CF4] \emph{Transport.} If $\kappa(E,b,a)$ is defined, it equals $V_E(a)$.
+  \item[CF5] \emph{Grounded extensionality.} If $E\sim_bE'$, then $\kappa(E,b,a)=\kappa(E',b,a)$, including
+        equality of definedness.
+  \item[CF6] \emph{Conservativity.} Every defined value has the form $u(a,z_1,\dots,z_k)$ with $z_i=c_i(b)$
+        for every constant context $c_i$.
+  \item[CF7] \emph{Composition.} A transformed environment is the record $(E,b;a)$, whose evaluator
+        returns $\kappa(E,b,a)$, and a further intervention overwrites the target:
+        $(E,b;a)[a\leftarrow z]=(E,b;z)$.
+  \item[CF8] \emph{Computability.} $\kappa$, with $\bot$ returned explicitly, is computable.
+  \item[CF9] \emph{Realisability.} Every $\kappa(E,b,a)$ is defined and is the payoff that some agent taking
+        $a$ obtains under coherent substitution of the live parameter.
+  \item[CF10] \emph{Ratifiability.} Some computable $\tau$ is $\kappa$-ratifiable at every $E$.
+\end{description}
+\end{definition}
+
+Three remarks fix the reading. \ax{CF4} transports the whole supplied context and preserves the
+host, and it is conditional on definedness; a version requiring the transported values to exist
+would incorporate \ax{CF2}. Every agent taking $a$ obtains exactly $V_E(a)$ under slot substitution,
+and constant agents supply the alternatives, so
+\[
+  \ax{CF9}\iff\ax{CF2}+\ax{CF4}.
+\]
+And \ax{CF7} is deliberately weak: every kernel has such a lift, since the record exists even when its
+evaluator returns $\bot$. A history-free requirement, or one demanding fresh rematching after each
+intervention, would be a different axiom (Section~\ref{sec:candidates}). \ax{CF6} constrains only the
+constant contexts; how the others respond is left open. On the finite domain \ax{CF8} holds for every
+kernel defined by a finite recipe from the tables, and \ax{CF7} for every kernel; both are recorded
+because they become substantive on program domains.
+
+\subsection{Four kernels}
+
+\begin{definition}[Witness kernels]
+\[
+  \kappa_{\mathrm{slot}}(E,b,a)=V_E(a),\qquad
+  \kappa_{\mathrm{port}}(E,b,a)=W_{E,b}(a),
+\]
+\[
+  \kappa_{\mathrm{base}}(E,b,a)=\begin{cases}V_E(b),&a=b,\\\bot,&a\ne b,\end{cases}\qquad
+  \kappa_{\mathrm{flat}}(E,b,a)=V_E(b).
+\]
+\end{definition}
+
+By Proposition~\ref{prop:contextmatrix}, $\kappa_{\mathrm{slot}}$ reads the diagonal of the causal
+matrix and $\kappa_{\mathrm{port}}$ reads row $b$: they are ex-ante and causal evaluation, now
+appearing as counterfactual semantics. $\kappa_{\mathrm{base}}$ values only the actual output, as
+partial semantics do; $\kappa_{\mathrm{flat}}$ assigns the actual payoff to every alternative, so
+every agent is ratifiable under it. All four satisfy \ax{CF1}, \ax{CF7}, and \ax{CF8}. Their other
+properties are as follows.
+
+\begin{lemma}\label{lem:witnesses}
+$\kappa_{\mathrm{slot}}$ satisfies every desideratum except \ax{CF5}, and the agent choosing the first
+maximiser of $V_E$ ratifies it. $\kappa_{\mathrm{port}}$ satisfies \ax{CF2}, \ax{CF3}, \ax{CF5}, and
+\ax{CF6}. $\kappa_{\mathrm{base}}$ satisfies \ax{CF4}, \ax{CF5}, and \ax{CF6}. $\kappa_{\mathrm{flat}}$
+satisfies \ax{CF2}, \ax{CF5}, and \ax{CF10}.
+\end{lemma}
+
+\begin{proof}
+$\kappa_{\mathrm{slot}}$ is total and equals $V_E$, which gives \ax{CF2}--\ax{CF4} and \ax{CF9}; its
+values $u(a,c(a))$ have $c_i(a)=c_i(b)$ for constant contexts, giving \ax{CF6}; the first maximiser of
+$V_E$ is computable from the tables. $\kappa_{\mathrm{port}}$, $\kappa_{\mathrm{base}}$, and
+$\kappa_{\mathrm{flat}}$ depend on $E$ only through $u$ and the baseline outputs $c_i(b)$, which grounded
+equivalence preserves, so all three satisfy \ax{CF5}. $\kappa_{\mathrm{port}}$ is total; on an
+independent environment $W_{E,b}=V_E$; and its values have the form required by \ax{CF6}.
+$\kappa_{\mathrm{base}}$ is defined only at $a=b$, where its value $V_E(b)=u(b,c(b))$ satisfies \ax{CF4}
+and \ax{CF6}. $\kappa_{\mathrm{flat}}$ is total and constant in $a$, so every agent ratifies it.
+\end{proof}
+
+Nothing more holds: $\kappa_{\mathrm{port}}$ violates \ax{CF4}, \ax{CF9}, and \ax{CF10} on the
+environments of Theorems~\ref{thm:transport} and~\ref{thm:calibration} below; $\kappa_{\mathrm{base}}$ is
+not total and so violates \ax{CF2}, \ax{CF3}, \ax{CF9}, and \ax{CF10}; and $\kappa_{\mathrm{flat}}$
+violates \ax{CF3}, \ax{CF4}, \ax{CF6}, and \ax{CF9} on any independent environment whose two
+actions have different payoffs.
+
+\subsection{The projection lemma and two theorems}
+
+For a context environment $E$ and a baseline $b$, let $E^b$ replace every component by the constant
+with its baseline value, $c^b_i(a)=c_i(b)$. Then $E\sim_bE^b$, $E^b$ is independent, and
+$V_{E^b}(a)=W_{E,b}(a)$.
+
+\begin{lemma}[Projection]\label{lem:projection}
+\ax{CF3} and \ax{CF5} together imply $\kappa=\kappa_{\mathrm{port}}$. \ax{CF5} and \ax{CF6} together
+imply $\kappa(E,b,a)=W_{E,b}(a)$ whenever $\kappa(E,b,a)$ is defined.
+\end{lemma}
+
+\begin{proof}
+\ax{CF3} defines the values at $E^b$ as $V_{E^b}(a)=W_{E,b}(a)$, and \ax{CF5} transfers them, with
+their definedness, to $E$. For the second claim, transfer a defined value to $E^b$ by \ax{CF5}. Every
+component of $E^b$ is constant, so \ax{CF6} fixes every component value at $c_i(b)$, and the value is
+$u(a,c(b))=W_{E,b}(a)$.
+\end{proof}
+
+This is the main structural fact: \emph{calibration together with the erasure of dependency
+information forces causal evaluation}. The two semantic requirements reproduce, without any
+appeal to decision-theoretic intuition, the frozen-environment counterfactual that \cri{3} uses.
+
+\begin{theorem}[Transport and grounded equivalence]\label{thm:transport}
+$\{\ax{CF2},\ax{CF4},\ax{CF5}\}$ is minimally inconsistent.
+\end{theorem}
+
+\begin{proof}
+Let $u(a,x)=x$, and compare $c(z)=z$ with $c'(z)=0$ at the baseline $0$. The instantiated component
+outputs agree, so $E\sim_0E'$, but $V_E(1)=1$ and $V_{E'}(1)=0$. \ax{CF2} defines both values,
+\ax{CF4} makes them unequal, and \ax{CF5} makes them equal. Omitting \ax{CF2}, \ax{CF4}, or
+\ax{CF5}, the remaining pair is satisfied by $\kappa_{\mathrm{base}}$, $\kappa_{\mathrm{port}}$, or
+$\kappa_{\mathrm{slot}}$ respectively.
+\end{proof}
+
+No computability or undecidability enters; the obstruction is the loss of information under an
+equivalence relation. The second theorem connects that loss with the instability of
+Part~\ref{part:single}.
+
+\begin{theorem}[Calibration and ratifiability]\label{thm:calibration}
+$\{\ax{CF3},\ax{CF5},\ax{CF10}\}$ is minimally inconsistent, and each of its proper subsets is satisfied
+by a total, computable kernel satisfying \ax{CF1}, \ax{CF2}, \ax{CF7}, and \ax{CF8}.
+\end{theorem}
+
+\begin{proof}
+Take the copied-action environment $u(a,x)=\one[a\neq x]$, $c(z)=z$. For either baseline,
+$W_{E,b}(b)=0$ and $W_{E,b}(1-b)=1$. By Lemma~\ref{lem:projection} \ax{CF3} and \ax{CF5} force this table,
+so every actual action recommends its opposite, contradicting \ax{CF10}. Omitting \ax{CF3}, \ax{CF5},
+or \ax{CF10}, the remaining pair is satisfied by $\kappa_{\mathrm{flat}}$, $\kappa_{\mathrm{slot}}$, or
+$\kappa_{\mathrm{port}}$, all total and computable.
+\end{proof}
+
+The witness environment is Death in Damascus with an infallible predictor
+(Proposition~\ref{prop:did}). That no pure action is ratifiable there is familiar; what the theorem
+adds is a derivation of the causal kernel from two semantic requirements that make no reference to
+causation, and the exact minimality of the triple. Unlike the within-problem maps of
+Section~\ref{sec:commit}, it is a minimal inconsistent family of three individually satisfiable
+conditions.
+
+\subsection{The complete map}
+
+\begin{theorem}[Consistency map]\label{thm:cfmap}
+On the finite context domain, the inclusion-minimal inconsistent subsets of
+$\{\ax{CF1},\dots,\ax{CF10}\}$ are exactly
+\begin{gather*}
+  \{\ax{CF5},\ax{CF9}\},\quad
+  \{\ax{CF2},\ax{CF4},\ax{CF5}\},\quad
+  \{\ax{CF3},\ax{CF4},\ax{CF5}\},\\
+  \{\ax{CF3},\ax{CF5},\ax{CF10}\},\quad
+  \{\ax{CF4},\ax{CF5},\ax{CF10}\},\quad
+  \{\ax{CF5},\ax{CF6},\ax{CF10}\},
+\end{gather*}
+and the maximal consistent subsets are exactly
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+  \toprule
+  witness & maximal consistent subset \\
+  \midrule
+  $\kappa_{\mathrm{slot}}$ & all except \ax{CF5} \\
+  $\kappa_{\mathrm{port}}$ & $\{\ax{CF1},\ax{CF2},\ax{CF3},\ax{CF5},\ax{CF6},\ax{CF7},\ax{CF8}\}$ \\
+  $\kappa_{\mathrm{base}}$ & $\{\ax{CF1},\ax{CF4},\ax{CF5},\ax{CF6},\ax{CF7},\ax{CF8}\}$ \\
+  $\kappa_{\mathrm{flat}}$ & $\{\ax{CF1},\ax{CF2},\ax{CF5},\ax{CF7},\ax{CF8},\ax{CF10}\}$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+
+\begin{proof}
+\emph{Inconsistency.} $\{\ax{CF5},\ax{CF9}\}$: \ax{CF9} gives \ax{CF2} and \ax{CF4}, and
+Theorem~\ref{thm:transport} applies. $\{\ax{CF3},\ax{CF4},\ax{CF5}\}$: in the environment of
+Theorem~\ref{thm:transport}, \ax{CF3} sets the value of action $1$ in the constant-context environment
+$E'$ to $0$, \ax{CF5} transfers it to $E$, and \ax{CF4} requires $1$. $\{\ax{CF4},\ax{CF5},\ax{CF10}\}$:
+take $u(a,x)=x$, $c(z)=z$, and let \ax{CF10} select $b$. The alternative $1-b$ is defined; \ax{CF5}
+transfers definedness to $E^b$, whose component is the constant $b$, and \ax{CF4} requires the values
+$1-b$ at $E$ and $b$ at $E^b$, which \ax{CF5} makes equal. $\{\ax{CF5},\ax{CF6},\ax{CF10}\}$: by
+Lemma~\ref{lem:projection}, defined values are those of $\kappa_{\mathrm{port}}$, and \ax{CF10} defines
+both values at the selected baseline in the environment of Theorem~\ref{thm:calibration}. The other two
+sets are Theorems~\ref{thm:transport} and~\ref{thm:calibration}.
+
+\emph{Minimality.} Deleting the members of $\{\ax{CF3},\ax{CF4},\ax{CF5}\}$ in turn leaves pairs
+satisfied by $\kappa_{\mathrm{base}}$, $\kappa_{\mathrm{port}}$, and $\kappa_{\mathrm{slot}}$; for
+$\{\ax{CF4},\ax{CF5},\ax{CF10}\}$ by $\kappa_{\mathrm{flat}}$, $\kappa_{\mathrm{slot}}$, and
+$\kappa_{\mathrm{base}}$; for $\{\ax{CF5},\ax{CF6},\ax{CF10}\}$ by $\kappa_{\mathrm{slot}}$,
+$\kappa_{\mathrm{flat}}$, and $\kappa_{\mathrm{port}}$. \ax{CF5} and \ax{CF9} are satisfied singly by
+$\kappa_{\mathrm{port}}$ and $\kappa_{\mathrm{slot}}$. The remaining two cases are in
+Theorems~\ref{thm:transport} and~\ref{thm:calibration}.
+
+\emph{Exhaustiveness.} Let $\Sigma$ contain none of the six sets. If $\ax{CF5}\notin\Sigma$,
+$\kappa_{\mathrm{slot}}$ witnesses $\Sigma$. Otherwise $\ax{CF9}\notin\Sigma$. If $\ax{CF3}\in\Sigma$, then
+\ax{CF4} and \ax{CF10} are excluded and $\kappa_{\mathrm{port}}$ witnesses $\Sigma$. If $\ax{CF4}\in\Sigma$ and
+$\ax{CF3}\notin\Sigma$, then \ax{CF2} and \ax{CF10} are excluded and $\kappa_{\mathrm{base}}$ witnesses
+$\Sigma$. If neither \ax{CF3} nor \ax{CF4} is in $\Sigma$ but \ax{CF10} is, \ax{CF6} is excluded and
+$\kappa_{\mathrm{flat}}$ witnesses $\Sigma$; if \ax{CF10} is also absent, $\kappa_{\mathrm{port}}$ does.
+Each displayed set is maximal, since adding any further desideratum completes one of the six cores.
+\end{proof}
+
+Every core contains \ax{CF5}, and deleting \ax{CF5} leaves a single kernel satisfying everything else.
+
+\begin{corollary}[A coherent semantics]\label{cor:parametric}
+If \ax{CF5} is replaced by \emph{parametric extensionality}, $E\approx E'\Rightarrow\kappa(E,b,a)=\kappa(E',b,a)$,
+then $\kappa_{\mathrm{slot}}$ satisfies all ten desiderata, and the agent choosing the first maximiser
+of $V_E$ ratifies it.
+\end{corollary}
+
+\begin{proof}
+$V_E$ depends on $E$ only through $u$ and the functions $c_i$, which parametric equivalence preserves;
+the rest is Lemma~\ref{lem:witnesses}.
+\end{proof}
+
+The impossibility therefore concerns the erasure of dependency information, not extensionality in
+every sense. The same positive model arises from a supplied dependency graph: a finite acyclic graph
+of typed variables with total structural equations, a designated node for the decision computation,
+and fixed exogenous data. Intervening on that node and recomputing its descendants, in the manner of
+structural causal models \autocite{pearl2009}, retains the independent mechanisms and yields the
+finite table $V_E$. The graphical formulation of functional decision theory intervenes in exactly
+this way on a node representing the agent's computation \autocite[§§5--6]{yudkowskysoares2017}; what
+the formulation does not provide, and what no axiom here supplies, is a procedure that extracts the
+graph from an arbitrary closed program.
+
+In matrix terms the map says the following. Grounded extensionality allows the kernel to see only
+the host and the baseline outputs of the components, that is, the row of the causal matrix belonging
+to the actual output, together with the payoff table. Calibration then pins the kernel to that row
+(Lemma~\ref{lem:projection}), and Theorem~\ref{thm:calibration} is the observation that the diagonal
+entry need not be maximal in its row. Parametric extensionality allows the kernel to see the whole
+matrix, and then the diagonal is available. The choice between causal and ex-ante evaluation of
+Part~\ref{part:single}, which there was a choice between two laws, reappears here as a choice between
+two notions of when two computations are the same.
+
+\subsection{Other conventions}\label{sec:otherconventions}
+
+The map depends on how undefined values and realisability are treated, and these conventions are not
+cosmetic. Suppose realisability is weakened to \ax{CF9$'$}: \emph{whenever} $\kappa(E,b,a)$ is defined,
+it is attainable under slot substitution, so that \ax{CF9$'$} is equivalent to \ax{CF4}. Suppose
+ratifiability is weakened to \ax{CF10$'$}: some computable $\tau$ has $\kappa(E,\tau(E),\tau(E))$ defined
+and maximal among the defined values.
+
+\begin{proposition}\label{prop:cfmapconditional}
+With \ax{CF9$'$} and \ax{CF10$'$} in place of \ax{CF9} and \ax{CF10}, the minimal inconsistent subsets
+are exactly
+\begin{gather*}
+  \{\ax{CF2},\ax{CF4},\ax{CF5}\},\quad \{\ax{CF2},\ax{CF5},\ax{CF9$'$}\},\quad
+  \{\ax{CF3},\ax{CF4},\ax{CF5}\},\\ \{\ax{CF3},\ax{CF5},\ax{CF9$'$}\},\quad
+  \{\ax{CF3},\ax{CF5},\ax{CF10$'$}\},\quad \{\ax{CF2},\ax{CF5},\ax{CF6},\ax{CF10$'$}\},
+\end{gather*}
+and the maximal consistent subsets are those of Theorem~\ref{thm:cfmap} with the primed axioms
+substituted, except that $\kappa_{\mathrm{base}}$ now witnesses
+\[
+  \{\ax{CF1},\ax{CF4},\ax{CF5},\ax{CF6},\ax{CF7},\ax{CF8},\ax{CF9$'$},\ax{CF10$'$}\}.
+\]
+\end{proposition}
+
+\begin{proof}
+$\kappa_{\mathrm{base}}$ satisfies \ax{CF9$'$} and, with any computable $\tau$, \ax{CF10$'$}, so the cores
+$\{\ax{CF4},\ax{CF5},\ax{CF10}\}$ and $\{\ax{CF5},\ax{CF6},\ax{CF10}\}$ do not survive. The cores containing
+\ax{CF4} are duplicated with \ax{CF9$'$}, which is equivalent to it. \ax{CF3} and \ax{CF5} make $\kappa$
+total and equal to $\kappa_{\mathrm{port}}$, which fails \ax{CF10$'$} in the copied-action environment.
+\ax{CF2}, \ax{CF5}, and \ax{CF6} likewise give $\kappa_{\mathrm{port}}$ by Lemma~\ref{lem:projection}. The
+four-element core is minimal: deleting \ax{CF2}, \ax{CF5}, \ax{CF6}, or \ax{CF10$'$} leaves a set satisfied
+by $\kappa_{\mathrm{base}}$, $\kappa_{\mathrm{slot}}$, $\kappa_{\mathrm{flat}}$, or $\kappa_{\mathrm{port}}$.
+For exhaustiveness, let $\Sigma$ be core-free and contain \ax{CF5} (otherwise $\kappa_{\mathrm{slot}}$
+witnesses it). If $\ax{CF3}\in\Sigma$, $\kappa_{\mathrm{port}}$ witnesses it. If \ax{CF4} or \ax{CF9$'$} is in
+$\Sigma$, \ax{CF2} is excluded and $\kappa_{\mathrm{base}}$ witnesses it. Otherwise, if \ax{CF10$'$} is in
+$\Sigma$, either \ax{CF6} is absent and $\kappa_{\mathrm{flat}}$ witnesses $\Sigma$, or \ax{CF2} is absent
+and $\kappa_{\mathrm{base}}$ does; if \ax{CF10$'$} is absent, $\kappa_{\mathrm{port}}$ does.
+\end{proof}
+
+The four-element core reflects the splitting of \enquote{defined and calibrated} into separate
+requirements. Theorem~\ref{thm:calibration} is less sensitive to such bookkeeping, since its witnesses
+are all total.
+
+The word \enquote{realisable} also needs a benchmark. If realisability freezes every embedded
+component at its reference implementation, an alternative taking $a$ obtains $W_{E,b}(a)$, and full
+realisability in that sense forces $\kappa=\kappa_{\mathrm{port}}$; slot realisability forces
+$\kappa=\kappa_{\mathrm{slot}}$. Neither follows from the word, and the benchmark must be supplied.
+
+\subsection{Program domains and global totality}\label{sec:programmap}
+
+The finite theorem extends to a program domain. Let the components be programs $c_i(d,a)\in B_i$,
+promised to terminate on every string $d$ and every legal $a$, with a finite rational host, and with the
+environment's description supplied as $d$. A fixed algorithm is allowed as a component $c(d,a)=F(d)$,
+and it is independent in the declared sense, being invariant in the live parameter, even when $F$
+happens to be the agent under evaluation. When \ax{CF10} asks only for a promise-total $\tau$, the four
+kernels remain promise-computable, the slot optimiser halts on every valid description, and
+Theorem~\ref{thm:cfmap} holds unchanged; no algorithm deciding membership in the promise class is
+needed. Requiring $\tau$ to be globally total changes the map.
+
+\begin{proposition}\label{prop:globalmap}
+On the program domain, with \ax{CF10} requiring a globally total $\tau$, each of
+$\{\ax{CF3},\ax{CF10}\}$, $\{\ax{CF4},\ax{CF10}\}$, $\{\ax{CF6},\ax{CF10}\}$, and $\{\ax{CF9},\ax{CF10}\}$ is
+inconsistent. The minimal inconsistent subsets are these four together with $\{\ax{CF5},\ax{CF9}\}$,
+$\{\ax{CF2},\ax{CF4},\ax{CF5}\}$, and $\{\ax{CF3},\ax{CF4},\ax{CF5}\}$, and the maximal consistent subsets are
+$\{\ax{CF1},\ax{CF2},\ax{CF3},\ax{CF4},\ax{CF6},\ax{CF7},\ax{CF8},\ax{CF9}\}$ (witnessed by
+$\kappa_{\mathrm{slot}}$, without a globally total optimiser) and the sets of $\kappa_{\mathrm{port}}$,
+$\kappa_{\mathrm{base}}$, and $\kappa_{\mathrm{flat}}$ in Theorem~\ref{thm:cfmap}.
+\end{proposition}
+
+\begin{proof}
+For a globally total candidate $\tau$, the component $c(d,a)=\tau(d)$ is admissible. With the host
+$u(a,x)=\one[a\ne x]$ and $b=\tau(d(E_\tau))$, the component is constant in the live parameter, so
+\ax{CF3}, \ax{CF4}, \ax{CF6}, and \ax{CF9} each force the values $0$ at $b$ and $1$ at $1-b$, contradicting
+\ax{CF10}. The finite-domain cores remain, and those containing \ax{CF10} are now subsumed. If \ax{CF10} is
+in a core-free set, \ax{CF3}, \ax{CF4}, \ax{CF6}, and \ax{CF9} are excluded, and the set lies in that of
+$\kappa_{\mathrm{flat}}$, which every globally total agent ratifies; without \ax{CF10}, the case analysis of
+Theorem~\ref{thm:cfmap} applies.
+\end{proof}
+
+This is the fixed-copy diagonal of Theorem~\ref{thm:fixedcopy}, factored through the desiderata, and
+there is no conflict with promise-total optimisation: embedding the promise-total optimiser as $F$
+need not yield a component that terminates on every string, so the diagonal need not belong to the
+domain. If \ax{CF3} uses a syntactically narrower independence class that excludes embedded agent
+algorithms, $\{\ax{CF3},\ax{CF10}\}$ need not be inconsistent; the proposition uses invariance in the
+live parameter.
+
+\subsection{The candidate semantics located}\label{sec:candidates}
+
+The semantics of Section~\ref{sec:inference} can now be placed.
+
+\emph{Transport through compositions.} For postcomposition alone, $h_0\circ T=h_1\circ T$ means that $h_0$
+and $h_1$ agree on the image of $T$, which determines their values at every legal action exactly when
+$T$ is surjective. So the relevant property is surjectivity, not injectivity, and in any case no
+function from infinitely many descriptions to a finite action set is injective. Arbitrary contexts
+restore the ambiguity for every agent: with $t=T(d)$, the contexts $C_0[P](x)=0$ and
+$C_1[P](x)=\one[P(d)\ne t]$ are both the constant $0$ at $P=T$ and differ under a change of the output at
+$d$. This is the environment of Theorem~\ref{thm:transport} in program form. With tagged contexts,
+conditional transport, and grounded extensionality the core is $\{\ax{CF2},\ax{CF4},\ax{CF5}\}$; with
+transport that asserts existence it is $\{\ax{CF4},\ax{CF5}\}$; with parametric extensionality the
+contexts are not identified and $\kappa_{\mathrm{slot}}$ works.
+
+\emph{Local matching} records each component's actual queried inputs, selects those components that
+agree with $T$ there, and freezes the selection. On an appropriate termination promise it satisfies
+\ax{CF1}, \ax{CF2}, agent extensionality, implementation extensionality at fixed inputs, and
+\ax{CF8}. In the environment of Theorem~\ref{thm:localmatch} it violates \ax{CF3} and \ax{CF6} under
+fixed-component independence, transport for transformed copies, \ax{CF9} under the ordinary
+fixed-component benchmark, and \ax{CF10}. That does not make $\{\ax{CF1},\ax{CF2},\ax{CF5},\ax{CF8},\ax{CF10}\}$
+inconsistent, which $\kappa_{\mathrm{flat}}$ satisfies.
+
+\emph{Global matching} misses $1-T$, which is never equal to $T$, while transport requires its value
+to become $1-a$. Its kernel can also be uncomputable with every component total: with $T\equiv0$ and
+the components $g_e$ of Theorem~\ref{thm:haltred}, the environment returning $g_e(d(E_e))$ has actual
+payoff $0$, and its value at action $1$ is $1$ if $e$ never halts and $0$ if it halts.
+
+\emph{Fresh rematching} violates \ax{CF7} (Proposition~\ref{prop:rematch}: the final payoff is $1$ where
+direct intervention gives $0$), but no desideratum requires it; retaining the original matching set, or
+a supplied graph, avoids the failure. Literal syntactic substitution needs a one-pass convention for
+the same reason, since the replacement code $T^{d\leftarrow a}$ mentions $T$ away from $d$ and repeated
+rescanning can expand without end.
+
+\emph{Material implication} yields the relation $\mathcal V$ of Section~\ref{sec:logical}, not a
+kernel. In an independent five-and-ten the attainable payoff for ten is ten, so a selector assigning
+$0$ violates \ax{CF3} and \ax{CF9}, but a selector from the relation need not: an additional rule could
+choose the intervention value. A kernel assigning $(5,0)$ to an agent that takes five ratifies that
+agent, so the failure is one of calibration and realisability, not of \ax{CF10}.
+
+\emph{Fixed copies} are transported only if the equivalence convention erases their role. If
+\ax{CF5} identifies a designated copy with a fixed program computing the same closed function, the
+transport owed to the first passes to the second, against conservativity at a non-actual action;
+if extensionality preserves the open interface, nothing passes. Under the fixed-component
+realisation benchmark the global fixed-copy diagonal makes that realisability inconsistent with
+\ax{CF10} alone.
+
+\emph{Guarded logical semantics} for terminating programs is $\kappa_{\mathrm{base}}$, by
+Proposition~\ref{prop:guardedarith}: it ratifies no agent under \ax{CF10} on a binary problem, and
+every agent under \ax{CF10$'$}.
+
+\emph{Logical induction with exploration} computes, at a stage $n$, values such as
+\[
+  \kappa_n(a)=\frac1n\sum_{i=0}^{n-1}\mathbb P_n\bigl(\bar U>i/n\mid A_n=a\bigr),
+\]
+using the capped conditional of \textcite[Definitions~4.7.1 and~4.8.2]{garrabrant2016li}, with value $1$
+when the conditioning probability is zero. Nothing in the logical induction criterion makes these
+values calibrated at a given stage: setting every price at one stage to zero preserves the criterion
+by finite-perturbation closure, the capped conditional then assigns $1$ to every conditioned
+proposition, and a constant-zero payoff receives $\kappa_n(0)=\kappa_n(1)=1$, violating \ax{CF1},
+\ax{CF3}, and \ax{CF9}. The scope of exploration is a further input: with $u(a,b)=a+2b$ at the baseline
+$a=b=0$, exploration that changes only the port yields the values $(0,1)$, while exploration that
+changes the port and a designated copied bit together yields $(0,3)$. Conditioning computes the
+consequences of a supplied exploration mechanism; it does not choose the mechanism.
+
+\subsection{Robustness}
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{10em}>{\raggedright\arraybackslash}X@{}}
+  \toprule
+  variation & effect \\
+  \midrule
+  globally total or promise-total agents & the finite obstruction survives both; arbitrary fixed total
+     algorithms add the pairwise cores of Proposition~\ref{prop:globalmap} \\
+  fixed algorithms admitted & fixed-target diagonals return when alternatives leave the target fixed;
+     they are not needed for the finite obstruction \\
+  fixed algorithms excluded & requires a concrete grammar: declared agent interfaces, no unrestricted
+     evaluation or source reflection, intervention-total contexts; \enquote{nothing derived from $T$}
+     is not a definition, since every $g$ is $C[T]$ for a context ignoring its argument \\
+  informative agents & injectivity is unavailable; surjectivity removes only the $h\circ T$ ambiguity \\
+  distribution-valued kernels & exact transport can demand the distinct point masses $\delta_0$ and
+     $\delta_1$ for one grounded representation; uncertainty does not remove the contradiction \\
+  mixed agents & some ratifiability failures acquire mixed fixed points, depending on prediction and
+     sampling semantics (Section~\ref{sec:mixedexist}); the transport contradiction is untouched \\
+  policy-level interventions & every one-input witness embeds; finite policy tables support the slot
+     theorem; infinite policy spaces need separate assumptions \\
+  bounded or certified languages & can support a globally total optimiser with a default on invalid
+     descriptions; the unrestricted fixed-copy diagonal need not belong to them \\
+  \bottomrule
+\end{tabularx}
+\end{center}

@@ -1,0 +1,308 @@
+% -----------------------------------------------------------------------------------
+\section{Inferring dependence from source}\label{sec:inference}
+
+Theorem~\ref{thm:promiseopt} works because oracle substitution designates the positions at which the
+agent is consulted. In an embedded environment, a closed program whose source may contain
+predictors, simulations, or copies of the agent with no designated interface, the agent must
+identify those positions itself. This section examines the three natural ways of doing so:
+recognising the agent's code, recognising programs that compute the same function, and reasoning
+about the agent's output in a formal theory. Each has a positive theorem on a restricted domain and a
+characteristic failure outside it.
+
+\subsection{Designated slots and literal copies}\label{sec:syntactic}
+
+Suppose an environment is a template with designated agent slots, that syntactic replacement
+changes exactly those slots, that every slot uses the same owned-query namespace, that all other
+programs are constants, and that every finite-policy replacement terminates with an exact rational
+payoff. Compiling the oracle calls of Theorem~\ref{thm:promiseopt} to these slots preserves every
+counterfactual execution, so
+\[
+  U_{\mathrm{syn}}(E,T;A)=U_{\mathrm{oracle}}(E,A),
+\]
+and the uniform optimiser applies. This is a substantive positive answer: the rule evaluates
+arbitrary code implementing the environment without analysing every consequence of its action; it
+executes the stipulated replacements. It is also a restricted answer, since the representation
+identifies the slots.
+
+Without designated slots, literal recognition fails. Fix a globally total $T$ and let $g$ be a closed
+program with $g(x)=T(x)$ for every $x$, encoded independently in a typed, atomic component so that its
+representation contains no eligible occurrence of $T$'s code. (Wrapping $T$ is not enough, since the
+original would remain an eligible nested occurrence.) Let the environment pay $\one[a\neq g(d(E))]$.
+Literal substitution changes the live agent and leaves $g$ unchanged, so $T$ receives $0$ while an
+agent taking the opposite action receives $1$. Every computation terminates. This is the fixed-copy
+diagonal of Theorem~\ref{thm:fixedcopy} again, now evading a syntactic matcher. Literal matching also
+violates $\cls_{\mathrm{ext}}$: two extensionally equal reference agents with different source code
+produce different replacement masks. A slot-based representation avoids the problem by preserving
+the agent's role independently of the code that currently occupies it; code equality and role
+identity should not be conflated.
+
+\subsection{Extensional matching}\label{sec:extensional}
+
+The natural repair is to replace every component that computes the same function as the agent.
+To make this precise, let $E$ contain a finite list of typed, atomic components $g_j$, fix comparison
+domains $X_j$ and a reference function $t$, and let
+\[
+  S_t(E)=\{j: g_j|_{X_j}=t|_{X_j}\}.
+\]
+To evaluate $A$, replace exactly the components in $S_t(E)$ by $A$ and execute; write
+$U_{\mathrm{ext}}(E,t;A)$ for the result. Matching occurs once, before replacement; component
+boundaries and the description supplied to the agent stay fixed; and every permitted counterfactual
+execution is required to terminate, which termination of the original environment does not imply.
+The principal choices are \emph{local} equality, on a specified finite set or a frozen baseline
+trace, and \emph{global} equality, on the entire input domain.
+
+\begin{proposition}[Matching on the counterfactual trace]\label{prop:tracematch}
+Requiring replacement exactly when a component agrees with $t$ on the inputs used in the resulting
+counterfactual execution can leave no consistent replacement set, although every candidate
+execution terminates.
+\end{proposition}
+
+\begin{proof}
+Let $t(0)=t(1)=0$, $g(0)=0$, $g(1)=1$, and $A(0)=1$, and let the environment call $g(0)$ and then call
+$g(1)$ exactly when the first result is $1$. Without replacement only the input $0$ is used, where $g$
+agrees with $t$, so replacement is required. With replacement, $A(0)=1$ triggers the call on $1$, where
+$g$ disagrees with $t$, so replacement is forbidden.
+\end{proof}
+
+\enquote{The inputs it is run on} must therefore name the execution that determines those inputs.
+Equality of total programs on a fixed finite set is decidable by running them, so local matching
+needs no appeal to Rice's theorem. It fails for a different reason.
+
+\begin{theorem}[Local equality can leave no optimal agent]\label{thm:localmatch}
+Under frozen matching on the single input $d(E)$, there is a terminating environment satisfying
+$\cls_{\mathrm{self}}$ and $\cls_{\mathrm{ext}}$ on which no deterministic agent satisfies anchored
+optimality~\eqref{eq:anchored}.
+\end{theorem}
+
+\begin{proof}
+Let $E$ contain the components $g_0\equiv0$ and $g_1\equiv1$, call both at $d(E)$, query the agent
+there, and pay $1$ exactly when the two component outputs agree. For a reference agent with
+$t(d(E))=a$, exactly $g_a$ matches. With $t$ itself substituted, the outputs are $a$ and $1-a$, so
+$U_{\mathrm{ext}}(E,t;t)=0$. With an agent $A$ taking $1-a$, the matched component $g_a$ becomes $A$
+and both outputs equal $1-a$, so $U_{\mathrm{ext}}(E,t;A)=1$.
+\end{proof}
+
+This is not an undecidability theorem. It is a pathology of identifying computations through
+accidental agreement on one input, and it should not be presented as a theorem about functional
+decision theory without that identification.
+
+\begin{proposition}[Rematching does not compose]\label{prop:rematch}
+Let $R_{t\to a}$ replace by $a$ the components that match $t$. With components $g_0\equiv0$,
+$g_1\equiv1$ and reference $t\equiv0$, and with matches recomputed after each replacement,
+$R_{a\to b}(R_{t\to a}(E))\neq R_{t\to b}(E)$ for $a\equiv1$ and $b\equiv0$.
+\end{proposition}
+
+\begin{proof}
+$R_{t\to a}$ turns $g_0$ into $1$, giving the pair $(1,1)$. Both components now match $a$, and $R_{a\to b}$
+gives $(0,0)$. Direct replacement of $t$ by $b=t$ leaves $(0,1)$.
+\end{proof}
+
+Keeping an original dependency label attached to the first component restores composition, but the
+label is additional structure; equality of the current functions does not recover it. Global
+matching avoids accidental agreement, but it identifies the wrong thing.
+
+\begin{theorem}[Global equality leaves the diagonal intact]\label{thm:complement}
+For globally total agents, global-equivalence replacement of atomic components admits no universal
+optimiser when fixed algorithms are allowed.
+\end{theorem}
+
+\begin{proof}
+Fix $T$, compile an atomic program $h_T(x)=1-T(x)$, and let the environment pay
+$\one[a=h_T(d(E))]$. Since $h_T$ disagrees with $T$ everywhere, it is not replaced. $T$ receives $0$,
+an agent taking the opposite action receives $1$, and all calls terminate.
+\end{proof}
+
+The diagnosis is that \enquote{depends functionally on $T$} is not \enquote{is extensionally equal
+to $T$}. If the intended counterfactual turns $1-T$ into $1-A$, it transports dependence through a
+program context, which is a stronger operation than equality-based replacement. Global matching
+also brings in undecidability, and the expected route needs one correction. For a uniformly total
+family $g_e$ and a fixed total $T$, non-equivalence has a finite witness, so $\{e:g_e=T\}$ is co-c.e.;
+one cannot uniformly make equality hold exactly when a machine halts, but one can make it hold exactly
+when it does not.
+
+\begin{theorem}[Global matching can decide halting]\label{thm:haltred}
+Assume atomic global matching, frozen descriptions, and globally total binary agents, and let $P$ be a
+decidable class of descriptions that contains all the environments constructed below and omits
+arbitrarily long strings. No agent satisfies anchored optimality on all environments in $P$.
+\end{theorem}
+
+\begin{proof}
+Fix a candidate $T$ and let
+\[
+  g_e(x)=
+  \begin{cases}
+    1-T(x), & x\notin P\text{ and machine }e\text{ halts within }|x|\text{ steps},\\
+    T(x),   & \text{otherwise}.
+  \end{cases}
+\]
+Each $g_e$ is total, and $g_e=T$ exactly when $e$ does not halt. Let $E_e$, with $d_e=d(E_e)\in P$,
+receive the action $a$, compute $b=g_e(d_e)$, and pay $u(a,b)=2(1-b)+a$:
+\begin{center}
+\small
+\begin{tabular}{@{}lcc@{}}
+  \toprule
+  & action $0$ & action $1$ \\
+  \midrule
+  $b=0$ & 2 & 3 \\
+  $b=1$ & 0 & 1 \\
+  \bottomrule
+\end{tabular}
+\end{center}
+Because $d_e\in P$, $g_e(d_e)=T(d_e)$ whether or not $e$ halts. If $e$ does not halt, global matching
+replaces $g_e$ by the candidate $A$, so $b=A(d_e)$ and the values of the two actions are $2$ and $1$;
+optimality requires $T(d_e)=0$. If $e$ halts, $g_e$ stays fixed, and with $b$ held fixed action $1$
+pays one unit more; optimality requires $T(d_e)=1$. The computable map $e\mapsto T(d_e)$ would decide
+the halting problem.
+\end{proof}
+
+The payoff table is Newcomb's, and the reduction works by making it undecidable whether its
+predictor counts as linked to the agent. Every execution terminates and every payoff is rational,
+but the result uses global equality, atomic components compiled from $T$, and a class already
+admitting fixed-constant diagonals; it satisfies executed-query locality and violates kernel
+locality. It is a valid reduction, not a semantics-independent impossibility arising from the mere
+presence of embedded programs. Under local matching $g_e$ always matches at $d_e$, so action $0$ always
+wins and the reduction disappears. Two further qualifications bound any positive subclass. Clocks do
+not decide global equivalence, since even a program that simulates machine $e$ for only $|x|$ steps
+can equal zero everywhere exactly when $e$ never halts. And \enquote{replace when a theory $S$ proves
+equality} changes the semantics: it agrees with global matching only where certified matching
+information is complete, since positive certificates do not show that uncertified components are
+unequal.
+
+\subsection{Proofs and logical counterfactuals}\label{sec:logical}
+
+Three questions must be separated: whether proofs can establish the values of independently
+specified counterfactual programs; whether implications about the actual agent can serve as
+counterfactual values; and whether logical uncertainty supplies useful finite-time estimates. The
+answers are yes, no, and not by itself.
+
+\begin{proposition}[Ground proof-based optimisation]\label{prop:proofopt}
+Let $S$ be a sound, effectively axiomatised arithmetic theory that verifies finite program traces.
+The agent that, on an environment in $\mathcal P_{\mathbb Q}$, enumerates $S$-proofs until it has, for
+every $\pi\in\Pol_E$, a proof of $\mathrm{Eval}(E,\pi)=r_\pi$ for some rational $r_\pi$, and then
+maximises the $r_\pi$, is promise-total and optimal under $O_{\mathrm{oracle}}$.
+\end{proposition}
+
+\begin{proof}
+Each terminating execution $E^\pi$ has a finite trace, the trace has a proof in $S$, and soundness
+makes every proved value correct. Only finitely many proofs are needed.
+\end{proof}
+
+The incompleteness of a fixed theory does not prevent it from verifying every particular terminating
+computation; what it may fail to prove is a uniform termination statement or a global equivalence.
+The proposition evaluates the same counterfactual programs as Theorem~\ref{thm:promiseopt} and infers
+no new semantics from proof search.
+
+Material implication is different. Write $H_a$ for $T(d(E))=a$ and $Y_u$ for $U(E,T)=u$. If
+$S\vdash\neg H_a$, then $S\vdash H_a\to Y_u$ for every $u$, so the relation
+\[
+  \mathcal V(E,T,a)=\{u: (H_a\to Y_u)\text{ is true}\}
+\]
+contains only the actual payoff at the actual action and every rational at every other action. It is
+a relation, not an operator; any numerical counterfactual drawn from it needs a selection principle
+that the implication does not supply. For an actually terminating computable agent, a sufficiently
+strong theory verifies the agent's execution and so refutes every non-actual antecedent, and
+conditioning a coherent probability over its models on such an antecedent is undefined. Proof search
+can also select a spurious value, as in the \enquote{five-and-ten} problem
+\autocite[§2.1]{demskigarrabrant2019}, which can be realised by a total program.
+
+\begin{theorem}[A computable five-and-ten failure]\label{thm:fiveten}
+Let $E_0$ pay the action chosen from $\{5,10\}$, and let $S$ be an effectively axiomatised theory
+satisfying the derivability conditions for Löb's theorem \autocite{lob1955}. There is a globally
+total agent $T$ that, on $d(E_0)$, takes $5$ because it has found a proof that taking $10$ yields $0$.
+It receives $5$, while the constant agent $10$ receives $10$.
+\end{theorem}
+
+\begin{proof}
+By the recursion theorem let $T$ return $10$ on descriptions other than $d(E_0)$, and on $d(E_0)$
+enumerate $S$-proofs until it finds a proof of
+\[
+  \psi=\bigl(T(d(E_0))=5\to U(E_0,T)=5\bigr)\wedge\bigl(T(d(E_0))=10\to U(E_0,T)=0\bigr),
+\]
+and then return $5$. Let $q$ be the sentence $T(d(E_0))=5$. The definitions of $T$ and $E_0$ give
+$S\vdash q\to\psi$, since under $q$ the first conjunct holds and the second is vacuous. Hence
+$S\vdash\Prov_Sq\to\Prov_S\psi$. Formalising the search gives $S\vdash\Prov_S\psi\to q$. So
+$S\vdash\Prov_Sq\to q$, and Löb's theorem yields $S\vdash q$, whence $S\vdash\psi$. A proof of $\psi$
+therefore exists, the search halts, and $T$ returns $5$.
+\end{proof}
+
+This refutes the displayed implication-based selection scheme, not every logical-counterfactual
+procedure. \textcite[§2]{bensontilsen2014} analyses the mechanism, and his classification of
+outcomes by proof-search order concerns a specified transparent-universe model with a provability
+oracle; it should not be quoted as a theorem about every computable proof-based agent. A different
+response, the \enquote{chicken rule}, has the agent take any action it can prove it will not take
+\autocite{slepnev2011}; within Benson-Tilsen's model it is the only universally successful search
+strategy \autocite[Corollary~4.6]{bensontilsen2014}, and it blocks spurious proofs at the cost of
+counterfactuals that can differ from what another agent would actually obtain
+\autocite{fallenstein2015chicken}.
+
+A precise logical semantics that avoids spurious values does so by becoming partial.
+
+\begin{definition}[Guarded modal counterfactuals]\label{def:guarded}
+Let $(A_i)$ and $(U_j)$ be closed modal formulas, provably mutually exclusive and exhaustive, describing
+the actions and outcomes of an agent and a problem. Action $i$ \emph{leads to} outcome $u_j$ if
+\[
+  \mathrm{GL}\vdash A_i\to U_j\qquad\text{and}\qquad\mathrm{GL}\nvdash\neg A_i,
+\]
+and has no value otherwise \autocite{fallenstein2015third}.
+\end{definition}
+
+The outcome is unique when defined and is undefined if the action is provably impossible or no
+outcome is determined; the semantics \enquote{fails visibly} rather than assigning a spurious value.
+Fallenstein uses it to state the optimality of modal updateless decision theory on problems where
+every action has a value \autocite{fallenstein2015third}. This is optimality relative to the specified
+counterfactuals, not relative to physical agent replacement, and the two can diverge: on a variant of
+five-and-ten where every action has a value, these counterfactuals certify as optimal an action that
+another agent would beat \autocite{fallenstein2015chicken}. In provability logic $\mathrm{GL}$
+\autocite{boolos1993} the guard is informative. For ordinary programs it is not.
+
+\begin{proposition}[Guarded counterfactuals for terminating programs]\label{prop:guardedarith}
+Replace $\mathrm{GL}$ by an arithmetic theory $S$ that verifies terminating computations and proves the
+determinism of its interpreter. For an agent that terminates on $d$, every non-actual action has no
+value.
+\end{proposition}
+
+\begin{proof}
+If the actual action is $b$, the finite execution trace gives $S\vdash T(d)=b$, and determinism gives
+$S\vdash T(d)\neq a$ for every $a\ne b$, so every non-actual action fails the guard.
+\end{proof}
+
+This reconstruction is not attributed to the source of Definition~\ref{def:guarded}; it explains
+why positive results for modal agents, or agents with provability oracles, do not transfer directly
+to ordinary terminating programs.
+
+The modal setting has its own diagonal and its own optimality theorem, and their quantifiers matter.
+Consider fixed, fully modalised decision schemata $T(\mathbf u)$ and problems that are \emph{provably
+extensional}, in the sense that $\mathrm{GL}\vdash(\mathbf a\leftrightarrow\mathbf b)\to
+(P(\mathbf a)\leftrightarrow P(\mathbf b))$. Every such fixed theory with at least two actions and
+two outcomes fails on some provably extensional problem \autocite{fallenstein2014evil}: the problem
+rewards any action other than the one the theory takes when facing the constant second-best outcome,
+modal fixed-point uniqueness makes that action the theory's own, and a different constant action
+wins. This is the fixed-constant diagonal in modal form. Conversely, for every finite provably
+extensional problem $P$ there is a true sentence $\varphi$ such that modal updateless decision theory
+using $\mathrm{PA}+\varphi$ selects an optimal action on $P$
+\autocite{fallenstein2014optimality,fallenstein2014improving}. The quantifiers are
+$\forall P\,\exists\varphi$: there is no single proof system that works for all problems, and the
+general procedure of \textcite{soaresfallenstein2015} that queries proofs uses a halting oracle. $\mathrm{GL}$
+itself is decidable, so none of this shows that restricted modal computation is uncomputable.
+
+Logical induction \autocite{garrabrant2016li} supplies computable, improving assessments of logical
+sentences. It does not specify which counterfactual program or intervention to evaluate, and it
+imposes no exact constraint on any finite stage: by its Theorem~4.6.1, changing finitely many market
+days preserves the logical induction criterion. A decision procedure can use an inductor to estimate
+the values of policy-substituted programs, but Theorem~\ref{thm:exactsel} still applies to any
+resulting computable rule. Decision procedures built on logical induction typically add
+\emph{exploration}, taking an action whenever its probability falls below a threshold so that the
+conditionals on it remain defined \autocite{garrabrant2017obstacles}; Section~\ref{sec:candidates}
+shows that what such a procedure computes depends on the exploration scheme it is given.
+
+\subsection{What inference supplies}
+
+The pattern across these results is uniform. Wherever a substitution is designated---by an oracle
+interface, by slots, or by an evaluator whose results a proof certifies---optimisation is
+computable on the corresponding termination promise. Wherever the agent must decide for itself
+which parts of a closed program would change with its output, each recognition rule fails in its
+own way: literal matching misses encoded copies, local matching manufactures dependence from
+accidental agreement, global matching misses transformed dependence and can be undecidable, and
+implication-based reasoning about the actual agent yields either spurious values or none. None of
+these failures is a theorem that no coherent rule exists. They show that the rule is the open
+problem, which the next section takes up axiomatically.

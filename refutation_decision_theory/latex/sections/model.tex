@@ -85,7 +85,9 @@ theory. Well-definedness is a separate requirement. A verbally described \enquot
 predictor} may satisfy an action-based fairness condition while its promised behaviour is
 logically inconsistent for some policy; Section~\ref{sec:bomb} gives an example. The presence of a
 fixed algorithm in the environment does not by itself make a self-referential specification well
-defined (Remark~\ref{rem:skalse}).
+defined (Remark~\ref{rem:skalse}). Fixed algorithms are harmless here because a problem is a finite
+object whose data include their outputs; when problems are given as source code and the agent must
+compute those outputs, they are not (Section~\ref{sec:computation}).
 
 Write $\cls^*$ for the class of well-defined, fair finite problems with a fixed structural
 representation, closed under the commitment construction of Section~\ref{sec:commit}.
@@ -98,7 +100,11 @@ decision theory.
 
 Totality is part of the definition. A proposed criterion that recommends nothing on some problem
 therefore fails to define a decision theory on any class containing that problem; it does not
-define a theory that is silent there.
+define a theory that is silent there. The permissive definition is the weakest sense of
+\enquote{decision theory}, and it is the first of three. Part~\ref{part:across} requires a theory to be a
+single rule on a common reduced form of problems, and Part~\ref{part:programs} requires it to be a
+computable procedure that receives a description of the problem and must itself work out what the
+structural representation supplies here.
 
 \subsection{Reach and local causal deviation}
 

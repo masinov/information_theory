@@ -2,8 +2,9 @@
 \section{Conclusion}\label{sec:conclusion}
 
 The question was whether a decision theory can be optimal on every fair decision problem, and the
-expectation was that conflicting criteria of optimality would rule it out. The answer has three
-parts.
+expectation was that conflicting criteria of optimality would rule it out. The answer has four
+parts, the first three for problems that supply their counterfactuals and the fourth for problems
+that do not.
 
 First, \emph{ex-ante optimality is always attainable}. On every class of well-defined finite
 problems, choosing an ex-ante maximiser in each problem is a decision theory
@@ -37,6 +38,26 @@ fixed-prior causal evaluation satisfies every axiom considered except diagonal o
 self-sovereignty, and principal binary independence (Proposition~\ref{prop:colaverage}), and contraction under any semantics is compatible with
 $2^{\cont}$ rules that do not maximise ex-ante value (Proposition~\ref{prop:cardinality}).
 
+Fourth, \emph{when the dependence must be inferred, the obstruction is the semantics of alternatives}.
+For agents that read source code, a designated substitution interface and a termination promise give
+a single optimal algorithm (Theorem~\ref{thm:promiseopt}). Three impossibilities hold without any
+counterfactual subtlety: queries about other problems (Proposition~\ref{prop:foreign}), fixed copies of
+the agent against agents that halt on every input (Theorem~\ref{thm:fixedcopy}), and exact selection
+among computable expected values, which is uncomputable even with no predictor
+(Theorem~\ref{thm:exactsel}) but becomes computable as soon as either ties or arbitrarily small
+advantages are excluded (Proposition~\ref{prop:approxopt}). The ways of recognising the agent in code
+each fail: literal matching misses encoded copies, local matching creates dependence from accidental
+agreement (Theorem~\ref{thm:localmatch}), global matching misses transformed copies and can make
+optimality decide the halting problem (Theorems~\ref{thm:complement} and~\ref{thm:haltred}), and
+proof-based counterfactuals about the actual agent are spurious (Theorem~\ref{thm:fiveten}) or undefined
+(Proposition~\ref{prop:guardedarith}). On the axiomatic level, every inconsistency among the desiderata
+for counterfactual operators contains grounded extensionality (Theorem~\ref{thm:cfmap}). Together with
+calibration it forces causal evaluation (Lemma~\ref{lem:projection}); with calibration and ratifiability
+it forms a minimal inconsistent triple whose witness is Death in Damascus
+(Theorem~\ref{thm:calibration}); and replacing it by parametric extensionality leaves ex-ante evaluation
+satisfying every desideratum (Corollary~\ref{cor:parametric}). The fixed-copy diagonal reappears as
+four pairwise cores when the optimiser must halt on every input (Proposition~\ref{prop:globalmap}).
+
 The thesis that the paper can defend is therefore the following.
 
 \begin{quote}
@@ -48,7 +69,13 @@ core of size at most two. Across problems, on the unrestricted causal-matrix dom
 independence together with neutrality, ordering, affine invariance, non-triviality, and monotonicity
 characterises ex-ante ranking, and principal contraction together with neutrality is incompatible
 with non-trivial, baseline-invariant choice on every domain satisfying (DR). Neither cross-problem
-result survives when a smaller menu retains the belief model of the larger one.
+result survives when a smaller menu retains the belief model of the larger one. For computable agents
+that read descriptions, optimality is attainable on the promise domain of any designated substitution
+semantics, and fails, apart from fixed-copy diagonals and the uncomputability of exact selection, only
+through the semantics itself: no total counterfactual operator can both transport a computation
+through alternative outputs and identify every presentation with the same actual behaviour, and
+calibration with such an identification is inconsistent with ratifiability. In every case the
+obstruction lies in how the agent's alternatives are specified, not in choosing among them.
 \end{quote}
 
 \begin{table}[htbp]
@@ -83,6 +110,13 @@ result survives when a smaller menu retains the belief model of the larger one.
     binary characterisation of ex-ante ranking & Thm.~\ref{thm:selfesteem}, Cor.~\ref{cor:three} & core in \textcite{podgorski2022} \\
     contraction without the diagonal; $2^{\cont}$ families & Thm.~\ref{thm:lambda}, Props.~\ref{prop:cardinality}--\ref{prop:NFSO} & not found \\
     mixed and evidential extensions & Sec.~\ref{sec:mixed} & not found \\
+    uniform optimiser on the promise class & Thm.~\ref{thm:promiseopt}, Prop.~\ref{prop:proofopt} & elementary \\
+    foreign queries; fixed-copy diagonal & Prop.~\ref{prop:foreign}, Thm.~\ref{thm:fixedcopy} & \textcite{skalse2021}; modal form in \textcite{fallenstein2014evil} \\
+    no computable exact optimiser & Thm.~\ref{thm:exactsel} & recursive inseparability; application not found \\
+    matching semantics and their failures & Thms.~\ref{thm:localmatch}--\ref{thm:haltred}, Prop.~\ref{prop:rematch} & not found \\
+    computable five-and-ten & Thm.~\ref{thm:fiveten} & mechanism in \textcite{slepnev2012}, \textcite{bensontilsen2014} \\
+    guarded counterfactuals for programs & Prop.~\ref{prop:guardedarith} & semantics from \textcite{fallenstein2015third} \\
+    projection lemma; counterfactual-operator maps & Sec.~\ref{sec:operators} & not found; cf.\ \textcite{williamson2015} \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -97,11 +131,19 @@ whole class of problems with imperfect prediction: Proposition~\ref{prop:noisyco
 Newcomb witness, and Proposition~\ref{prop:strassen} decides dominance among commitments, but no
 general consistency theorem has been proved. The third concerns the reduced form. The causal matrix
 discards structural states and the local structure of multi-stage problems, so that column Pareto is
-not structural dominance and global ratifiability is not local ratifiability; a cross-problem theory
-on a richer reduced form might find obstructions that the matrix cannot express. The fourth concerns
+not structural dominance and global ratifiability is not local ratifiability. The context environments
+of Section~\ref{sec:operators} are one richer reduced form, which keeps the factorisation of the matrix
+through the components, and on it the semantic choice that the matrix leaves implicit becomes an axiom;
+a cross-problem theory of rules on that form has not been developed. The fourth concerns
 regularity: the cardinality results use the freedom to define rules arbitrarily on orbits, and the
 classification of rules subject to continuity or measurability is open. The fifth is a complete
 consistency map for mixed policies, which requires a choice among several inequivalent semantics for
-output, prediction, and contraction. Finally, the status in the literature of the circulant theorem
-and of the consistency maps has been checked only by a bounded search; their ingredients are
+output, prediction, and contraction. The sixth is whether parametric extensionality can be
+implemented for unrestricted programs: Corollary~\ref{cor:parametric} assumes the contexts are
+supplied, and extracting them from a closed program is the problem of extracting a dependency graph,
+for which no procedure is known and which global matching shows cannot be equality of computed
+functions. The seventh is whether a counterfactual semantics can be chosen on grounds other than the
+desiderata considered here, for instance by a learning process that is calibrated in the limit, and
+what such a choice would do to the map. Finally, the status in the literature of the circulant
+theorem and of the consistency maps has been checked only by a bounded search; their ingredients are
 classical, and an earlier statement may exist.

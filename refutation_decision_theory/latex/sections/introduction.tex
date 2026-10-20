@@ -108,11 +108,58 @@ studied when self-locating beliefs make act-level causal or evidential reasoning
 ex-ante optimal policy. \textcite{wolpertbenford2013} argued that the two Newcomb arguments presuppose
 incompatible formalisations of how choice and prediction are related.
 
+\subsection{Programs, proofs, and logical counterfactuals}
+
+The functional theories treat a decision as the output of a computation, and so inherit a question
+that the earlier theories could leave implicit: what would have happened had that computation
+produced a different output? An idea of this kind is already in Hofstadter's \emph{superrationality},
+on which agents who know that they reason identically should cooperate in a symmetric prisoner's
+dilemma \autocite{hofstadter1983}. Game theory made programs the objects of choice.
+\textcite{tennenholtz2004} introduced program equilibrium, in which players submit programs that can
+read one another's code, and \textcite{barasz2014} showed that agents defined in provability logic
+cooperate robustly with one another, while \textcite{critch2019} proved a resource-bounded version of
+Löb's theorem underlying such results.
+
+Within the functional programme, \textcite{soaresfallenstein2015} identified reasoning about
+counterpossibles---conditionals whose antecedent is a non-actual output of a deterministic
+computation---as the central open problem, and gave a proof-based formalisation that queries a
+provability oracle. Such agents can act on spurious counterfactuals, provable only because the agent's own action is
+provably different. The difficulty was raised in discussion of timeless decision theory
+\autocite{drescher2009}, given an explicit Löbian form for proof-searching agents
+\autocite{slepnev2010,slepnev2012}, and analysed by \textcite{bensontilsen2014}; it is now known as the
+\enquote{five-and-ten} problem \autocite{fallenstein2013fiveandten,demskigarrabrant2019}. The
+\enquote{chicken rule}, on which an agent takes any action it can prove it will not take, was
+proposed to block such proofs \autocite{slepnev2011}. Fallenstein developed
+modal versions of updateless decision theory, proved that for every provably extensional problem
+some sound extension of arithmetic makes it optimal \autocite{fallenstein2014optimality,
+fallenstein2014improving}, constructed problems on which every fixed modal theory fails
+\autocite{fallenstein2014evil}, and proposed a partial semantics of \enquote{third-person
+counterfactuals} \autocite{fallenstein2015third,fallenstein2015chicken}. Logical induction
+\autocite{garrabrant2016li} gave a computable criterion for assigning probabilities to logical
+sentences; its use for decisions requires exploration and meets obstacles of its own
+\autocite{garrabrant2017obstacles}. \textcite{demskigarrabrant2019} placed these problems within a
+wider account of agents embedded in the world they reason about, and \textcite{taylor2020}
+proposed alternatives to logical counterfactuals altogether. In general reinforcement learning,
+\textcite{leikehutter2015} showed that natural notions of optimality for universal agents are either
+dependent on the prior or trivial. Two classical results of computability theory frame all of this:
+Rice's theorem \autocite{rice1953}, that every non-trivial property of the functions that programs
+compute is undecidable, and Kleene's second recursion theorem \autocite{kleene1938,moschovakis2010}, which
+allows a program to refer to its own code.
+
+In philosophy, the same conditionals are \emph{counterpossibles}. On the orthodox semantics of
+\textcite{lewis1973counterfactuals} they are all vacuously true; non-vacuists evaluate them at impossible
+worlds \autocite{nolan1997,brogaardsalerno2013}; and the exchange between \textcite{williamson2015,williamson2018}
+and \textcite{bertoetal2018} concerns whether a semantics can treat them non-vacuously while respecting
+the identifications that ordinary counterfactuals respect. \textcite{lewis1976} proved the classical
+triviality theorem for a related identification, of conditional probabilities with probabilities of
+conditionals.
+
 \subsection{Impossibility results}
 
-Three results are of the form this paper pursues. \textcite{skalse2021} proposed a general
+Four results are of the form this paper pursues. \textcite{skalse2021} proposed a general
 counterexample to any decision theory: an opaque box that is empty exactly when the target theory
-permits taking it. \textcite{briggs2010} proved that no completely general decision theory satisfies
+permits taking it. \textcite{fallenstein2014evil} proved the corresponding result in provability logic:
+every fixed modal decision theory fails on some provably extensional problem. \textcite{briggs2010} proved that no completely general decision theory satisfies
 both a Pareto condition across the evaluations of an agent's possible post-decision selves and a
 self-sovereignty condition on which the comparison of two options depends only on how those two
 options evaluate all options, modelling decision-theoretic paradoxes on voting paradoxes and Sen's
@@ -136,60 +183,93 @@ generate impossibilities \autocite{blairetal1976,basumallikbhattacharya2026}.
 
 The thesis this paper set out to prove was that no decision theory is optimal on all fair decision
 problems, the obstruction coming from mutually incompatible criteria of optimality rather than from
-any demand for a general rule. To make it precise, Section~\ref{sec:model} defines a class of finite
-problems with prediction in which every counterfactual the criteria need is fixed by a structural
-representation, and in which fairness and well-definedness are separate conditions. A decision theory
-is any assignment of policies to problems, lookup tables included, so an impossibility must hold for
-every such assignment.
+any demand for a general rule. Whether it is true depends on what a decision theory is required to
+be, and the paper answers the question three times, for three successively stronger requirements.
+Each strengthening moves the obstruction, and at each stage the obstruction turns out to lie in the
+specification of the agent's alternatives rather than in the choice among them.
 
-The thesis is false as stated. Since every finite problem has finitely many policies, choosing an
-ex-ante maximiser in each problem is a decision theory that is ex-ante optimal everywhere
-(Theorem~\ref{thm:universal}). What is true is subtler, and the paper establishes it at two levels.
-
-\emph{Within a single problem}, the conflicts among the natural criteria---ex-ante optimality,
-structural causal dominance, ratifiability, commitment stability, and an evidential criterion---are
-shallow. Every inconsistency has a core of one or two criteria (Theorems~\ref{thm:map15}
+\emph{A theory as an assignment} (Part~\ref{part:single}). Section~\ref{sec:model} defines a class of
+finite problems with prediction in which every counterfactual the criteria need is supplied by a
+structural representation: for every policy, the law of the world's response is part of the problem.
+A decision theory is any assignment of policies to problems, lookup tables included. The thesis is
+then false: choosing an ex-ante maximiser in each problem is a decision theory that is ex-ante optimal
+everywhere (Theorem~\ref{thm:universal}). The answer is cheap because the model hands the agent exactly
+what causal, evidential, and functional theories disagree about. What remains true is shallow. Among
+ex-ante optimality, structural causal dominance, ratifiability, commitment stability, and an evidential
+criterion, every inconsistency has a core of one or two criteria (Theorems~\ref{thm:map15}
 and~\ref{thm:map16}), the central pair being Nozick's. A conflict between ex-ante optimality and
 dominance is possible exactly when the state law depends on the prescribed action
-(Theorem~\ref{thm:characterisation}); it survives imperfect prediction and randomisation, with an
-exact trade-off between the two kinds of regret (Proposition~\ref{prop:tradeoff}).
+(Theorem~\ref{thm:characterisation}); it survives imperfect prediction and randomisation, with an exact
+trade-off between the two kinds of regret (Proposition~\ref{prop:tradeoff}). Every within-problem
+conflict reduces to the choice of the law under which an alternative is evaluated: the law induced by
+the alternative, or the law induced by the actual choice.
 
-\emph{Across problems}, each problem is reduced to its causal matrix, whose rows are the belief states
+\emph{A theory as a rule} (Part~\ref{part:across}). Requiring one rule across problems needs a common
+description of them. Each problem is reduced to its causal matrix, whose rows are the belief states
 induced by the agent's possible policies and whose diagonal is ex-ante value; every real square matrix
 arises (Theorem~\ref{thm:realise}). With common affine invariance, the cross-problem axioms again
-reduce to singleton and pairwise cores, one of which is Briggs's theorem
-(Theorem~\ref{thm:pairwise}). With invariance under row translations---the matrix form of evaluating
-options against the baseline of each belief state---a genuine four-axiom impossibility appears:
-neutrality, row-translation invariance, and contraction force a rule to choose every option
-(Theorem~\ref{thm:circulant}), on exactly those domains satisfying a reachability condition
-(Theorem~\ref{thm:DR}). Ex-ante evaluation, in turn, is characterised by principal binary
-independence together with neutrality, affine invariance, ordering, non-triviality, and monotonicity
-(Theorem~\ref{thm:selfesteem} and Corollary~\ref{cor:three}), whose core is Podgorski's theorem.
+reduce to singleton and pairwise cores, one of which is Briggs's theorem (Theorem~\ref{thm:pairwise}).
+With invariance under row translations---the matrix form of evaluating options against the baseline
+of each belief state---a genuine four-axiom impossibility appears: neutrality, row-translation
+invariance, and contraction force a rule to choose every option (Theorem~\ref{thm:circulant}), on
+exactly those domains satisfying a reachability condition (Theorem~\ref{thm:DR}). Ex-ante evaluation,
+in turn, is characterised by principal binary independence together with neutrality, affine
+invariance, ordering, non-triviality, and monotonicity (Theorem~\ref{thm:selfesteem} and
+Corollary~\ref{cor:three}), whose core is Podgorski's theorem. Both results depend on how a smaller
+menu is modelled. If removing options also removes the beliefs that those options would induce, the
+results hold; if the belief model is held fixed, row-baseline-invariant evaluation becomes menu
+coherent, and contraction no longer forces ex-ante evaluation (Section~\ref{sec:menus} and
+Theorem~\ref{thm:lambda}). The impossibilities concern the preservation of comparisons when the belief
+perspectives associated with removed options disappear, not the preservation of choices when options
+disappear.
 
-Both cross-problem results depend on how a smaller menu is modelled. If removing options also removes
-the beliefs that those options would induce, the results hold. If the belief model is held fixed,
-row-baseline-invariant evaluation becomes menu coherent, and contraction no longer forces ex-ante
-evaluation (Section~\ref{sec:menus} and Theorem~\ref{thm:lambda}). The dichotomy that the earlier
-results suggest---menu coherence forces ex-ante evaluation, and causal evaluation cannot be menu
-coherent without triviality---is therefore false as stated. The precise replacement is the
-conclusion of the paper: \emph{the impossibilities concern the preservation of comparisons when the
-belief perspectives associated with removed options disappear, not the preservation of choices when
-options disappear.}
+\emph{A theory as a procedure} (Part~\ref{part:programs}). Finally, the supplied dependence is removed.
+An agent is a computable function that receives the source code of its environment and must itself
+determine what would happen under each of its outputs. With a designated substitution interface and a
+termination promise, one algorithm is optimal everywhere (Theorem~\ref{thm:promiseopt}), the uniform
+counterpart of Theorem~\ref{thm:universal}. The negative results separate into three kinds that have
+nothing to do with counterfactual inference: queries about other problems
+(Proposition~\ref{prop:foreign}); fixed copies of the agent, which defeat every agent that halts on all
+inputs (Theorem~\ref{thm:fixedcopy}, Skalse's construction made well defined); and the uncomputability
+of exact selection among computable expected values, which holds with no predictor at all
+(Theorem~\ref{thm:exactsel}). The genuinely counterfactual question is how an agent should identify the
+parts of a closed program that depend on its output. Literal, local, and global matching of the agent's
+code each fail in a characteristic way (Theorems~\ref{thm:localmatch}--\ref{thm:haltred}), and
+proof-based counterfactuals are spurious or undefined for ordinary programs (Theorem~\ref{thm:fiveten}
+and Proposition~\ref{prop:guardedarith}). Axiomatising counterfactual operators gives a complete
+consistency map (Theorem~\ref{thm:cfmap}). Calibration on independent problems, together with an
+extensionality that identifies computations by their actual behaviour, forces causal evaluation
+(Lemma~\ref{lem:projection}), and with ratifiability it forms a minimal inconsistent triple whose
+witness is Death in Damascus (Theorem~\ref{thm:calibration}). Under an extensionality that compares
+computations under every substitution, a single operator, ex-ante evaluation, satisfies every
+desideratum (Corollary~\ref{cor:parametric}). The two evaluations of Part~\ref{part:single} thus
+reappear as two notions of when computations are the same.
+
+The conclusion of the paper unifies the three answers. \emph{No impossibility found here is an
+impossibility of choosing well among specified alternatives. Each concerns how the alternatives are
+specified: under which law an alternative is evaluated, which belief perspectives survive when options
+are removed, and how a change in the agent's output is transported through the computations that
+depend on it.}
 
 Several results are known and are presented as such: the Newcomb conflict (Nozick), the absence of
 ratifiable pure acts (Gibbard and Harper; Jeffrey), mixed existence under continuity (Halpern; Bell
-and co-authors), the Pareto--self-sovereignty conflict (Briggs), and the core of the binary
-characterisation (Podgorski). The consistency maps, the characterisation of when dominance and
-ex-ante optimality can conflict, the trade-off identity, the analysis of noisy commitment, the
-circulant theorem and its exact domain criterion, the comparison of menu semantics, and the
-cardinality results on families of rules were not found in the literature searched; their ingredients
-are classical, and no claim of priority is made.
+and co-authors), the Pareto--self-sovereignty conflict (Briggs), the core of the binary
+characterisation (Podgorski), the fixed-copy diagonal (Skalse; Fallenstein in modal form), the
+spurious-proof mechanism behind five-and-ten, modal optimality (Fallenstein), and the recursion-theoretic
+ingredients of the exact-selection theorem. The consistency maps, the characterisation of when
+dominance and ex-ante optimality can conflict, the trade-off identity, the analysis of noisy
+commitment, the circulant theorem and its exact domain criterion, the comparison of menu semantics,
+the cardinality results on families of rules, the matching theorems, and the consistency map for
+counterfactual operators were not found in the literature searched; their ingredients are classical,
+and no claim of priority is made.
 
-Sections~\ref{sec:model}--\ref{sec:robust} treat single problems: the model, the criteria and the
-possibility theorem, the witness problems, commitment and the within-problem maps, and robustness.
-Sections~\ref{sec:matrix}--\ref{sec:exante} treat cross-problem axioms: the causal matrix, the
-pairwise reduction, row translations and contraction, menu semantics, and the characterisation of
-ex-ante evaluation. Section~\ref{sec:taxonomy} asks whether the relevant problem types are few,
-Section~\ref{sec:mixed} extends the results to mixed policies and two evidential semantics, and
-Section~\ref{sec:conclusion} states the final thesis and the questions left open.
+Part~\ref{part:single} (Sections~\ref{sec:model}--\ref{sec:robust}) treats single problems: the model,
+the criteria and the possibility theorem, the witness problems, commitment and the within-problem
+maps, and robustness. Part~\ref{part:across} (Sections~\ref{sec:matrix}--\ref{sec:mixed}) treats rules:
+the causal matrix, the pairwise reduction, row translations and contraction, menu semantics, the
+characterisation of ex-ante evaluation, problem types, and mixed policies. Part~\ref{part:programs}
+(Sections~\ref{sec:programs}--\ref{sec:counterpossibles}) treats procedures: problems as programs,
+computable optimisation and its limits, the inference of dependence from source, the axioms for
+counterfactual operators, and the witness problems revisited together with the literature on
+counterpossibles. Section~\ref{sec:conclusion} states the final thesis and the questions left open, and
 Appendix~\ref{app:stipulations} lists every stipulation made.

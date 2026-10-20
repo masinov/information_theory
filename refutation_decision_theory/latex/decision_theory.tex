@@ -41,7 +41,7 @@
 
 % ---- running heads --------------------------------------------------------------
 \newcommand{\shorttitle}{Is There an Optimal Decision Theory?}
-\newcommand{\theauthor}{Mario Asis}
+\newcommand{\theauthor}{Un crack}
 \clearpairofpagestyles
 \ohead{\textsc{\MakeLowercase{\shorttitle}}}
 \ihead{\textsc{\MakeLowercase{\theauthor}}}
@@ -58,6 +58,10 @@
                          afterskip=.8\baselineskip]{section}
 \RedeclareSectionCommand[beforeskip=-1.2\baselineskip plus -.3\baselineskip,
                          afterskip=.4\baselineskip]{subsection}
+\setkomafont{part}{\normalfont\Large\scshape}
+\setkomafont{partnumber}{\normalfont\Large\scshape}
+\RedeclareSectionCommand[beforeskip=2.4\baselineskip,afterskip=1.4\baselineskip]{part}
+\renewcommand*{\partformat}{\partname~\thepart.\enskip}
 \renewcommand*{\sectionformat}{\thesection.\enskip}
 \renewcommand*{\subsectionformat}{\thesubsection.\enskip}
 
@@ -98,10 +102,11 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\first}{first}
+\newcommand{\Prov}{\mdlgwhtsquare} % provability box
 
-\hypersetup{pdftitle={Is There an Optimal Decision Theory?},pdfauthor={Mario Asis},
+\hypersetup{pdftitle={Is There an Optimal Decision Theory?},pdfauthor={Un crack},
             pdfsubject={Possibility and impossibility theorems for decision theories: within-problem
-                        criteria, cross-problem axioms, and the semantics of menus}}
+                        criteria, cross-problem axioms, the semantics of menus, and logical counterfactuals}}
 
 % ===================================================================================
 \begin{document}
@@ -111,7 +116,7 @@
   \vspace*{.2\baselineskip}
   {\LARGE Is There an Optimal Decision Theory?\par}
   \vspace{.7\baselineskip}
-  {\large\itshape Within-Problem Conflicts, Cross-Problem Axioms,\\ and the Semantics of Menus\par}
+  {\large\itshape Within-Problem Conflicts, the Semantics of Menus,\\ and Counterfactual Alternatives\par}
   \vspace{1.4\baselineskip}
   {\scshape \MakeLowercase{\theauthor}\par}
   \vspace{.3\baselineskip}
@@ -125,11 +130,15 @@
 {\small\setcounter{tocdepth}{1}\renewcommand{\contentsname}{\normalsize\scshape contents}\tableofcontents}
 
 \input{sections/introduction}
+
+\part{Single problems}\label{part:single}
 \input{sections/model}
 \input{sections/criteria}
 \input{sections/witnesses}
 \input{sections/commitment}
 \input{sections/robustness}
+
+\part{Rules across problems}\label{part:across}
 \input{sections/matrix}
 \input{sections/pairwise}
 \input{sections/translations}
@@ -137,6 +146,14 @@
 \input{sections/exante}
 \input{sections/taxonomy}
 \input{sections/mixed}
+
+\part{Procedures that read descriptions}\label{part:programs}
+\input{sections/programs}
+\input{sections/computation}
+\input{sections/inference}
+\input{sections/operators}
+\input{sections/counterpossibles}
+
 \input{sections/conclusion}
 
 \appendix

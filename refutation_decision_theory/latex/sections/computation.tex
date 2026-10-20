@@ -1,0 +1,236 @@
+% -----------------------------------------------------------------------------------
+\section{Computable optimisation and its limits}\label{sec:computation}
+
+This section asks what changes when the decision theory of Theorem~\ref{thm:universal} must be a
+single algorithm reading descriptions. With a fixed substitution semantics and a termination promise,
+nothing essential changes: one algorithm is optimal everywhere. Three kinds of obstruction appear
+once the promise or the class is enlarged, and none of them concerns counterfactual inference.
+
+\subsection{A uniform optimiser}
+
+\begin{definition}[Promise class]\label{def:promise}
+$\mathcal P_{\mathbb Q}$ is the class of program environments $E$ such that $E^\pi$ halts and returns an
+exact rational value $V_E(\pi)$ for every $\pi\in\Pol_E$.
+\end{definition}
+
+The definition uses table oracles, so the validity of an environment is not defined in terms of
+whichever optimiser is eventually constructed.
+
+\begin{theorem}[Uniform optimisation on the promise class]\label{thm:promiseopt}
+There is an agent that is promise-total on $\mathcal P_{\mathbb Q}$ and optimal under
+$O_{\mathrm{oracle}}$ on every $E\in\mathcal P_{\mathbb Q}$.
+\end{theorem}
+
+\begin{proof}
+On input $q(E,h)$, let $T^*$ recover $E$ and its finite policy space, run $E^\pi$ for every
+$\pi\in\Pol_E$, select the first maximiser $\pi^*_E$ of $V_E$ in a fixed effective order, and return
+$\pi^*_E(h)$. Every simulation halts by the promise, there are finitely many, and exact rational
+comparison terminates. All owned queries of $E$ recover the same environment and use the same
+tie-breaking, so the answers form the single policy $\pi^*_E$. Any agent $A$ induces the policy
+$\pi^A_E(h)=A(q(E,h))$, and under oracle replacement
+\[
+  U(E,A)=V_E(\pi^A_E)\le\max_{\pi\in\Pol_E}V_E(\pi)=V_E(\pi^*_E)=U(E,T^*).\qedhere
+\]
+\end{proof}
+
+$T^*$ never asks its live self what it would do during a simulated execution; it supplies table
+answers instead. This is Theorem~\ref{thm:universal} made uniform: the lookup table is replaced by
+an algorithm, and no knowledge of which parts of $E$ are predictors is needed, because oracle
+substitution designates them. By Proposition~\ref{prop:progmatrix} the theorem maximises the
+diagonal of $M_E$.
+
+An explicit finite policy header is sufficient for the argument but not necessary. A finitely
+branching oracle machine that halts for \emph{every} total oracle has a finite tree of consistent
+oracle answers, since otherwise Kőnig's lemma \autocite{konig1927} gives an infinite path, whose
+answers extend to a total oracle on which the machine runs forever; exhaustive exploration of the
+tree then yields a finite optimisation problem. Halting against every \emph{computable} oracle does
+not justify this compactness argument, since an infinite computable tree can lack a computable
+infinite path.
+
+Dependence of termination on the oracle is harmless as long as every policy terminates. The theorem
+fails when some alternatives are undefined: if action $0$ returns $0$ and action $1$ simulates
+machine $e$ and returns $1$ if it halts, the environment lies outside $\mathcal P_{\mathbb Q}$ unless
+$e$ halts. Adding the convention that divergence pays $-1$ would make an exact optimiser choose $1$
+exactly when $e$ halts, and so decide the halting problem. The obstruction then comes from the
+added divergence semantics, not from the finite-policy argument.
+
+\subsection{Two baseline impossibilities}
+
+Two impossibilities are available with no counterfactual subtlety at all. Any result that claims
+to be about counterfactual inference must avoid them.
+
+\begin{proposition}[Foreign queries]\label{prop:foreign}
+There are two terminating environments such that no agent, computable or not, is optimal on both
+under $O_{\mathrm{oracle}}$.
+\end{proposition}
+
+\begin{proof}
+Fix a binary query $q$ distinct from both environments' own descriptions, and let $E_0$ pay
+$\one[A(q)=0]$ and $E_1$ pay $\one[A(q)=1]$. Each has optimal value $1$, attained by a constant agent,
+and no agent attains $1$ in both.
+\end{proof}
+
+This is a cross-problem consistency contradiction requiring neither self-reference nor
+undecidability; it is excluded by $\cls_{\mathrm{self}}$ with disjoint namespaces, and it
+disappears under $O_{\mathrm{const}}$, which freezes the foreign response.
+
+\begin{theorem}[The fixed-copy diagonal]\label{thm:fixedcopy}
+If admissible agents are globally total and arbitrary fixed computable algorithms may occur in
+environments, no agent is optimal on every environment, even among deterministic, binary,
+rational-valued environments that consult the evaluated agent only on their own description.
+\end{theorem}
+
+\begin{proof}
+Fix a globally total candidate $T$, and construct an environment $E_T$ containing the fixed algorithm
+$g_0=T$. With $d=d(E_T)$, it computes $c=g_0(d)$, receives the evaluated agent's action $a$ at the
+port, and pays $\one[a\neq c]$. The algorithm $g_0$ does not change when the evaluated agent changes.
+Since $T$ is globally total, $g_0(d)$ halts, so $E_T$ terminates under either action. $T$ takes the
+action $c$ and receives $0$; a globally total agent taking $1-c$ at $d$ receives $1$.
+\end{proof}
+
+In a programming formalism with no built-in parameter for the environment's own description,
+Kleene's second recursion theorem \autocite{kleene1938} supplies the self-reference; see
+\textcite{moschovakis2010} for a modern statement and proof. It produces a program with a specified
+behaviour involving its own index; it does not prove that the behaviour terminates, and global
+totality is what supplies termination. The proof holds under $O_{\mathrm{const}}$, and under
+$O_{\mathrm{oracle}}$ whenever $g_0$ is an ordinary fixed program rather than a designated oracle
+call. The transparent-and-opaque-box construction of \textcite{skalse2021} is the same mechanism with
+different payoffs.
+
+Remark~\ref{rem:skalse} found that construction ill defined in the model of
+Section~\ref{sec:model}, and the contrast is instructive. There a problem was a finite object whose
+data included the constant's output, so the construction required a problem $D_b$ with $b=T(D_b)$,
+and an ex-ante optimiser has no such fixed point. Here the description of $E_T$ encodes a
+computation involving $T$ without supplying its result, and no fixed point is needed: whatever $T$
+outputs on $d(E_T)$, the copy outputs the same. Once that output $c$ is known, the environment is
+the ordinary one-shot problem with payoffs $\one[a\ne c]$, and its maximiser is $1-c$. The agent
+cannot uniformly select it while remaining globally total, because finding $c$ means running $T$ on
+the very description it is reading.
+
+There is no conflict with Theorem~\ref{thm:promiseopt}, because $T^*$ is only promise-total. Its
+attempted diagonal environment contains a call to $T^*(d(E_{T^*}))$, whose evaluation invokes the
+same optimisation again; the regress violates the table-termination promise, and the environment
+is not in $\mathcal P_{\mathbb Q}$. The positive theorem supplies no globally total extension of $T^*$.
+
+A third baseline is the program form of Death in Damascus.
+
+\begin{proposition}[Self-prediction held fixed]\label{prop:doublecall}
+Let an oracle environment call the agent twice on $d$, treating one answer as a prediction $p$ and the
+other as the action $a$, and pay $\one[a\neq p]$. Under $O_{\mathrm{oracle}}$ every agent receives $0$
+and every agent is optimal. Under $O_{\mathrm{const}}$ every agent has an improving deviation.
+\end{proposition}
+
+\begin{proof}
+Coherent substitution answers both calls alike. An intervention changing only the action, with the
+prediction frozen at the reference agent's answer $p$, earns $1$ with $a=1-p$.
+\end{proof}
+
+By Proposition~\ref{prop:progmatrix}, this is the matrix
+$\bigl(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\bigr)$, in which no diagonal entry is maximal in
+its row; it is Proposition~\ref{prop:did} again, a ratifiability obstruction and not a computability
+result.
+
+\subsection{Exact selection}
+
+The following result avoids every baseline: there are no predictors, no copies of the agent, no
+foreign queries, and the agent need halt only on valid inputs.
+
+\begin{theorem}[No computable exact optimiser]\label{thm:exactsel}
+No promise-total agent is an exact expected-payoff optimiser on all almost-surely terminating
+binary-choice environments, even if realised payoffs lie in $\{0,1\}$, the agent is consulted only at
+the action port on its own description, every expected value is uniformly computable, and every
+environment has finite expected running time.
+\end{theorem}
+
+\begin{proof}
+Let $(\varphi_e)$ be an effective enumeration of the partial computable functions, and let
+$K_b=\{e:\varphi_e(e)\text{ halts with output }b\}$ for $b\in\{0,1\}$. The environment $E_e$ receives
+the action $a\in\{0,1\}$, draws $N\in\mathbb N$ with $\Pr(N=n)=2^{-n-1}$, simulates $\varphi_e(e)$ for $N$
+steps, and pays $1$ if the simulation halts within them with output $a$, and $0$ otherwise. Every
+simulation is bounded, $E_e$ terminates almost surely, and its expected running time is finite. If
+$e\in K_b$ with halting time $t$, then $V_e(b)=\Pr(N\ge t)=2^{-t}>0$ and $V_e(1-b)=0$; if neither
+output occurs, both values are $0$.
+
+Suppose a promise-total exact optimiser $T$ existed. Then $f(e)=T(d(E_e))$ is a total computable
+function with $f(e)=b$ whenever $e\in K_b$. Let $e$ be an index of the total program $x\mapsto1-f(x)$.
+Then $\varphi_e(e)=1-f(e)$, so $e\in K_{1-f(e)}$, and the condition requires $f(e)=1-f(e)$.
+\end{proof}
+
+The proof is the recursive inseparability of $K_0$ and $K_1$. What fails is \emph{exact selection},
+not the approximation of expected values: after $n$ simulation steps the unresolved part of each
+expectation is at most $2^{-n}$, so the values are uniformly computable reals with an explicit error
+bound. What cannot be computed uniformly is which action belongs to the exact argmax when
+arbitrarily small advantages and genuine ties are both admitted. The obstruction disappears as soon
+as one of the two is excluded.
+
+\begin{proposition}[Positive replacements]\label{prop:approxopt}
+On a class of environments with finite policy spaces and uniformly computable values, there are
+promise-total agents that are
+\begin{enumerate}[label=(\roman*)]
+  \item $\varepsilon$-optimal everywhere, for any fixed rational $\varepsilon>0$;
+  \item exactly optimal on every environment with a unique maximising policy;
+  \item exactly optimal on every environment whose values are exact rationals.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Approximate every value within $\varepsilon/3$ and maximise the approximations. (ii) Refine
+enclosing intervals until one policy's lower bound exceeds every other policy's upper bound, which
+happens in finite time when the maximiser is unique. (iii) is Theorem~\ref{thm:promiseopt}.
+\end{proof}
+
+Theorem~\ref{thm:exactsel} is therefore a true and non-trivial version of the thesis that no
+computable rule is optimal on all fair problems, on an especially fair class. Its obstruction is
+classical recursion theory, not a conflict among decision theories.
+
+\subsection{Resource bounds}
+
+Finite clocks or circuit descriptions can support globally total optimisers, because every required
+evaluation then has a finite bound. They do not make optimisation as cheap as one execution.
+
+\begin{proposition}\label{prop:sat}
+If an agent running in time polynomial in the length of the description is exactly optimal on all
+environments with $n$ binary information sets and a Boolean circuit as payoff, then
+$\mathrm{P}=\mathrm{NP}$.
+\end{proposition}
+
+\begin{proof}
+Given a Boolean formula with $n$ variables, form the environment whose information sets are the
+variables and whose payoff is $1$ exactly on satisfying assignments. Query the agent on its $n$ owned
+queries and evaluate the formula on the resulting policy. By optimality the policy is satisfying
+whenever a satisfying assignment exists, so this decides satisfiability in polynomial time
+\autocite{cook1971}.
+\end{proof}
+
+Per-input runtime bounds do not decide program equivalence either; the construction of
+Theorem~\ref{thm:haltred} uses components bounded by $|x|$ steps on input $x$. The bounded variants
+of Löb's theorem proved by \textcite{critch2019} yield positive cooperation results for specified
+proof-responsive programs under proof-length assumptions; they do not establish optimality on a
+class of environments of the present kind.
+
+\subsection{What a fixed semantics settles}\label{sec:fixedsemantics}
+
+Theorem~\ref{thm:promiseopt} extends at once to any environment class that supplies a
+\emph{reference-independent} effective evaluator: a computable $V(E,\pi)$ on a finite policy space,
+with exactly comparable values, whether the evaluator works by source analysis, by simulation, or by
+proof. Finite circuits, explicitly clocked programs with stipulated time-out behaviour, and
+descriptions carrying checkable certificates of the required evaluations all have such evaluators,
+and admit optimisers that are globally total on the certified language, returning a default on
+invalid strings. One might conclude that once a rule for propagating the dependence of the world on
+the agent's output is fixed, optimal choice is a finite computation, and the only remaining question
+is which rule.
+
+The conclusion is false for anchored kernels. A fixed, computable kernel makes each comparison
+computable, but it need not admit an agent whose actual output maximises it. In
+Proposition~\ref{prop:doublecall} under $O_{\mathrm{const}}$ every baseline yields a finite,
+unambiguous ranking, and every baseline is ranked below its alternative. Maximising a supplied table
+$V_E$ is a finite computation; being a fixed point of a baseline-dependent kernel is a separate
+problem, the ratifiability problem of Part~\ref{part:single} in program form.
+
+Two further remarks fix the scope of \enquote{largest solvable class}. For reference-independent
+problems with disjoint owned queries, every decidable class on which some globally total agent is
+optimal can be enlarged by a single further problem, by altering the agent on that problem's owned
+queries only; under $\cls_{\mathrm{self}}$ this changes nothing on the original class, so there is
+no largest such class. Conversely, the class of all terminating, rational-valued, finite-policy
+templates is a maximal promise domain for that representation, so an unqualified claim that there is
+no largest solvable class would also be false.

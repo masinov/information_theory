@@ -76,6 +76,24 @@ $T^{\mathrm{ex}}_D=\first\argmax_{\pi\in\Pol_D}V_D(\pi)$. Each $\Pol_D$ is finit
 $V_D$ is real valued on it because $D$ is well defined, so the maximum exists.
 \end{proof}
 
+\begin{remark}[Self-referential problems]\label{rem:skalse}
+\textcite{skalse2021} proposes, for a fixed target theory $X$, a choice between a transparent box
+containing $1000$ and an opaque box whose content is $0$ if $X$ permits choosing it in that problem and
+$2000$ otherwise, and argues that another theory can outperform $X$. The target theory is an
+environmental constant, so this is not discrimination by the identity of the evaluated agent.
+Translated into the present model, however, the construction requires a fixed point: for an ex-ante
+optimiser, an empty opaque box makes it choose the transparent box, which requires the opaque box to
+be full, and conversely. Neither content yields a well-defined instance. In the same way, the
+diagonal family $D_b$ with $u(a)=\one\{a\neq b\}$, $b\in\{0,1\}$, would need $b=T(D_b)$, but an ex-ante
+optimiser has $T(D_0)=1$ and $T(D_1)=0$. The schema does not refute Theorem~\ref{thm:universal} on
+well-defined problems; its additional self-referential realisability assumption is where it leaves
+that class. \textcite{lewis1981rich} analysed a related failure: an announced reward for supposedly
+irrational choice can render the proposed scenario inconsistent. The verdict depends on the problem
+being a finite object whose data include the constant's output. When problems are given as programs,
+so that the agent must compute that output itself, the same construction is well defined and defeats
+every agent that halts on all inputs (Theorem~\ref{thm:fixedcopy}).
+\end{remark}
+
 The unqualified thesis that no decision theory is optimal on all fair problems is therefore false.
 What can be true is that particular \emph{combinations} of criteria are jointly unsatisfiable, and
 the remaining sections determine exactly which. A first observation shows how little such a result
@@ -100,7 +118,9 @@ element of the intersection under a fixed order.
 
 Because lookup tables are admitted, an impossibility for local criteria is never more than the
 exhibition of a single problem on which their acceptable sets are disjoint. No difficulty about
-general rules, computability, or self-reference is involved. This is the precise sense in which the
+general rules, computability, or self-reference is involved; those enter only when a theory must be
+a single rule on a common description of problems (Part~\ref{part:across}) or a computable procedure
+that reads descriptions (Part~\ref{part:programs}). This is the precise sense in which the
 within-problem impossibilities of the next two sections are shallow; non-local criteria, and the
 cross-problem axioms of Sections~\ref{sec:matrix}--\ref{sec:exante}, are where deeper structure
 can appear.

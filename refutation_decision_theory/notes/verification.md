@@ -79,3 +79,69 @@ the raw outputs. No result was found to be false; several needed a sharper state
   vertex-transitivity remark) or for the consistency maps; state as "not found in the literature
   searched".
 - Basu Mallik & Bhattacharya (2026): cite only for what the abstract states.
+
+## D. Rounds 4–5 (Part III of the paper)
+
+Every result in Part III was re-derived. None was false; the points below needed attention.
+
+1. **G5, exact selection.**
+   - V_e(b) = Pr(N ≥ t) = Σ_{n≥t} 2^{−n−1} = 2^{−t}.
+   - f(e) = T(d(E_e)) is total because e ↦ d(E_e) is computable and T halts on the class.
+   - The index of x ↦ 1 − f(x) gives f(e) = 1 − f(e).
+   - Expected running time is finite because E[N] < ∞. ✔
+2. **G10, halting reduction.**
+   - The prompt's lead ("equal iff halts") cannot be uniform, because equality with a fixed total
+     T is co-c.e.; the paper uses "equal iff does not halt".
+   - Two-case definition of g_e: equal to 1 − T(x) when x ∉ P and e halts within |x| steps,
+     otherwise equal to T(x).
+   - Strings outside P must be arbitrarily long, so a halting e yields a witness of inequality.
+   - Payoff table 2(1−b) + a. If e does not halt, b = a and the values are 2 vs 1, so T(d_e) = 0.
+     If e halts, b is frozen and action 1 is better by 1, so T(d_e) = 1. ✔
+3. **G9, local matching.**
+   - With A ≡ 1−a, g_a is replaced and both outputs equal 1−a, so the payoff is 1.
+   - With t itself, the outputs are a and 1−a, so the payoff is 0. ✔
+4. **G11, five-and-ten.**
+   - S ⊢ q → ψ uses determinism: under q, T(d) = 10 is refutable, so the second conjunct is vacuous.
+   - □ψ → q by formalised search: the search looks only for proofs of ψ, so its first hit returns 5.
+   - Löb gives S ⊢ q; an actual proof of ψ exists, so the search halts. ✔
+5. **G7, non-implication.** The four alternative patterns are pairwise distinct. The payoff 1/0/2
+   at z/v/w gives each direction, and agents taking 0 reproduce the baseline. ✔
+6. **H2, context environments realise causal matrices (added link, not in R5).**
+   - States b ∈ A, μ_a = δ_a, U(b,a) = u(a, c(b)), so M[b,a] = W_{E,b}(a) and M[a,a] = V_E(a).
+   - The identity context with u(a,x) = M[x,a] realises any 2×2 rational matrix.
+   - Only "independent ⇒ equal rows" holds for environments. The converse holds for the matrix,
+     not the environment, and the paper says so.
+7. **H6, complete map.**
+   - Witness properties re-checked one by one:
+     - slot: all but CF5;
+     - port: CF2, 3, 5, 6;
+     - base: CF4, 5, 6;
+     - flat: CF2, 5, 10;
+     - all four: CF1, 7, 8.
+   - Maximality: adding any axiom to each maximal set completes a core.
+   - Exhaustiveness: case split on CF5 / CF3 / CF4 / CF10, as in the paper. ✔
+8. **H8, conditional map.** Re-derived independently.
+   - κ_base satisfies CF9′ and CF10′, so {CF4,CF5,CF10} and {CF5,CF6,CF10} disappear.
+   - {CF2,CF5,CF6,CF10′} is a minimal core: deleting CF2 / CF5 / CF6 / CF10′ leaves sets
+     witnessed by base / slot / flat / port.
+   - Exhaustiveness: CF3 → port; CF4 or CF9′ → base; else CF10′ with ¬CF6 → flat, CF10′ with
+     ¬CF2 → base, ¬CF10′ → port. ✔
+9. **H9, global-total map.** The diagonal component c(d,a) = τ(d) is constant in a, so CF3, CF4,
+   CF6 and CF9 each force W. Maximal sets checked as for H6; flat is ratified by any globally total
+   τ. ✔
+10. **Literature checks for Part III.** Records are in notes/literature/clusterD_notes.md and
+    clusterE_notes.md.
+    - Williamson's collapse argument is confirmed on pp. 30–31 of the 2015 Amsterdam Colloquium
+      paper.
+    - Logical induction: Theorem 4.6.1 is on p. 36, Definitions 4.7.1 and 4.8.2 on pp. 38 and 40.
+    - Benson-Tilsen: Corollary 4.6 is "playing chicken is the only way to win".
+    - Earliest written statement of the five-and-ten pattern: Drescher 2009. Löbian form: Slepnev
+      2012. Chicken rule: Slepnev 2011. No one is credited with the name.
+    - Nolan's "strangeness of impossibility" is not attributed in the paper, since sources disagree
+      on whether he endorses it.
+
+Informal points kept as remarks, not theorems:
+- the König compactness remark;
+- "no largest decidable solvable class";
+- the impossible-world representation of kernels;
+- the exploration-scope example for logical induction.

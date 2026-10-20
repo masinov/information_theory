@@ -1,0 +1,121 @@
+% -----------------------------------------------------------------------------------
+\section{The witness problems revisited, and counterpossibles}\label{sec:counterpossibles}
+
+\subsection{Verdicts of the candidate semantics}
+
+The witness problems of Section~\ref{sec:witnesses} can now be given as programs and evaluated
+under each candidate semantics. Let $0$ stand for one-boxing or cooperating and $1$ for two-boxing or
+defecting, and use the Newcomb and twin payoffs $u(a,b)=2(1-b)+a$, where $b$ is the predictor's
+output or the twin's action. With $t=T(d)$ the reference agent's output, write the vectors of values
+in the action order $(0,1)$ as
+\[
+  P_t=\bigl(2(1-t),\,2(1-t)+1\bigr),\quad S=(2,1),\quad D_t=(t,\,1-t),\quad Z=(0,0),\quad H=(5,10).
+\]
+$P_t$ freezes the predictor; $S$ transports a shared copy; $D_t$ and $Z$ are the frozen and transported
+vectors of the mismatch diagonal $\one[a\ne b]$ of Theorem~\ref{thm:fixedcopy}; and $H$ gives the
+payoffs of five-and-ten. In Newcomb and the twin the dependence is a designated oracle call; in the
+diagonal the copy of the agent is a fixed component.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}lcccc@{}}
+  \toprule
+  semantics & Newcomb & twin & five-and-ten & fixed-copy diagonal \\
+  \midrule
+  port only & $P_t$: two-box & $P_t$: defect & $H$: ten & $D_t$: opposite of $t$ \\
+  designated slots & $S$: one-box & $S$: cooperate & $H$: ten & $D_t$: opposite of $t$ \\
+  slots and literal copies & $S$ & $S$ & $H$ & $Z$: tie \\
+  matching & $S$ & $S$ & $H$ & $Z$: tie \\
+  supplied graph & $S$ or $P_t$ & $S$ or $P_t$ & $H$ & $Z$ or $D_t$ \\
+  guarded, arithmetic & actual only & actual only & actual only & actual only \\
+  logical induction & none & none & none & none \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+The first two rows are $\kappa_{\mathrm{port}}$ and $\kappa_{\mathrm{slot}}$, that is, $O_{\mathrm{const}}$
+and $O_{\mathrm{oracle}}$; matching is local or global; logical induction is at an unspecified stage.
+For the dependency graph the first entry applies when the graph links the predictor or copy to the
+decision node and the second when it treats it as fixed. \enquote{Actual only} means that every
+non-actual action has no value (Proposition~\ref{prop:guardedarith}), so there is no recommendation
+under \ax{CF10}. For logical induction, nothing in the criterion fixes a numerical verdict at a given
+stage; the all-zero-price stage of Section~\ref{sec:candidates} assigns the normalised upper bound to
+both actions, giving $(3,3)$, $(3,3)$, $(10,10)$, and $(1,1)$.
+
+The table makes visible what Section~\ref{sec:witnesses} took as given. In Newcomb's problem and the
+twin prisoner's dilemma the conflict between \cri{1} and \cri{2} is the difference between the second
+row and the first: whether the predictor's output, or the twin's action, is transported with the
+agent's output or frozen at its baseline. A semantics that transports it one-boxes and cooperates;
+one that freezes it two-boxes and defects. The model of Section~\ref{sec:model} made this choice by
+stipulating $\mu_\pi$; a program does not make it, and the rows below the second show the ways an agent
+may try to make it from source. On the fixed-copy diagonal, conversely, transporting the copy turns a
+lost problem into a tie, which is why semantics that recognise copies escape
+Theorem~\ref{thm:fixedcopy} and why Theorem~\ref{thm:complement} needs a copy that is transformed rather
+than equal.
+
+\subsection{Counterpossibles}
+
+Every non-actual output of a deterministic computation is, relative to the computation's complete
+description, an impossibility. Logical counterfactuals are therefore \emph{counterpossibles},
+conditionals with impossible antecedents, and the philosophical literature on them bears on the
+results of Section~\ref{sec:operators}.
+
+On the orthodox semantics of \textcite{lewis1973counterfactuals}, a counterfactual with an impossible
+antecedent is vacuously true. Vacuism is the counterfactual analogue of material implication in
+Section~\ref{sec:logical}: it assigns every consequent to every non-actual output, and so provides a
+relation, not a kernel. Non-vacuists answer with impossible worlds, in which impossible antecedents
+hold without everything holding \autocite{nolan1997,brogaardsalerno2013}. \textcite{williamson2015,williamson2018}
+defends vacuism, and one of his arguments has the structure of Theorem~\ref{thm:transport}. Suppose the
+intension of $A\mathrel{\Prov\!\!\to}B$ is a function of the intensions of $A$ and of $A\wedge B$. If $A$ is
+impossible, both intensions are empty for every $B$, so all counterfactuals with antecedent $A$ have the
+same intension; since $A\mathrel{\Prov\!\!\to}A$ is true everywhere, every counterpossible is true.
+\textcite{bertoetal2018} reply by admitting impossible worlds whose valuations discriminate more finely,
+and discuss the conflict between reflexivity, closure under classical consequence, and non-trivial
+treatment of contradictions, together with failures of substitution inside counterfactual contexts.
+
+The analogy is exact at one level: an identification appropriate to actual or possible behaviour need
+not preserve the distinctions needed under counterpossible suppositions. Williamson's argument
+identifies antecedents by their possible-worlds intension, which is empty for every impossibility;
+grounded extensionality identifies components by their instantiated behaviour, which is the same for
+the identity context and the constant context at the baseline. In both cases the identification
+collapses exactly the distinctions that non-vacuous counterfactuals need.
+
+Impossible worlds can represent every kernel of Section~\ref{sec:operators}. Given a baseline-correct
+kernel on finite environments, retain an actual world with the actual action and payoff; for every
+defined alternative $a$ introduce a world recording action $a$ and payoff $\kappa(E,b,a)$, selected when
+the antecedent \enquote{the output is $a$} is evaluated; and for an undefined alternative select several
+worlds with incompatible payoffs, so that no value is determined. The selected worlds are impossible
+relative to the complete description of the computation. Retaining the origin of each world and
+overwriting its target realises \ax{CF7}. The construction represents $\kappa_{\mathrm{slot}}$,
+$\kappa_{\mathrm{port}}$, $\kappa_{\mathrm{base}}$, and $\kappa_{\mathrm{flat}}$ alike, and therefore
+derives none of them: impossible worlds can record unattainable values, which \ax{CF9} separately
+excludes, and the selection relation encodes a counterfactual policy chosen in advance. Impossible-world
+semantics makes room to preserve distinctions; it does not recover dependence information that a
+closed program's actual behaviour has lost.
+
+Two further precedents are close. \textcite{lewis1976} proved a triviality theorem about representing
+conditional probabilities as probabilities of fixed conditional propositions; it does not prohibit
+numerical conditional expectations or any kernel of Section~\ref{sec:operators}, but it is the classical
+example of a semantic identification that cannot respect the required distinctions.
+\textcite{taylor2020} discusses changing the agent's source code together with its hypothetical policy,
+and the underdetermination of such changes, as an alternative to logical counterfactuals; it is closely
+related to the slot semantics but contains no axiomatic impossibility. The discussion of embedded
+agency by \textcite{demskigarrabrant2019} makes the point that an externally supplied agent slot already
+contributes disputed structure, without a theorem about numerical kernels.
+
+\subsection{What an optimality theorem requires}
+
+The results of this part combine into a list of the assumptions that any optimality theorem for an
+agent reading descriptions must state, because each of them changes some answer above:
+\begin{enumerate}[label=(\roman*)]
+  \item the atomic interfaces at which the agent is consulted;
+  \item which contexts are intervention-total;
+  \item whether implementations are compared on preserved inputs;
+  \item whether fixed algorithms are admitted as constants;
+  \item whether agents must halt globally or only on a promise class;
+  \item the substitution benchmark by which alternatives are realised;
+  \item how undefined alternatives are treated in ratifiability.
+\end{enumerate}
+They are mathematical assumptions, not implementation details that may be dropped once the theorem is
+stated. Supplying them is supplying what Section~\ref{sec:model} supplied with $\mu_\pi$.

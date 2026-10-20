@@ -22,7 +22,8 @@ section that discusses it is given.
   \item Positive reach is measured under the evaluated policy.
   \item Predictor error is given by a kernel; the Newcomb calculations use symmetric error.
   \item A predictor targets specified policy coordinates; \enquote{the same computation} is represented
-        by a stipulated dependence (Sections~\ref{sec:twin}, \ref{sec:bomb}).
+        by a stipulated dependence (Sections~\ref{sec:twin}, \ref{sec:bomb}); Part~\ref{part:programs}
+        removes this stipulation and the supplied laws $\mu_\pi$ with it.
   \item Commitment is irrevocable, precedes the environment's response, offers the full policy set, and
         uses a specified coupling and structural state set (Definition~\ref{def:commit},
         Section~\ref{sec:couplings}).
@@ -44,4 +45,27 @@ section that discusses it is given.
         (Section~\ref{sec:translations}).
   \item Equivalence of problems and parameterisation of rules are made precise before taxonomy claims are
         stated (Section~\ref{sec:taxonomy}).
+  \item Agents reading descriptions are either globally total or promise-total on a stated class, and
+        results are stated separately for the two (Definition~\ref{def:agent}); the distinction
+        separates Theorem~\ref{thm:promiseopt} from Theorem~\ref{thm:fixedcopy}.
+  \item Owned queries identify their environment and information set, namespaces of distinct
+        environments are disjoint, and repeated queries receive the same answer
+        (Definition~\ref{def:progenv}).
+  \item Payoffs are exact rationals, computable reals, or sampled; the positive results use the first
+        (Section~\ref{sec:programs}).
+  \item Under syntactic and extensional replacement the description supplied to the agent is held fixed,
+        and implementations are compared on preserved inputs (Definition~\ref{def:conventions},
+        Proposition~\ref{prop:rawsource}).
+  \item Extensional matching uses typed, atomic components, matches once before replacement, and states
+        its comparison domain (Section~\ref{sec:extensional}).
+  \item Counterfactual contexts are intervention-total: every supplied context terminates under every
+        permitted substitution (Section~\ref{sec:operators}).
+  \item Counterfactual kernels depend on the agent only through its local baseline output
+        (Definition~\ref{def:kernel}).
+  \item Independence of a component means invariance in the declared live parameter, so a fixed copy of
+        the agent counts as independent (Definition~\ref{def:context}, Section~\ref{sec:programmap}).
+  \item Realisability is measured by coherent slot substitution unless a fixed-component benchmark is
+        stated (Section~\ref{sec:otherconventions}).
+  \item Ratifiability requires every alternative to be defined unless the weakened form \ax{CF10$'$} is
+        stated (Proposition~\ref{prop:cfmapconditional}).
 \end{enumerate}

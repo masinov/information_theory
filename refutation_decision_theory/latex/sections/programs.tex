@@ -1,0 +1,215 @@
+% -----------------------------------------------------------------------------------
+\section{Problems as programs}\label{sec:programs}
+
+Every result so far has been proved on problems that \emph{supply} their counterfactuals. A problem
+of Section~\ref{sec:model} comes with the law $\mu_\pi$ for every policy $\pi$, and with structural
+plans that fix what each response would be on every branch. The decision theories that the debate
+compares disagree precisely about where such laws come from: causal, evidential, and functional
+theories differ over which parts of the world would have been different had the agent chosen
+otherwise. A model that hands this dependence to the agent has already settled what the theories
+dispute. This is why ex-ante optimality came so cheaply in Theorem~\ref{thm:universal}, and why the
+deeper results of Part~\ref{part:across} concerned the shape of an evaluation rule rather than the
+identification of alternatives.
+
+This part removes the supply. An agent is now a computable procedure that receives a description of
+its situation---by default the source code of the environment---and must itself determine what
+would happen under each of its possible outputs. The question is whether some such procedure is
+optimal on every fair problem. Answering it requires saying what \enquote{optimal} means once the
+comparison is no longer given by a supplied law, and that is where most of the work lies.
+
+\subsection{Agents and environments}
+
+Fix an effective language of \emph{descriptions}, finite strings from which a finite nonempty set
+$A(x)$ of legal actions can be computed for each description $x$. For the negative results a fixed
+binary action set suffices, so nothing depends on how defaults are chosen when action sets vary.
+
+\begin{definition}[Agents]\label{def:agent}
+An \emph{agent} is a partial computable function $T$ from descriptions to actions with
+$T(x)\in A(x)$ whenever $T(x)$ is defined. It is \emph{globally total} if it halts on every
+well-formed description, and \emph{promise-total} on a class $\cls$ of environments if it halts on
+every description belonging to $\cls$.
+\end{definition}
+
+The two notions differ. \enquote{A total computable function} normally means the first;
+\enquote{an agent that halts on every problem in the class} permits the second. Both receive
+answers below, and the distinction turns out to separate a positive theorem from a negative one.
+
+\begin{definition}[Program environment]\label{def:progenv}
+A \emph{program environment} $E$ is a program with a finite set $H_E$ of information sets, each
+$h\in H_E$ carrying a finite nonempty action set $A_{E,h}$ and an \emph{owned query} $q(E,h)$, a
+description from which $E$ and $h$ can be recovered. Its policy space is
+$\Pol_E=\prod_{h\in H_E}A_{E,h}$, and its root description $d(E)$ is one of its owned queries. Given
+access to an agent, $E$ produces a payoff. For a table $\pi\in\Pol_E$, $E^\pi$ denotes the execution
+in which every owned query is answered by the corresponding entry of $\pi$.
+\end{definition}
+
+Four stipulations make owned queries behave like the information sets of
+Definition~\ref{def:problem}: a query identifies its parent environment and its information set;
+distinct environments have disjoint owned-query namespaces; repeated queries receive the same
+answer; and, when the fairness condition $\cls_{\mathrm{self}}$ below is imposed, the environment
+consults the agent only through its owned queries. The disjointness matters: if two environments
+may both call one query their own, the conflict of Proposition~\ref{prop:foreign} below reappears
+inside a class that is ostensibly self-only.
+
+Three representations of payoffs must be kept apart. An execution may return an \emph{exact
+rational}, or an explicit finite distribution with rational probabilities and payoffs; it may return
+a \emph{computable real}, given by a program producing rational approximations of any required
+accuracy; or it may be a random execution returning a \emph{sampled} payoff whose expectation is
+the value. The positive results use the first; the strongest negative result
+(Theorem~\ref{thm:exactsel}) uses only sampled payoffs in $\{0,1\}$, so it does not exploit exotic
+real-valued outputs.
+
+\subsection{Replacement and anchored evaluation}
+
+To ask whether $T$ is optimal on $E$ one must say what $E$ would pay another agent $A$. Some ways of
+saying it define a single payoff function $U(E,A)$ common to all agents. Others first run or inspect
+a reference agent $T$, freeze part of the resulting situation, and only then consider alternatives;
+these define an \emph{anchored kernel} $U_K(E,T;A)$, where $K$ names the convention. Every kernel is
+required to satisfy the baseline identity
+\begin{equation}\label{eq:baseline}
+  U_K(E,T;T)=U(E,T),
+\end{equation}
+and the corresponding notion of optimality is
+\begin{equation}\label{eq:anchored}
+  U(E,T)\ge U_K(E,T;A)\qquad\text{for every admissible agent }A.
+\end{equation}
+In general there is no function $W$ with $U_K(E,T;A)=W(E,A)$ for every reference $T$. Some versions
+of the question therefore ask for \emph{the best agent in a common environment}, others for \emph{an
+agent that is a fixed point of its own counterfactual evaluations}. The difference is the
+program-level form of the difference between \cri{1} and \cri{3}.
+
+\begin{definition}[Replacement conventions]\label{def:conventions}
+Let $E$ be an environment with a designated \emph{action port}, the place at which the agent's
+actual action on $d(E)$ is received.
+\begin{description}[font=\normalfont,leftmargin=2.4em,labelwidth=1.6em,labelsep=.8em,itemsep=.35em]
+  \item[$O_{\mathrm{const}}$] Replace the action at the port by $A$'s action, and freeze every other
+        response of the environment at its value under the reference $T$; fixed embedded algorithms
+        are left unchanged.
+  \item[$O_{\mathrm{oracle}}$] Replace every designated oracle call, the port included, by a call to
+        $A$.
+  \item[$O_{\mathrm{syn}}$] Replace specified, typed occurrences of program components whose syntax
+        equals the reference program.
+  \item[$O_{\mathrm{ext}}$] Replace specified program components that pass a stated test of
+        extensional equivalence with the reference agent (Section~\ref{sec:extensional}).
+\end{description}
+Under $O_{\mathrm{syn}}$ and $O_{\mathrm{ext}}$ the description $d(E)$ supplied to the agent is held
+fixed during replacement.
+\end{definition}
+
+The last clause is a choice. Supplying the rewritten source $d(E[A])$ instead would change the
+agent's observation as well as the program occupying the agent's role; that is a legitimate model,
+but a different one (Proposition~\ref{prop:rawsource} shows one of its consequences). Raw
+substring replacement is not an adequate reading of $O_{\mathrm{syn}}$, since it can alter quoted
+data, comments, or unrelated identifiers; typed occurrences or explicit component interfaces are
+needed. Logical counterfactuals, $O_{\mathrm{log}}$, form a family of semantics rather than a fifth
+replacement operation, and are treated in Section~\ref{sec:logical}.
+
+\subsection{Fairness}
+
+The fairness condition of Definition~\ref{def:fair} splits into several conditions, which overlap
+rather than partition the environments.
+\begin{description}[font=\normalfont,leftmargin=2.4em,labelwidth=1.6em,labelsep=.8em,itemsep=.35em]
+  \item[$\cls_{\mathrm{self}}$] Dependence on the evaluated agent is confined to its answers on the
+        owned queries $q(E,h)$.
+  \item[$\cls_{\mathrm{any}}$] The environment may consult the agent on arbitrary descriptions.
+  \item[$\cls_{\mathrm{ext}}$] Replacing agents by extensionally equal agents preserves the payoff
+        kernel: $T\equiv T'$ and $A\equiv A'$ imply $U_K(E,T;A)=U_K(E,T';A')$.
+  \item[$\cls_{\mathrm{const}}$] Fixed algorithms, including copies of a particular agent, may occur
+        as constants of the environment.
+\end{description}
+Two locality requirements should also be separated. \emph{Executed-query locality} says that actual
+executions call agents only on owned queries. \emph{Kernel locality} says that the whole
+counterfactual kernel, including the rule that decides what to replace, depends on the reference
+agent only through its answers on owned queries. Global program-equivalence matching
+(Section~\ref{sec:extensional}) satisfies the first while violating the second.
+
+In Section~\ref{sec:model} a fixed algorithm inside a problem was harmless: its output on the
+relevant input is a number that is part of the problem, and the problem is a finite object
+specified by such numbers. In a program environment the algorithm's code is part of the description
+and its output is not; the agent must compute it, and may be the very thing being computed. This is
+what makes $\cls_{\mathrm{const}}$ consequential here (Theorem~\ref{thm:fixedcopy}).
+
+\subsection{Programs and causal matrices}
+
+The conventions $O_{\mathrm{oracle}}$ and $O_{\mathrm{const}}$ have exact counterparts in the
+causal matrix of Section~\ref{sec:matrix}. Let $E$ be a finite oracle environment in which every
+execution with table answers halts with an exact rational payoff, and let the owned queries be
+answered at two kinds of position: the action ports, and the remaining oracle calls. For
+$\sigma,\tau\in\Pol_E$ let $M_E[\sigma,\tau]$ be the payoff of the execution in which the oracle
+calls are answered by $\sigma$ and the ports by $\tau$.
+
+\begin{proposition}[Programs induce causal matrices]\label{prop:progmatrix}
+For agents $T$ and $A$ write $\pi_T$ and $\pi_A$ for the tables of their answers on the owned
+queries. Then
+\[
+  U_{\mathrm{oracle}}(E,A)=M_E[\pi_A,\pi_A],\qquad
+  U_{\mathrm{const}}(E,T;A)=M_E[\pi_T,\pi_A].
+\]
+$M_E$ is the causal matrix of the finite problem whose structural states are the oracle tables,
+with $\mu_\pi=\delta_\pi$ and $U(\sigma,\tau)=M_E[\sigma,\tau]$, and every finite real square matrix
+indexed by a product of finite action sets arises in this way.
+\end{proposition}
+
+\begin{proof}
+Under $O_{\mathrm{oracle}}$ every owned query, port or not, is answered by $A$, which is the
+execution indexed by $(\pi_A,\pi_A)$. Under $O_{\mathrm{const}}$ the ports receive $A$'s answers
+while every other response is frozen at its value under $T$; since the only responses depending on
+the agent are the oracle calls, this is the execution indexed by $(\pi_T,\pi_A)$. The problem
+described has causal matrix $\sum_\rho\mu_\sigma(\rho)U(\rho,\tau)=M_E[\sigma,\tau]$. For the last
+claim, an environment that calls the oracle on all owned queries, then reads the ports, and pays a
+prescribed entry $M[\sigma,\tau]$ of a given matrix realises $M$, exactly as in
+Theorem~\ref{thm:realise}.
+\end{proof}
+
+Oracle substitution thus recovers the diagonal of the matrix, ex-ante value, and port-only
+intervention recovers a row, causal evaluation at the baseline $\pi_T$. Both require a designation
+of which positions are ports and which are calls; a program in which the agent's code occurs inside
+other programs, with no designated interface, does not carry that designation, and the agent must
+construct it. Section~\ref{sec:operators} shows that the two kinds of evaluation reappear, in this
+form, as the only two coherent ways of doing so.
+
+\subsection{Comparing the conventions}
+
+Replacing more components does not make optimality logically stronger or weaker.
+
+\begin{proposition}[No implications between conventions]\label{prop:nonimplication}
+For any two of $O_{\mathrm{const}}$, $O_{\mathrm{oracle}}$, $O_{\mathrm{syn}}$, $O_{\mathrm{ext}}$ there
+are terminating environments on which a given agent is optimal under the first and not under the
+second, and environments on which the reverse holds.
+\end{proposition}
+
+\begin{proof}
+Let a typed environment contain an action port, an additional oracle call, a literal copy of the
+reference agent's code, and an independently encoded copy computing the same function, each
+queried at $d(E)$; let the reference agent be the constant $0$ and the alternative the constant $1$.
+The four conventions then produce the following patterns of the four values.
+\begin{center}
+\small
+\begin{tabular}{@{}lcccc@{}}
+  \toprule
+  evaluation & port & oracle call & literal copy & encoded copy \\
+  \midrule
+  baseline                & 0 & 0 & 0 & 0 \\
+  $O_{\mathrm{const}}$ alternative  & 1 & 0 & 0 & 0 \\
+  $O_{\mathrm{oracle}}$ alternative & 1 & 1 & 0 & 0 \\
+  $O_{\mathrm{syn}}$ alternative    & 1 & 1 & 1 & 0 \\
+  $O_{\mathrm{ext}}$ alternative    & 1 & 1 & 1 & 1 \\
+  \bottomrule
+\end{tabular}
+\end{center}
+For two conventions producing distinct patterns $v$ and $w$ from the baseline pattern $z$, set the
+payoff to $1$ at $z$, $0$ at $v$, $2$ at $w$, and $0$ elsewhere. The reference agent is optimal under
+the first convention and not under the second; exchanging the payoffs at $v$ and $w$ gives the
+reverse.
+\end{proof}
+
+The conventions coincide only under conditions that make their replacement sets coincide.
+Oracle and syntactic substitution agree under a slot-preserving compilation of oracle calls into
+designated code occurrences (Section~\ref{sec:syntactic}); oracle and extensional substitution agree
+when the extensional test selects exactly the designated dependencies; syntactic and extensional
+substitution agree when their replacement masks coincide. For logical semantics no comparison is
+possible until a particular semantics is fixed: a guarded provability semantics is partial
+(Definition~\ref{def:guarded}), a proof of the value of each policy-substituted execution simply
+evaluates an independently supplied substitution (Proposition~\ref{prop:proofopt}), and the scores
+of a logical inductor are finite-time estimates. Treating these as one fifth payoff function would
+conceal the main issue.

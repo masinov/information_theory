@@ -1,8 +1,11 @@
 # Reading guide: impossibility and possibility of an optimal decision theory
 
-Companion to `raw/` (three rounds of prompts and agent outputs). Source references are given as
-`R1:§n` / `R2:§n` / `R3:§n` for the outputs (`raw/outputs/output_round_k.md`) and `P1..P3` for the
-prompts (`raw/agent_prompts/prompt_round_k.md`). Proof checks are logged in `verification.md`.
+Companion to `raw/`, which holds five rounds of prompts and agent outputs. Source references are
+`R1:§n` … `R5:§n` for the outputs (`raw/outputs/output_round_k.md`) and `P1..P5` for the prompts
+(`raw/agent_prompts/prompt_round_k.md`). Proof checks are logged in `verification.md`.
+
+The Anti-Newcomb example in P4/P5 (and R4:§9, R5:§8) does not belong to the task. It is not used
+anywhere; see `raw/NOTE_rounds_4_5.md`.
 
 ---
 
@@ -53,6 +56,58 @@ evaluation forces ex-ante evaluation; causal evaluation cannot be menu-coherent 
 Key lesson: "preserving choices when options disappear" ≠ "preserving comparisons when their
 associated belief perspectives disappear"; the impossibilities need the latter.
 
+**Why rounds 4–5 exist.** Rounds 1–3 answered the question cheaply: each problem *supplies* μ_π for
+every policy, which is exactly what CDT/EDT/FDT disagree about, so a lookup table is ex-ante
+optimal. Rounds 4–5 remove the supply. Each round strengthens what a "decision theory" must be:
+**assignment** (R1) → **rule** on a common reduced form (R2–R3) → **computable procedure** reading
+source code (R4–R5).
+
+**Round 4: agents that read source code.** An agent is a computable function on descriptions.
+Separate *globally total* agents (halt on every string) from *promise-total* ones (halt on the
+class).
+- Positive: with oracle or designated-slot substitution and every table policy terminating with an
+  exact rational value, one algorithm is optimal everywhere (simulate every finite policy). This is
+  the uniform version of W4.
+- Baseline negatives, with nothing counterfactual in them:
+  - foreign queries (two environments demand opposite answers on one shared query);
+  - the fixed-copy diagonal: a fixed copy of T plus "pay iff a ≠ copy" defeats every globally
+    total T. This is Skalse's construction made well defined, because the source encodes the copy
+    without supplying its output.
+- Strongest clean negative: no promise-total agent selects the exact argmax on almost-surely
+  terminating {0,1}-payoff programs, with no predictors at all. This is recursive inseparability
+  of K_0, K_1, and it disappears under ε-optimality, unique maximisers or exact rationals.
+- Recognising the agent in code fails in several ways:
+  - literal syntax misses encoded copies;
+  - matching on the counterfactual trace can be undefined;
+  - local equality leaves no optimal agent (two constant components g0 ≡ 0, g1 ≡ 1);
+  - rematching does not compose;
+  - global equality misses 1−T and can make optimality decide halting (g_e = T iff e does *not*
+    halt).
+- Logic:
+  - ground proof search for policy values works;
+  - material implication gives a relation, not values;
+  - a computable 5-and-10 (Löb);
+  - guarded modal counterfactuals are partial, and for ordinary terminating programs undefined at
+    every non-actual action;
+  - modal UDT optimality has the quantifiers ∀P∃φ.
+
+**Round 5: axioms for counterfactual operators.** Finite context environments E = (u; c_1..c_k)
+over A = {0,1}.
+- V_E(a) = u(a, c(a)) is coherent substitution, the **diagonal** of the causal matrix.
+- W_{E,b}(a) = u(a, c(b)) is the port-only intervention, **row b** of the causal matrix.
+- Desiderata CF1–CF10: baseline, totality, independent calibration, transport, *grounded*
+  extensionality, conservativity, composition, computability, realisability, ratifiability.
+- Four witness kernels: slot (= V_E), port (= W), base (actual only), flat (actual value
+  everywhere).
+- Projection lemma: calibration + grounded extensionality ⇒ port (causal) kernel.
+- Minimal inconsistent triples:
+  - {CF2, CF4, CF5}: transport vs grounded equivalence;
+  - {CF3, CF5, CF10}: witness Death in Damascus.
+- Complete map: 6 cores, 4 maximal sets, every core containing CF5. With *parametric*
+  extensionality the slot kernel satisfies all ten.
+- Lesson: ex-ante vs causal evaluation reappears as parametric vs grounded identity of
+  computations.
+
 **Final thesis (to defend in the paper).**
 (i) An ex-ante-optimal decision theory exists on every class of well-defined fair finite problems.
 (ii) Within a problem, conflicts are shallow (singletons, pairs), the central pair being Nozick's.
@@ -60,6 +115,14 @@ associated belief perspectives disappear"; the impossibilities need the latter.
 symmetry/invariance/ordering/monotonicity; and row-baseline-invariant (causal-style) evaluation
 cannot be nontrivial, neutral and contraction-consistent under principal restriction on rich
 domains — but this depends on the menu semantics and on the domain.
+(iv) For procedures reading source code: optimal on the promise domain of any designated
+substitution semantics. Apart from fixed-copy diagonals and exact-selection uncomputability, the
+failures come from the semantics of alternatives. Grounded extensionality + calibration forces
+causal evaluation and is inconsistent with ratifiability; parametric extensionality admits ex-ante
+evaluation.
+**Unifying line:** every impossibility concerns how the alternatives are specified (which law,
+which surviving belief perspectives, which transport through dependent computations), not how to
+choose among them.
 
 ---
 
@@ -105,6 +168,36 @@ domains — but this depends on the menu semantics and on the domain.
   **Mon** diagonal monotonicity (R3:§4). **Q_J** nontriviality on a fixed universe J, |J| ≥ 3.
 - Menu semantics: **C_pr** principal; **C_col** column (rectangular); **C_ref** fixed reference.
   **B_pr**, **B_col** correspondingly.
+
+### Programs and counterfactual operators (R4, R5; paper Part III)
+- **Agents**:
+  - *globally total*: halts on every string;
+  - *promise-total*: halts on the class.
+- **Environment E**: owned queries q(E,h), policy space Π_E, table execution E^π, root d(E),
+  action port.
+- **Replacement conventions**:
+  - **O_const**: port only, everything else frozen;
+  - **O_oracle**: every designated call;
+  - **O_syn**: typed literal occurrences;
+  - **O_ext**: components passing an equivalence test S_t(E);
+  - O_log is a family, not one convention.
+- **Anchored kernel** U_K(E,T;A), with baseline identity U_K(E,T;T) = U(E,T).
+- **Fairness classes**: 𝓕_self, 𝓕_any, 𝓕_ext, 𝓕_const. Separate executed-query locality from kernel
+  locality.
+- **Context environment** E = (u; c_1..c_k): V_E(a) is the diagonal, W_{E,b}(a) is row b.
+- **Grounded equivalence ∼_b**: c_i(b) = c'_i(b). **Parametric ≈**: c_i = c'_i as functions.
+- **Kernel** κ(E,b,a) ∈ ℚ ∪ {⊥}; witnesses κ_slot, κ_port, κ_base, κ_flat.
+- **Desiderata** (R5 called them D1–D10; renamed in the paper to avoid clashing with the axiom D):
+  - **CF1** baseline;
+  - **CF2** totality;
+  - **CF3** independent calibration;
+  - **CF4** transport;
+  - **CF5** grounded extensionality;
+  - **CF6** conservativity;
+  - **CF7** composition;
+  - **CF8** computability;
+  - **CF9** realisability;
+  - **CF10** ratifiability. **CF9′** and **CF10′** are the conditional versions.
 
 ---
 
@@ -207,6 +300,40 @@ addition or repair.
 
 ---
 
+### Programs (R4) — paper §§14–16
+
+| ID | Result | Status |
+|---|---|---|
+| G1 | Uniform optimiser on the promise class 𝒫_Q (oracle substitution); König remark | ✔ |
+| G2 | Foreign queries: two environments, no agent optimal on both | ✔ |
+| G3 | Fixed-copy diagonal vs globally total agents | ✔ |
+| G4 | Double-call prediction under O_const = Death in Damascus | ✔ |
+| G5 | No computable exact optimiser (recursive inseparability); ε/unique/exact positives | ✔ |
+| G6 | SAT: exact policy optimisation on circuits | ✔ |
+| G7 | Non-implication between replacement conventions | ✔ |
+| G8 | Literal syntax: slot compilation positive; encoded-copy diagonal | ✔ |
+| G9 | Counterfactual-trace matching undefined; local matching no optimum; rematching non-composition | ✔ |
+| G10 | Global matching misses 1−T; halting reduction (co-c.e. direction) | ✔ |
+| G11 | Ground proof optimiser; computable 5-and-10 (Löb); guarded semantics = actual-only for programs | ✔ |
+
+### Counterfactual operators (R5) — paper §§17–18
+
+| ID | Result | Status |
+|---|---|---|
+| H1 | Repairs: transported contexts may diverge; raw-source extensionality; single-input transport | ✔ |
+| H2 | Context environments realise causal matrices (V = diagonal, W = row) | ✔ (new link) |
+| H3 | Projection lemma | ✔ |
+| H4 | {CF2,CF4,CF5} minimal | ✔ |
+| H5 | {CF3,CF5,CF10} minimal with total computable witnesses | ✔ |
+| H6 | Complete map (6 cores / 4 maximal) | ✔ exhaustiveness re-checked |
+| H7 | Parametric extensionality: slot satisfies all | ✔ |
+| H8 | Conditional-realisability map (core {CF2,CF5,CF6,CF10′}) | ✔ re-derived |
+| H9 | Global-total program map (adds four pairwise cores) | ✔ |
+| H10 | Candidate semantics located (L1–L6, W6, W7) | ✔ |
+| H11 | Test-case table; counterpossibles (Williamson collapse; impossible-world representation) | ✔ |
+
+---
+
 ## 4. Corrections ledger (what changed between rounds)
 
 1. P1 thesis "no theory optimal on all fair problems" → false (W4).
@@ -223,6 +350,16 @@ addition or repair.
 11. R2 E2 "needs unbounded menus" → R3 makes exact: (DR) criterion; bounded payoffs need F.
 12. Bell et al. title: "Reinforcement Learning in Newcomblike Environments" (not "Problems").
 13. Basu Mallik & Bhattacharya 2026: only abstract verified.
+14. R4 §0 lead "equivalence iff a machine halts" → equivalence of uniformly total programs with T is
+    co-c.e., so the reduction makes equivalence hold iff the machine does **not** halt (R4:§6.6).
+15. R4 summary "once a rule is fixed, optimal choice is a finite computation" (P5 §0) → false for
+    baseline-dependent kernels: a ratifiability fixed point is a separate problem (R5:§1.1).
+16. P5 "injectivity" in L1 → the relevant property is surjectivity (R5 L1).
+17. P5 D9 is not independent: D9 ⇔ D2 + D4 on the finite domain (R5:§2.3).
+18. Nolan 1997 title has no extra subtitle; Fallenstein's "evil problems" post dates from Nov 2014
+    (key `fallenstein2014evil`), not 2015.
+19. Anti-Newcomb (P4 K6, P5 P6) is a leaked example from an unrelated conversation; R4 analysed a
+    different (exclusive-box) version. It is dropped (raw/NOTE_rounds_4_5.md).
 
 ---
 
@@ -240,6 +377,19 @@ certification (W21–W24, Z1–Z3).  13. Mixed policies and evidential semantics
 14. Discussion: what is known, what is new, final thesis, open questions.
 Appendix A: register of stipulations. Appendix B: table of all results with provenance.
 
+**Revision with rounds 4–5.** The paper is now in three parts, a ladder of what a theory must be:
+- Part I, single problems (§§2–6).
+- Part II, rules across problems (§§7–13).
+- Part III, procedures that read descriptions (§§14–18):
+  - §14 problems as programs (G7, bridge H2-style);
+  - §15 computable optimisation (G1–G6);
+  - §16 inference from source (G8–G11);
+  - §17 counterfactual operators (H1–H10);
+  - §18 test cases and counterpossibles (H11).
+- §19 conclusion.
+
+The Skalse remark moved from §7 to §3 (after the possibility theorem), and points forward to G3.
+
 ---
 
 ## 6. Map from this catalogue to the LaTeX paper (`latex/decision_theory.pdf`)
@@ -247,19 +397,25 @@ Appendix A: register of stipulations. Appendix B: table of all results with prov
 | Catalogue IDs | Paper |
 |---|---|
 | model, Lemma R_h / idle prescription | §2, Def. 2.1–2.5, Lemma 2.6 |
-| W1, W2, W4, W6 | Prop. 3.5, §3.1 remark, Thm. 3.6, Lemma 3.7 |
+| W1, W2, W4, W6 | Prop. 3.5, §3.1 remark, Thm. 3.6, Lemma 3.8 |
+| W25 (Skalse remark) | Remark 3.7 |
 | W5, W7, W8, W9, W10, mugging | Prop. 4.1, Thm. 4.2, §4.2, Prop. 4.3, Props. 4.4–4.5, §4.5 |
 | W3/K1, W11–W16 | Prop. 5.2, Props. 5.4–5.6, Thm. 5.7, Prop. 5.9, Thm. 5.10 |
 | K2–K6 | Prop. 5.11 (noisy commitment), Prop. 5.12 (Strassen criterion) |
 | W17–W20 | Prop. 6.1, Prop. 6.2, Thm. 6.3, Remark 6.4, Prop. 6.5 |
-| X1, W25, X11, X2, X9, X10 | Thm. 7.2, Remark 7.3, §7.2, Lemma 7.6, Thm. 7.8, Prop. 7.9 |
+| X1, X11, X2, X9, X10 | Thm. 7.2, §7.2, Lemma 7.5, Thm. 7.7, Prop. 7.8 |
 | X3, X4 | Thm. 8.1, Props. 8.2–8.6 |
 | X5–X8, Y13–Y17 | Lemmas 9.1–9.2, Thm. 9.3, Props. 9.4–9.5, Thm. 9.6, Thm. 9.7, Props. 9.8–9.11 |
 | Y1–Y6 | Prop. 10.1, Def. 10.2, Thm. 10.3, Thms. 10.4–10.6, Prop. 10.7 |
 | Y7–Y12 | Thm. 11.1, Cor. 11.2, Prop. 11.3, Thm. 11.4, Props. 11.5–11.6 |
 | W21–W24, Z1–Z3 | §12, Props. 12.1–12.5 |
 | M1–M6 | §13, Props. 13.1–13.4, §13.3 |
-| final thesis, open questions, provenance table | §14, Table 1 |
+| G7, H2 bridge | Def. 14.1–14.3, Prop. 14.4 (programs induce causal matrices), Prop. 14.5 |
+| G1–G6 | Def. 15.1, Thm. 15.2, Prop. 15.3, Thm. 15.4, Prop. 15.5, Thm. 15.6, Props. 15.7–15.8, §15.5 |
+| G8–G11 | §16.1, Prop. 16.1, Thm. 16.2, Prop. 16.3, Thms. 16.4–16.5, Prop. 16.6, Thm. 16.7, Def. 16.8, Prop. 16.9 |
+| H1–H10 | Prop. 17.1, Defs. 17.2–17.6, Prop. 17.3, Lemma 17.8, Lemma 17.9, Thms. 17.10–17.12, Cor. 17.13, Props. 17.14–17.15, §17.8 |
+| H11 | §18 |
+| final thesis, open questions, provenance table | §19, Table 1 |
 | stipulations | Appendix A |
 
 Corrections made while typesetting (beyond the ledger in §4):
