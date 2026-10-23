@@ -1,0 +1,545 @@
+% Sheaves and Real-World Information: an introduction and reading guide -- LuaLaTeX.  Build: sh build.sh
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+
+% ---- page and type ------------------------------------------------------------
+\usepackage[textwidth=31pc,textheight=47\baselineskip,top=1.1in,headsep=2.2\baselineskip,
+            footskip=3\baselineskip,heightrounded]{geometry}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{unicode-math}
+\setmainfont{Libertinus Serif}[Numbers=OldStyle]
+\setsansfont{Libertinus Sans}
+\setmathfont{Libertinus Math}
+\setmathfont{Latin Modern Math}[range={\mathcal,\mathbfcal,\mathscr}]
+\usepackage[babel=true]{microtype}
+\usepackage[english]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{booktabs,tabularx,array,enumitem}
+\usepackage[backend=biber,style=authoryear,maxcitenames=2,maxbibnames=10,giveninits=true,
+            uniquename=false,doi=false,url=false,isbn=false,dashed=false]{biblatex}
+\addbibresource{refs.bib}
+\renewcommand*{\bibfont}{\small}
+\setlength{\bibhang}{1.4em}
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\usepackage{scrlayer-scrpage}
+\usepackage{flafter}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+\linespread{1.05}
+\setlength{\parindent}{1.4em}
+\widowpenalty=4000 \clubpenalty=4000
+\setlength{\emergencystretch}{1.5em}
+\setlist{itemsep=.25em,topsep=.5em,parsep=0pt}
+
+% ---- running heads --------------------------------------------------------------
+\clearpairofpagestyles
+\ohead{\textsc{\MakeLowercase{Sheaves and Real-World Information}}}
+\ihead{\textsc{\MakeLowercase{Introduction and Reading Guide}}}
+\cfoot*{\pagemark}
+\setkomafont{pageheadfoot}{\normalfont\footnotesize}
+\setkomafont{pagenumber}{\normalfont\small}
+\pagestyle{scrheadings}
+
+% ---- headings and captions ----------------------------------------------------
+\setkomafont{disposition}{\normalfont}
+\setkomafont{section}{\normalfont\large\scshape}
+\setkomafont{subsection}{\normalfont\normalsize\itshape}
+\RedeclareSectionCommand[beforeskip=-2\baselineskip plus -.4\baselineskip,afterskip=.8\baselineskip]{section}
+\RedeclareSectionCommand[beforeskip=-1.2\baselineskip plus -.3\baselineskip,afterskip=.4\baselineskip]{subsection}
+\renewcommand*{\sectionformat}{\thesection.\enskip}
+\renewcommand*{\subsectionformat}{\thesubsection.\enskip}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\scshape}
+\setcapindent{0pt}
+\renewcommand*{\captionformat}{.\enskip}
+
+% ---- statements (given without proofs) ------------------------------------------
+\newtheoremstyle{guideplain}{.8\baselineskip}{.8\baselineskip}{\itshape}{}{\scshape}{.}{.5em}{}
+\newtheoremstyle{guidedef}{.8\baselineskip}{.8\baselineskip}{\upshape}{}{\scshape}{.}{.5em}{}
+\theoremstyle{guideplain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{guidedef}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---- notation ----------------------------------------------------------------------
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\Op}{Op}
+\DeclareMathOperator{\im}{im}
+\newcommand{\face}{\trianglelefteq}
+
+% ---- figures -----------------------------------------------------------------------
+\colorlet{soft}{black!45}
+\tikzset{
+  dot/.style  = {circle, fill, inner sep=0pt, minimum size=3.6pt},
+  thin/.style = {line width=.5pt},
+  arr/.style  = {-{Stealth[length=2mm,width=1.6mm]}, line width=.5pt},
+  lab/.style  = {font=\footnotesize},
+  soft/.style = {font=\footnotesize, text=soft},
+}
+
+\hypersetup{pdftitle={Sheaves and Real-World Information: An Introduction and Reading Guide},
+            pdfauthor={Mario Asis}}
+
+% ===================================================================================
+\begin{document}
+
+\thispagestyle{plain.scrheadings}
+\begin{center}
+  \vspace*{.2\baselineskip}
+  {\LARGE Sheaves and Real-World Information\par}
+  \vspace{.7\baselineskip}
+  {\large\itshape An Introduction and Reading Guide\par}
+  \vspace{1.4\baselineskip}
+  {\scshape \MakeLowercase{Mario Asis}\par}
+  \vspace{.3\baselineskip}
+  {\small October 2026\par}
+  \vspace{1.6\baselineskip}
+\end{center}
+
+\begin{center}
+\begin{minipage}{26pc}
+  \small
+  \noindent{\scshape summary.}\enspace
+  Sheaves were introduced in the 1940s to pass from local to global information in topology, and
+  for sixty years they belonged almost entirely to pure mathematics. Since about 2010 a finite,
+  computable version of the theory has been used to integrate measurements from real sensors, to
+  describe entropy and the consistency of probabilistic data, and to build neural networks. These
+  notes recall what a sheaf is and where the idea came from, explain what changed to make sheaves
+  usable on actual data, state the main definitions and results without proofs, and end with an
+  ordered reading guide to the literature.
+\end{minipage}
+\end{center}
+\vspace{.8\baselineskip}
+
+{\small\setcounter{tocdepth}{1}\renewcommand{\contentsname}{\normalsize\scshape contents}\tableofcontents}
+
+% -----------------------------------------------------------------------------------
+\section{The idea in one paragraph}\label{sec:idea}
+
+A sheaf assigns data to the parts of a space and records how data on a larger part restrict to a
+smaller one, in such a way that compatible local data determine a unique global datum. Its
+cohomology measures the failure of that last step: the local data that cannot be assembled, and the
+ambiguity when they can. For a mathematician the standard examples are functions, differential forms,
+and solutions of differential equations. The applied theory reads the same structure differently.
+The \enquote{space} is a network of sensors, variables, or agents; the data on each part are
+measurements, probability distributions, or feature vectors; the restriction maps say how one
+observation is to be compared with another; a global section is a globally consistent account of all
+the observations; and cohomology, or a metric refinement of it, quantifies inconsistency. Everything
+below elaborates this dictionary.
+
+% -----------------------------------------------------------------------------------
+\section{What a sheaf is}\label{sec:def}
+
+\subsection{Presheaves and sheaves}
+
+Let $X$ be a topological space and $\Op(X)$ its poset of open sets, ordered by inclusion.
+
+\begin{definition}[Presheaf]
+  A \emph{presheaf} of sets on $X$ is a functor $\F\colon \Op(X)^{\mathrm{op}}\to\mathbf{Set}$. It
+  assigns a set $\F(U)$ of \emph{sections} to each open $U$, and to each inclusion $V\subseteq U$ a
+  \emph{restriction map} $\rho^U_V\colon\F(U)\to\F(V)$, written $s\mapsto s|_V$, such that
+  $\rho^U_U=\mathrm{id}$ and $\rho^V_W\circ\rho^U_V=\rho^U_W$ for $W\subseteq V\subseteq U$. Replacing
+  $\mathbf{Set}$ by abelian groups, vector spaces, or rings gives presheaves with values in those
+  categories.
+\end{definition}
+
+\begin{definition}[Sheaf]\label{def:sheaf}
+  A presheaf $\F$ is a \emph{sheaf} if for every open $U$ and every open cover $U=\bigcup_i U_i$:
+  \begin{enumerate}[label=(\roman*)]
+    \item \emph{(locality)} if $s,t\in\F(U)$ satisfy $s|_{U_i}=t|_{U_i}$ for all $i$, then $s=t$;
+    \item \emph{(gluing)} if $s_i\in\F(U_i)$ satisfy $s_i|_{U_i\cap U_j}=s_j|_{U_i\cap U_j}$ for all
+          $i,j$, then there is $s\in\F(U)$ with $s|_{U_i}=s_i$ for all $i$.
+  \end{enumerate}
+  Equivalently, the diagram
+  $\F(U)\to\prod_i\F(U_i)\rightrightarrows\prod_{i,j}\F(U_i\cap U_j)$ is an equalizer.
+\end{definition}
+
+\begin{figure}[tp]
+  \centering
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    % base
+    \draw[line width=1.4pt] (0.6,0) -- (5.4,0);
+    \draw[line width=1.4pt] (3.6,-0.28) -- (8.4,-0.28);
+    \node[lab] at (1.4,0.27) {$U$};
+    \node[lab] at (7.6,-0.57) {$V$};
+    \draw[soft, densely dotted, thin] (3.6,-0.28) -- (3.6,2.55);
+    \draw[soft, densely dotted, thin] (5.4,-0.28) -- (5.4,2.55);
+    \node[soft] at (4.5,-0.75) {$U\cap V$};
+    % sections
+    \draw[line width=.8pt] plot[smooth] coordinates {(0.6,1.2) (1.6,1.9) (2.8,1.5) (3.6,1.7) (4.5,2.2) (5.4,1.9)};
+    \draw[line width=.8pt, dashed] plot[smooth] coordinates {(3.6,1.7) (4.5,2.2) (5.4,1.9) (6.4,1.3) (7.4,1.6) (8.4,1.1)};
+    \node[lab] at (1.5,2.25) {$s\in\F(U)$};
+    \node[lab] at (7.5,2.0) {$t\in\F(V)$};
+    \node[lab] at (4.5,2.85) {$s|_{U\cap V}=t|_{U\cap V}$};
+  \end{tikzpicture}
+  \caption{Gluing. Two sections that agree on the overlap determine exactly one section over
+    $U\cup V$. Locality gives uniqueness, gluing gives existence.}
+  \label{fig:gluing}
+\end{figure}
+
+\begin{example}
+  Continuous real functions, $U\mapsto C(U,\R)$, form a sheaf, as do smooth functions, holomorphic
+  functions, sections of a vector bundle, and solutions of a linear differential equation. Bounded
+  functions form a presheaf that is not a sheaf: bounded functions on the members of a cover glue to
+  a function that need not be bounded. Constant functions likewise fail to glue on a disconnected
+  set, whereas \emph{locally} constant functions form the \emph{constant sheaf} $\underline{A}$.
+\end{example}
+
+\begin{definition}[Stalks]
+  The \emph{stalk} of $\F$ at $x\in X$ is $\F_x=\varinjlim_{U\ni x}\F(U)$; its elements are
+  \emph{germs} of sections at $x$. A morphism of sheaves is an isomorphism if and only if it induces
+  isomorphisms on all stalks.
+\end{definition}
+
+\begin{proposition}[Sheafification]
+  The inclusion of sheaves into presheaves has a left adjoint $\F\mapsto\F^{+}$, which preserves
+  stalks. Concretely, $\F^{+}(U)$ consists of the families of germs $(s_x)_{x\in U}$ that are locally
+  induced by sections of $\F$.
+\end{proposition}
+
+\subsection{Cohomology}
+
+For a sheaf of abelian groups the global-sections functor $\Gamma(X,-)\colon\F\mapsto\F(X)$ is left
+exact but not exact: a surjection of sheaves need not be surjective on global sections.
+
+\begin{definition}[Sheaf cohomology]
+  $H^i(X,\F)$ is the $i$-th right derived functor of $\Gamma(X,-)$ applied to $\F$. Thus
+  $H^0(X,\F)=\F(X)$, and a short exact sequence of sheaves induces a long exact sequence in
+  cohomology.
+\end{definition}
+
+The working interpretation is that $H^0$ is the space of global solutions and $H^1$ classifies the
+obstructions to assembling local solutions into a global one. In practice cohomology is computed
+from a cover. For an open cover $\U=\{U_i\}$, the Čech complex has
+$\check C^k(\U,\F)=\prod_{i_0<\dots<i_k}\F(U_{i_0}\cap\dots\cap U_{i_k})$ with the alternating-sum
+differential.
+
+\begin{theorem}[Leray's theorem on acyclic covers]\label{thm:leray}
+  If $H^q(U_{i_0}\cap\dots\cap U_{i_k},\F)=0$ for all $q>0$ and all finite intersections of members
+  of $\U$, then $\check H^k(\U,\F)\cong H^k(X,\F)$ for all $k$.
+\end{theorem}
+
+Theorem~\ref{thm:leray} is the reason the theory can be made finite: with a good cover, cohomology is
+the cohomology of an explicit complex indexed by a combinatorial object, the nerve of the cover.
+Section~\ref{sec:cellular} takes that combinatorial object as the starting point.
+
+% -----------------------------------------------------------------------------------
+\section{Where sheaves came from}\label{sec:history}
+
+Sheaves were not created by Grothendieck, although the association is understandable: he rebuilt the
+theory in the form now taught. The history has three steps
+\autocite{miller2000,gray1979,houzel1990}.
+
+\emph{Leray.} Jean Leray, an analyst known for his work on the Navier--Stokes equations, spent 1940
+to 1945 as a prisoner of war in the officers' camp Oflag XVII-A in Austria. To avoid work that could
+serve the war effort he turned to algebraic topology, and there he devised three things at once:
+sheaves (\emph{faisceaux}), their cohomology, and spectral sequences. His aim was topological and
+quite specific: to relate the cohomology of a space to that of the fibres of a map defined on it,
+with fixed-point theorems for equations in analysis as the motivation. The work became known only
+after the war, and several more years passed before it was widely understood.
+
+\emph{Cartan, Oka, Serre.} In his Paris seminar of 1948--51 Henri Cartan reformulated Leray's theory
+in terms of open sets, with the étalé-space definition due to Michel Lazard, and it became the
+natural language for several complex variables: Oka's coherence theorem and Cartan's Theorems A and B
+are statements about sheaf cohomology. In 1955 Serre's \emph{Faisceaux algébriques cohérents} carried
+the method into algebraic geometry, where there are no small open sets and sheaf cohomology had to do
+the work that classical topology could not \autocite{serre1955}.
+
+\emph{Grothendieck.} The 1957 Tôhoku paper placed sheaf cohomology within homological algebra:
+abelian categories, enough injectives, and derived functors, so that cohomology is defined on any
+space for any sheaf \autocite{grothendieck1957}. Schemes followed, and then, in the early 1960s,
+sites and toposes, which free the notion of sheaf from topological spaces altogether. Godement's
+book fixed the textbook form of the classical theory \autocite{godement1958}, and the microlocal
+theory of Sato and Kashiwara extended it to analysis \autocite{kashiwara1990}.
+
+% -----------------------------------------------------------------------------------
+\section{From pure mathematics to data}\label{sec:applied}
+
+It is not accurate to say that sheaves lay unused. From 1950 onwards they were central to algebraic
+geometry, complex analysis, and the theory of differential equations. What arrived late was their use
+as a model for \emph{data}, and there were two reasons for the delay. The first is computational: a
+sheaf on a topological space involves infinitely many open sets and typically infinite-dimensional
+spaces of sections, so that nothing can be computed from measurements. The second is that the
+people who had data, and the people who knew sheaves, were not the same people.
+
+Three developments, at first unconnected, prepared the applied theory.
+\begin{itemize}
+  \item In probability, \textcite{vorobev1962} characterized when a consistent family of marginal
+        distributions extends to a joint distribution. This is a gluing theorem stated without
+        sheaves (Theorem~\ref{thm:vorobev} below).
+  \item In computer science, Goguen proposed from the 1970s that systems of interacting objects be
+        modelled by sheaves, with behaviour over time as sections \autocite{goguen1992}.
+  \item In topology, \textcite{shepard1985} showed that sheaves constructible with respect to a cell
+        structure are equivalent to a finite, purely combinatorial object: a \emph{cellular sheaf}.
+\end{itemize}
+The last is the decisive technical step. A cellular sheaf is a finite diagram of vector spaces and
+linear maps, and its cohomology is the cohomology of a finite complex of matrices. Around 2010 this
+was taken up in applied topology, principally by Robert Ghrist and his students, and within a few
+years the three lines of Section~\ref{sec:uses} appeared: sensor integration \autocite{robinson2017},
+contextuality and entropy \autocite{abramsky2011,baudot2015}, and, from 2020, machine learning
+\autocite{hansengebhart2020,bodnar2022}. Table~\ref{tab:timeline} gives the chronology.
+
+\begin{table}[tp]
+  \centering\small
+  \renewcommand{\arraystretch}{1.22}
+  \captionabove{A timeline. The upper part is the classical theory; the lower part, its use for data.}
+  \label{tab:timeline}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedleft\arraybackslash}p{3.6em}!{\color{soft}\vrule width .6pt}>{\raggedright\arraybackslash}X@{}}
+    \toprule
+    1940--45 & Leray, as a prisoner of war, devises sheaves, sheaf cohomology, and spectral sequences. \\
+    1948--51 & Cartan's seminar: open sets, étalé spaces (Lazard), application to several complex variables. \\
+    1955     & Serre, \emph{Faisceaux algébriques cohérents}: sheaves enter algebraic geometry. \\
+    1957     & Grothendieck, the Tôhoku paper: derived functors; then schemes, sites, and toposes. \\
+    1958     & Godement's textbook. \\
+    1990     & Kashiwara and Schapira, \emph{Sheaves on Manifolds}: the microlocal theory. \\
+    \midrule
+    1962     & Vorob'ev: when consistent marginals extend to a joint distribution. \\
+    1985     & Shepard's thesis: cellular sheaves. \\
+    1992     & Goguen: sheaf semantics for concurrent interacting objects. \\
+    2011     & Ghrist and Hiraoka: network coding as sheaf cohomology. Abramsky and Brandenburger:
+               contextuality as the absence of a global section. \\
+    2014     & Curry's thesis systematizes cellular sheaves and cosheaves. Robinson, \emph{Topological
+               Signal Processing}. Ghrist, \emph{Elementary Applied Topology}. \\
+    2015     & Baudot and Bennequin: Shannon entropy as a cohomology class. \\
+    2017     & Robinson: sheaves as the canonical data structure for sensor integration. \\
+    2019     & Hansen and Ghrist: the sheaf Laplacian and its spectral theory. \\
+    2020     & Robinson: the consistency radius. Joslyn et al.: sheaf-based tracking on field data.
+               Vigneaux: information cohomology in general. Hansen and Gebhart: sheaf neural networks. \\
+    2022     & Bodnar et al.: neural sheaf diffusion, the first results on standard benchmarks. \\
+    2025     & Ayzenberg et al.: a 117-page survey of sheaves in deep learning. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% -----------------------------------------------------------------------------------
+\section{Cellular sheaves: the computable version}\label{sec:cellular}
+
+Let $X$ be a regular cell complex (a graph or a simplicial complex will do) and write
+$\sigma\face\tau$ when the cell $\sigma$ is a face of $\tau$.
+
+\begin{definition}[Cellular sheaf]\label{def:cellular}
+  A \emph{cellular sheaf} $\F$ of vector spaces on $X$ assigns a vector space $\F(\sigma)$, the
+  \emph{stalk}, to each cell $\sigma$, and a linear \emph{restriction map}
+  $\F_{\sigma\face\tau}\colon\F(\sigma)\to\F(\tau)$ to each incidence $\sigma\face\tau$, such that
+  $\F_{\sigma\face\sigma}=\mathrm{id}$ and
+  $\F_{\tau\face\upsilon}\circ\F_{\sigma\face\tau}=\F_{\sigma\face\upsilon}$. In other words, $\F$ is
+  a functor from the face poset of $X$ to vector spaces.
+\end{definition}
+
+The maps run from faces to cofaces, which is the direction of restriction once cells are identified
+with their open stars: the star of an edge is contained in the star of each of its endpoints. A
+cellular sheaf is equivalent to a sheaf in the sense of Definition~\ref{def:sheaf} on the face poset
+with its Alexandrov topology \autocite{curry2014}.
+
+\begin{definition}[Sections and cohomology]
+  A \emph{global section} of $\F$ is a choice $x_\sigma\in\F(\sigma)$ for every cell such that
+  $\F_{\sigma\face\tau}x_\sigma=x_\tau$ whenever $\sigma\face\tau$. Let
+  $C^k(X;\F)=\bigoplus_{\dim\sigma=k}\F(\sigma)$ and define
+  $\delta\colon C^k\to C^{k+1}$ by
+  $(\delta x)_\tau=\sum_{\sigma\face\tau}[\sigma:\tau]\,\F_{\sigma\face\tau}x_\sigma$,
+  where $[\sigma:\tau]=\pm1$ is the incidence number. Then $\delta^2=0$, and
+  $H^k(X;\F)=\ker\delta^k/\im\delta^{k-1}$.
+\end{definition}
+
+\begin{proposition}
+  $H^0(X;\F)=\ker\delta^0$ is the space of global sections. On a graph, with an edge $e$ oriented
+  from $u$ to $v$, $(\delta x)_e=\F_{v\face e}x_v-\F_{u\face e}x_u$, so a $0$-cochain is a section
+  exactly when the two endpoints of every edge agree after restriction to the edge.
+\end{proposition}
+
+\begin{figure}[tp]
+  \centering
+  \begin{tikzpicture}[x=1cm,y=1cm]
+    \foreach \x/\lab/\sgn/\res in {0/{(a) constant sheaf}/{1}/{$H^0=\R,\ H^1=\R$},
+                                   6.2/{(b) one map reversed}/{-1}/{$H^0=0,\ H^1=0$}} {
+      \begin{scope}[xshift=\x cm]
+        \node[dot, label={[lab]left:$\R$}]  (u) at (0,0) {};
+        \node[dot, label={[lab]right:$\R$}] (v) at (3.4,0) {};
+        \node[dot, label={[lab]above:$\R$}] (w) at (1.7,2.6) {};
+        \draw[thin] (u) -- (v) -- (w) -- (u);
+        \node[lab, fill=white, inner sep=1.5pt] (euv) at (1.7,0)    {$\R$};
+        \node[lab, fill=white, inner sep=1.5pt] (evw) at (2.55,1.3) {$\R$};
+        \node[lab, fill=white, inner sep=1.5pt] (ewu) at (0.85,1.3) {$\R$};
+        % restriction maps, written at the end of the edge nearest the vertex they start from
+        \node[soft] at (0.50,-0.27) {$1$};
+        \node[soft] at (2.90,-0.27) {$1$};
+        \node[soft] at (3.36,0.62)  {$1$};
+        \node[soft] at (2.34,2.18)  {$1$};
+        \node[soft] at (1.06,2.18)  {$1$};
+        \ifnum\sgn<0 \node[lab] at (-0.06,0.62) {$\mathbf{-1}$};
+        \else        \node[soft] at (0.04,0.62) {$1$}; \fi
+        \node[lab] at (1.7,-1.0) {\lab};
+        \node[soft] at (1.7,-1.5) {\res};
+      \end{scope}
+    }
+  \end{tikzpicture}
+  \caption{Two cellular sheaves on a triangle, with stalk $\R$ on every vertex and edge. The
+    number at each end of an edge is the restriction map from that vertex to the edge. (a)~All maps are the identity: sections are the
+    constant assignments. (b)~Reversing the sign of a single map leaves every local condition
+    satisfiable but removes all non-zero global sections: going once round the cycle returns the
+    negative of the starting value.}
+  \label{fig:triangle}
+\end{figure}
+
+Figure~\ref{fig:triangle} shows the smallest example in which local consistency does not yield a
+global section. When the stalks carry inner products, the adjoint of $\delta$ is available.
+
+\begin{definition}[Sheaf Laplacian]
+  The \emph{sheaf Laplacian} of $\F$ is $L_{\F}=\delta^{*}\delta\colon C^0\to C^0$, and more generally
+  $\Delta^k=(\delta^{k})^{*}\delta^{k}+\delta^{k-1}(\delta^{k-1})^{*}$. For the constant sheaf
+  $\underline{\R}$ on a graph, $L_{\F}$ is the usual graph Laplacian.
+\end{definition}
+
+\begin{theorem}[\cite{hansen2019}]\label{thm:hodge}
+  For a cellular sheaf of finite-dimensional inner-product spaces, $\ker\Delta^k\cong H^k(X;\F)$. In
+  particular $\ker L_{\F}$ is the space of global sections, and the solution of the heat equation
+  $\dot x=-L_{\F}\,x$ converges, as $t\to\infty$, to the orthogonal projection of $x(0)$ onto the space
+  of global sections.
+\end{theorem}
+
+Theorem~\ref{thm:hodge} turns the search for the consistent account nearest to given data into a
+linear dynamical system that each node can run using only its neighbours. Both the fusion algorithms
+of Section~\ref{sec:fusion} and the neural networks of Section~\ref{sec:ml} rest on it.
+
+% -----------------------------------------------------------------------------------
+\section{Three uses}\label{sec:uses}
+
+\subsection{Integrating measurements}\label{sec:fusion}
+
+\textcite{robinson2017} argues that any reasonable set of axioms for combining heterogeneous sources
+leads to a sheaf. The base is a finite topological space, or a cell complex, whose points are the
+sensors and their overlaps; the stalk over a sensor is the set in which its readings take values; the
+stalk over an overlap is a common set in which the readings of the overlapping sensors can be
+compared; and the restriction maps perform the conversion. The actual readings form an
+\emph{assignment}: one element of each stalk, with no consistency required.
+
+\begin{definition}[Consistency radius, \cite{robinson2020}]
+  Let $\F$ be a sheaf of pseudometric spaces on a finite space and $a$ an assignment, with
+  $a(U)\in\F(U)$ for each open $U$. Its \emph{consistency radius} is
+  \[
+    c(a)=\sup_{V\subseteq U}\,d_{V}\bigl(\rho^U_V\,a(U),\,a(V)\bigr).
+  \]
+\end{definition}
+
+\begin{proposition}
+  When the stalks are metric spaces, $c(a)=0$ if and only if $a$ is a global section. The consistency
+  radius is continuous in the assignment, and thresholding it yields a filtration of the base space
+  that is stable under perturbation of the data.
+\end{proposition}
+
+Data fusion then becomes an optimization problem: find the global section nearest to the assignment,
+with the consistency radius as a certified bound on the residual disagreement. Two treatments with
+real measurements are worth reading for the modelling as much as for the mathematics: the location of
+a hidden radio transmitter from bearings and signal strengths \autocite{robinson2019}, and the
+tracking of wild black bears from several kinds of sensor at once \autocite{joslyn2020}.
+
+\subsection{Information theory}\label{sec:info}
+
+\emph{The marginal problem.} Let variables be the vertices of a simplicial complex $K$ whose faces
+are the sets of variables observed jointly. Assigning to each face the probability distributions on
+its variables, with marginalization as restriction, gives a presheaf. A family of distributions, one
+per maximal face, is \emph{consistent} if its members agree on common marginals.
+
+\begin{theorem}[\cite{vorobev1962}]\label{thm:vorobev}
+  Every consistent family of distributions on the faces of $K$ is the family of marginals of a single
+  joint distribution if and only if $K$ is regular, that is, acyclic in the sense that it can be
+  reduced to a point by successively removing faces attached along a single face.
+\end{theorem}
+
+When $K$ is not regular there are consistent families with no joint distribution: local sections
+with no global section. \textcite{abramsky2011} showed that this is exactly the structure of
+non-locality and contextuality in quantum mechanics, and \textcite{abramsky2013} that the same
+question arises in database theory as the existence of a universal relation for a set of tables.
+Čech cohomology supplies computable witnesses of the obstruction \autocite{abramsky2015}.
+
+\emph{Entropy.} \textcite{baudot2015} define a cohomology theory for an \emph{information
+structure}, a category of observables ordered by refinement, with coefficients in functions of
+probability distributions on which observables act by conditional expectation.
+
+\begin{theorem}[\cite{baudot2015,vigneaux2020}]
+  The $1$-cocycle condition of information cohomology is the chain rule
+  $f(XY)=f(X)+X.f(Y)$. Under mild non-degeneracy assumptions on the information structure, the first
+  cohomology group is one-dimensional and is generated by Shannon entropy. For the action deformed by
+  a parameter $\alpha\neq1$, it is generated by the Tsallis $\alpha$-entropy.
+\end{theorem}
+
+Entropy is thus characterized by a topological invariant instead of by a list of axioms. Two related
+results complete the picture: information flows in a network code are the degree-zero cohomology of
+a sheaf on the network \autocite{ghristhiraoka2011}, and belief propagation in graphical models is a
+diffusion whose fixed points are described homologically \autocite{peltre2020}.
+
+\subsection{Machine learning}\label{sec:ml}
+
+A graph neural network diffuses node features with the graph Laplacian, which by the remark above is
+the Laplacian of the constant sheaf. Its limit is the constant section, which is the phenomenon known
+as oversmoothing, and it implicitly assumes that neighbours should agree, which fails on
+\emph{heterophilic} graphs. \textcite{hansengebhart2020} proposed replacing the constant sheaf by a
+general cellular sheaf, and \textcite{bodnar2022} made the restriction maps learnable. Schematically,
+a layer is
+\[
+  X_{t+1}=X_t-\sigma\bigl(L_{\F(t)}\,(I\otimes W_1)\,X_t\,W_2\bigr),
+\]
+where the sheaf $\F(t)$ is produced from the features by a small network. By
+Theorem~\ref{thm:hodge} the diffusion converges to the global sections of the learned sheaf, which
+need not be constant. Bodnar et al.\ prove that suitable non-trivial sheaves separate classes of
+nodes, in the diffusion limit, in settings where the constant sheaf cannot, and that richer families
+of restriction maps separate more classes.
+
+Three further references mark the range of the subject. \textcite{gebhart2023} show that standard
+knowledge-graph embeddings are sheaves over the graph's schema, so that a consistent embedding is a
+global section. \textcite{belfiore2021} place every feed-forward architecture in a Grothendieck
+topos, with invariances as stacks; this is the most abstract and least tested proposal.
+\textcite{ayzenberg2025} survey the whole area.
+
+% -----------------------------------------------------------------------------------
+\section{Reading guide}\label{sec:guide}
+
+The order below assumes a reader who knows algebraic topology and homological algebra but has not
+worked with sheaves on data.
+
+\subsection{A first pass}
+\begin{enumerate}
+  \item \textcite{robinson2019}. A short expository article built around one worked problem with
+        real measurements. It shows the dictionary of Section~\ref{sec:idea} in action.
+  \item \textcite{curry2014}, the introduction and the chapters on cellular sheaves. This is the
+        place to learn Definition~\ref{def:cellular}, its equivalence with constructible sheaves,
+        and the dual notion of a cosheaf.
+  \item \textcite{hansen2019}, for the Laplacian and Theorem~\ref{thm:hodge}. It is the technical
+        basis of everything computational.
+\end{enumerate}
+
+\subsection{Three tracks}
+\begin{description}[style=nextline, leftmargin=1.4em, itemsep=.5em]
+  \item[Data fusion] \textcite{robinson2017} for the axiomatic argument; \textcite{robinson2020} for
+        the consistency radius and its stability; \textcite{joslyn2020} for a complete application;
+        \textcite{robinson2014} for the book-length account, including sampling and filtering.
+  \item[Information theory] \textcite{abramsky2011}, then \textcite{vorobev1962} for the theorem
+        behind it; \textcite{baudot2015} for the idea and \textcite{vigneaux2020} for the rigorous
+        general framework; \textcite{peltre2020} for message passing.
+  \item[Machine learning] \textcite{bodnar2022}, which is self-contained; \textcite{gebhart2023} for
+        knowledge graphs; \textcite{ayzenberg2025} as the reference survey. \textcite{hansen2021}
+        applies the same diffusion to opinion dynamics and is a good source of intuition.
+\end{description}
+
+\subsection{Background and history}
+For the classical theory, \textcite{bredon1997} or the first chapters of \textcite{kashiwara1990};
+for the categorical view, \textcite{maclane1992}. \textcite{rosiak2022} is an introduction written
+around examples from outside pure mathematics, and \textcite{ghrist2014} places sheaves within
+applied topology as a whole. For the history, \textcite{miller2000} on Leray and
+\textcite{gray1979} for the period up to the 1970s.
+
+\subsection{Software}
+Two open libraries implement the constructions above: \texttt{pysheaf} (Python, by Robinson; sheaves
+on finite spaces, consistency radius, and fusion by optimization) and \texttt{CellularSheaves.jl}
+(Julia, in the AlgebraicJulia project; cellular sheaves and sheaf Laplacians).
+
+\printbibliography[heading=bibintoc,title={References}]
+
+\end{document}
