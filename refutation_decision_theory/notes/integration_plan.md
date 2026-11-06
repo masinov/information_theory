@@ -234,3 +234,36 @@ summary put it.
 
 About +22–28 pages, bringing the paper from 52 to roughly 75–80 pages. The five new section files
 sit under `latex/sections/`.
+
+---
+
+# Round 6: optimal decision functions and their degree
+
+## Why round 6 exists
+Rounds 4–5 showed that a computable optimiser exists on the promise class and that globally total
+computable agents are defeated by fixed-copy diagonals. They left open whether an optimal theory
+exists at all once fixed copies are allowed, and how far from computable it must be. Round 6
+answers: optimal *decision functions* always exist (owned queries make per-environment argmaxes
+compatible); globally total optimal ones are exactly the functions of PA degree (deterministic and
+stochastic), promise-total stochastic ones also need PA degree, and prescribing defaults off the
+promise raises the degree to 0' / 0''. The prompt's "unfair problems exist exactly for computable
+theories" is false in the converse direction.
+
+## Placement
+Round 6 deepens §15, not the later sections. It belongs between the computable results (§15) and
+the inference sections (old §16 onwards), because it still assumes a designated substitution
+semantics; inference and operators then remove the designation.
+- §15 retitled "Optimal agents and computable optimisation": decision functions, existence theorem,
+  ownership/compatibility (foreign queries moved here), uniform optimiser, fixed-copy diagonal with
+  the rigorous escape proposition and the anti-prediction identity, Death in Damascus, exact
+  selection.
+- New §16 "How non-computable an optimal agent must be" (degrees.tex): PA degrees and finite
+  selection, the degree theorem, spectrum (low basis, cone avoidance), admissibility and prescribed
+  answers (Σ1/Π2, 0'/0'', ties), relativised diagonal, sharpness table, unfair problems, resource
+  bounds (moved from §15, plus MAJSAT), and "what a fixed semantics settles" (moved, now the bridge
+  to §17).
+- Later sections renumber by one. Abstract, introduction, conclusion (fourth part, thesis, table,
+  open questions), stipulations updated.
+- Lower bound for the stochastic class reuses the family of Thm. exactsel (its optimiser is a
+  separator of K0, K1, hence PA). Deterministic lower bound uses the family D_e without
+  self-reference: it subsumes the fixed-copy diagonal.

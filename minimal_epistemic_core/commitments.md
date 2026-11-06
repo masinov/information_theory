@@ -70,17 +70,30 @@ test protocols are in `organon/method/`.
 
 | Id | Statement | Notes | § |
 |---|---|---|---|
-| **P** | An epistemic relation is always a relation to something in particular. To perceive or claim anything about X, X must be distinguishable from what it is not, and that distinguishing must depend on X; otherwise what is perceived or claimed would not be about X. | Motivates D, R and C. The core claims necessity only: P yields necessary conditions, not sufficient ones. | 1 |
+| **P** | In its basic form, prior to concepts and descriptions, an epistemic relation is always a relation to something in particular. For X to be perceived, or registered in any way, X must be distinguishable from what it is not, and that distinguishing must depend on X; otherwise what is perceived or registered would not be about X. | Motivates D, R and C. The core claims necessity only: P yields necessary conditions, not sufficient ones. P does not cover aboutness by description, of the future, or of mathematical objects; whether these are built from basic aboutness is Q5. | 1 |
 
 ### Commitments
 
 | Id | Statement | Requires | Does not establish | § |
 |---|---|---|---|---|
-| **D** | *Differentiability.* F admits differentiation, although no particular differentiation is thereby realized or specified. | P | Any particular articulation, or its realization. | 2 |
-| **R** | *Second relatum.* There is a second relatum R, distinct from F, that admits differentiation of its own. | P, D | A knowing subject, or any dependence on F. | 4 |
-| **C** | *Receptive dependence.* Through C, the contrast of a specified articulation realized in F is matched by a contrast between conditions of R, and the latter contrast obtains partly in virtue of the former. | D, R, Df-articulation, Df-conditions | Which way F is; understanding, representation, order, acquisition, retention. | 5 |
+| **R** | *Second relatum.* There is a second relatum R, distinct from F, that admits differentiation of its own. | P, D-scope | A knowing subject, or any dependence on F. | 4 |
+| **C** | *Receptive dependence.* Through C, the contrast of a specified articulation realized in F is matched by a contrast between conditions of R, and the latter contrast obtains partly in virtue of the former. | R, Df-articulation, Df-conditions | Which way F is; understanding, representation, order, acquisition, retention. | 5 |
 
-Argument for **D** (§2): If every differentiation were supplied by the receiver, registering a difference in F could not be distinguished from the receiver's merely differing within itself, and by P what was registered would not be about F.
+### Conditions of method
+
+Not claims of the core: rules about what the reconstruction articulates.
+
+| Id | Condition | Requires | What it does not do | § |
+|---|---|---|---|---|
+| **D-scope** | *Scope of the reconstruction.* The reconstruction articulates only fields taken to bear the contrasts it specifies, and concerns only contrasts the account specifies. Specification chooses the respect and selects a contrast borne in it; that it does not create the contrast is a stipulation of the route, not a result. | Df-bears, Df-specified | It does not argue against the view that all differentiation is supplied. It states that view's cost: if it held, nothing would be registered in P's sense. | 2 |
+
+### Consequences
+
+| Id | Statement | Requires | Does not establish | § |
+|---|---|---|---|---|
+| **D** | *Differentiability.* Every field in which a registered articulation is realized bears that articulation's contrast. | Df-registration, Df-realized | Which contrasts a field bears, or of what form; that any field bears a contrast apart from registration; any modal claim about F. What the reconstruction may articulate is D-scope, a condition of method. | 2 |
+
+Argument for **D** (§2): Registration is always of a specified articulation realized in F (Df-registration). An articulation is realized in F when its specified terms pick out positions of a contrast F bears in its respect (Df-realized). So F bears that contrast.
 
 Argument for **R** (§4): A contrast in F and a contrast in a second relatum are not the same fact; without a differentiation of its own, nothing in R could distinguish registration from non-registration.
 
@@ -90,9 +103,10 @@ Argument for **C** (§5): D and R leave F and R unconnected; matching alone is s
 
 | Id | Term | Definition | Requires | § |
 |---|---|---|---|---|
+| Df-bears | bearing a contrast; position; specified term | "Field F bears a contrast in respect δ" is primitive. A *position* is a place in a contrast a field bears. A *specified term* is what a description picks out; it may pick out nothing. | none | 3 |
 | Df-field | field F | Whatever is under consideration; fixes the scope of the inquiry. Implies no region, objects, boundary, or presentation to a subject. | none | 2 |
-| Df-articulation | articulation ⟨a,δ,b⟩_F | A particular differentiation of F; a, b are its *terms*, δ its *contrast* (the respect in which the terms differ). Terms are positions, not prior objects. | D | 3 |
-| Df-realized | realized articulation | F exhibits it: its terms are both actual and differ in δ. The terms are not alternatives. | Df-articulation | 3 |
+| Df-articulation | articulation ⟨a,δ,b⟩_F | A particular differentiation of F; a, b are its *terms*, δ its *contrast* (the respect in which the terms differ). Terms are positions, not prior objects. | Df-bears | 3 |
+| Df-realized | realized articulation | Its specified terms a and b pick out positions of a contrast F bears in δ (Df-bears). The direction of δ, if any, is stated in terms of the respect, not by the order of the terms. The terms are not alternatives. | Df-articulation, Df-bears | 3 |
 | Df-specified | specified articulation | Its terms and contrast are fixed, by the account, not by F. Specification selects without creating, and can fail. | Df-articulation | 3 |
 | Df-conditions | conditions r, r′ of R | The terms of a realized differentiation of R; both actual, co-present, neither alternatives nor stages. Need not share the form of an articulation of F. | R | 4 |
 | Df-matching | matching | The terms of an articulation are paired with distinct conditions of R (a with r, b with r′). Symmetric. | Df-articulation, Df-conditions | 5 |
@@ -112,7 +126,9 @@ Argument for **C** (§5): D and R leave F and R unconnected; matching alone is s
 
 | Id | Excluded view | Excluded by | § |
 |---|---|---|---|
-| E1 | All differentiation is supplied by the receiver (pure constructivism). | D, P | 2 |
+| E1 | The reconstruction concerns a respect whose holding depends, even partly, on the specification or its notation (order, labels and grouping of terms are examples), where the bearer of that respect is not the target; this includes respects relating target positions to notation positions. | D-scope, as a matter of scope, not as a result of the core. | 2 |
+| E1-recv | A registered contrast holds, even partly, in virtue of the receiving contrast that registers it. | C and C-asym, with C-asym read as "not even partly in virtue of" (not yet decided). Whether indirect dependence through a chain of contrasts is also excluded depends on whether "partly in virtue of" is transitive (not yet decided). | 5 |
+| E1-self | A receiver merely differing within itself, where its contrast does not hold even partly in virtue of the target's contrast, is registration. | C ("partly in virtue of"). A field may register one of its own contrasts, but only through a distinct contrast of its own: C-asym implies that nothing holds in virtue of itself. | 5 |
 | E2 | Registration consists in resemblance or term-by-term correspondence. | C (second clause) | 5 |
 | E3 | Registration is a transfer from target to receiver. | Df-registration | 6 |
 | E4 | A repertoire of alternatives, in F, in R, or elsewhere, is a precondition of registration. | Df-realized, Df-conditions | 3, 6 |
@@ -141,27 +157,32 @@ These are assumed by the text of Layer 1 and are to be examined, accepted as com
 |---|---|---|
 | Q1 | What grounds the asymmetry of C in a given domain? | 5, 8 |
 | Q2 | Can receptive dependence be explained in terms of more elementary relations? *Layer 2 leaves C unanalysed; the open branches B-power, B-ground, B-cause, B-reg are the candidate answers.* | 8 |
+| Q5 | Does all aboutness rest on basic aboutness? Can aboutness by description, of the future, and of mathematical objects be built from registered contrasts? | 1 |
 | Q3 | Can registration of *which way* F is be reconstructed from contrasts between actual terms, without admitting alternatives? | 6, 8 |
 | Q4 | What order do acquisition and retention require, and is anything stronger than an asymmetric relation needed? | 7, 8 |
 
 ### Decisions
 
-| Id | Decision | Reasons | Basis (M4) |
-|---|---|---|---|
-| Dec-readingA | *Reading A.* Contrasts hold only between actual, co-present terms; the core admits no repertoire of alternatives (Reading A), rather than contrasts between an actual term and its alternatives (Reading B). | In the author's words: "Must be A. B needs some sort of alternative repository or other metaphysical assumptions we do not want to make." The reason is partly about content (an alternative must be held somewhere, which the core does not supply) and partly methodological (Mp-parsimony). Recorded under M4 as resting on both. | both |
+| Id | Decision | Reasons | Basis (M4) | By |
+|---|---|---|---|---|
+| Dec-readingA | *Reading A.* Contrasts hold only between actual, co-present terms; the core admits no repertoire of alternatives (Reading A), rather than contrasts between an actual term and its alternatives (Reading B). | In the author's words: "Must be A. B needs some sort of alternative repository or other metaphysical assumptions we do not want to make." The reason is partly about content (an alternative must be held somewhere, which the core does not supply) and partly methodological (Mp-parsimony). Recorded under M4 as resting on both. | both | mario |
+| Dec-restrictP | *Restrict P to basic aboutness.* P concerns basic aboutness, prior to concepts and descriptions: what is perceived or registered in any way. Aboutness by description, of the future, and of mathematical objects is not covered by P; whether it is built from basic aboutness is the open question Q5. | Content: some aboutness seems to lack the dependence P requires (F-descriptive), so P as first stated claimed too much. Method: restricting keeps the core minimal and moves a disputed thesis, that all knowledge rests on basic aboutness, to the layer where it can be argued (Mp-parsimony). Claude recommended it; the author decided. | both | mario |
+| Dec-groundD | *D split into a consequence and a condition of method.* D is no longer admitted as a commitment. It splits into a consequence of the definitions (D: every field in which a registered articulation is realized bears that articulation's contrast) and a condition of method (D-scope: the reconstruction articulates only fields taken to bear the contrasts it specifies). The draft's guard against differences supplied by a description is D-scope; the guard against the receiver belongs to C and C-asym. E1 splits into three exclusions, each with its own source, and loses the label "pure constructivism". | The author chose S1 of the six-round exercise (notebook/2026-10-24-ground-of-D/report.md), Claude's recommendation. Content: the paper's single ground of D mixed two guards with different sources; the receiver guard follows from C, and D as stated did two jobs that come apart. Method: the description guard concerns the account's relation to its targets, which is aboutness by description, outside the core's scope under Dec-restrictP; the author's draft already calls it "a necessary condition for that route of explanation". | both | mario |
+| Dec-fieldactual | *Field-aspect read without modality.* In Field-aspect, "subject to differentiation" means "bears a contrast" (Df-bears), not "can be differentiated". Whatever bears a contrast is, insofar as it does, a field. | In the author's words: "I think it is safer, and, while potentialities could technically be inscribed into the system (and may be necessary for knowledge), we can probably introduce them separately and clearly without letting it slip into things accidentally." Content: a modal reading needs non-actual terms, against Dec-readingA, or a capacity of F, which cannot be stated without what it would do (the dilemma in notebook/2026-10-24-ground-of-D/round-6.md). Method: minimality (Mp-parsimony); a potentiality, if needed, is to be added as its own commitment, stated as such. | both | mario |
 
 ### Dependencies
 
 Each item, with the items it requires:
 
-- **D** ← P
-- **R** ← P, D
-- **C** ← D, R, Df-articulation, Df-conditions
-- **Arg-D** ← P
+- **D-scope** ← Df-bears, Df-specified
+- **D** ← Df-registration, Df-realized
+- **R** ← P, D-scope
+- **C** ← R, Df-articulation, Df-conditions
+- **Arg-D** ← Df-registration, Df-realized, Df-bears
 - **Arg-R** ← P
 - **Arg-C** ← D, R, Df-matching
-- **Df-articulation** ← D
-- **Df-realized** ← Df-articulation
+- **Df-articulation** ← Df-bears
+- **Df-realized** ← Df-articulation, Df-bears
 - **Df-specified** ← Df-articulation
 - **Df-conditions** ← R
 - **Df-matching** ← Df-articulation, Df-conditions
@@ -183,6 +204,7 @@ M1–M5 under **Method** above.
 
 | Id | Kind | Statement | Requires | § |
 |---|---|---|---|---|
+| E1-recv | Exclusion | *E1-recv.* A registered contrast holds, even partly, in virtue of the receiving contrast that registers it. |  | 5 |
 | C-prim | Commitment | The dependence named by "in virtue of" in C is primitive: the core characterizes it by C-asym, C-actual and C-partial, and does not analyse it further. | C | 5 |
 | C-asym | Commitment | *Asymmetry.* If one contrast obtains partly in virtue of another, the second does not obtain in virtue of the first. The asymmetry holds between contrasts, not between relata: F and R may each depend on the other in different respects. | C, Df-roles | 5 |
 | C-actual | Commitment | *Actuality.* C relates two contrasts that both obtain. It says nothing about what would obtain otherwise. | C, Ps-actual | 5 |
@@ -226,6 +248,10 @@ later layers as further commitments.
 | Id | Proposal | Open | By | Status |
 |---|---|---|---|---|
 | Lead-repertoire | *Alternatives as actual conditions of the receiver.* Registration of which way F is may need no non-actual alternatives, if the alternatives are actual conditions of R. A receiver can have an actual, co-present differentiation into many conditions (as organon has a list of statuses); registering which way F is would be: which of R's actual conditions answers, through C, to the term realized in F. The other conditions are actual too, but nothing in F answers to them. | Whether this says which way F is, or only which way R is: the unoccupied conditions are actual in R, but their relevance to F seems to be exactly what alternatives supplied. If that relevance can be stated without modality, F-which closes within Reading A. | claude | proposed |
+| Necessity | *Conditional, conceptual necessity.* The necessity the core claims is conceptual and conditional: necessarily, whatever is registered, of whatever kind, satisfies D, R and C, because this follows from what basic aboutness is (P, as restricted by Dec-restrictP). |  | claude | proposed |
+| Which-position | *Which way as position in actual variety.* Registration of which way F is can be had from contrasts between actual terms, within a limit. R registers which way a term a of F is when the condition of R that answers to a through C is one of several actual conditions of R, each of which answers, through C, to some actual term of F, in this articulation or in another realized one. Which way a is, as registered, is which of F's actual terms a goes with: those whose condition it shares. The other conditions of R are relevant to F not as possibilities but because each answers to an actual term of F somewhere. |  | claude | proposed |
+| Field-aspect | *Field as an aspect, not a domain.* Whatever is subject to differentiation is, insofar as it is, a field. Being differentiated is not a property of receivers: it belongs to the concept of field, which the core already has (D). So the clause "R admits differentiation of its own" can be stripped from R and reduced to F's concept: insofar as anything in R is differentiated, R is a field, for that reason and in that respect. What holds for the target in the author's original draft then holds for any field, the receiver included: the differentiation concerned is "attributable to its target, rather than one supplied entirely by an unrelated description" (epistemic_core.md, §1). Nothing follows about whether R and the target are the same field, parts of one, or given before one another. |  | mario | proposed |
+| One-field | *One field; the receiver as a position in it.* There is one field: whatever is under consideration. Target and receiver are two parts of it, and which part is which is a matter of position in C, as Df-roles already says. The receiver does not distinguish anything: distinguishing is done by the account, for the receiver exactly as for the target (Df-specified). What the receiver needs is only that something definite in it holds partly because of the target's contrast; to be definite, that something must be a term of some articulation of the receiving part, which it admits as any part of the field does (D). |  | claude | withdrawn |
 
 ### Objections
 
@@ -265,12 +291,17 @@ from Powers* (2011), for B-power; Fine, "Guide to Ground" (2012), and Bennett, *
 | F-single | *Singularity or regularity.* Both branches are compatible with everything so far: nothing yet decides whether C in an instance is fixed by the instance alone or by a pattern across actual instances. | underdetermination | B-single, B-reg | prompts | open |  |  |
 | F-which | *Which way F is.* Registration as defined is of a specified articulation. Later layers need registration of *which way* F is, and under Reading A this must be reconstructed from contrasts between actual terms, without alternatives. Until it is, the epistemic apparatus cannot be built on the core (Q3). | gap | Df-registration, Dec-readingA | blocks | open |  |  |
 | F-trivial | *Primitive dependence may be empty.* Characterized only as asymmetric, actual and partial, the primitive dependence may say too little: many relations have these properties. If no instance can be shown to differ from correspondence by C alone (and C-local says no description fixes it), C-prim risks being a name for the difference rather than an account of it. | triviality | C-prim | prompts | open |  |  |
+| F-descriptive | *Aboutness without dependence.* P covers any claim about X and requires that the distinguishing of X depend on X. Some aboutness seems to lack that dependence. A claim about whoever is the tallest spy is about that person whether or not anything in the claim depends on them: aboutness by description, as in Russell's theory of descriptions. Claims about future events, and on many views about mathematical objects, are about things that cannot act on whoever makes them (Benacerraf's problem for mathematical knowledge). If such claims are about their objects, P overreaches, and with it the claim that D, R and C are necessary for knowledge in general. | overreach | P | prompts | resolved | restrict | Dec-restrictP |
+| F-subjectR | *The receiver made to distinguish.* The argument for R says that without a differentiation of its own, "nothing in R could distinguish registration from non-registration". Read literally, R does the distinguishing: something like noticing, which E6 excludes as a precondition of registration. Read as the account's distinguishing, the sentence says only that the theorist must be able to pick out something in R, which is a different and weaker claim. | ambiguity | Arg-R, E6 | prompts | open |  |  |
+| F-pairing | *Term-by-term pairing not argued for.* Matching pairs each term of the target with its own condition of R: a with r, and b with r′. The argument for C needs less: one condition of R that holds partly because of the contrast between a and b, and something else in R for it to differ from. That other condition need not answer to b. Both pictures register the same thing, that a differs from b; the pairing adds structure that the argument for C neither uses nor justifies. | overreach | Df-matching, C | prompts | open |  |  |
+| F-groundD | *The ground of D stated too strongly.* The argument for D and exclusion E1 claim more than the ground of D supports. In the author's original draft, differentiability is admitted because the reconstruction "concerns a differentiation attributable to its target, rather than one supplied entirely by an unrelated description" (epistemic_core.md, §1): a condition of the route of explanation, not a thesis. The paper's argument for D turns it into an argument ("if every differentiation were supplied by the receiver, … what was registered would not be about F"), and E1 labels what is excluded "pure constructivism", which attaches the core to a position about a school of thought that nothing in the draft takes. | overreach | Arg-D, E1 | prompts | resolved | distinguish | Dec-groundD |
 
 ### Withdrawn claims
 
 | Id | Claim | Why withdrawn |
 |---|---|---|
 | Draft-time | *Registration requires time.* Registration, or at least the acquisition and retention built on it, requires time. | Raised in the review of the first draft. The author objected that time is a loaded notion and that claiming it necessary overreaches: structures that are ordered but not temporal may suffice. The core keeps only an asymmetric relation, with transitivity left open (E5, Q4). See F-time. |
+| One-field | *One field; the receiver as a position in it.* There is one field: whatever is under consideration. Target and receiver are two parts of it, and which part is which is a matter of position in C, as Df-roles already says. The receiver does not distinguish anything: distinguishing is done by the account, for the receiver exactly as for the target (Df-specified). What the receiver needs is only that something definite in it holds partly because of the target's contrast; to be definite, that something must be a term of some articulation of the receiving part, which it admits as any part of the field does (D). |  |
 
 ---
 

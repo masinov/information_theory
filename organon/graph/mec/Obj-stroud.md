@@ -13,3 +13,6 @@ The core argues from P to its necessary conditions, which is the form of a trans
 
 ## Bears on
 meta/Q-necessity. The author's question about neural networks (world, or perceptual hardware?) has this form.
+
+## Partial answer (2026-10-24)
+Stroud's objection targets arguments that move from how things must seem to how they are. The core's conditional makes no such move: it says nothing about how anything is unless registration occurs, and it uses no premise about the kind of receiver (Necessity). The objection survives at one point, P itself. Our evidence for P is our own case of being about things, so whether P says what aboutness is, or what it is for receivers like us, cannot be settled by an argument that starts from P. The available test is whether P survives in other frames (rule M5); in the process frame it survived unchanged (mec.process/Test-robust). The objection stays open, narrowed to P.

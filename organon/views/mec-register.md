@@ -59,6 +59,16 @@ test protocols are in `organon/method/`.
 
 <!-- table filter="ns=mec layer=1 role=commitment" ns="mec" cols="Id:id!b|Statement:titled|Requires:requires|Does not establish:#Does not establish|§:where" -->
 
+### Conditions of method
+
+Not claims of the core: rules about what the reconstruction articulates.
+
+<!-- table filter="ns=mec type=method" ns="mec" cols="Id:id!b|Condition:titled|Requires:requires|What it does not do:#What it does not do|§:where" -->
+
+### Consequences
+
+<!-- table filter="ns=mec layer=1 role=consequence" ns="mec" cols="Id:id!b|Statement:titled|Requires:requires|Does not establish:#Does not establish|§:where" -->
+
 <!-- arguments filter="ns=mec type=argument" ns="mec" -->
 
 ### Definitions
@@ -88,7 +98,7 @@ These are assumed by the text of Layer 1 and are to be examined, accepted as com
 
 ### Decisions
 
-<!-- table filter="ns=mec layer=1 type=decision" ns="mec" cols="Id:id|Decision:titled|Reasons:#Reasons|Basis (M4):basis" -->
+<!-- table filter="ns=mec layer=1 type=decision" ns="mec" cols="Id:id|Decision:titled|Reasons:#Reasons|Basis (M4):basis|By:by" -->
 
 ### Dependencies
 

@@ -16,3 +16,6 @@ Whether this says which way F is, or only which way R is: the unoccupied conditi
 
 ## Origin
 Suggested by the reflexive test (meta/FR-repertoire).
+
+## Refined (2026-10-24)
+Worked out in Which-position, which answers the open point: the unoccupied conditions are relevant to F only where they answer to actual terms of F.

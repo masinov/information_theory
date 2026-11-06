@@ -141,7 +141,10 @@ sentences; its use for decisions requires exploration and meets obstacles of its
 wider account of agents embedded in the world they reason about, and \textcite{taylor2020}
 proposed alternatives to logical counterfactuals altogether. In general reinforcement learning,
 \textcite{leikehutter2015} showed that natural notions of optimality for universal agents are either
-dependent on the prior or trivial. Two classical results of computability theory frame all of this:
+dependent on the prior or trivial, and \textcite{leikehutter2015aixi} located AIXI and exact policy
+selection from computable values in the arithmetical hierarchy; the degree results of
+Section~\ref{sec:degrees} answer the analogous question for decision functions on disjoint problems.
+Two classical results of computability theory frame all of this:
 Rice's theorem \autocite{rice1953}, that every non-trivial property of the functions that programs
 compute is undecidable, and Kleene's second recursion theorem \autocite{kleene1938,moschovakis2010}, which
 allows a program to refer to its own code.
@@ -225,14 +228,22 @@ disappear.
 
 \emph{A theory as a procedure} (Part~\ref{part:programs}). Finally, the supplied dependence is removed.
 An agent is a computable function that receives the source code of its environment and must itself
-determine what would happen under each of its outputs. With a designated substitution interface and a
-termination promise, one algorithm is optimal everywhere (Theorem~\ref{thm:promiseopt}), the uniform
-counterpart of Theorem~\ref{thm:universal}. The negative results separate into three kinds that have
-nothing to do with counterfactual inference: queries about other problems
-(Proposition~\ref{prop:foreign}); fixed copies of the agent, which defeat every agent that halts on all
-inputs (Theorem~\ref{thm:fixedcopy}, Skalse's construction made well defined); and the uncomputability
-of exact selection among computable expected values, which holds with no predictor at all
-(Theorem~\ref{thm:exactsel}). The genuinely counterfactual question is how an agent should identify the
+determine what would happen under each of its outputs. With a designated substitution interface, an
+optimal decision function exists on both admissible classes considered, fixed copies of arbitrary programs
+included (Theorem~\ref{thm:existence}), and under a termination promise one algorithm is optimal
+everywhere (Theorem~\ref{thm:promiseopt}), the uniform counterpart of Theorem~\ref{thm:universal}. The
+negative results that have nothing to do with counterfactual inference are three: queries about other
+problems (Proposition~\ref{prop:foreign}); fixed copies of the agent, which defeat every agent that
+halts on all inputs (Theorem~\ref{thm:fixedcopy}, Skalse's construction made well defined); and the
+uncomputability of exact selection among computable expected values, which holds with no predictor at
+all (Theorem~\ref{thm:exactsel}). They can be measured exactly. The oracles that compute an optimal
+agent halting on every input, or one selecting exactly among computable expected values, are the PA
+degrees (Theorem~\ref{thm:pa}), so an optimal theory need not compute the halting problem, and some
+optimal theories lie strictly between the computable degree and $\mathbf 0'$
+(Corollary~\ref{cor:spectrum}); prescribing a default off the admissible class raises the requirement
+to $\mathbf 0'$ or $\mathbf 0''$ (Proposition~\ref{prop:defaults}). Problems built against a theory
+exist for every theory that the environments can compute, but non-computable theories can also be
+predictably wrong (Proposition~\ref{prop:unfair}). The genuinely counterfactual question is how an agent should identify the
 parts of a closed program that depend on its output. Literal, local, and global matching of the agent's
 code each fail in a characteristic way (Theorems~\ref{thm:localmatch}--\ref{thm:haltred}), and
 proof-based counterfactuals are spurious or undefined for ordinary programs (Theorem~\ref{thm:fiveten}
@@ -255,12 +266,14 @@ Several results are known and are presented as such: the Newcomb conflict (Nozic
 ratifiable pure acts (Gibbard and Harper; Jeffrey), mixed existence under continuity (Halpern; Bell
 and co-authors), the Pareto--self-sovereignty conflict (Briggs), the core of the binary
 characterisation (Podgorski), the fixed-copy diagonal (Skalse; Fallenstein in modal form), the
-spurious-proof mechanism behind five-and-ten, modal optimality (Fallenstein), and the recursion-theoretic
-ingredients of the exact-selection theorem. The consistency maps, the characterisation of when
+spurious-proof mechanism behind five-and-ten, modal optimality (Fallenstein), the recursion-theoretic
+ingredients of the exact-selection and degree theorems (PA degrees and the basis theorems of Scott and
+of Jockusch and Soare), and the complexity of almost-sure termination (Kaminski and Katoen). The consistency maps, the characterisation of when
 dominance and ex-ante optimality can conflict, the trade-off identity, the analysis of noisy
 commitment, the circulant theorem and its exact domain criterion, the comparison of menu semantics,
 the cardinality results on families of rules, the matching theorems, and the consistency map for
-counterfactual operators were not found in the literature searched; their ingredients are classical,
+counterfactual operators, and the degree classification of optimal agents were not found in the
+literature searched; their ingredients are classical,
 and no claim of priority is made.
 
 Part~\ref{part:single} (Sections~\ref{sec:model}--\ref{sec:robust}) treats single problems: the model,
@@ -269,7 +282,13 @@ maps, and robustness. Part~\ref{part:across} (Sections~\ref{sec:matrix}--\ref{se
 the causal matrix, the pairwise reduction, row translations and contraction, menu semantics, the
 characterisation of ex-ante evaluation, problem types, and mixed policies. Part~\ref{part:programs}
 (Sections~\ref{sec:programs}--\ref{sec:counterpossibles}) treats procedures: problems as programs,
-computable optimisation and its limits, the inference of dependence from source, the axioms for
+optimal agents and computable optimisation, the degree of non-computability that optimality
+requires, the inference of dependence from source, the axioms for
 counterfactual operators, and the witness problems revisited together with the literature on
-counterpossibles. Section~\ref{sec:conclusion} states the final thesis and the questions left open, and
+counterpossibles. Part~\ref{part:interpretation} interprets the results. Section~\ref{sec:discussion}
+argues that the disagreement among decision theories concerns what the agent's alternatives are,
+that it is settled, where it is settled at all, by the mechanism coupling the agent to whatever
+depends on it, and that the usual thought experiments leave that mechanism unspecified; it also
+records what the results leave untouched, the assumption that agents have real-valued utilities.
+Section~\ref{sec:conclusion} states the final thesis and the questions left open, and
 Appendix~\ref{app:stipulations} lists every stipulation made.

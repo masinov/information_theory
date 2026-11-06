@@ -28,6 +28,7 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | Mp-separable | in force | in force |
 | Mp-schema | in force | in force |
 | mec.process/Mp-speculative |  | local |
+| D-scope | local | in force |
 
 ---
 
@@ -48,6 +49,7 @@ Layer 1:
 | D | Differentiability | reinterprets | Definiteness |
 | R | Second relatum | reinterprets | Occasion |
 | C | Receptive dependence | reinterprets | Prehension |
+| Df-bears | bearing a contrast; position; specified term | not addressed |  |
 | Df-field | field F | reinterprets | World |
 | Df-articulation | articulation ⟨a,δ,b⟩_F | reinterprets | Relations |
 | Df-realized | realized articulation | accepts |  |
@@ -56,7 +58,8 @@ Layer 1:
 | Df-matching | matching | accepts |  |
 | Df-roles | target, receiver | accepts |  |
 | Df-registration | registration | accepts |  |
-| E1 | All differentiation is supplied by the receiver (pure constructivism). | accepts |  |
+| E1 | The reconstruction concerns a respect whose holding depends, even partly, on the specifica… | accepts |  |
+| E1-self | A receiver merely differing within itself, where its contrast does not hold even partly in… | not addressed |  |
 | E2 | Registration consists in resemblance or term-by-term correspondence. | accepts |  |
 | E3 | Registration is a transfer from target to receiver. | accepts |  |
 | E4 | A repertoire of alternatives, in F, in R, or elsewhere, is a precondition of registration. | divided | Br-actual accepts; Br-eternal rejects |
@@ -70,14 +73,19 @@ Layer 1:
 | Ps-logic | The exposition uses identity, distinction, relation, and inference without attributing the… | accepts |  |
 | Q1 | What grounds the asymmetry of C in a given domain? | answered | by Asymmetry |
 | Q2 | Can receptive dependence be explained in terms of more elementary relations? *Layer 2 leav… | answered | by Prehension |
+| Q5 | Does all aboutness rest on basic aboutness? Can aboutness by description, of the future, a… | open |  |
 | Q3 | Can registration of *which way* F is be reconstructed from contrasts between actual terms,… | answered | by Br-eternal; see FP-which |
 | Q4 | What order do acquisition and retention require, and is anything stronger than an asymmetr… | answered | by Order |
 | Dec-readingA | Reading A | divided | Br-actual accepts; Br-eternal rejects |
+| Dec-restrictP | Restrict P to basic aboutness | accepts |  |
+| Dec-groundD | D split into a consequence and a condition of method | not addressed |  |
+| Dec-fieldactual | Field-aspect read without modality | not addressed |  |
 
 Layer 2:
 
 | Id | Entry | Stance | In the frame |
 |---|---|---|---|
+| E1-recv | A registered contrast holds, even partly, in virtue of the receiving contrast that registe… | not addressed |  |
 | C-prim | The dependence named by "in virtue of" in C is primitive: the core characterizes it by C-a… | reinterprets | Prehension |
 | C-asym | Asymmetry | reinterprets | Asymmetry |
 | C-actual | Actuality | accepts |  |
@@ -110,8 +118,8 @@ Layer 2:
 
 | Id | Branch | Accepts | Rejects | Gains | Cost |
 |---|---|---|---|---|---|
-| Br-eternal | *Whitehead's eternal objects.* Whitehead's own scheme: definiteness comes from eternal objects, pure potentials for the specific determination of fact, which enter (ingress into) occasions. An occasion's definiteness is a selection among them; what is not selected is excluded by negative prehensions. |  | mec/Dec-readingA, mec/E4, mec/Ps-modal, mec/Ps-actual | Q3 is answered: which way F is, is which eternal objects have entered it, and F-which closes. Necessary contrasts, as in mathematics, are relations among eternal objects. | Exactly what Reading A was adopted to avoid. |
-| Br-actual | *Process without eternal objects.* Process without a realm of pure potentials: an occasion is definite only through its contrasts with other actual occasions, inherited and modified. Constructed here, not taken from the literature, to test whether Reading A can be held inside process philosophy. | mec/Lead-repertoire, mec/Dec-readingA, mec/E4, mec/Ps-modal, mec/Ps-actual |  |  | Q3 stays open (FP-which). Necessary contrasts, as in mathematics, have nothing actual to be prehended from (FP-math). |
+| Br-eternal | *Whitehead's eternal objects.* Whitehead's own scheme: definiteness comes from eternal objects, pure potentials for the specific determination of fact, which enter (ingress into) occasions. An occasion's definiteness is a selection among them; what is not selected is excluded by negative prehensions. |  | mec/Which-position, mec/Dec-readingA, mec/E4, mec/Ps-modal, mec/Ps-actual | Q3 is answered: which way F is, is which eternal objects have entered it, and F-which closes. Necessary contrasts, as in mathematics, are relations among eternal objects. | Exactly what Reading A was adopted to avoid. |
+| Br-actual | *Process without eternal objects.* Process without a realm of pure potentials: an occasion is definite only through its contrasts with other actual occasions, inherited and modified. Constructed here, not taken from the literature, to test whether Reading A can be held inside process philosophy. | mec/Which-position, mec/Lead-repertoire, mec/Dec-readingA, mec/E4, mec/Ps-modal, mec/Ps-actual |  |  | Q3 stays open (FP-which). Necessary contrasts, as in mathematics, have nothing actual to be prehended from (FP-math). |
 
 ### Method of the frame
 

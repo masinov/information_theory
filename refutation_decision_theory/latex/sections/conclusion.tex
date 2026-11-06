@@ -39,13 +39,22 @@ self-sovereignty, and principal binary independence (Proposition~\ref{prop:colav
 $2^{\cont}$ rules that do not maximise ex-ante value (Proposition~\ref{prop:cardinality}).
 
 Fourth, \emph{when the dependence must be inferred, the obstruction is the semantics of alternatives}.
-For agents that read source code, a designated substitution interface and a termination promise give
-a single optimal algorithm (Theorem~\ref{thm:promiseopt}). Three impossibilities hold without any
-counterfactual subtlety: queries about other problems (Proposition~\ref{prop:foreign}), fixed copies of
-the agent against agents that halt on every input (Theorem~\ref{thm:fixedcopy}), and exact selection
-among computable expected values, which is uncomputable even with no predictor
-(Theorem~\ref{thm:exactsel}) but becomes computable as soon as either ties or arbitrarily small
-advantages are excluded (Proposition~\ref{prop:approxopt}). The ways of recognising the agent in code
+For agents that read source code, a designated substitution interface makes an optimal decision
+function exist on both admissible classes considered, fixed copies of arbitrary programs included
+(Theorem~\ref{thm:existence}), and a termination promise makes it computable
+(Theorem~\ref{thm:promiseopt}). Three impossibilities hold without any counterfactual subtlety: queries
+about other problems (Proposition~\ref{prop:foreign}), fixed copies of the agent against agents that halt
+on every input (Theorem~\ref{thm:fixedcopy}), and exact selection among computable expected values,
+which is uncomputable even with no predictor (Theorem~\ref{thm:exactsel}) but becomes computable as soon
+as either ties or arbitrarily small advantages are excluded (Proposition~\ref{prop:approxopt}). The last
+two have the same exact strength: the oracles that compute an optimal agent halting everywhere, or an
+exact optimiser on almost surely terminating environments, are the PA degrees
+(Theorem~\ref{thm:pa}), some of them strictly below the halting problem (Corollary~\ref{cor:spectrum}).
+Optimisation needs only to select a never-refuted policy, not to recognise admissible problems; a
+prescribed default off the admissible class, or a prescribed tie order, raises the requirement to
+$\mathbf 0'$ or $\mathbf 0''$ (Proposition~\ref{prop:defaults}). The diagonal relativises to every
+oracle (Theorem~\ref{thm:reldiag}), and problems built against a theory exist for every theory the
+environments can compute but not only for those (Proposition~\ref{prop:unfair}). The ways of recognising the agent in code
 each fail: literal matching misses encoded copies, local matching creates dependence from accidental
 agreement (Theorem~\ref{thm:localmatch}), global matching misses transformed copies and can make
 optimality decide the halting problem (Theorems~\ref{thm:complement} and~\ref{thm:haltred}), and
@@ -71,18 +80,27 @@ characterises ex-ante ranking, and principal contraction together with neutralit
 with non-trivial, baseline-invariant choice on every domain satisfying (DR). Neither cross-problem
 result survives when a smaller menu retains the belief model of the larger one. For computable agents
 that read descriptions, optimality is attainable on the promise domain of any designated substitution
-semantics, and fails, apart from fixed-copy diagonals and the uncomputability of exact selection, only
-through the semantics itself: no total counterfactual operator can both transport a computation
+semantics; an optimal decision function exists on that domain whatever fixed programs the
+environments contain, and computing one that halts everywhere, or selects exactly among computable
+expected values, requires and suffices with a PA degree. Apart from these degrees of
+non-computability, optimality fails only through the semantics itself: no total counterfactual operator can both transport a computation
 through alternative outputs and identify every presentation with the same actual behaviour, and
 calibration with such an identification is inconsistent with ratifiability. In every case the
 obstruction lies in how the agent's alternatives are specified, not in choosing among them.
 \end{quote}
 
+Section~\ref{sec:discussion} drew the interpretive consequence. The disagreement between causal and
+functional decision theory is a disagreement about what the alternatives to one's own choice are;
+the actual course of events does not settle it, and it is settled, where it is settled at all, by the
+mechanism through which the world's response depends on the agent. That proposal is an argument, not
+a theorem, and it leaves a residue the paper does not resolve: whether an agent whose predictor reads
+its physical constitution is that constitution or the function it computes.
+
 \begin{table}[htbp]
   \centering\small
   \renewcommand{\arraystretch}{1.25}
   \setlength{\tabcolsep}{5pt}
-  \captionabove{The principal results, with their status. \enquote{Not found} means not found in the
+  \captionabove{The principal results of Parts~\ref{part:single} and~\ref{part:across}, with their status. \enquote{Not found} means not found in the
                 literature searched; no priority is claimed.}
   \label{tab:results}
   \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
@@ -110,9 +128,30 @@ obstruction lies in how the agent's alternatives are specified, not in choosing 
     binary characterisation of ex-ante ranking & Thm.~\ref{thm:selfesteem}, Cor.~\ref{cor:three} & core in \textcite{podgorski2022} \\
     contraction without the diagonal; $2^{\cont}$ families & Thm.~\ref{thm:lambda}, Props.~\ref{prop:cardinality}--\ref{prop:NFSO} & not found \\
     mixed and evidential extensions & Sec.~\ref{sec:mixed} & not found \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+  \centering\small
+  \renewcommand{\arraystretch}{1.25}
+  \setlength{\tabcolsep}{5pt}
+  \captionabove{The principal results of Part~\ref{part:programs}, continuing
+                Table~\ref{tab:results}.}
+  \label{tab:results2}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
+                                    >{\raggedright\arraybackslash}p{6.8em}
+                                    >{\raggedright\arraybackslash}p{8.6em}@{}}
+    \toprule
+    result & where & status \\
+    \midrule
+    existence of optimal decision functions & Thm.~\ref{thm:existence} & elementary \\
     uniform optimiser on the promise class & Thm.~\ref{thm:promiseopt}, Prop.~\ref{prop:proofopt} & elementary \\
     foreign queries; fixed-copy diagonal & Prop.~\ref{prop:foreign}, Thm.~\ref{thm:fixedcopy} & \textcite{skalse2021}; modal form in \textcite{fallenstein2014evil} \\
     no computable exact optimiser & Thm.~\ref{thm:exactsel} & recursive inseparability; application not found \\
+    PA degree of optimality; spectrum & Thm.~\ref{thm:pa}, Cor.~\ref{cor:spectrum} & not found; uses \textcite{scott1962}, \textcite{jockuschsoare1972trans} \\
+    admissibility; prescribed answers & Props.~\ref{prop:admissibility}, \ref{prop:defaults} & $\Pi^0_2$ part in \textcite{kaminskikatoen2015} \\
+    relativised diagonal; unfair problems & Thm.~\ref{thm:reldiag}, Prop.~\ref{prop:unfair} & not found \\
     matching semantics and their failures & Thms.~\ref{thm:localmatch}--\ref{thm:haltred}, Prop.~\ref{prop:rematch} & not found \\
     computable five-and-ten & Thm.~\ref{thm:fiveten} & mechanism in \textcite{slepnev2012}, \textcite{bensontilsen2014} \\
     guarded counterfactuals for programs & Prop.~\ref{prop:guardedarith} & semantics from \textcite{fallenstein2015third} \\
@@ -144,6 +183,9 @@ supplied, and extracting them from a closed program is the problem of extracting
 for which no procedure is known and which global matching shows cannot be equality of computed
 functions. The seventh is whether a counterfactual semantics can be chosen on grounds other than the
 desiderata considered here, for instance by a learning process that is calibrated in the limit, and
-what such a choice would do to the map. Finally, the status in the literature of the circulant
+what such a choice would do to the map. The eighth concerns the degree results. They are proved for a
+designated semantics. For the matching semantics of Section~\ref{sec:inference}, where
+Theorem~\ref{thm:haltred} already makes optimality decide whether a machine runs forever, the exact
+degree of an optimal agent has not been determined. Finally, the status in the literature of the circulant
 theorem and of the consistency maps has been checked only by a bounded search; their ingredients are
 classical, and an earlier statement may exist.

@@ -4,7 +4,7 @@ type: position
 role: branch
 title: Process without eternal objects
 status: open
-accepts: [mec/Lead-repertoire, mec/Dec-readingA, mec/E4, mec/Ps-modal, mec/Ps-actual]
+accepts: [mec/Which-position, mec/Lead-repertoire, mec/Dec-readingA, mec/E4, mec/Ps-modal, mec/Ps-actual]
 contradicts: [Br-eternal]
 since: 2026-10-24
 order: 12

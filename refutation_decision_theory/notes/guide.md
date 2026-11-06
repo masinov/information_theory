@@ -1,7 +1,7 @@
 # Reading guide: impossibility and possibility of an optimal decision theory
 
-Companion to `raw/`, which holds five rounds of prompts and agent outputs. Source references are
-`R1:§n` … `R5:§n` for the outputs (`raw/outputs/output_round_k.md`) and `P1..P5` for the prompts
+Companion to `raw/`, which holds six rounds of prompts and agent outputs. Source references are
+`R1:§n` … `R6:§n` for the outputs (`raw/outputs/output_round_k.md`) and `P1..P6` for the prompts
 (`raw/agent_prompts/prompt_round_k.md`). Proof checks are logged in `verification.md`.
 
 The Anti-Newcomb example in P4/P5 (and R4:§9, R5:§8) does not belong to the task. It is not used
@@ -108,6 +108,36 @@ over A = {0,1}.
 - Lesson: ex-ante vs causal evaluation reappears as parametric vs grounded identity of
   computations.
 
+**Why round 6 exists.** R4 gave a computable optimiser on the promise and a diagonal against
+globally total agents, but left open whether an optimal theory exists at all once environments
+may contain fixed copies of arbitrary programs, and how non-computable it must be. P6 asked for one
+clean theorem separating "case-by-case optimal choice" from "optimal decision program".
+
+**Round 6: the degree of optimality.** Agents are now arbitrary *decision functions*; competitors
+range over all of them, which by (1) is the same as computable ones.
+- Existence: owned queries make per-environment argmaxes compatible, so an optimal function exists
+  on 𝒫_Q and on 𝒫_as (AST, rational probabilities, rewards in [0,1]), fixed copies included. Exact
+  condition: compatibility; foreign queries kill it for every degree.
+- Escape, made rigorous: P(d(E_P)) diverges, since if it halted with b, E_P would be admissible and P
+  would output 1−b. Optimal T satisfies T(d(E_p)) = 1 − p(d(E_p)).
+- Degree theorem: X computes a globally total optimiser (det or sto), or a promise-total stochastic
+  one, iff X has **PA degree**. Upper bound by a finite-selection lemma (binary DNC picks a
+  never-excluded candidate without waiting); lower bounds by separating K_0, K_1, the deterministic
+  one with no self-reference (it contains the fixed-copy diagonal).
+- Spectrum: every PA degree is the exact degree of an optimal function; a low one lies strictly
+  between 0 and 0'; cone avoidance means no non-computable set is computed by all.
+- Admissibility is Σ1-complete (det) and Π2-complete (sto). Prescribed defaults off the promise
+  force 0' (det) and 0'' (sto); a prescribed tie order forces 0' on the stochastic promise.
+- Relativised diagonal: no globally total X-computable agent is optimal on X-computable environments.
+- Sharpness: owned queries, fixed copies (linked copies kill the diagonal but not the lower bounds),
+  termination, explicit rationals, reward bound (unbounded → 0' even for ε < 1/2), exactness,
+  finiteness.
+- Unfairness: anti-prediction environments E_p; accuracy ⇔ defeat within the family. Computable ⇒
+  defeated; defeated ⇏ computable (finite modification of an optimal function). P6's "unfair
+  problems exist exactly for computable theories" is **false**.
+- Resources: clocked languages restore computability; MAJSAT gives P = PP from a polynomial-time
+  exact optimiser; the diagonal needs the environments to be able to simulate the agent.
+
 **Final thesis (to defend in the paper).**
 (i) An ex-ante-optimal decision theory exists on every class of well-defined fair finite problems.
 (ii) Within a problem, conflicts are shallow (singletons, pairs), the central pair being Nozick's.
@@ -115,8 +145,10 @@ over A = {0,1}.
 symmetry/invariance/ordering/monotonicity; and row-baseline-invariant (causal-style) evaluation
 cannot be nontrivial, neutral and contraction-consistent under principal restriction on rich
 domains — but this depends on the menu semantics and on the domain.
-(iv) For procedures reading source code: optimal on the promise domain of any designated
-substitution semantics. Apart from fixed-copy diagonals and exact-selection uncomputability, the
+(iv) For procedures reading source code: an optimal decision function exists under any designated
+substitution semantics, fixed copies included; it is computable on the deterministic promise, and
+otherwise (global totality, or exact selection on AST environments) its computing oracles are exactly
+the PA degrees, rising to 0'/0'' only when off-promise answers or tie orders are prescribed. Apart from fixed-copy diagonals and exact-selection uncomputability, the
 failures come from the semantics of alternatives. Grounded extensionality + calibration forces
 causal evaluation and is inconsistent with ratifiability; parametric extensionality admits ex-ante
 evaluation.
@@ -300,7 +332,7 @@ addition or repair.
 
 ---
 
-### Programs (R4) — paper §§14–16
+### Programs (R4) — paper §§14–17
 
 | ID | Result | Status |
 |---|---|---|
@@ -316,7 +348,24 @@ addition or repair.
 | G10 | Global matching misses 1−T; halting reduction (co-c.e. direction) | ✔ |
 | G11 | Ground proof optimiser; computable 5-and-10 (Löb); guarded semantics = actual-only for programs | ✔ |
 
-### Counterfactual operators (R5) — paper §§17–18
+### Degrees of optimality (R6) — paper §§15–16
+
+| ID | Result | Status |
+|---|---|---|
+| J1 | Existence of optimal decision functions; compatibility condition | ✔ |
+| J2 | Escape of the promise optimiser (P(d(E_P)) diverges) | ✔ (rigorous; replaces "regress") |
+| J3 | Anti-prediction identity; hard-coding | ✔ |
+| J4 | Finite-selection lemma (binary DNC) | ✔ |
+| J5 | Degree theorem: PA iff (global det, global sto, promise sto) | ✔ |
+| J6 | Spectrum: every PA degree; low; cone avoidance | ✔ |
+| J7 | Admissibility Σ1 / Π2-complete | ✔ |
+| J8 | Prescribed default → 0', 0''; tie order → 0' | ✔ |
+| J9 | Relativised diagonal | ✔ |
+| J10 | Sharpness table | ✔ |
+| J11 | Unfairness: computable ⇒ defeated, not conversely | ✔ (refutes P6 §1(d)) |
+| J12 | Resource bounds; MAJSAT / PP | ✔ (PP named in paper) |
+
+### Counterfactual operators (R5) — paper §§18–19
 
 | ID | Result | Status |
 |---|---|---|
@@ -360,6 +409,37 @@ addition or repair.
     (key `fallenstein2014evil`), not 2015.
 19. Anti-Newcomb (P4 K6, P5 P6) is a leaked example from an unrelated conversation; R4 analysed a
     different (exclusive-box) version. It is dropped (raw/NOTE_rounds_4_5.md).
+20. P6 §0 "in the supplied-response class no problem can refer to the theory being evaluated" →
+    fixed copies of particular programs are allowed; what is excluded is dependence on the
+    *evaluated* agent other than through owned queries (R6:§2.1).
+21. P6 §1(d) "unfair problems exist exactly for computable theories" → only computable ⇒ defeated
+    holds (R6:§7).
+22. P6 E4 guess "0' needed" → PA degree suffices and is necessary; 0' / 0'' only with prescribed
+    defaults (R6:§§4–5).
+23. R6 cites Fallenstein's post as 2015 (Alignment Forum display date); the original is mid-Nov 2014
+    (correction 18 stands).
+24. P6 has no leaked material; R6 is used in full except §9's runtime discussion, which is condensed.
+25. R6 §10 literature: Hirschfeldt's low basis theorem is 3.10, not 3.14 (cone avoidance), in the
+    author preprint; printed numbering unchecked, so the paper cites §3.1 only. Leike–Hutter (UAI
+    2015) Thm. 14 is itself a fixed-copy diagonal against computable policies and is cited as a
+    predecessor of Thm. 15.6. Kaminski–Katoen theorem numbers differ between arXiv v1 (§6, Thms. 6–7)
+    and Acta Informatica 2019 (§4, Thms. 8–9). Details: notes/literature/clusterF_notes.md.
+26. Discussion draft (`raw/outputs/conclusion.md`), corrected while integrating it as §20:
+    - it said the fairness condition (Def. 2.4) excluded problems that refer to a theory. Def. 2.4
+      admits fixed algorithms; what excluded Skalse's construction was well-definedness (Def. 2.3)
+      together with Remark 3.7;
+    - "Prop. 6.5 gives the converse" of Thm. 4.2 → it is the complementary fact (policy-independent
+      laws ⇒ no conflict), and Thm. 4.2 concerns a single always-reached choice;
+    - "every computable evaluation can be diagonalised" → every agent that halts on all inputs and
+      that the environment can run (Thm. 15.6);
+    - Lewis's "small miracle" is from "Counterfactual Dependence and Time's Arrow" (Noûs 1979, key
+      `lewis1979arrow`), not the prisoners' dilemma paper (`lewis1979`);
+    - the draft's "Appendix A, item 8" and "Section 20" references are now ef labels
+      (`stip:error`, `sec:conclusion`); grounded/parametric equivalence got the label
+      `def:equivalence`;
+    - attributions added for the small-improvement argument (Chang 2002) and for the
+      non-representability of lexicographic order (Debreu 1954), and FDT's own footnote on unfair
+      problems (Yudkowsky–Soares §9, fn. 15) is cited in §20.5.
 
 ---
 
@@ -382,11 +462,16 @@ Appendix A: register of stipulations. Appendix B: table of all results with prov
 - Part II, rules across problems (§§7–13).
 - Part III, procedures that read descriptions (§§14–18):
   - §14 problems as programs (G7, bridge H2-style);
-  - §15 computable optimisation (G1–G6);
-  - §16 inference from source (G8–G11);
-  - §17 counterfactual operators (H1–H10);
-  - §18 test cases and counterpossibles (H11).
-- §19 conclusion.
+  - §15 optimal agents and computable optimisation (G1–G5, J1–J3);
+  - §16 how non-computable an optimal agent must be (J4–J12, G6, old §15.5);
+  - §17 inference from source (G8–G11);
+  - §18 counterfactual operators (H1–H10);
+  - §19 test cases and counterpossibles (H11).
+- Part IV, interpretation: §20 philosophical discussion (from `raw/outputs/conclusion.md`), §21
+  conclusion.
+
+Round 6 is placed between the computable results and the inference sections because it still
+assumes a designated substitution semantics; §16 ends by handing over to §17, which removes it.
 
 The Skalse remark moved from §7 to §3 (after the possibility theorem), and points forward to G3.
 
@@ -411,11 +496,13 @@ The Skalse remark moved from §7 to §3 (after the possibility theorem), and poi
 | W21–W24, Z1–Z3 | §12, Props. 12.1–12.5 |
 | M1–M6 | §13, Props. 13.1–13.4, §13.3 |
 | G7, H2 bridge | Def. 14.1–14.3, Prop. 14.4 (programs induce causal matrices), Prop. 14.5 |
-| G1–G6 | Def. 15.1, Thm. 15.2, Prop. 15.3, Thm. 15.4, Prop. 15.5, Thm. 15.6, Props. 15.7–15.8, §15.5 |
-| G8–G11 | §16.1, Prop. 16.1, Thm. 16.2, Prop. 16.3, Thms. 16.4–16.5, Prop. 16.6, Thm. 16.7, Def. 16.8, Prop. 16.9 |
-| H1–H10 | Prop. 17.1, Defs. 17.2–17.6, Prop. 17.3, Lemma 17.8, Lemma 17.9, Thms. 17.10–17.12, Cor. 17.13, Props. 17.14–17.15, §17.8 |
-| H11 | §18 |
-| final thesis, open questions, provenance table | §19, Table 1 |
+| G1–G5, J1–J3 | Defs. 15.1–15.2, Thm. 15.3 (J1), Prop. 15.4 (G2), Thm. 15.5 (G1), Thm. 15.6 (G3), Prop. 15.7 (J2), Prop. 15.8 (J3), Prop. 15.9 (G4), Thm. 15.10, Prop. 15.11 (G5) |
+| J4–J12, G6 | Def. 16.1, Lemma 16.2, Thm. 16.3, Cor. 16.4, Props. 16.5–16.6, Thm. 16.7, Table 1, Prop. 16.8 (§16.6), Prop. 16.9 (G6, J12), §16.8 (old §15.5) |
+| G8–G11 | §17.1, Prop. 17.1, Thm. 17.2, Prop. 17.3, Thms. 17.4–17.5, Prop. 17.6, Thm. 17.7, Def. 17.8, Prop. 17.9 |
+| H1–H10 | Prop. 18.1, Defs. 18.2–18.6, Prop. 18.3, Lemma 18.8, Lemma 18.9, Thms. 18.10–18.12, Cor. 18.13, Props. 18.14–18.15, §18.8 |
+| H11 | §19 |
+| interpretation: locus of the conflict, coupling, Bomb, fairness, thought experiments, utility, practical scope | §20 (Part IV) |
+| final thesis, open questions, provenance tables | §21, Tables 2–3 |
 | stipulations | Appendix A |
 
 Corrections made while typesetting (beyond the ledger in §4):
@@ -430,3 +517,15 @@ Corrections made while typesetting (beyond the ledger in §4):
 
 Literature verification records (per entry, with sources) are in `notes/literature/`; the
 non-printing `verification` field in `latex/refs.bib` keeps the provenance of every entry.
+
+Review of §20 (2026-10-21), applied:
+- §2 remark after Def. 2.4 claimed fairness excludes the diagonal against a fixed theory T,
+  contradicting Def. 2.4, Remark 3.7 and §20.1. It now says fairness admits it (T is a constant),
+  that well-definedness excludes it (Remark 3.7), and that it becomes well defined for programs
+  (Thm. 15.6).
+- §20.5: "the oracles that compute an optimal agent" is now "a globally total optimal agent", and
+  "every admissible class" is now "both admissible classes".
+- FDT footnote cited as §9, n. 15 (in §15 and §20.5).
+- Appendix A items are referenced without the trailing full stop (enumitem `ref=\arabic*`).
+- Broome: "Economics and Philosophy" is a Blackwell series and was dropped from the printed entry.
+- Debreu: cited as p. 159 with n. 1 printed on p. 164, per the archive.org scan.

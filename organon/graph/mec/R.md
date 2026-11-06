@@ -5,7 +5,7 @@ role: commitment
 title: Second relatum
 status: adopted
 where: 4
-requires: [P, D]
+requires: [P, D-scope]
 layer: 1
 order: 3
 ---

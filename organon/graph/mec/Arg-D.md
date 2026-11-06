@@ -6,8 +6,11 @@ title: Argument for D
 status: accepted
 where: 2
 supports: [D]
-requires: [P]
+requires: [Df-registration, Df-realized, Df-bears]
 layer: 1
 order: 5
 ---
-If every differentiation were supplied by the receiver, registering a difference in F could not be distinguished from the receiver's merely differing within itself, and by P what was registered would not be about F.
+Registration is always of a specified articulation realized in F (Df-registration). An articulation is realized in F when its specified terms pick out positions of a contrast F bears in its respect (Df-realized). So F bears that contrast.
+
+## Revision (2026-10-25)
+By Dec-groundD. P is not needed. Previous wording, an argument about the receiver, now covered by C and C-asym (E1-self, E1-recv): "If every differentiation were supplied by the receiver, registering a difference in F could not be distinguished from the receiver's merely differing within itself, and by P what was registered would not be about F."

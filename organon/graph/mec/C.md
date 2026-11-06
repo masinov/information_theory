@@ -5,7 +5,7 @@ role: commitment
 title: Receptive dependence
 status: adopted
 where: 5
-requires: [D, R, Df-articulation, Df-conditions]
+requires: [R, Df-articulation, Df-conditions]
 layer: 1
 order: 4
 ---

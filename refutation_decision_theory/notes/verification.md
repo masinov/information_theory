@@ -145,3 +145,44 @@ Informal points kept as remarks, not theorems:
 - "no largest decidable solvable class";
 - the impossible-world representation of kernels;
 - the exploration-scope example for logical induction.
+
+## E. Round 6 (paper §§15–16)
+
+Every proof in R6 was re-derived before typesetting. IDs refer to guide.md §3 (J1–J12).
+
+1. **J1, existence.** Ownership makes the per-environment first maximisers compatible; bounded
+   rewards make stochastic expectations finite. Fixed copies are features of V_E. ✔
+2. **J2, escape of the promise optimiser.** If P(d(E_P)) halted with b, E_P would be admissible and
+   P would output 1−b. So it diverges. ✔ (Replaces the paper's earlier "regress" wording.)
+3. **J3, anti-prediction identity** T(d(E_p)) = 1 − p(d(E_p)) for optimal T when p halts there. ✔
+   R6 is right that "inserting the bit changes the description" is not an argument by itself.
+4. **J4, finite selection.** At most one half is wholly excluded because a survivor exists; if the
+   chosen half B_{g(k)} were wholly excluded, φ_k(k) = g(k), contradicting DNC. Finitely many queries,
+   no waiting. ✔
+5. **J5, degree theorem.**
+   - Deterministic upper bound: exclusion "all simulations halt and π not maximal" is c.e. and
+     always leaves a survivor. ✔
+   - Stochastic upper bound: [L, B] nested, using rewards in [0,1]; ℓ_π = lim L is a survivor
+     certificate on every description. ✔
+   - Deterministic lower bound: the paper uses D_e paying 1[a = b], so s(e) = T(d(D_e)) separates
+     K_0, K_1 (R6 used 1[a = 1−b] and got DNC directly; equivalent). ✔
+   - Stochastic lower bound: reuses the family of Thm. exactsel (all admissible), so promise-total
+     suffices. R6's S_e is the same family with inverted payoff. ✔
+6. **J6, spectrum.** Coding X into tie environments gives exact degree X. Low PA degree cannot
+   compute 0' (else 0'' ≤ X' ≡ 0'). Cone avoidance applied to the Π^0_1 class of separating sets of
+   K_0, K_1. ✔
+7. **J7, admissibility.** Σ^0_1 / Π^0_2 forms and TOT reduction checked. ✔
+8. **J8, prescribed answers.** 0' via H_e (unique optimum 1 iff halts); 0'' via geometric TOT
+   reduction with reward a; ties: V(1) = 2^{-t} or 0, ties broken to 0. Upper bounds: 0' decides
+   Σ^0_1 exclusion. For a non-zero computable default the environment rewards the opposite of the
+   default at its own description. ✔
+9. **J9, relativisation.** Line by line. ✔
+10. **J10, sharpness.** Unbounded rewards: V(1) = 2^{-t}·2^t = 1 if the computation halts at t. Any
+    agent within 1/2 decides halting; the values are not uniformly computable, so there is no clash
+    with Prop. approxopt. Computable-real payoffs: same separation as J5. ✔
+11. **J11, unfairness.** A finite modification of a non-computable optimal function is
+    non-computable and is defeated by the constant-0 anti-prediction environment. So "unfair
+    problems exist exactly for computable theories" fails in the ⇐ direction. ✔
+12. **J12, resources.** MAJSAT construction: V(1) = #sat/2^n, a multiple of 2^{-n}; V(0) =
+    1/2 + 2^{-(n+1)} is not, so there are no ties. Action 1 is optimal iff #sat > 2^{n-1}. Added in
+    the paper; R6 states it without naming PP.

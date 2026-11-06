@@ -14,7 +14,8 @@ identification of alternatives.
 This part removes the supply. An agent is now a computable procedure that receives a description of
 its situation---by default the source code of the environment---and must itself determine what
 would happen under each of its possible outputs. The question is whether some such procedure is
-optimal on every fair problem. Answering it requires saying what \enquote{optimal} means once the
+optimal on every fair problem, and, where none is, whether an optimal function exists at all and how
+far from computable it must be. Answering it requires saying what \enquote{optimal} means once the
 comparison is no longer given by a supplied law, and that is where most of the work lies.
 
 \subsection{Agents and environments}
@@ -33,6 +34,8 @@ every description belonging to $\cls$.
 The two notions differ. \enquote{A total computable function} normally means the first;
 \enquote{an agent that halts on every problem in the class} permits the second. Both receive
 answers below, and the distinction turns out to separate a positive theorem from a negative one.
+Optimality itself is a property of functions, computable or not (Definition~\ref{def:decfn}), and
+Section~\ref{sec:degrees} measures how non-computable an optimal one must be.
 
 \begin{definition}[Program environment]\label{def:progenv}
 A \emph{program environment} $E$ is a program with a finite set $H_E$ of information sets, each

@@ -5,7 +5,7 @@ The results are theorems about the definitions displayed in the text. The follow
 there, and each could be made differently; where a different choice is known to change a result, the
 section that discusses it is given.
 
-\begin{enumerate}[label=\arabic*.,leftmargin=2em,itemsep=.3em]
+\begin{enumerate}[label=\arabic*.,ref=\arabic*,leftmargin=2em,itemsep=.3em]
   \item Policies are deterministic unless a mixed variant is stated (Sections~\ref{sec:robust},
         \ref{sec:mixed}).
   \item Every admissible policy induces a well-defined probability law (Definition~\ref{def:welldefined});
@@ -20,7 +20,7 @@ section that discusses it is given.
         evaluated policy (Section~\ref{sec:criteria}); with supported states only, \cri{2} becomes
         unsatisfiable in Death in Damascus.
   \item Positive reach is measured under the evaluated policy.
-  \item Predictor error is given by a kernel; the Newcomb calculations use symmetric error.
+  \item\label{stip:error} Predictor error is given by a kernel; the Newcomb calculations use symmetric error.
   \item A predictor targets specified policy coordinates; \enquote{the same computation} is represented
         by a stipulated dependence (Sections~\ref{sec:twin}, \ref{sec:bomb}); Part~\ref{part:programs}
         removes this stipulation and the supplied laws $\mu_\pi$ with it.
@@ -53,6 +53,20 @@ section that discusses it is given.
         (Definition~\ref{def:progenv}).
   \item Payoffs are exact rationals, computable reals, or sampled; the positive results use the first
         (Section~\ref{sec:programs}).
+  \item Optimality is a property of decision functions, computable or not, and competitors range
+        over all of them, which by \eqref{eq:maxtable} is the same as ranging over computable agents
+        (Definition~\ref{def:decfn}).
+  \item Embedded programs are fixed and run as ordinary computations, with their running time
+        counted in the environment's execution; only designated calls are linked to the agent
+        (Section~\ref{sec:computation}).
+  \item Stochastic environments branch with exact rational probabilities, their rewards are rationals
+        in $[0,1]$ enforced by the language, and almost-sure termination is required of the whole
+        execution under every table policy and of nothing else (Definition~\ref{def:promise}).
+  \item An optimal agent may choose any maximiser and may answer anything off the admissible class;
+        a prescribed default or tie order is a separate requirement and changes the degree
+        (Proposition~\ref{prop:defaults}).
+  \item A problem is \enquote{built against} a theory when it is an anti-prediction environment
+        accurate for it (Section~\ref{sec:unfair}).
   \item Under syntactic and extensional replacement the description supplied to the agent is held fixed,
         and implementations are compared on preserved inputs (Definition~\ref{def:conventions},
         Proposition~\ref{prop:rawsource}).

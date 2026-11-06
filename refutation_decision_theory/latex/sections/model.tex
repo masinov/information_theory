@@ -79,9 +79,11 @@ may occur as constants of the environment (\enquote{the predictor simulates the 
 provided $g_0$ does not vary with the agent being evaluated.
 \end{definition}
 
-Fairness excludes the trivial diagonal problem that pays an agent exactly when its action differs
-from that of a given theory $T$; such a problem defeats every $T$ and shows nothing about decision
-theory. Well-definedness is a separate requirement. A verbally described \enquote{perfect
+Fairness excludes problems whose evaluation depends on the identity of the decision theory that
+produced the policy. It does not exclude a diagonal against a fixed theory $T$, which pays an agent
+exactly when its action differs from that of $T$: there $T$ enters as a constant.
+Remark~\ref{rem:skalse} shows that such a problem fails well-definedness instead, and
+Theorem~\ref{thm:fixedcopy} that it becomes well defined once problems are programs. Well-definedness is a separate requirement. A verbally described \enquote{perfect
 predictor} may satisfy an action-based fairness condition while its promised behaviour is
 logically inconsistent for some policy; Section~\ref{sec:bomb} gives an example. The presence of a
 fixed algorithm in the environment does not by itself make a self-referential specification well

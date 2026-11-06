@@ -1,0 +1,370 @@
+% -----------------------------------------------------------------------------------
+\section{How non-computable an optimal agent must be}\label{sec:degrees}
+
+Theorem~\ref{thm:existence} and Theorems~\ref{thm:fixedcopy}--\ref{thm:exactsel} leave a precise
+question: what oracle suffices, and what oracle is necessary, to compute an optimal decision
+function? The natural guess is the halting problem, since admissibility of a deterministic
+environment is a halting condition. The guess is wrong. Optimisation does not require recognising
+admissibility, and the exact strength it requires is that of choosing, among
+finitely many candidates, one that is never refuted. That strength is a classical degree class, the
+PA degrees, and it rises to the halting problem and beyond only when the theory is also required to
+say something definite off the admissible class or to break ties in a prescribed way.
+
+Write $\le_T$ for Turing reducibility, $\mathbf 0'$ for the degree of the halting problem and
+$\mathbf 0''$ for that of its relativisation. An oracle $X$ \emph{computes} an optimal agent of a
+given totality if some $X$-computable agent of that totality is optimal.
+
+\subsection{Diagonally non-computable functions}
+
+\begin{definition}[Binary DNC and PA degree]\label{def:dnc}
+A total function $g:\mathbb N\to\{0,1\}$ is \emph{binary diagonally non-computable} if
+$g(e)\neq\varphi_e(e)$ whenever $\varphi_e(e)$ halts. A degree is a \emph{PA degree} if it computes
+such a function.
+\end{definition}
+
+No binary DNC function is computable, since an index $e$ of it would give $g(e)\neq g(e)$. The name
+comes from the equivalent condition that the degree computes a complete consistent extension of
+Peano arithmetic. Equivalently, a degree is PA iff it computes a set separating $K_0$ from $K_1$, since
+$1-s$ is binary DNC when $s$ separates them, and conversely. These equivalences go back to
+\textcite{scott1962}, Solovay \autocite[Thm.~V.5.36]{odifreddi1989}, and
+\textcite{jockuschsoare1972trans}; \textcite[§3.1]{hirschfeldt2014} gives a
+modern account. The one consequence needed here is elementary.
+
+\begin{lemma}[Finite selection]\label{lem:finitesel}
+Let a finite nonempty set $B$ of candidates be given, together with a computably enumerable process
+excluding candidates, uniformly in the data, such that at least one candidate is never excluded. Any
+binary DNC function selects, with finitely many queries and uniformly in the data, a candidate that is
+never excluded.
+\end{lemma}
+
+\begin{proof}
+If $|B|>1$, split $B$ into nonempty parts $B_0,B_1$, and compute an index $k$ of the program that
+ignores its input, runs the exclusion process, and outputs $i$ as soon as every member of $B_i$ has
+been excluded. At most one part is ever wholly excluded, because some candidate survives. Continue
+with $B_{g(k)}$: if it were wholly excluded, $\varphi_k(k)=g(k)$, contrary to the definition of $g$. So
+$B_{g(k)}$ contains a survivor, and after fewer than $|B|$ steps a singleton survivor remains.
+\end{proof}
+
+The procedure never waits for the exclusion process; it only asks $g$ about programs that would wait.
+Selecting a survivor is therefore weaker than recognising one; in the language of
+\textcite{brattkaetal2012} it is finite closed choice.
+
+\subsection{The degree theorem}
+
+\begin{theorem}[Optimality has PA strength]\label{thm:pa}
+For an oracle $X$:
+\begin{enumerate}[label=(\roman*)]
+  \item $X$ computes a globally total optimal agent on $\mathcal P_{\mathbb Q}$ iff $X$ has PA degree;
+  \item $X$ computes a globally total optimal agent on $\mathcal P_{\mathrm{as}}$ iff $X$ has PA degree;
+  \item $X$ computes a promise-total optimal agent on $\mathcal P_{\mathrm{as}}$ iff $X$ has PA degree;
+\end{enumerate}
+while a promise-total optimal agent on $\mathcal P_{\mathbb Q}$ is computable
+(Theorem~\ref{thm:promiseopt}).
+\end{theorem}
+
+\begin{proof}
+\emph{Upper bound for (i).} On an owned query of a description $E$, take the policies of $E$ as
+candidates, and let the exclusion process simulate $E^\pi$ for every $\pi$; if all simulations halt,
+it excludes exactly the non-maximising policies, and otherwise it excludes nothing. Some candidate is
+never excluded on every description, and on admissible $E$ the survivors are exactly the maximisers.
+Lemma~\ref{lem:finitesel} selects one with an $X$-computable binary DNC function; every owned query of
+$E$ reconstructs the same selection, and the agent answers with its component. It halts on every
+input, since the lemma makes finitely many queries and never waits.
+
+\emph{Upper bound for (ii) and (iii).} For a policy $\pi$ and a time $s$, let $H_{\pi,s}$ be the
+probability that $E^\pi$ has halted by step $s$ and $L_{\pi,s}$ the expected reward collected on those
+executions. Both are rationals computable from the finite execution tree, and with
+$B_{\pi,s}=L_{\pi,s}+1-H_{\pi,s}$ the intervals $[L_{\pi,s},B_{\pi,s}]$ are nested, because newly
+halted mass contributes a reward between $0$ and that mass. On admissible $E$,
+\begin{equation}\label{eq:intervals}
+  V_E(\pi)\in[L_{\pi,s},B_{\pi,s}],\qquad B_{\pi,s}-L_{\pi,s}=1-H_{\pi,s}\to0 .
+\end{equation}
+Exclude $\pi$ as soon as $L_{\rho,s}>B_{\pi,s}$ for some $\rho$ and $s$. On admissible environments
+this excludes exactly the strictly suboptimal policies. On every description some policy survives:
+let $\ell_\pi=\lim_sL_{\pi,s}$, the reward collected on terminating executions; then
+$L_{\pi,s}\le\ell_\pi\le B_{\pi,s}$, so a maximiser $\pi^\circ$ of $\ell$ cannot be excluded, since
+$\ell_\rho\ge L_{\rho,s}>B_{\pi^\circ,s}\ge\ell_{\pi^\circ}$ would follow. The quantity $\ell$ serves only
+this argument and changes no admissibility condition. Lemma~\ref{lem:finitesel} now gives a globally
+total agent, optimal on $\mathcal P_{\mathrm{as}}$, and \emph{a fortiori} a promise-total one.
+
+\emph{Lower bound for (i).} Let $D_e$ run $\varphi_e(e)$ and, if it returns a bit $b$, pay
+$\one[a=b]$; if it returns anything else, pay $0$ for both actions. $D_e$ is admissible iff
+$\varphi_e(e)$ halts. For a globally total optimal $T$, $s(e)=T(d(D_e))$ is total, even where $D_e$ is
+inadmissible, and equals $b$ whenever $e\in K_b$. So $s$ separates $K_0$ from $K_1$ and $1-s$ is binary
+DNC.
+
+\emph{Lower bound for (ii) and (iii).} Every environment $E_e$ of Theorem~\ref{thm:exactsel} lies in
+$\mathcal P_{\mathrm{as}}$, and an optimal agent, promise-total or global, satisfies $T(d(E_e))=b$ for
+$e\in K_b$. Since all $E_e$ are admissible, $s(e)=T(d(E_e))$ is total, and it separates $K_0$ from
+$K_1$.
+\end{proof}
+
+Three consequences of the theorem bear on the thesis. First, the deterministic lower bound uses no
+self-reference and no copy of any agent: $D_e$ is generated independently of the theory evaluated.
+It contains Theorem~\ref{thm:fixedcopy} as the special case $X=\varnothing$, and shows that the
+obstruction to a globally total optimiser is not a predictor but the task of completing the promise
+optimiser of Theorem~\ref{thm:promiseopt} on descriptions that might be admissible. Second, the
+optimiser does not decide admissibility, which for $\mathcal P_{\mathrm{as}}$ is of degree
+$\mathbf 0''$ (Proposition~\ref{prop:admissibility}); it only selects a survivor. Third, on
+$\mathcal P_{\mathrm{as}}$ the strength is required even of agents that halt only on the promise,
+which is why Theorem~\ref{thm:exactsel} is a negative result about exact selection and not about
+totality.
+
+\begin{corollary}[The spectrum of optimal agents]\label{cor:spectrum}
+On $\mathcal P_{\mathbb Q}$ and on $\mathcal P_{\mathrm{as}}$:
+\begin{enumerate}[label=(\roman*)]
+  \item every PA degree is the exact Turing degree of some optimal decision function;
+  \item some optimal decision function $T$ satisfies $\mathbf 0<_T T<_T\mathbf 0'$;
+  \item for every non-computable set $Y$ there is an optimal decision function that does not compute
+        $Y$, so no single non-computable set is computed by every optimal decision function.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(i) Given $X$ of PA degree, take an $X$-computable optimiser from Theorem~\ref{thm:pa} and modify it on
+a computable family of distinct binary environments $F_n$ in which both actions tie, answering
+$X(n)$ on $d(F_n)$. Ownership confines each modification to $F_n$, so the result is still optimal and
+$X$-computable, and it computes $X$. (ii) By the low basis theorem \autocite[Thm.~2.1]{jockuschsoare1972trans}, which applies
+to the $\Pi^0_1$ class of separating sets of $K_0$ and $K_1$,
+there is a PA degree $X$ with $X'\equiv_T\mathbf 0'$; it does not compute $\mathbf 0'$, since otherwise
+$\mathbf 0''\le_T X'\equiv_T\mathbf 0'$. Apply (i). (iii) By the cone-avoidance basis theorem for
+$\Pi^0_1$ classes \autocite[Thm.~2.5]{jockuschsoare1972trans}, applied to the class of separating sets of $K_0$
+and $K_1$, some PA degree does not compute $Y$. Apply (i).
+\end{proof}
+
+So \enquote{optimal agents need the halting problem} is false, and there is no least degree of
+optimality: the PA degrees have no least element.
+
+\subsection{Admissibility and prescribed answers}
+
+\begin{proposition}[Complexity of admissibility]\label{prop:admissibility}
+Membership in $\mathcal P_{\mathbb Q}$ is $\Sigma^0_1$-complete, and membership in
+$\mathcal P_{\mathrm{as}}$ is $\Pi^0_2$-complete.
+\end{proposition}
+
+\begin{proof}
+Since there are finitely many policies, $E\in\mathcal P_{\mathbb Q}$ iff for some $s$ every $E^\pi$
+halts legally within $s$ steps, a decidable condition on $s$; an environment that ignores the action,
+runs a given computation and then pays $0$ is admissible exactly when the computation halts. For the
+stochastic class, $E\in\mathcal P_{\mathrm{as}}$ iff $\forall k\,\exists s\,\forall\pi\in\Pol_E\colon
+H_{\pi,s}>1-2^{-k}$, and the last quantifier is finite. For hardness, reduce
+$\mathrm{TOT}=\{e:\varphi_e\text{ is total}\}$: draw a geometric $N$ and run $\varphi_e(N)$ without a
+bound. Every $n$ has positive probability, so the environment terminates almost surely exactly when
+$e\in\mathrm{TOT}$.
+\end{proof}
+
+The stochastic half is the $\Pi^0_2$-completeness of almost-sure termination proved by
+\textcite{kaminskikatoen2015}; see also \textcite[§4]{kaminskietal2019}. A theory that must answer a prescribed default on every inadmissible
+description, as the existence theorem permits, needs this much more.
+
+\begin{proposition}[Prescribed answers]\label{prop:defaults}
+Let the agent be required to return a given computable default on every description that is not an
+owned query of an admissible environment.
+\begin{enumerate}[label=(\roman*)]
+  \item On $\mathcal P_{\mathbb Q}$ every such optimal agent computes $\mathbf 0'$, and one is computable
+        from $\mathbf 0'$.
+  \item On $\mathcal P_{\mathrm{as}}$ every such optimal agent computes $\mathbf 0''$, and one is
+        computable from $\mathbf 0''$.
+  \item On $\mathcal P_{\mathrm{as}}$, if ties must be broken in a fixed order, every promise-total
+        optimal agent computes $\mathbf 0'$, and one is computable from $\mathbf 0'$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Take the default to be $0$; for another computable default, the environments below compute it on their
+own description and reward its opposite. (i) Let $H_e$ wait for $\varphi_e(e)$ and, if it halts, pay
+the action $a\in\{0,1\}$. If $\varphi_e(e)$ halts, $1$ is the unique optimum; otherwise $H_e$ is
+inadmissible and the default applies. So $T(d(H_e))=1$ iff $\varphi_e(e)$ halts. Conversely,
+$\mathbf 0'$ decides admissibility, after which the simulation of Theorem~\ref{thm:promiseopt}
+applies. (ii) Let the environment draw a geometric $N$, run $\varphi_e(N)$, and if it halts pay $a$. It
+is admissible, with unique optimum $1$, iff $e\in\mathrm{TOT}$, so $T$ decides $\mathrm{TOT}$.
+Conversely, $\mathbf 0''$ decides admissibility, and on admissible environments $\mathbf 0'$ decides
+the $\Sigma^0_1$ exclusion predicate of the proof of Theorem~\ref{thm:pa}, whose survivors are the
+maximisers. (iii) Let action $0$ pay $0$, and let action $1$ draw a geometric $N$, simulate a given
+computation for $N$ steps and pay $1$ if it has halted. Action $1$ has value $2^{-t}$ if the
+computation halts at step $t$ and value $0$ otherwise, so with ties broken towards $0$ the agent
+chooses $1$ iff the computation halts. Conversely, $\mathbf 0'$ decides exclusion, and the first
+survivor in the fixed order is the prescribed maximiser.
+\end{proof}
+
+The PA classification therefore concerns optimality as defined, which permits any maximiser and any
+answer off the admissible class. Every additional specification of what the theory must say, such as
+a default outside the class or an order among tied alternatives, specifies something other than the
+choice among alternatives in admissible problems, and it is what raises the degree.
+
+\subsection{Relativisation}
+
+\begin{theorem}[Relativised diagonal]\label{thm:reldiag}
+Fix an oracle $X$, and let environments and their embedded programs be $X$-computable, with the same
+ownership and termination conditions. Then no globally total $X$-computable agent is optimal, an
+optimal decision function still exists, and Theorem~\ref{thm:pa} and Proposition~\ref{prop:defaults}
+hold with binary $\mathrm{DNC}^X$ functions in place of binary DNC functions and with $X'$, $X''$ in
+place of $\mathbf 0'$, $\mathbf 0''$.
+\end{theorem}
+
+\begin{proof}
+The relativised recursion theorem \autocite[Thm.~II.2.13 and p.~177]{odifreddi1989} constructs, for each globally total
+$X$-computable $T$, an $X$-computable environment with $U(E^X_T,A)=\one[A(d)\ne T(d)]$; its fixed
+computation of $T(d)$ halts, so it is admissible and defeats $T$. Existence uses only finiteness and
+ownership. The remaining proofs relativise line by line.
+\end{proof}
+
+The oracle of the environments is held fixed in the theorem. If environments may consult the
+optimiser's stronger oracle, the class is a new one and the diagonal applies again: for every class of
+environments closed under an oracle, an optimal agent exists, and every optimal agent that halts on
+every input lies strictly above that oracle in the sense of computing a $\mathrm{DNC}^X$ function. This
+makes precise the claim that an optimal theory must lie above every environment that can run it.
+
+\subsection{Sharpness of the hypotheses}
+
+Table~\ref{tab:sharpness} records what fails when each hypothesis is dropped. The constructions are
+short, and the non-obvious ones are given after the table.
+
+\begin{table}[htbp]
+  \centering\small
+  \renewcommand{\arraystretch}{1.2}
+  \captionabove{Hypotheses of Theorems~\ref{thm:existence} and~\ref{thm:pa}, and what fails without
+                them.}
+  \label{tab:sharpness}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{9.6em}
+                                    >{\raggedright\arraybackslash}X@{}}
+    \toprule
+    hypothesis dropped & consequence \\
+    \midrule
+    owned queries & no optimal function of any degree (Prop.~\ref{prop:foreign}) \\
+    embedded copies fixed & the diagonal of Thm.~\ref{thm:fixedcopy} disappears; the lower bounds of
+                            Thm.~\ref{thm:pa} remain, since they use no copy \\
+    termination under every table & with divergence paying a fixed value, exact optimisation decides
+                                    halting even on deterministic environments \\
+    explicit rational values & with values given as computable reals, deterministic exact
+                               optimisation needs PA degree even on the promise \\
+    rewards bounded in $[0,1]$ & an almost surely terminating family with finite values forces
+                                 $\mathbf 0'$, even for $\varepsilon$-optimality with $\varepsilon<\tfrac12$ \\
+    exact optimality & $\varepsilon$-optimal and unique-maximiser agents are computable on the
+                       promise (Prop.~\ref{prop:approxopt}) \\
+    finite policy spaces & a maximum need not exist: payoffs $1-1/(n+1)$ on actions $n\in\mathbb N$ \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+For computable reals, let $v_e(b)=2^{-t}$ and $v_e(1-b)=0$ if $\varphi_e(e)$ first halts with bit $b$
+at step $t$, and $v_e\equiv0$ otherwise. These values have uniformly computable fast Cauchy names, and
+every one of them is in fact rational; what is missing is its explicit exact representation. An exact
+optimiser separates $K_0$ from $K_1$ as in Theorem~\ref{thm:pa}. For unbounded rewards, draw $N\ge1$
+with probability $2^{-N}$; let action $0$ pay $\tfrac12$ and action $1$ pay $2^N$ exactly when a given
+computation first halts at step $N$. Then $V(1)=1$ if the computation halts and $V(1)=0$ otherwise, so
+any agent within $\tfrac12$ of optimal decides halting. The values are finite but not uniformly
+computable, which is why Proposition~\ref{prop:approxopt}(i) does not apply.
+
+\subsection{Unfair problems}\label{sec:unfair}
+
+The remaining question is the one the thesis began with: which theories face problems built against
+them? \enquote{Built against} names a provenance unless a mathematical witness is specified. The
+anti-prediction environments $E_p$ of Proposition~\ref{prop:antipred} supply one without reference to
+optimality: $E_p$ is \emph{accurate for} a decision function $T$ if $p(d(E_p))=T(d(E_p))$. For
+admissible $E_p$, accuracy is equivalent to defeat, since $T$ then receives $0$ while the optimum is
+$1$.
+
+\begin{proposition}[Unfairness and computability]\label{prop:unfair}
+\leavevmode
+\begin{enumerate}[label=(\roman*)]
+  \item For every oracle $X$, every globally total $X$-computable decision function has an accurate,
+        admissible, $X$-computable anti-prediction environment, constructed uniformly from its index.
+  \item No optimal decision function has an accurate admissible anti-prediction environment.
+  \item Some non-computable decision function has an accurate admissible anti-prediction environment.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) is Theorem~\ref{thm:reldiag} and (ii) is Proposition~\ref{prop:antipred}. For (iii), let $T^*$ be
+optimal and non-computable, by Theorem~\ref{thm:pa} and Corollary~\ref{cor:spectrum}, and let $E_0$ be
+the anti-prediction environment of the constant program $0$, so that $T^*(d(E_0))=1$. Changing this
+single answer to $0$ gives a non-computable function for which $E_0$ is accurate.
+\end{proof}
+
+The proposition refutes the claim that unfair problems exist exactly for computable theories. The
+defensible direction is
+\[
+  \text{global simulability by the environments}\ \Longrightarrow\ \text{uniformly constructible
+  defeat},
+\]
+and neither defeat nor local accuracy implies computability: non-computable theories can make
+predictable mistakes. Nor can computability be read off the restriction to owned queries, since every
+such restriction is a finite table and hence computable. Within the anti-prediction family the
+equivalence of accuracy and defeat is exact, but it characterises the family, not the computable
+theories. \textcite[Thm.~18]{leikehutter2015} make a related observation in a different setting:
+finite hard-coded behaviour defines a computable environment even when the policy it is aimed at is
+not computable.
+
+\subsection{Resource bounds}
+
+Finite clocks or circuit descriptions can support globally total optimisers, because every required
+evaluation then has a finite bound: on a decidable clocked language with a supplied execution bound,
+deterministic values are evaluated exhaustively and stochastic ones by summing a finite rational
+execution tree. They do not make optimisation as cheap as one execution.
+
+\begin{proposition}\label{prop:sat}
+If an agent running in time polynomial in the length of the description is exactly optimal on all
+environments with $n$ binary information sets and a Boolean circuit as payoff, then
+$\mathrm{P}=\mathrm{NP}$. If it is exactly optimal on all single-choice environments that run in
+polynomial time with fair coins, then $\mathrm{P}=\mathrm{PP}$.
+\end{proposition}
+
+\begin{proof}
+Given a Boolean formula with $n$ variables, form the environment whose information sets are the
+variables and whose payoff is $1$ exactly on satisfying assignments. Query the agent on its $n$ owned
+queries and evaluate the formula on the resulting policy. By optimality the policy is satisfying
+whenever a satisfying assignment exists, so this decides satisfiability in polynomial time
+\autocite{cook1971}. For the second claim, let action $1$ evaluate the formula on a uniformly random
+assignment and pay $1$ if it is satisfied, and let action $0$ pay $1$ with probability
+$\tfrac12+2^{-(n+1)}$. The value of action $1$ is a multiple of $2^{-n}$ and that of action $0$ is
+not, so there are no ties, and action $1$ is optimal iff more than half of the assignments satisfy the
+formula. This decides the $\mathrm{PP}$-complete problem $\mathrm{MAJSAT}$ \autocite{gill1977}.
+\end{proof}
+
+Each play of these environments is short; the difficulty lies in comparing alternatives, all of
+whose executions must be accounted for. A resource-bounded form of Theorem~\ref{thm:fixedcopy} holds
+against an agent $T$ whenever the environments' budget accommodates self-description, a simulation of
+$T$ on that description, and the final comparison. If the budget cannot accommodate the simulation,
+the diagonal gives no lower bound, so the useful resource condition is that the environments can run
+the agent, not a ranking of agents and environments by a single bound.
+
+Per-input runtime bounds do not decide program equivalence either; the construction of
+Theorem~\ref{thm:haltred} uses components bounded by $|x|$ steps on input $x$. The bounded variants
+of Löb's theorem proved by \textcite{critch2019} yield positive cooperation results for specified
+proof-responsive programs under proof-length assumptions; they do not establish optimality on a
+class of environments of the present kind.
+
+\subsection{What a fixed semantics settles}\label{sec:fixedsemantics}
+
+Theorem~\ref{thm:promiseopt} extends at once to any environment class that supplies a
+\emph{reference-independent} effective evaluator: a computable $V(E,\pi)$ on a finite policy space,
+with exactly comparable values, whether the evaluator works by source analysis, by simulation, or by
+proof. Finite circuits, explicitly clocked programs with stipulated time-out behaviour, and
+descriptions carrying checkable certificates of the required evaluations all have such evaluators,
+and admit optimisers that are globally total on the certified language, returning a default on
+invalid strings. One might conclude that once a rule for propagating the dependence of the world on
+the agent's output is fixed, optimal choice is a finite computation, and the only remaining question
+is which rule.
+
+The conclusion is false for anchored kernels. A fixed, computable kernel makes each comparison
+computable, but it need not admit an agent whose actual output maximises it. In
+Proposition~\ref{prop:doublecall} under $O_{\mathrm{const}}$ every baseline yields a finite,
+unambiguous ranking, and every baseline is ranked below its alternative. Maximising a supplied table
+$V_E$ is a finite computation; being a fixed point of a baseline-dependent kernel is a separate
+problem, the ratifiability problem of Part~\ref{part:single} in program form.
+
+Two further remarks fix the scope of \enquote{largest solvable class}. For reference-independent
+problems with disjoint owned queries, every decidable class on which some globally total agent is
+optimal can be enlarged by a single further problem, by altering the agent on that problem's owned
+queries only; under $\cls_{\mathrm{self}}$ this changes nothing on the original class, so there is
+no largest such class. Conversely, the class of all terminating, rational-valued, finite-policy
+templates is a maximal promise domain for that representation, so an unqualified claim that there is
+no largest solvable class would also be false.
+
+Sections~\ref{sec:computation} and~\ref{sec:degrees} thus answer the question for a designated
+semantics completely. Optimal choice exists problem by problem; an optimal function is
+non-computable exactly when it must halt everywhere or compare computable reals exactly, and then its
+degree is PA; every further demand on it raises the degree without touching the choice among
+alternatives. Everything in this answer presupposed that the substitution interface was given. The
+remaining sections remove it.

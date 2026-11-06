@@ -4,7 +4,7 @@ type: position
 role: branch
 title: Whitehead's eternal objects
 status: open
-rejects: [mec/Dec-readingA, mec/E4, mec/Ps-modal, mec/Ps-actual]
+rejects: [mec/Which-position, mec/Dec-readingA, mec/E4, mec/Ps-modal, mec/Ps-actual]
 answers: [mec/Q3]
 contradicts: [Br-actual]
 cites: [whitehead1978]
