@@ -15,3 +15,9 @@ C-partial said the dependence is partial, with a remainder supplied by R. Nothin
 
 ## Left open
 Whether a contrast can hold wholly in virtue of another and still be a second contrast (F-ground). "Partly" also presupposes that what a contrast holds in virtue of can be divided into contributions; that presupposition is now stated here and nowhere argued.
+
+## Left-open point answered (2026-11-10)
+Test-realizations, constitutive case: a contrast can hold wholly in virtue of another and be a second contrast, when its positions differ.
+
+## Later (2026-11-10)
+The case that answered the left-open point was replaced. The new case shows the same with the same positions and different respects: K′ is due to nothing besides K and is still a second contrast.

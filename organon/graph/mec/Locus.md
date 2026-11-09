@@ -19,3 +19,6 @@ Partial supply by the description concerns the account's notation (E1, D-scope);
 
 ## What remains expressible
 An interaction that produces differences in F: K′ holds partly in virtue of K, and a further contrast K″ of F holds partly in virtue of K′. Excluded by Dec-asym: that the registered contrast K itself holds partly in virtue of K′.
+
+## After Dec-direction (2026-11-10)
+The core requires the first direction (K′ holds partly in virtue of K) and no longer excludes the second. Where both hold there is registration in both directions. The diagnosis stands: the two locations differ by direction of dependence, not by modality.

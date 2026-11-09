@@ -9,7 +9,7 @@ by: mario
 basis: both
 about: [Field-aspect, Ps-modal, Dec-groundD, Df-bears]
 layer: 1
-where: 2
+where: 3
 order: 113
 ---
 In Field-aspect, "subject to differentiation" means "bears a contrast" (Df-bears), not "can be differentiated". Whatever bears a contrast is, insofar as it does, a field.

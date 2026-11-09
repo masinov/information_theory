@@ -9,7 +9,7 @@ contradicts: [E2, E4]
 basis: commitment
 layer: 2
 since: 2026-10-23
-where: 4
+where: 5
 order: 49
 ---
 C is a rule assigning conditions of R to terms of F.

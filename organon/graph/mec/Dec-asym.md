@@ -4,12 +4,12 @@ since: 2026-11-09
 type: decision
 role: decision
 title: Strict asymmetry; transitivity left open
-status: taken
+status: revised
 by: mario
 basis: both
 about: [C-asym, E1-recv, Df-roles, Locus]
 layer: 1
-where: 4
+where: 5
 order: 114
 ---
 C-asym reads "not even partly": two contrasts do not each hold partly in virtue of the other. Whether "partly in virtue of" is transitive is left open.
@@ -22,3 +22,6 @@ Excluded: that a registered contrast is partly made by its own registration. E1-
 
 ## Reasons replaced (2026-11-10)
 By Dec-asymscope: the strict reading is grounded in the scope condition, not in the definition of roles. The decision itself stands.
+
+## Revised (2026-11-10)
+By Dec-direction: the strict reading is dropped; irreflexivity and direction are kept; mutual dependence is left open.

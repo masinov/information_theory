@@ -9,7 +9,7 @@ by: mario
 basis: both
 about: [C-prim, C-kind, F-trivial, Q1, Q2]
 layer: 1
-where: 4, 8
+where: 5, 10
 order: 122
 ---
 The core is a schema: it states what any dependence must satisfy to count as registration, and each domain supplies the dependence. It is to be shown non-empty by at least two worked realizations, one of them not physical.

@@ -9,7 +9,7 @@ by: mario
 basis: both
 about: [D, Arg-D, D-scope, Df-bears, Df-realized, E1, E1-self, E1-recv, F-groundD]
 layer: 1
-where: 2
+where: 3
 order: 112
 ---
 D is no longer admitted as a commitment. It splits into a consequence of the definitions (D: every field in which a registered articulation is realized bears that articulation's contrast) and a condition of method (D-scope: the reconstruction articulates only fields taken to bear the contrasts it specifies). The draft's guard against differences supplied by a description is D-scope; the guard against the receiver belongs to C and C-asym. E1 splits into three exclusions, each with its own source, and loses the label "pure constructivism".

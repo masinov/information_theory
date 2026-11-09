@@ -9,6 +9,7 @@ by: claude
 answers: [meta/Q-necessity]
 about: [P, Obj-stroud]
 order: 96
+where: 2
 ---
 The necessity the core claims is conceptual and conditional: necessarily, whatever is registered, of whatever kind, satisfies D, R and C, because this follows from what basic aboutness is (P, as restricted by Dec-restrictP).
 
@@ -26,3 +27,9 @@ Wherever anything is perceived or registered in any way. That anything is, is co
 
 ## Adopted (2026-11-09)
 By the author, with the revision of the paper, where it is stated in §1 and §8. After Dec-groundD and Dec-fieldaspect the derivation reads: D follows from the definitions alone; C is required by P (Arg-C); R follows from C. So P carries only C, and the conditional is: necessarily, whatever is registered in P's sense satisfies C, and with it D and R.
+
+## Refined (2026-11-10)
+By Dec-Pstatus. Two things follow from P. Whatever is decided about alternatives: registration requires a difference and a dependence on it. Given Dec-readingA: both terms of every contrast are actual and the dependence relates what actually holds. The first is the robust claim; the second fixes its form.
+
+## After the first cold reader (2026-11-10)
+The paper now says: it is the premise, not a proof, that carries the claim that the conditions are necessary for any basic epistemic relation. R needs only that nothing holds in virtue of itself (Dec-direction).

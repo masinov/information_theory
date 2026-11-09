@@ -2,7 +2,7 @@
 id: mec.process/_frame
 type: frame
 title: Process philosophy
-status: active
+status: paused
 investigation: mec/_investigation
 accepts: [mec/P, mec/Field-aspect, mec/Dec-restrictP, mec/Df-realized, mec/Df-specified, mec/Df-conditions, mec/Df-matching, mec/Df-roles, mec/Df-registration, mec/E1, mec/E2, mec/E3, mec/E5, mec/E6, mec/Ps-ground, mec/Ps-logic, mec/Dec-trunk, mec/C-actual, mec/C-partial, mec/C-local, mec/B-single, mec/X-cf, mec/X-rule, mec/X-transfer]
 rejects: [mec/B-reg]
@@ -21,3 +21,6 @@ Overrides Mp-parsimony: Whitehead's scheme is deliberately rich. Overrides Mp-fo
 
 ## Sources
 The claims about Whitehead in this frame were checked against secondary literature (level secondary), not against *Process and Reality* itself; quotations and page references must be checked against the text before use in a paper. Br-actual is constructed here, not taken from the literature.
+
+## Paused (2026-11-10)
+The stances above were taken against the wordings of 2026-10-24. Since then C, R, P, D, Df-field, Df-articulation, Df-roles and Df-registration have been reworded and several decisions added (journals of 2026-11-09 and 2026-11-10). The frame's result (Test-robust) is not withdrawn, but its stances must be reread before the frame is used again.

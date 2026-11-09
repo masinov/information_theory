@@ -9,7 +9,7 @@ by: mario
 basis: both
 about: [Field-aspect, C, R, Arg-R, Arg-C, Df-field, Df-conditions, Df-matching, Df-registration, F-pairing, F-subjectR, E2]
 layer: 1
-where: 5
+where: 6
 order: 115
 ---
 Field-aspect is adopted, with its consequences: C relates two contrasts and no longer mentions matching; R is a consequence of C, C-asym and Field-aspect; the term-by-term pairing is not part of the core; the argument for R no longer has R distinguish.

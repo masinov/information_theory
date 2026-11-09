@@ -9,7 +9,7 @@ by: mario
 about: [D, Dec-groundD]
 requires: [Df-bears, Df-specified]
 layer: 1
-where: 2
+where: 3
 order: 2
 ---
 The reconstruction articulates only fields taken to bear the contrasts it specifies, and concerns only contrasts the account specifies. Specification chooses the respect and selects a contrast borne in it; that it does not create the contrast is a stipulation of the route, not a result.
@@ -25,3 +25,6 @@ Relabelling the terms of an articulation, or replacing ⟨a,δ,b⟩ by ⟨b,δ�
 
 ## Extended to registration (2026-11-10)
 By Dec-asymscope. The same condition grounds the strict asymmetry of C: a differentiation attributable to its target is supplied, even in part, neither by a description (E1) nor by its own registration (E1-recv). The statement above is unchanged.
+
+## Extension withdrawn (2026-11-10)
+By Dec-direction. The condition excludes respects supplied by a description (E1) and nothing about registration.

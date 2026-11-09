@@ -4,7 +4,7 @@ type: claim
 role: presupposition
 title: Ps-modal
 status: examined
-where: D, R; §2
+where: D, R; §3
 layer: 1
 order: 26
 ---

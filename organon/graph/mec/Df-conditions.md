@@ -4,7 +4,7 @@ type: concept
 role: definition
 title: conditions r, r′ of R
 status: adopted
-where: 5
+where: 6
 layer: 1
 requires: [Df-bears]
 order: 12

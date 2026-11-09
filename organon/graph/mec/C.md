@@ -4,7 +4,7 @@ type: claim
 role: commitment
 title: Receptive dependence
 status: adopted
-where: 4
+where: 5
 requires: [Df-bears]
 layer: 1
 order: 4

@@ -23,12 +23,13 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | M4 | in force | in force |
 | M5 | in force | in force |
 | Mp-parsimony | in force | **overridden** |
+| M6 | in force | in force |
 | Mp-classical | in force | in force |
 | Mp-foundational | in force | **overridden** |
 | Mp-separable | in force | in force |
 | Mp-schema | in force | in force |
-| D-scope | local | in force |
 | mec.process/Mp-speculative |  | local |
+| D-scope | local | in force |
 
 ---
 
@@ -47,7 +48,7 @@ Layer 1:
 | Q0 | Preconditions of knowledge | open |  |
 | P | Guiding premise | accepts |  |
 | D | Borne contrast (formerly Differentiability) | reinterprets | Definiteness |
-| R | Second relatum | reinterprets | Occasion |
+| R | The registering contrast and its bearer | reinterprets | Occasion |
 | C | Receptive dependence | reinterprets | Prehension |
 | Lone | A lone term | not addressed |  |
 | Df-bears | bearing a contrast; position; specified term | not addressed |  |
@@ -60,7 +61,6 @@ Layer 1:
 | Df-roles | target, receiver | accepts |  |
 | Df-registration | registration | accepts |  |
 | E1 | The reconstruction concerns a respect whose holding depends, even partly, on the specifica… | accepts |  |
-| E1-recv | A registered contrast holds, even partly, in virtue of the receiving contrast that registe… | not addressed |  |
 | E1-self | A receiver merely differing within itself, where its contrast does not hold even partly in… | not addressed |  |
 | E2 | Registration consists in resemblance or term-by-term correspondence. | accepts |  |
 | E3 | Registration is a transfer from target to receiver. | accepts |  |
@@ -79,7 +79,7 @@ Layer 1:
 | Q3 | Can registration of *which way* F is be reconstructed from contrasts between actual terms,… | answered | by Br-eternal; see FP-which |
 | Q4 | What order do acquisition and retention require, and is anything stronger than an asymmetr… | answered | by Order |
 | Dec-readingA | Reading A | divided | Br-actual accepts; Br-eternal rejects |
-| C-asym | Asymmetry | reinterprets | Asymmetry |
+| C-asym | Direction | reinterprets | Asymmetry |
 | C-actual | Actuality | accepts |  |
 | C-partial | Partiality | accepts |  |
 | Dec-restrictP | Restrict P to basic aboutness | accepts |  |
@@ -91,12 +91,16 @@ Layer 1:
 | Dec-indiscriminate | Registration is indiscriminate at this level | not addressed |  |
 | Dec-schema | The core is a schema | not addressed |  |
 | Dec-asymscope | Strict asymmetry grounded in the scope condition | not addressed |  |
+| Dec-Pstatus | P argued as an analysis; what is robust and what rests on Reading A | not addressed |  |
+| Dec-primitive | The two primitives, under rule M6 | not addressed |  |
+| Dec-direction | Direction and irreflexivity, not strict asymmetry | not addressed |  |
+| Dec-claims | Strength of the claims; what is ruled out and what is only not included | not addressed |  |
 
 Layer 2:
 
 | Id | Entry | Stance | In the frame |
 |---|---|---|---|
-| C-prim | The dependence named by "in virtue of" in C is primitive: the core characterizes it by C-a… | reinterprets | Prehension |
+| C-prim | The dependence named by "in virtue of" in C is primitive. The core binds it by five stated… | reinterprets | Prehension |
 | C-kind | Kind-neutrality | reinterprets | Prehension |
 | C-local | Whether C obtains in an instance is not fixed by descriptions of the relata, nor by what w… | accepts |  |
 | B-single | Singularity | accepts |  |

@@ -9,7 +9,7 @@ contradicts: [C-actual, E4]
 basis: both
 layer: 2
 since: 2026-10-23
-where: 4
+where: 5
 order: 48
 ---
 C holds because R would differ if F differed (counterfactual or interventionist dependence).

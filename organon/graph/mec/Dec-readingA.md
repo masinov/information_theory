@@ -6,7 +6,7 @@ title: Reading A
 status: taken
 by: mario
 basis: both
-where: 3, 6
+where: 4, 7
 about: [D, R]
 layer: 1
 order: 36

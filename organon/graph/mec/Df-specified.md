@@ -4,7 +4,7 @@ type: concept
 role: definition
 title: specified articulation
 status: adopted
-where: 3
+where: 4
 layer: 1
 requires: [Df-articulation]
 order: 11

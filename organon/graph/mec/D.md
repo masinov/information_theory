@@ -4,7 +4,7 @@ type: claim
 role: consequence
 title: Borne contrast (formerly Differentiability)
 status: adopted
-where: 3
+where: 4
 requires: [Df-registration, Df-realized]
 layer: 1
 order: 2
