@@ -1,0 +1,19 @@
+n=1: relations=2 asymmetric=1
+  asymmetric but something holds in virtue of itself: 0
+  asymmetric with a loop: 0
+  asymmetric and transitive: 1, of which with a loop: 0
+n=2: relations=16 asymmetric=3
+  asymmetric but something holds in virtue of itself: 0
+  asymmetric with a loop: 0
+  asymmetric and transitive: 3, of which with a loop: 0
+n=3: relations=512 asymmetric=27
+  asymmetric but something holds in virtue of itself: 0
+  asymmetric with a loop: 2  e.g. [(0, 2), (1, 0), (2, 1)]
+  asymmetric and transitive: 19, of which with a loop: 0
+n=4: relations=65536 asymmetric=729
+  asymmetric but something holds in virtue of itself: 0
+  asymmetric with a loop: 186  e.g. [(1, 3), (2, 1), (3, 2)]
+  asymmetric and transitive: 219, of which with a loop: 0
+own contrast: D(K1,K0), both borne by one field; asymmetric: True irreflexive: True
+chain without transitivity: K2 registers K0? False
+chain with transitivity:    K2 registers K0? True

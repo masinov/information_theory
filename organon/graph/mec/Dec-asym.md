@@ -19,3 +19,6 @@ Claude recommended both; the author decided. Content: Df-roles defines target an
 
 ## Cost
 Excluded: that a registered contrast is partly made by its own registration. E1-recv excludes only direct dependence back; a loop through a third contrast is not excluded while transitivity is open.
+
+## Reasons replaced (2026-11-10)
+By Dec-asymscope: the strict reading is grounded in the scope condition, not in the definition of roles. The decision itself stands.

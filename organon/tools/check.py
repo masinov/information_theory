@@ -171,6 +171,23 @@ def main():
         if n not in state:
             visit(n)
 
+    # Arguments that rest on what they support: a circle through `supports`, which the search above
+    # does not follow (found by hand in mec/Arg-C, 2026-11-09).
+    def rests_on(n, seen):
+        for m in graph.get(n, []):
+            if m is not None and m not in seen:
+                seen.add(m)
+                rests_on(m, seen)
+        return seen
+
+    for e in entries:
+        supported = [resolve(r, e.ns, ids) for r in e.list('supports')]
+        if supported:
+            below = rests_on(e.id, set())
+            for s in supported:
+                if s in below:
+                    warn('supports', f'{e.id} supports {s} and rests on it through requires')
+
     # Bibliography: every entry carries a verification level.
     for key, b in bib.items():
         if b['verified'] not in VERIFIED:

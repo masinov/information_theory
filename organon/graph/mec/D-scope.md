@@ -22,3 +22,6 @@ It does not argue against the view that all differentiation is supplied. It stat
 
 ## Heuristic
 Relabelling the terms of an articulation, or replacing ⟨a,δ,b⟩ by ⟨b,δ⁻¹,a⟩, where δ⁻¹ is the converse respect, must not change whether the articulation is realized. A heuristic only: as a definition of "merely notational" it is circular, since positions are individuated by the contrasts under test.
+
+## Extended to registration (2026-11-10)
+By Dec-asymscope. The same condition grounds the strict asymmetry of C: a differentiation attributable to its target is supplied, even in part, neither by a description (E1) nor by its own registration (E1-recv). The statement above is unchanged.

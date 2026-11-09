@@ -8,10 +8,10 @@ status: adopted
 where: 4
 excluded_by: [C, C-asym]
 about: [Dec-groundD]
-layer: 2
+layer: 1
 order: 20
 ---
 A registered contrast holds, even partly, in virtue of the receiving contrast that registers it.
 
 ## Excluded by
-C and C-asym, read as "not even partly in virtue of" (Dec-asym). Only direct dependence back is excluded: transitivity is left open (Dec-asym), so a loop through a third contrast is not excluded.
+D-scope, through C-asym, as a matter of scope (Dec-asymscope), like E1. Only direct dependence back is excluded: transitivity is left open (Dec-asym), so a loop through a third contrast is not excluded.

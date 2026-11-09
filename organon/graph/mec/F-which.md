@@ -15,3 +15,6 @@ Registration as defined is of a specified articulation. Later layers need regist
 
 ## Proposal (2026-10-24)
 Which-position: which way F is can be registered relative to F's actual variety, not against mere possibilities. If adopted, this friction is resolved by restriction. Open until the author decides.
+
+## Dependence on Layer 3 (2026-11-10)
+Which-position needs several instances, pairing, re-identification and retention, so Q3 depends on Q4. Since Dec-fieldaspect the pairing is not in C and must be added as a commitment; since Dec-indiscriminate the core does not even single out one registered contrast.

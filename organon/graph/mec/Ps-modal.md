@@ -3,7 +3,7 @@ id: mec/Ps-modal
 type: claim
 role: presupposition
 title: Ps-modal
-status: unexamined
+status: examined
 where: D, R; §2
 layer: 1
 order: 26
@@ -15,3 +15,6 @@ Since Dec-groundD (2026-10-25), D is not modal, so this presupposition no longer
 
 ## Note (2026-11-09)
 Field-aspect is adopted (Dec-fieldaspect): R no longer "admits differentiation of its own". Nothing in Layer 1 now presupposes Ps-modal. It is kept as the reading B-power would need.
+
+## Examined (2026-11-10)
+Nothing in Layer 1 presupposes it since Dec-groundD, Dec-fieldactual and Dec-fieldaspect. Kept only as the reading B-power would need.

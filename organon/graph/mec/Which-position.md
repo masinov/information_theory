@@ -40,3 +40,6 @@ Saussure held that the value of a sign is fixed by the other signs actually in t
 
 ## If adopted
 F-which is resolved by restriction: which-way registration is available relative to F's actual variety; registration against mere possibilities is left to later layers that admit alternatives as an explicit further commitment.
+
+## Needs rereading (2026-11-10)
+Written when matching was part of C. Since Dec-fieldaspect the pairing of terms with conditions is a further commitment, and since Dec-repairs "contrast" means the particular difference, not the respect.
