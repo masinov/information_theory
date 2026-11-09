@@ -4,7 +4,7 @@ type: claim
 role: presupposition
 title: Ps-individ
 status: unexamined
-where: R; §4
+where: R; §5
 layer: 1
 order: 30
 ---

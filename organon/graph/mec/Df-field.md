@@ -7,5 +7,9 @@ status: adopted
 where: 2
 layer: 1
 order: 8
+requires: [Df-bears]
 ---
-Whatever is under consideration; fixes the scope of the inquiry. Implies no region, objects, boundary, or presentation to a subject.
+A field is whatever bears a contrast, insofar as it does: an aspect, not a kind of thing. F designates the field under consideration as target, which fixes the scope of the inquiry. Implies no region, objects, boundary, or presentation to a subject.
+
+## Revision (2026-11-09)
+By Dec-fieldaspect and Dec-fieldactual. Previous wording: "Whatever is under consideration; fixes the scope of the inquiry. Implies no region, objects, boundary, or presentation to a subject."

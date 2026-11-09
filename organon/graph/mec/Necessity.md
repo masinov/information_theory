@@ -4,7 +4,7 @@ since: 2026-10-24
 type: claim
 role: proposal
 title: Conditional, conceptual necessity
-status: proposed
+status: adopted
 by: claude
 answers: [meta/Q-necessity]
 about: [P, Obj-stroud]
@@ -23,3 +23,6 @@ If P correctly says what being about something is, the conditional also holds in
 
 ## Where registration occurs
 Wherever anything is perceived or registered in any way. That anything is, is contingent, and evident to anyone who perceives. Before P was restricted, the denial that registration occurs was self-defeating, since any claim was taken to be about something in P's sense. After the restriction, a denial made by description need not itself be an instance; the categorical claim rests on the occurrence of perception, not on the impossibility of denying it.
+
+## Adopted (2026-11-09)
+By the author, with the revision of the paper, where it is stated in §1 and §8. After Dec-groundD and Dec-fieldaspect the derivation reads: D follows from the definitions alone; C is required by P (Arg-C); R follows from C. So P carries only C, and the conditional is: necessarily, whatever is registered in P's sense satisfies C, and with it D and R.

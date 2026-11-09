@@ -12,3 +12,6 @@ order: 26
 
 ## Notes
 Since Dec-groundD (2026-10-25), D is not modal, so this presupposition no longer concerns F as target. It remains for R's "admits differentiation of its own" only until Field-aspect is adopted, which by Dec-fieldactual is read without modality. A potentiality, if one is needed, is to be added as a separate commitment.
+
+## Note (2026-11-09)
+Field-aspect is adopted (Dec-fieldaspect): R no longer "admits differentiation of its own". Nothing in Layer 1 now presupposes Ps-modal. It is kept as the reading B-power would need.

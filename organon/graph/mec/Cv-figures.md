@@ -4,7 +4,7 @@ type: convention
 role: convention
 title: Cv-figures
 status: in-force
-where: 3, 5, 6
+where: 3, 4, 6
 layer: 1
 order: 19
 ---

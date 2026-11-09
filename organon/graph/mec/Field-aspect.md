@@ -4,7 +4,7 @@ since: 2026-10-24
 type: claim
 role: proposal
 title: Field as an aspect, not a domain
-status: proposed
+status: adopted
 by: mario
 revises: [One-field]
 about: [R, Arg-R, Df-field, Df-conditions, Df-roles, E6, F-subjectR, F-pairing]
@@ -30,3 +30,6 @@ Whether target and receiver are the same field, parts of a larger one, or neithe
 
 ## Origin
 The author's point, in reply to the questions why R must have two conditions and why R should distinguish anything. Claude first restated it as One-field, which overreached; this entry follows the author's correction.
+
+## Adopted (2026-11-09)
+By the author: Dec-fieldaspect.

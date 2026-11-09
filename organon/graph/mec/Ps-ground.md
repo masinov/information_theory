@@ -4,7 +4,7 @@ type: claim
 role: presupposition
 title: Ps-ground
 status: examined
-where: C; §5
+where: C; §4
 layer: 1
 see: [C-prim, C-asym, C-actual, C-partial, C-kind]
 order: 29

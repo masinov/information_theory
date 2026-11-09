@@ -80,6 +80,8 @@ Layer 1:
 | Dec-restrictP | Restrict P to basic aboutness | accepts |  |
 | Dec-groundD | D split into a consequence and a condition of method | not addressed |  |
 | Dec-fieldactual | Field-aspect read without modality | not addressed |  |
+| Dec-asym | Strict asymmetry; transitivity left open | not addressed |  |
+| Dec-fieldaspect | Field-aspect adopted | not addressed |  |
 
 Layer 2:
 

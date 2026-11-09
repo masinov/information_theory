@@ -4,7 +4,7 @@ type: claim
 role: consequence
 title: Differentiability
 status: adopted
-where: 2
+where: 3
 requires: [Df-registration, Df-realized]
 layer: 1
 order: 2
