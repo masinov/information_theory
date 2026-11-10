@@ -76,7 +76,7 @@ test protocols are in `organon/method/`.
 
 | Id | Statement | Requires | Does not establish | § |
 |---|---|---|---|---|
-| **D** | *Differentiation.* There is something under consideration, F. What appears of F is a difference that F bears. |  | Whether a thing is more than its differences; whether what it differs from is actual. | 2 |
+| **D** | *Differentiation.* There is something under consideration, F. What appears of F, in the elementary case, is a contrast that F bears. |  | Whether a thing is more than its differences; whether what it differs from is actual. | 2 |
 | **C** | *Receptive dependence.* A contrast of F appears only where some condition of something holds, at least partly, in virtue of it. |  | That anything is taken up; which contrast, among those depended on, a taking-up is of. | 4 |
 | **C-asym** | *Direction.* Nothing holds in virtue of itself. The dependence has a direction: that one contrast holds in virtue of another does not bring with it that the second holds in virtue of the first. Whether two distinct contrasts can each hold partly in virtue of the other is left open, and so is whether the dependence is transitive. The dependence holds between contrasts, not between fields: F and R may each depend on the other through different contrasts. | C, Df-roles |  | 4 |
 | **C-actual** | *Actuality.* C relates two contrasts that both hold. It says nothing about what would hold otherwise. | C, Ps-actual |  | 4 |

@@ -22,8 +22,8 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | M3 | in force | in force |
 | M4 | in force | in force |
 | M5 | in force | in force |
-| Mp-parsimony | in force | **overridden** |
 | M6 | in force | in force |
+| Mp-parsimony | in force | **overridden** |
 | Mp-classical | in force | in force |
 | Mp-foundational | in force | **overridden** |
 | Mp-separable | in force | in force |
