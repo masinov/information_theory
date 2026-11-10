@@ -9,7 +9,7 @@ layer: 1
 order: 2
 by: mario
 ---
-There is something under consideration, F. What appears of F, in the elementary case, is a contrast that F bears.
+There is something under consideration, F. What appears of F is nothing over and above contrasts that F bears.
 
 ## Does not establish
 Whether a thing is more than its differences; whether what it differs from is actual.
@@ -38,3 +38,6 @@ The author asked what "anything" meant in "For anything of F to appear, F must b
 
 ## Revision (2026-11-10, after the referee's fourth report)
 "Contrast" is the technical term: a difference between two actual terms in a given respect; the account takes difference as primitive and considers differences in this form. "In the elementary case" keeps D consistent with the proposal that anything else that appears does so through registrations, which does not say that it is itself a contrast. The unqualified wording would have been the stronger thesis that nothing but differences ever appears; that thesis is not adopted and remains open for the author. Previous wording: "There is something under consideration, F. What appears of F is a difference that F bears."
+
+## Revision (2026-11-10, the constitutive thesis)
+By Dec-constitutive. Previous wording: "There is something under consideration, F. What appears of F, in the elementary case, is a contrast that F bears."

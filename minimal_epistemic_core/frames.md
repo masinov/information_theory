@@ -28,8 +28,8 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | Mp-foundational | in force | **overridden** |
 | Mp-separable | in force | in force |
 | Mp-schema | in force | in force |
-| mec.process/Mp-speculative |  | local |
 | D-scope | local | in force |
+| mec.process/Mp-speculative |  | local |
 
 ---
 
@@ -101,6 +101,7 @@ Layer 1:
 | Dec-lean | The paper in a lean register, with D in the author's form | not addressed |  |
 | Dec-appear | "Appears" for what the core is about; "perceived" reserved for a subject | not addressed |  |
 | Dec-condition | One dependent condition; registration as the elementary form of appearing | not addressed |  |
+| Dec-constitutive | What appears is nothing over and above contrasts | not addressed |  |
 
 Layer 2:
 
