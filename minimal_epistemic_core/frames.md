@@ -22,14 +22,14 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | M3 | in force | in force |
 | M4 | in force | in force |
 | M5 | in force | in force |
-| Mp-parsimony | in force | **overridden** |
 | M6 | in force | in force |
+| Mp-parsimony | in force | **overridden** |
 | Mp-classical | in force | in force |
 | Mp-foundational | in force | **overridden** |
 | Mp-separable | in force | in force |
 | Mp-schema | in force | in force |
-| mec.process/Mp-speculative |  | local |
 | D-scope | local | in force |
+| mec.process/Mp-speculative |  | local |
 
 ---
 
@@ -45,6 +45,8 @@ Layer 1:
 
 | Id | Entry | Stance | In the frame |
 |---|---|---|---|
+| Pr-det | Determinacy | not addressed |  |
+| Pr-rec | Receptivity | not addressed |  |
 | Q0 | Preconditions of knowledge | open |  |
 | P | Guiding premise | accepts |  |
 | D | Borne contrast (formerly Differentiability) | reinterprets | Definiteness |
@@ -95,6 +97,7 @@ Layer 1:
 | Dec-primitive | The two primitives, under rule M6 | not addressed |  |
 | Dec-direction | Direction and irreflexivity, not strict asymmetry | not addressed |  |
 | Dec-claims | Strength of the claims; what is ruled out and what is only not included | not addressed |  |
+| Dec-principles | Two principles; actual terms argued; the necessity of an analysis | not addressed |  |
 
 Layer 2:
 

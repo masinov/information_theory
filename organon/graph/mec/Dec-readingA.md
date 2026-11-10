@@ -18,3 +18,6 @@ In the author's words: "Must be A. B needs some sort of alternative repository o
 
 ## Consequences
 Ps-actual, E4; all material on alternatives (Shannon, Dretske's probabilities, relevant alternatives, contrastivism, counterfactual and interventionist analyses) is confined to one paragraph of §6 on what the core does not include.
+
+## Grounds strengthened (2026-11-10)
+Arg-actual. The decision and its content stand as the author took them. It is now a consequence of receptivity with three supporting arguments, of which the third is the author's original reason.

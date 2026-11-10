@@ -8,7 +8,7 @@ where: 2
 layer: 1
 order: 1
 ---
-In its basic form, an epistemic relation is a relation to something in particular. (P1) What it is of is a difference: X as it differs, in some respect, from another term. (P2) That by which it is of that difference, the registering, is itself a difference, and it holds at least partly in virtue of the first. "Basic" means prior to concepts and descriptions. That such a relation is to something in particular is assumed.
+In its basic form, an epistemic relation is a receptive relation to something in particular. (P1) What it is of is a difference: X as it differs, in some respect, from another actual term. (P2) That by which it is of that difference, the registering, is itself a difference, and it holds at least partly in virtue of the first. "Basic" means prior to concepts and descriptions.
 
 ## Notes
 Motivates D, R and C. The core claims necessity only: P yields necessary conditions, not sufficient ones. P does not cover aboutness by description, of the future, or of mathematical objects; whether these are built from basic aboutness is Q5.
@@ -27,3 +27,6 @@ P1 no longer says "actual": that the other term is actual is Dec-readingA, not p
 
 ## Revision (2026-11-10, after the second cold reader)
 By Dec-claims. The premise no longer uses "registered", which is the defined term; P2 includes that the registering is a difference.
+
+## Revision (2026-11-10, final of the day)
+By Dec-principles: P follows from Pr-det and Pr-rec (Arg-P); "actual" returns to P1, now as a consequence (Arg-actual).

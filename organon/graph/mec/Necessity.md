@@ -33,3 +33,6 @@ By Dec-Pstatus. Two things follow from P. Whatever is decided about alternatives
 
 ## After the first cold reader (2026-11-10)
 The paper now says: it is the premise, not a proof, that carries the claim that the conditions are necessary for any basic epistemic relation. R needs only that nothing holds in virtue of itself (Dec-direction).
+
+## Final wording (2026-11-10)
+By Dec-principles: the necessity of an analysis. The conditions hold of whatever is a receptive relation to something in particular, of whatever kind. This returns to the first analysis of this entry (conceptual and conditional), with the premise now derived from two principles.

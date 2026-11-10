@@ -4,7 +4,7 @@ since: 2026-11-10
 type: decision
 role: decision
 title: P argued as an analysis; what is robust and what rests on Reading A
-status: taken
+status: revised
 by: claude
 basis: both
 about: [P, Arg-P, Necessity, Obj-stroud, Obj-harmony, Obj-intrinsic, F-Punargued, Dec-readingA, Dec-indiscriminate]
@@ -19,3 +19,6 @@ Content: registration is defined as an instance of C, so the informative claim o
 
 ## Revised (2026-11-10, after the first cold reader)
 P2 is a postulate, not the conclusion of an argument. It decides how cases are described, so no case refutes it; it is to be judged by what can be built on it. P1 is argued up to one flagged step. The paper says the necessity claimed is no stronger than the premise.
+
+## Revised (2026-11-10)
+By Dec-principles: P is neither an argued theorem nor a bare postulate; it follows from two stated principles.

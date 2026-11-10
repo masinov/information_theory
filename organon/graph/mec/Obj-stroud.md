@@ -19,3 +19,6 @@ Stroud's objection targets arguments that move from how things must seem to how 
 
 ## Answer (2026-11-10)
 Partly conceded. P is an analysis, defended by Arg-P and not proved, and the evidence for any such analysis includes our own case. What the argument does not use is any premise about the kind of receiver, so the restriction "for receivers like us" has no clause of the argument to attach to. What would count against P: a case we have independent reason to call a basic epistemic relation to K, in which nothing holds even partly in virtue of K. Stated in §2 of the paper (Dec-Pstatus).
+
+## Final answer (2026-11-10)
+The objection applies to arguments that pass from features of our thinking to features of the world. P makes no such passage: it says what a relation must be to be a taking-up of something, and leaves open whether, where and by what anything is taken up. What remains true: an analysis is answerable to the notion analysed, and we know the notion from our own case; hence the two stated points of refusal.

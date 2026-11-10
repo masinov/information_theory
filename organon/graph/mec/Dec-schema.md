@@ -19,3 +19,6 @@ Content: characterized only by its properties, and with C-local denying that any
 
 ## Not yet done
 The realizations. F-trivial stays open until they are worked; predictions are to be written first (method/T-bet).
+
+## Reading (2026-11-10)
+By Dec-principles the permissiveness is the main result of the realizations: there is no primitive epistemic relation; an epistemic relation is an ordinary dependence of difference on difference, and what makes it epistemic lies in what is built on it.

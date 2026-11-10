@@ -15,3 +15,6 @@ P does not count it as K′ registering K. It counts it as K′ and K each regis
 
 ## Later (2026-11-10)
 Since P2 is a postulate, this is not an objection answered by argument but a consequence accepted with the postulate: each of the two contrasts registers the third.
+
+## Final (2026-11-10)
+Answered by Pr-rec: whatever aboutness an arranged agreement has is owed to a dependence somewhere in the case.

@@ -16,3 +16,6 @@ In the causal case the dependence is identified by means that compare cases or c
 
 ## Resolution
 The conditions concern what the dependence relates when it holds, not how it is found to hold. The claim that they can be checked without alternatives is withdrawn. How an instance is known is not covered (meta/Q-evidence).
+
+## Later (2026-11-10)
+Stated positively in §2 and §8: what would have held otherwise, and the comparison of cases, are evidence of dependence; the conditions concern what the dependence relates.
