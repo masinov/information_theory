@@ -76,8 +76,8 @@ test protocols are in `organon/method/`.
 
 | Id | Statement | Requires | Does not establish | § |
 |---|---|---|---|---|
-| **D** | *Differentiation.* There is something under consideration, F. For anything of F to appear, F must bear a difference. |  | Whether a thing is more than its differences; whether what it differs from is actual. | 2 |
-| **C** | *Receptive dependence.* Something of F appears only where some condition of something holds, at least partly, in virtue of a contrast of F. |  | That anything is taken up; which contrast, among those depended on, a taking-up is of. | 4 |
+| **D** | *Differentiation.* There is something under consideration, F. What appears of F is a difference that F bears. |  | Whether a thing is more than its differences; whether what it differs from is actual. | 2 |
+| **C** | *Receptive dependence.* A contrast of F appears only where some condition of something holds, at least partly, in virtue of it. |  | That anything is taken up; which contrast, among those depended on, a taking-up is of. | 4 |
 | **C-asym** | *Direction.* Nothing holds in virtue of itself. The dependence has a direction: that one contrast holds in virtue of another does not bring with it that the second holds in virtue of the first. Whether two distinct contrasts can each hold partly in virtue of the other is left open, and so is whether the dependence is transitive. The dependence holds between contrasts, not between fields: F and R may each depend on the other through different contrasts. | C, Df-roles |  | 4 |
 | **C-actual** | *Actuality.* C relates two contrasts that both hold. It says nothing about what would hold otherwise. | C, Ps-actual |  | 4 |
 
@@ -99,7 +99,7 @@ Not claims of the core: rules about what the reconstruction articulates.
 
 Argument for **Dec-readingA** (§2): Three reasons for the decision, one for each place where alternatives might be brought in. In what is taken up: D and C do not by themselves exclude a difference from a way that nothing actual is, but such a way has to be supplied, by a stock of possibilities (an assumption about what there is that the account does not make), by what receives (the third place), or by the account's own specification (which D-scope excludes). In the dependence: one thing may hold in virtue of another although a third would have brought it about had the second not held, and neither of two things may hold without the other although both hold in virtue of a third; so what would have held otherwise is evidence of dependence and, in this simple form, not what it consists in. In what receives: registration as defined uses no repertoire, and a repertoire would bring in a relation of another kind, since to stand for what is not the case is not to hold in virtue of it.
 
-Argument for **D** (§2): Nothing appears where everything is alike: to appear is to stand out from something. If F is taken whole, it appears by its difference from something beside it, and what is under consideration is then the two together. If F is everything, there is nothing beside it, and it appears only through the differences within it. The same holds of anything said of F: to say something of F is to identify it, and to identify is to set apart.
+Argument for **D** (§2): The account takes appearing to be contrastive: nothing appears where everything is alike, and what appears stands out from something. If F is taken whole, what appears is its difference from something beside it, and what is under consideration is then the two together. If F is everything, there is nothing beside it, and what appears is the differences within it.
 
 Argument for **R** (§5): That K′ is distinct from K follows from the stipulation that nothing holds in virtue of itself (C-asym); that its bearer is a field follows from what a field is (Df-field). The receiving field distinguishes nothing: the account picks out its contrast, as it picks out the target's.
 

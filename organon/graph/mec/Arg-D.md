@@ -9,7 +9,7 @@ supports: [D]
 layer: 1
 order: 5
 ---
-Nothing appears where everything is alike: to appear is to stand out from something. If F is taken whole, it appears by its difference from something beside it, and what is under consideration is then the two together. If F is everything, there is nothing beside it, and it appears only through the differences within it. The same holds of anything said of F: to say something of F is to identify it, and to identify is to set apart.
+The account takes appearing to be contrastive: nothing appears where everything is alike, and what appears stands out from something. If F is taken whole, what appears is its difference from something beside it, and what is under consideration is then the two together. If F is everything, there is nothing beside it, and what appears is the differences within it.
 
 ## Revision (2026-10-25)
 By Dec-groundD. P is not needed. Previous wording, an argument about the receiver, now covered by C and C-asym (E1-self, E1-recv): "If every differentiation were supplied by the receiver, registering a difference in F could not be distinguished from the receiver's merely differing within itself, and by P what was registered would not be about F."
@@ -26,3 +26,6 @@ By Dec-lean. The reason is the author's (identification). The last sentence is t
 
 ## Revision (2026-11-10, "appears")
 By Dec-appear. Previous wording: "Without a difference nothing of F can be identified: to identify something is to set it apart, and there is nothing to set apart where everything is alike. If F is taken whole, it is identified by its difference from something beside it, and what is under consideration is then the two together. If F is everything, there is nothing beside it, and it is identified only through the differences within it."
+
+## Revision (2026-11-10, what appears is the difference)
+Follows D as restated. Previous wording: "Nothing appears where everything is alike: to appear is to stand out from something. If F is taken whole, it appears by its difference from something beside it, and what is under consideration is then the two together. If F is everything, there is nothing beside it, and it appears only through the differences within it. The same holds of anything said of F: to say something of F is to identify it, and to identify is to set apart."

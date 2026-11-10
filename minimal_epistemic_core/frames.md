@@ -28,8 +28,8 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | Mp-foundational | in force | **overridden** |
 | Mp-separable | in force | in force |
 | Mp-schema | in force | in force |
-| D-scope | local | in force |
 | mec.process/Mp-speculative |  | local |
+| D-scope | local | in force |
 
 ---
 

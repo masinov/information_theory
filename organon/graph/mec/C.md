@@ -8,7 +8,7 @@ where: 4
 layer: 1
 order: 4
 ---
-Something of F appears only where some condition of something holds, at least partly, in virtue of a contrast of F.
+A contrast of F appears only where some condition of something holds, at least partly, in virtue of it.
 
 ## Does not establish
 That anything is taken up; which contrast, among those depended on, a taking-up is of.
@@ -31,3 +31,6 @@ By Dec-appear. The receiving side is no longer described as perceiving. That app
 
 ## Revision (2026-11-10, one dependent condition)
 By Dec-condition. The dependent item is a condition (something's being a certain way), not a second contrast. C contains D, since it requires a contrast of F. The dependence is on the difference itself, not merely on how one of its terms is. Previous wording: "Something of F appears only where another contrast holds, at least partly, in virtue of a contrast of F."
+
+## Revision (2026-11-10, what appears is the difference)
+Follows D as restated: C takes D for granted and adds the dependence. Previous wording: "Something of F appears only where some condition of something holds, at least partly, in virtue of a contrast of F."

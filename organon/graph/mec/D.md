@@ -9,7 +9,7 @@ layer: 1
 order: 2
 by: mario
 ---
-There is something under consideration, F. For anything of F to appear, F must bear a difference.
+There is something under consideration, F. What appears of F is a difference that F bears.
 
 ## Does not establish
 Whether a thing is more than its differences; whether what it differs from is actual.
@@ -32,3 +32,6 @@ By Dec-appear. Previous wording: "There is something under consideration, F. For
 
 ## Revision (2026-11-10, one dependent condition)
 By Dec-condition. The sentence extending D to what is said of F is dropped: it gave a condition on describing F, not on F's appearing. The paper presents "nothing appears where everything is alike" as the account's conception of appearing, not as the meaning of the word. Previous wording: "There is something under consideration, F. For anything of F to appear, F must bear a difference. The same condition holds of anything said of F."
+
+## Revision (2026-11-10, what appears is the difference)
+The author asked what "anything" meant in "For anything of F to appear, F must bear a difference". It meant nothing definite, and it left open whether the difference was only a precondition of something else appearing or was itself what appears. The rest of the account holds the second, and D now says it. Chosen by the author from two wordings. Previous wording: "There is something under consideration, F. For anything of F to appear, F must bear a difference."
