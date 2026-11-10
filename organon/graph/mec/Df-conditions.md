@@ -4,7 +4,7 @@ type: concept
 role: definition
 title: conditions r, r′ of R
 status: adopted
-where: 6
+where: 5
 layer: 1
 requires: [As-receiver]
 order: 12

@@ -9,7 +9,7 @@ by: mario
 basis: both
 about: [C, Df-registration, F-indiscriminate, F-which]
 layer: 1
-where: 5
+where: 4
 order: 121
 ---
 A contrast registers every contrast it holds at least partly in virtue of. The core does not single out one of them. Narrowing to one is not a condition of registration; a later layer must supply the means.

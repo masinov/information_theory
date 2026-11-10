@@ -10,7 +10,7 @@ basis: both
 about: [C-asym, Dec-asym, Dec-asymscope, E1-recv, R, Arg-R, Df-roles, Locus, D-scope, F-asymground]
 revises: [Dec-asym, Dec-asymscope]
 layer: 1
-where: 5
+where: 4
 order: 126
 ---
 The dependence in C is bound by two conditions in place of strict asymmetry: nothing holds in virtue of itself, and the dependence has a direction (that K′ holds in virtue of K does not bring with it that K holds in virtue of K′). Whether two distinct contrasts can each hold partly in virtue of the other is left open, like transitivity. If it occurs, there are two instances of C and each contrast registers the other.

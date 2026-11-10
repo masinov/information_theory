@@ -9,7 +9,7 @@ by: claude
 basis: method
 about: [Df-bears, C-prim, method/M6, F-bears, Ps-relata, Ps-individ, Ps-actual]
 layer: 1
-where: 3, 5
+where: 2, 4
 order: 125
 ---
 "Bears a contrast" and "in virtue of" are kept primitive under rule M6, each bound by stated conditions (Df-bears, C-prim). Contrasts are individuated by positions and respect. Terms are positions among actual differences; whether they have characters apart from every actual contrast is left open and lies outside the core (Obj-intrinsic). "Actual" is used without analysis and listed as presupposed.

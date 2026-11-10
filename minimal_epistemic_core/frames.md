@@ -22,14 +22,14 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | M3 | in force | in force |
 | M4 | in force | in force |
 | M5 | in force | in force |
-| Mp-parsimony | in force | **overridden** |
 | M6 | in force | in force |
+| Mp-parsimony | in force | **overridden** |
 | Mp-classical | in force | in force |
 | Mp-foundational | in force | **overridden** |
 | Mp-separable | in force | in force |
 | Mp-schema | in force | in force |
-| D-scope | local | in force |
 | mec.process/Mp-speculative |  | local |
+| D-scope | local | in force |
 
 ---
 
@@ -48,8 +48,9 @@ Layer 1:
 | Q0 | Preconditions of knowledge | open |  |
 | D | Differentiation | reinterprets | Definiteness |
 | R | The receiving contrast and its bearer | reinterprets | Occasion |
-| C | Reception | reinterprets | Prehension |
+| C | Receptive dependence | reinterprets | Prehension |
 | Lone | A lone term | not addressed |  |
+| Totality | The totality | not addressed |  |
 | Df-bears | bearing a contrast; position; specified term | not addressed |  |
 | Df-field | field F | reinterprets | World |
 | Df-articulation | articulation ⟨a,δ,b⟩_F | reinterprets | Relations |
@@ -98,6 +99,7 @@ Layer 1:
 | Dec-claims | Strength of the claims; what is ruled out and what is only not included | not addressed |  |
 | Dec-principles | Two principles; actual terms argued; the necessity of an analysis | not addressed |  |
 | Dec-rebuild | The paper rebuilt from the close reading | not addressed |  |
+| Dec-lean | The paper in a lean register, with D in the author's form | not addressed |  |
 
 Layer 2:
 

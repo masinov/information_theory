@@ -5,7 +5,7 @@ type: claim
 role: exclusion
 title: E1-self
 status: adopted
-where: 5
+where: 4
 excluded_by: [C]
 about: [Dec-groundD]
 layer: 1

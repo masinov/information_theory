@@ -4,7 +4,7 @@ type: claim
 title: Registration requires time
 status: withdrawn
 layer: 1
-where: 9
+where: 8
 order: 90
 ---
 Registration, or at least the acquisition and retention built on it, requires time.

@@ -7,7 +7,7 @@ status: adopted
 requires: [C, Df-roles]
 layer: 1
 since: 2026-10-23
-where: 5
+where: 4
 order: 38
 ---
 Nothing holds in virtue of itself. The dependence has a direction: that one contrast holds in virtue of another does not bring with it that the second holds in virtue of the first. Whether two distinct contrasts can each hold partly in virtue of the other is left open, and so is whether the dependence is transitive. The dependence holds between contrasts, not between fields: F and R may each depend on the other through different contrasts.

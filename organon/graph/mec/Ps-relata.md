@@ -4,7 +4,7 @@ type: claim
 role: presupposition
 title: Ps-relata
 status: examined
-where: Df-articulation; §4
+where: Df-articulation; §3
 layer: 1
 order: 28
 ---

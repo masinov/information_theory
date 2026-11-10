@@ -4,7 +4,7 @@ type: claim
 role: consequence
 title: The receiving contrast and its bearer
 status: adopted
-where: 6
+where: 5
 requires: [C-asym, Df-field, As-receiver]
 layer: 1
 order: 3

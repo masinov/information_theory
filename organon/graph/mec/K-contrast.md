@@ -4,7 +4,7 @@ since: 2026-11-10
 type: claim
 title: The registering is a contrast
 status: withdrawn
-where: 6
+where: 5
 requires: [P, Dec-readingA]
 layer: 1
 order: 5

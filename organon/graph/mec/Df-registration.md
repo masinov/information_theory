@@ -4,7 +4,7 @@ type: concept
 role: definition
 title: registration
 status: adopted
-where: 7
+where: 6
 layer: 1
 requires: [C-prim]
 order: 15

@@ -4,7 +4,7 @@ since: 2026-11-10
 type: decision
 role: decision
 title: The paper rebuilt from the close reading
-status: taken
+status: revised
 by: claude
 basis: both
 about: [D, C, P, Pr-det, Pr-rec, Arg-P, Arg-actual, Dec-readingA, As-receiver, R, Df-bears, Df-articulation, Df-realized, Df-specified, Df-registration, Df-roles, C-prim, C-partial, C-local, C-asym, D-scope, Dec-principles, Test-closeread]
@@ -32,3 +32,6 @@ Content: each point answers numbered notes of the close reading; the log gives t
 Dec-principles (that P follows from two principles and that actual terms only follows from receptivity). Parts of Dec-primitive (the counts of conditions) and of Test-audit-1 (its corrections 4 and 6 are superseded).
 
 Taken by Claude under the author's delegation of 2026-11-10; open to the author's critique.
+
+## Revised in form (2026-11-10)
+By Dec-lean. Points 3 to 9 stand. Points 1 and 2 are restated: D is in the author's form and "taking-up" is no longer used.

@@ -30,3 +30,6 @@ This entry overstated. The author had asked what the phrase means, which is a qu
 
 ## In the paper (2026-11-10)
 The first use now says what is meant: "Taken up means perceived, in the widest sense of the word. Its clear case is perception by the senses… The phrase is used in place of 'perceived' only so as not to limit the subject to the senses, or to creatures that have them." The paper counts three notions that it does not define (being taken up, a difference, holding in virtue of), not two, and lists the first in its table.
+
+## Closed (2026-11-10)
+The phrase is no longer used. The paper says "perceived", in the widest sense (Dec-lean).

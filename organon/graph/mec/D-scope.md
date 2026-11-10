@@ -9,7 +9,7 @@ by: mario
 about: [D, Dec-groundD]
 requires: [Df-bears, Df-specified]
 layer: 1
-where: 3
+where: 2
 order: 2
 ---
 The reconstruction articulates only fields taken to bear the contrasts it specifies, and concerns only contrasts the account specifies. Specification chooses the respect and selects a contrast borne in it; that it does not create the contrast is a stipulation of the route, not a result.

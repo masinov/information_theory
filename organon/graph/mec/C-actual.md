@@ -7,7 +7,7 @@ status: adopted
 requires: [C, Ps-actual]
 layer: 1
 since: 2026-10-23
-where: 5
+where: 4
 order: 39
 ---
 C relates two contrasts that both hold. It says nothing about what would hold otherwise.

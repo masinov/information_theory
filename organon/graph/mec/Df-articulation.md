@@ -4,7 +4,7 @@ type: concept
 role: definition
 title: articulation ⟨a,δ,b⟩_F
 status: adopted
-where: 4
+where: 3
 layer: 1
 requires: [Df-bears]
 order: 9

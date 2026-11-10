@@ -6,7 +6,7 @@ role: definition
 title: bearing a contrast; position; specified term
 status: adopted
 about: [Dec-groundD]
-where: 3, 4
+where: 2, 3
 layer: 1
 order: 8
 ---

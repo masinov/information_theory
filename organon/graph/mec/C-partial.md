@@ -6,7 +6,7 @@ status: adopted
 requires: [C]
 layer: 1
 since: 2026-10-23
-where: 5
+where: 4
 order: 40
 ---
 Permitted, not a condition: K′ may hold in virtue of K and of other things as well, which may lie in the field that bears K′. The core claims neither that there is such a remainder nor any bound on it.

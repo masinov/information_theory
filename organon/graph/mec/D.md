@@ -7,8 +7,9 @@ status: adopted
 where: 2
 layer: 1
 order: 2
+by: mario
 ---
-What is taken up is something in particular, and it is taken up as it differs, in some respect, from something else.
+There is something under consideration, F. For anything to be perceived or said of F, F must bear a difference; otherwise nothing of it can be identified.
 
 ## Does not establish
 Whether a thing is more than its differences; whether what it differs from is actual.
@@ -22,3 +23,6 @@ By Dec-repairs (F-residues, F-Dtrivial): the modal name is dropped and the paper
 ## Revision (2026-11-10, rebuild after the close reading)
 By Dec-rebuild. D is again a commitment, as in the author's draft, with a different content: it is about what is taken up, it is not modal, and it does not say that what a thing differs from is actual (that is Dec-readingA). Two parts: that a taking-up is of something in particular (assumed); that the thing is taken up as it differs (with a reason, Arg-D). Not said: that a thing is nothing but its differences. Dec-groundD made the former D a consequence of the definitions; that consequence still holds and is stated in §4 without a label. The substantive content the draft's D carried had moved into the premise and then into a "further step"; it is restored here.
 Previous wording: "Every field in which a registered articulation is realized bears that articulation's contrast."
+
+## Revision (2026-11-10, the lean version)
+By Dec-lean. The formulation is the author's: "There is something, and for anything to be said about it that something needs to have some sort of difference, otherwise that something cannot be identified." The something comes first; D is a condition on it. It replaces Claude's formulation of the same day, which made the act of taking up the subject and left "in particular" and "something else" without anything to refer to. Previous wording: "What is taken up is something in particular, and it is taken up as it differs, in some respect, from something else."

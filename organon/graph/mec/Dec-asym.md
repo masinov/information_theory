@@ -9,7 +9,7 @@ by: mario
 basis: both
 about: [C-asym, E1-recv, Df-roles, Locus]
 layer: 1
-where: 5
+where: 4
 order: 114
 ---
 C-asym reads "not even partly": two contrasts do not each hold partly in virtue of the other. Whether "partly in virtue of" is transitive is left open.

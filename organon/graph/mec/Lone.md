@@ -5,7 +5,7 @@ type: claim
 role: consequence
 title: A lone term
 status: adopted
-where: 4
+where: 3
 requires: [Df-bears, Df-registration]
 layer: 1
 order: 4

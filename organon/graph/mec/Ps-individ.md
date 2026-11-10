@@ -4,7 +4,7 @@ type: claim
 role: presupposition
 title: Ps-individ
 status: examined
-where: R; §6
+where: R; §5
 layer: 1
 order: 30
 ---
