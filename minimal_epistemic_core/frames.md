@@ -28,8 +28,8 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | Mp-foundational | in force | **overridden** |
 | Mp-separable | in force | in force |
 | Mp-schema | in force | in force |
-| mec.process/Mp-speculative |  | local |
 | D-scope | local | in force |
+| mec.process/Mp-speculative |  | local |
 
 ---
 
@@ -47,7 +47,7 @@ Layer 1:
 |---|---|---|---|
 | Q0 | Preconditions of knowledge | open |  |
 | D | Differentiation | reinterprets | Definiteness |
-| R | The receiving contrast and its bearer | reinterprets | Occasion |
+| R | The receiver | reinterprets | Occasion |
 | C | Receptive dependence | reinterprets | Prehension |
 | Lone | A lone term | not addressed |  |
 | Totality | The totality | not addressed |  |
@@ -56,7 +56,7 @@ Layer 1:
 | Df-articulation | articulation ⟨a,δ,b⟩_F | reinterprets | Relations |
 | Df-realized | realized articulation | accepts |  |
 | Df-specified | specified articulation | accepts |  |
-| Df-conditions | conditions r, r′ of R | accepts |  |
+| Df-conditions | condition | accepts |  |
 | Df-matching | matching | accepts |  |
 | Df-roles | target, receiver | accepts |  |
 | Df-registration | registration | accepts |  |
@@ -72,7 +72,6 @@ Layer 1:
 | Ps-relata | Terms are positions within an articulation; whether relations are prior to relata, or the … | reinterprets | Relations |
 | Ps-ground | "In virtue of" is an asymmetric dependence that relates what actually obtains and need not… | accepts |  |
 | Ps-individ | Enough individuation to distinguish F from R and to take r, r′ as conditions of one relatu… | reinterprets | Occasion |
-| As-receiver | The treatment of the receiving side. The taking-up is some way that what receives is, and … | not addressed |  |
 | Ps-logic | The exposition uses identity, distinction, relation, and inference without attributing the… | accepts |  |
 | Q1 | What grounds the asymmetry of C in a given domain? | answered | by Asymmetry |
 | Q2 | Can receptive dependence be explained in terms of more elementary relations? *Layer 2 leav… | answered | by Prehension |
@@ -101,6 +100,7 @@ Layer 1:
 | Dec-rebuild | The paper rebuilt from the close reading | not addressed |  |
 | Dec-lean | The paper in a lean register, with D in the author's form | not addressed |  |
 | Dec-appear | "Appears" for what the core is about; "perceived" reserved for a subject | not addressed |  |
+| Dec-condition | One dependent condition; registration as the elementary form of appearing | not addressed |  |
 
 Layer 2:
 

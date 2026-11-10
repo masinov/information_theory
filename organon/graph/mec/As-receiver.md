@@ -2,9 +2,8 @@
 id: mec/As-receiver
 since: 2026-11-10
 type: claim
-role: presupposition
 title: As-receiver
-status: unexamined
+status: withdrawn
 where: 5
 layer: 1
 order: 31
@@ -16,3 +15,6 @@ The least secure step of the account, and the paper says so. Nothing in D and C 
 
 ## In the lean version (2026-11-10)
 The paper says it in §5: both conditions are actual by the decision; it is enough that one of them is as it is in virtue of the contrast of F; a receiver with a single condition is outside the account. (C) is now stated between two contrasts, so the second assumption of this entry is no longer used in the paper.
+
+## Revision (2026-11-10, one dependent condition)
+Withdrawn by Dec-condition: neither assumption is used any more. The receiving side is not treated as a contrast between two actual conditions.

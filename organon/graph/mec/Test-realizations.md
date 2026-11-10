@@ -37,3 +37,6 @@ The constitutive case with collections is withdrawn: the collections were formed
 
 ## After the rebuild (2026-11-10)
 The second case is given in letters: δ a fine respect and Δ a coarser one, such that terms which differ in δ in a certain way differ, for that reason, in Δ. Three differences from the causal case are stated: K′ holds in virtue of K alone; whether it does is fixed by description; one field bears both. In the causal case the paper now says that something does pass from the bodies to the beam.
+
+## Second case withdrawn (2026-11-10)
+By Dec-condition. In the causal case the dependent item is the inclination of the beam, a condition; what it depends on is the difference between the masses.
