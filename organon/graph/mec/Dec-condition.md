@@ -31,3 +31,13 @@ The author passed the lean version to an outside referee and pasted the report, 
 
 ## Reason for the change of substance
 The second condition contributed nothing to the dependence: any actual thing differing from the first completed the contrast. It had been required only because the decision for actual terms was applied to the receiving side as if the dependent item had to be a difference. Nothing in D or C requires that.
+
+## After the referee's third report (2026-11-10)
+The referee judged the two principal defects resolved and raised points of interpretation. Adopted in the paper:
+- **The breadth is said outright**: a contrast appears wherever it contributes to why some condition holds; the condition need not display it, distinguish it from others, or keep anything of it.
+- **The step to perception is conditional on the proposal**: "on this account of appearing the conditions are necessary for them."
+- **Dependence on the difference** is not set against how the two terms are together; it excludes only dependence on one term alone.
+- **The balance** is stated more exactly: q is the beam's being inclined, K the bodies' being unequal in mass; how far it is inclined depends on more.
+- **A constitutive case**, adapted from the referee's test case (a triangular frame with two unequal sides, non-equilateral) into the account's own terms: two parts of a whole differ in a respect, and the whole's being non-uniform in that respect holds in virtue of their contrast. The whole registers a contrast within itself.
+- **Not requiring is not excluding**: "R need not be a person…"; "No further contrast borne by R is required"; "The account attributes no act of distinguishing to R."
+- **Actual terms only** is stated as a commitment of the account. The claim that an alternative would have to be held somewhere is replaced by a statement of what the account would have to take on to use alternatives, including a modal commitment about the thing itself. The author's reason of 2026-10-05 ("B needs some sort of alternative repository or other metaphysical assumptions we do not want to make") already had both halves.
