@@ -8,7 +8,7 @@ where: 4
 layer: 1
 order: 4
 ---
-Something of F is perceived only where a contrast borne by what perceives holds, at least partly, in virtue of a contrast of F.
+Something of F appears only where another contrast holds, at least partly, in virtue of a contrast of F.
 
 ## Does not establish
 That anything is taken up; which contrast, among those depended on, a taking-up is of.
@@ -25,3 +25,6 @@ Previous wording: "A contrast K′, borne by a field, holds at least partly in v
 
 ## Revision (2026-11-10, the lean version)
 By Dec-lean. Stated directly between two contrasts, as in the author's draft, and for perception only: D holds of whatever is perceived or said, C of what is perceived (Dec-restrictP). "Taken up" is no longer used. Previous wording: "The taking-up holds, at least partly, in virtue of what is taken up."
+
+## Revision (2026-11-10, "appears")
+By Dec-appear. The receiving side is no longer described as perceiving. That appearing always has a where is what C states; it is not part of the meaning of "appear". Previous wording: "Something of F is perceived only where a contrast borne by what perceives holds, at least partly, in virtue of a contrast of F."

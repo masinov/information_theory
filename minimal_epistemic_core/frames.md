@@ -100,6 +100,7 @@ Layer 1:
 | Dec-principles | Two principles; actual terms argued; the necessity of an analysis | not addressed |  |
 | Dec-rebuild | The paper rebuilt from the close reading | not addressed |  |
 | Dec-lean | The paper in a lean register, with D in the author's form | not addressed |  |
+| Dec-appear | "Appears" for what the core is about; "perceived" reserved for a subject | not addressed |  |
 
 Layer 2:
 

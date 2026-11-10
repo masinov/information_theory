@@ -9,7 +9,7 @@ layer: 1
 order: 2
 by: mario
 ---
-There is something under consideration, F. For anything to be perceived or said of F, F must bear a difference; otherwise nothing of it can be identified.
+There is something under consideration, F. For anything of F to appear, F must bear a difference. The same condition holds of anything said of F.
 
 ## Does not establish
 Whether a thing is more than its differences; whether what it differs from is actual.
@@ -26,3 +26,6 @@ Previous wording: "Every field in which a registered articulation is realized be
 
 ## Revision (2026-11-10, the lean version)
 By Dec-lean. The formulation is the author's: "There is something, and for anything to be said about it that something needs to have some sort of difference, otherwise that something cannot be identified." The something comes first; D is a condition on it. It replaces Claude's formulation of the same day, which made the act of taking up the subject and left "in particular" and "something else" without anything to refer to. Previous wording: "What is taken up is something in particular, and it is taken up as it differs, in some respect, from something else."
+
+## Revision (2026-11-10, "appears")
+By Dec-appear. Previous wording: "There is something under consideration, F. For anything to be perceived or said of F, F must bear a difference; otherwise nothing of it can be identified."
