@@ -24,3 +24,6 @@ The conditions bind "in virtue of" as it figures in C. Where the paper says that
 
 ## Revision (2026-11-10, rebuild after the close reading)
 Previous wording: "The dependence named by 'in virtue of' in C is primitive. The core binds it by five stated conditions and does not analyse it further: it relates contrasts that both hold (C-actual); nothing holds in virtue of itself, and it has a direction (C-asym); it may be partial (C-partial); and whether it holds is fixed by no description of what it relates (C-local). It is of no one kind (C-kind)."
+
+## Elucidation (2026-11-10)
+Following meta/Pos-elucidation, the paper points to the notion: "Two things may both be the case without either having anything to do with the other. Or one may be the case because the other is: the second accounts for the first, and the first is so on account of it. Whoever asks why something is so, and is given something else that is so as the answer, is using the notion." The three conditions state how it is used when both things related are contrasts.

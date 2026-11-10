@@ -26,3 +26,6 @@ By Dec-claims: two positions (so that D follows); the condition that a contrast 
 
 ## Revision (2026-11-10, rebuild after the close reading)
 Previous wording: "'Field F bears a contrast in respect δ' is primitive. It is bound by four conditions: a contrast is always in some respect; it has two positions, and no position differs from itself; its positions are both actual; and it does not divide what bears it exhaustively. A contrast is always borne by something. A *position* is a place in a contrast a field bears. A *specified term* is what a description picks out; it may pick out nothing. By stipulation, two contrasts are the same when they have the same positions and the same respect."
+
+## Elucidation (2026-11-10)
+Following meta/Pos-elucidation, the paper no longer introduces the notion as "used without analysis". It points to it: "Take anything that is not alike throughout. Something in it is one way, and something in it is another way: there are two, and in some respect they are not alike. That is a difference, and the account calls it a contrast." The three conditions are kept as a statement of how the notion is used, so that a use against it can be shown.

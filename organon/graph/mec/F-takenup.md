@@ -27,3 +27,6 @@ Whether to replace the phrase, and with what. Nothing was changed in the paper w
 
 ## Corrected the same day
 This entry overstated. The author had asked what the phrase means, which is a question and not an objection, and Claude answered by calling it "the weakest term in the new version". It is not. Every analysis has to name what it analyses with a word it does not analyse; that the word's extension is fixed by clear cases, and that the analysis then constrains it, is true of any such word and is no defect. What remains is small: the paper does not gloss the phrase well where it first appears, and the phrase is Claude's and slightly figurative. The weakest step of the account is the one the paper itself marks, in §6 (As-receiver). Status set to resolved (dissolve): as a friction between D, C and the definition of registration it was badly posed.
+
+## In the paper (2026-11-10)
+The first use now says what is meant: "Taken up means perceived, in the widest sense of the word. Its clear case is perception by the senses… The phrase is used in place of 'perceived' only so as not to limit the subject to the senses, or to creatures that have them." The paper counts three notions that it does not define (being taken up, a difference, holding in virtue of), not two, and lists the first in its table.
