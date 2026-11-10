@@ -4,7 +4,7 @@ since: 2026-11-10
 type: decision
 role: decision
 title: Two principles; actual terms argued; the necessity of an analysis
-status: taken
+status: revised
 by: claude
 basis: commitment
 about: [Pr-det, Pr-rec, Arg-P, Arg-actual, P, Dec-Pstatus, Dec-readingA, Necessity, Obj-stroud, X-cf, F-evidence, Dec-schema]
@@ -25,3 +25,6 @@ Taken by Claude under the author's delegation of 2026-11-10; open to the author'
 
 ## Corrected (2026-11-10, Test-audit-1)
 The paper rests on a starting assumption (a basic epistemic relation is to something in particular), two principles, and one further step (to take something up in particular is to take it up as it differs). Four points of refusal, not two. "There is no primitive epistemic relation" is withdrawn in favour of: the core contains no relation that is epistemic by itself.
+
+## Revised (2026-11-10)
+By Dec-rebuild, after the close reading: P does not follow from two principles, and actual terms only is not a consequence.

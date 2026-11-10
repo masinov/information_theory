@@ -4,7 +4,7 @@ since: 2026-11-10
 type: argument
 role: argument
 title: Argument for P
-status: accepted
+status: rejected
 where: 2
 supports: [P]
 layer: 1
@@ -33,3 +33,6 @@ The two steps that used determinacy as an identity are replaced (see Pr-det). Th
 
 ## Corrected (2026-11-10, Test-audit-1)
 Two corrections. That what a relation is of is some way in particular comes from the starting assumption, not from determinacy. And the step from "differs" to "is taken up as it differs" is not a consequence of the two principles: it is a further assumption, with its own point of refusal (holding that a thing's being some way in particular can be taken up without its difference from anything being taken up).
+
+## Rejected (2026-11-10)
+By Dec-rebuild. The derivation claimed too much: the step to "taken up as it differs" and the step to a second actual condition did not follow (close reading, P11 and P14).

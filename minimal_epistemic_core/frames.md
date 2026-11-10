@@ -22,14 +22,14 @@ moment; under `Mp-separable` any of it can become content and be revised.
 | M3 | in force | in force |
 | M4 | in force | in force |
 | M5 | in force | in force |
-| Mp-parsimony | in force | **overridden** |
 | M6 | in force | in force |
+| Mp-parsimony | in force | **overridden** |
 | Mp-classical | in force | in force |
 | Mp-foundational | in force | **overridden** |
 | Mp-separable | in force | in force |
 | Mp-schema | in force | in force |
-| mec.process/Mp-speculative |  | local |
 | D-scope | local | in force |
+| mec.process/Mp-speculative |  | local |
 
 ---
 
@@ -45,13 +45,10 @@ Layer 1:
 
 | Id | Entry | Stance | In the frame |
 |---|---|---|---|
-| Pr-det | Determinacy | not addressed |  |
-| Pr-rec | Receptivity | not addressed |  |
 | Q0 | Preconditions of knowledge | open |  |
-| P | Guiding premise | accepts |  |
-| D | Borne contrast (formerly Differentiability) | reinterprets | Definiteness |
-| R | The registering contrast and its bearer | reinterprets | Occasion |
-| C | Receptive dependence | reinterprets | Prehension |
+| D | Differentiation | reinterprets | Definiteness |
+| R | The receiving contrast and its bearer | reinterprets | Occasion |
+| C | Reception | reinterprets | Prehension |
 | Lone | A lone term | not addressed |  |
 | Df-bears | bearing a contrast; position; specified term | not addressed |  |
 | Df-field | field F | reinterprets | World |
@@ -65,7 +62,7 @@ Layer 1:
 | E1 | The reconstruction concerns a respect whose holding depends, even partly, on the specifica… | accepts |  |
 | E1-self | A receiver merely differing within itself, where its contrast does not hold even partly in… | not addressed |  |
 | E2 | Registration consists in resemblance or term-by-term correspondence. | accepts |  |
-| E3 | Registration is a transfer from target to receiver. | accepts |  |
+| E3 | Registration requires that something pass from target to receiver. | accepts |  |
 | E4 | A repertoire of alternatives, in F, in R, or elsewhere, is a precondition of registration. | divided | Br-actual accepts; Br-eternal rejects |
 | E5 | Time, or order of any kind, is a precondition of registration. | accepts | Order |
 | E6 | A knowing subject, concepts, or representations precede registration. | accepts |  |
@@ -74,6 +71,7 @@ Layer 1:
 | Ps-relata | Terms are positions within an articulation; whether relations are prior to relata, or the … | reinterprets | Relations |
 | Ps-ground | "In virtue of" is an asymmetric dependence that relates what actually obtains and need not… | accepts |  |
 | Ps-individ | Enough individuation to distinguish F from R and to take r, r′ as conditions of one relatu… | reinterprets | Occasion |
+| As-receiver | The treatment of the receiving side. The taking-up is some way that what receives is, and … | not addressed |  |
 | Ps-logic | The exposition uses identity, distinction, relation, and inference without attributing the… | accepts |  |
 | Q1 | What grounds the asymmetry of C in a given domain? | answered | by Asymmetry |
 | Q2 | Can receptive dependence be explained in terms of more elementary relations? *Layer 2 leav… | answered | by Prehension |
@@ -81,6 +79,7 @@ Layer 1:
 | Q3 | Can registration of *which way* F is be reconstructed from contrasts between actual terms,… | answered | by Br-eternal; see FP-which |
 | Q4 | What order do acquisition and retention require, and is anything stronger than an asymmetr… | answered | by Order |
 | Dec-readingA | Reading A | divided | Br-actual accepts; Br-eternal rejects |
+| Q6 | What must be added to a registration for something to be taken up? | open |  |
 | C-asym | Direction | reinterprets | Asymmetry |
 | C-actual | Actuality | accepts |  |
 | C-partial | Partiality | accepts |  |
@@ -98,14 +97,15 @@ Layer 1:
 | Dec-direction | Direction and irreflexivity, not strict asymmetry | not addressed |  |
 | Dec-claims | Strength of the claims; what is ruled out and what is only not included | not addressed |  |
 | Dec-principles | Two principles; actual terms argued; the necessity of an analysis | not addressed |  |
+| Dec-rebuild | The paper rebuilt from the close reading | not addressed |  |
 
 Layer 2:
 
 | Id | Entry | Stance | In the frame |
 |---|---|---|---|
-| C-prim | The dependence named by "in virtue of" in C is primitive. The core binds it by five stated… | reinterprets | Prehension |
+| C-prim | "In virtue of" is used without analysis. Three conditions bind it: it relates contrasts th… | reinterprets | Prehension |
 | C-kind | Kind-neutrality | reinterprets | Prehension |
-| C-local | Whether C obtains in an instance is not fixed by descriptions of the relata, nor by what w… | accepts |  |
+| C-local | Whether K′ holds in virtue of K need not be fixed by a description of the two contrasts. I… | accepts |  |
 | B-single | Singularity | accepts |  |
 | B-reg | Regularity | rejects |  |
 | B-power | Capacities | reinterprets | Potentiality |

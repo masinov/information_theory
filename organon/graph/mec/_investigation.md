@@ -16,28 +16,33 @@ The home frame of the core is a frame like any other, not a neutral default. It 
 ## Builds on
 Nothing. Later investigations (order and retention; the epistemic apparatus) are to build on this one.
 
-## Result (drafted 2026-11-10; Layer 1)
+## Result (drafted 2026-11-10, after the rebuild; Layer 1)
 Status is "deciding", not "finished": two conditions remain (below).
 
-**What holds.** Given the premise P, every basic epistemic relation has this structure: a contrast K borne by a field, a second contrast K′ borne by a field, and K′ holding at least partly in virtue of K. Registration is defined as that structure. The premise does not require a transfer, a repertoire of alternatives, order, a pairing of terms, or a knowing subject.
+**What holds.** Every taking-up contains a registration: one contrast between actual terms holding at least partly in virtue of another, with target and receiver as roles. A registration is not, as such, a taking-up; registrations are very common. The core does not require that anything pass from target to receiver, a repertoire of alternatives, order, a pairing of terms, or a knowing subject.
 
-**On what it rests.** Two principles: determinacy (Pr-det) and receptivity (Pr-rec), from which P follows (Arg-P), and with it that contrasts are between actual terms (Arg-actual; the author's Dec-readingA). Two primitives bound by stated conditions under rule method/M6. One condition of method (D-scope). Two stipulations (identity of contrasts; nothing holds in virtue of itself). It can be refused in principle at the two principles; a reader who accepts both and rejects the arguments about alternatives keeps the two conditions and changes their form.
+**On what it rests** (mec/Dec-rebuild).
+- Two commitments: D (what is taken up is something in particular, taken up as it differs from something else) and C (the taking-up holds at least partly in virtue of what is taken up).
+- One decision, the author's: actual terms only (Dec-readingA), on both sides, with three reasons (Arg-actual).
+- Two notions used without analysis, each bound by three conditions (Df-bears, C-prim).
+- One condition of method (D-scope). Two stipulations (identity of contrasts; nothing holds in virtue of itself).
+- Two assumptions that are not argued, both about the receiving side (As-receiver).
 
-**In which frames.** The home frame. The process frame's test (mec.process/Test-robust) was run against earlier wordings and is paused.
+**How this compares with the author's draft.** The draft had three commitments it called independent: a target that admits differentiation, a differentiated receiving side, receptive dependence. They are here as D, as the decision applied to the receiving side, and as C. D is no longer modal and no longer says that the other term is actual.
 
-**What survives a reversal of the decision.** That there are two conditions, a difference and a dependence on it. Their form (actual terms, actual dependence) does not.
+**In which frames.** The home frame. The process frame is paused.
 
 **What failed or was given up.**
-- D and R as independent commitments (now consequences).
 - The modal reading of D (Dec-groundD, Dec-fieldactual).
-- Matching as part of C (Dec-fieldaspect).
-- Strict asymmetry, twice grounded and twice found wanting (Dec-direction).
-- The first argument for P2 (circular), and then the description of P2 as a postulate no case could refute (Dec-principles).
-- The claim that the conditions are necessary for registration "of any kind" without qualification: the necessity is no stronger than P, and the form of the conditions depends on Dec-readingA.
-- The expectation that the core would mark off the epistemic. It does not, and that is now its main result: the base of the epistemic is not itself epistemic (Test-realizations).
+- Matching as part of the dependence (Dec-fieldaspect).
+- Strict asymmetry (Dec-direction).
+- D and R as mere consequences with nothing left over (Dec-rebuild): the content of D had moved elsewhere and is restored as a commitment; R's differentiation rests on the decision.
+- Every attempt to derive the premise: the argument for P2, the two principles, "actual terms only follows" (Dec-principles, revised).
+- The claim that the conditions are necessary "of any kind" without qualification: the necessity is that of the analysis in D and C, given the decision.
+- The expectation that the core would mark off the epistemic: registration is not itself epistemic (Test-realizations).
 
-**What the core does not provide.** Which way something is as against an alternative; anything of a term that differs from nothing actual in the respect concerned; that two terms do not differ; a single registered contrast; how an instance of the dependence is known; any bound on the receiver's contribution.
+**What the core does not provide.** What must be added to a registration for something to be taken up (Q6); which way something is as against an alternative; anything of a term that differs from nothing actual in the respect concerned; that two terms do not differ; a receiver with one condition only; a single registered contrast; how an instance of the dependence is known; any bound on the receiver's contribution.
 
-**Assigned to later layers.** Q3 (which way), Q4 with F-transorder and F-tense (order, retention, whether the dependence orders contrasts), Q5 (aboutness by description). Open in Layer 2: F-ground, F-single; Q1, Q2.
+**Assigned to later layers.** Q3 and Q6; Q4 with F-transorder and F-tense; Q5. Open in Layer 2: F-ground, F-single; Q1, Q2.
 
 **Before "finished".** (1) The author's reading and critique. (2) Citations checked against the texts: none is at level `text`; `library/sources/` is empty.

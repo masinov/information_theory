@@ -36,3 +36,6 @@ The paper now says: it is the premise, not a proof, that carries the claim that 
 
 ## Final wording (2026-11-10)
 By Dec-principles: the necessity of an analysis. The conditions hold of whatever is a receptive relation to something in particular, of whatever kind. This returns to the first analysis of this entry (conceptual and conditional), with the premise now derived from two principles.
+
+## After the rebuild (2026-11-10)
+The necessity of the analysis given in D and C, holding given Dec-readingA. Not claimed: that anything is ever taken up.

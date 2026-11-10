@@ -28,3 +28,6 @@ By Dec-asymscope. The same condition grounds the strict asymmetry of C: a differ
 
 ## Extension withdrawn (2026-11-10)
 By Dec-direction. The condition excludes respects supplied by a description (E1) and nothing about registration.
+
+## Revision (2026-11-10, rebuild after the close reading)
+The condition as displayed in the paper: "The account concerns only contrasts that a field bears, and none that holds, even partly, because the account has specified it." It concerns the account's own specification and nothing else: a contrast of a field may hold partly in virtue of a contrast borne elsewhere. The earlier reason given for leaving out a notational respect ("part of what makes it hold is not in F") would have excluded every registering contrast and is withdrawn (close reading, Ar8).

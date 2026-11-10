@@ -16,3 +16,6 @@ order: 125
 
 ## Reasons
 Method: a primitive with no stated conditions cannot be misused detectably (F-bears), and the goal is that every assumption be visible. The conditions add nothing new: each was already in the text, in separate places. Taken by Claude under the author's delegation of 2026-11-10 ("proceed on your own… if i find any flaw with it i will tell you"); open to the author's critique.
+
+## After the rebuild (2026-11-10)
+Three conditions on each notion, not four and five (Dec-rebuild, point 6).

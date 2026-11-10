@@ -1,9 +1,8 @@
 ---
 id: mec/P
 type: claim
-role: premise
 title: Guiding premise
-status: adopted
+status: withdrawn
 where: 2
 layer: 1
 order: 1
@@ -30,3 +29,6 @@ By Dec-claims. The premise no longer uses "registered", which is the defined ter
 
 ## Revision (2026-11-10, final of the day)
 By Dec-principles: P follows from Pr-det and Pr-rec (Arg-P); "actual" returns to P1, now as a consequence (Arg-actual).
+
+## Why withdrawn
+2026-11-10, by Dec-rebuild. Nothing of its content is given up: P1 is in D, P2 in C and As-receiver, and "actual" in Dec-readingA. It is withdrawn as a separate premise because the paper stated the same content several times in several kinds (premise, principles, a further step).

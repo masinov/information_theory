@@ -9,7 +9,10 @@ layer: 1
 requires: [C]
 order: 14
 ---
-In an instance of C, the contrast depended upon is the *registered* contrast and the contrast that depends is the *registering* contrast. The field that bears the first is the *target* in that instance; the field that bears the second, the *receiver*. Roles belong to contrasts first and to fields through them; one field may be both, through different contrasts. Roles are positions in C, not natures of what occupies them.
+Where K′ holds in virtue of K, the field that bears K is the target in that instance and the field that bears K′ is the receiver. A field has a role only through the contrast it bears in that instance; one field may be both. Roles are places in a relation, not natures of what occupies them.
 
 ## Revision (2026-11-10)
 By Dec-repairs (F-rolesfield). Previous wording: "In an instance of C: the target is the relatum whose contrast is depended upon; the receiver, the relatum whose contrast depends. Roles are positions in C, not natures of relata."
+
+## Revision (2026-11-10, rebuild after the close reading)
+Previous wording: "In an instance of C, the contrast depended upon is the *registered* contrast and the contrast that depends is the *registering* contrast. The field that bears the first is the *target* in that instance; the field that bears the second, the *receiver*. Roles belong to contrasts first and to fields through them; one field may be both, through different contrasts. Roles are positions in C, not natures of what occupies them."

@@ -13,3 +13,6 @@ The terms of an articulation are paired with distinct conditions of R (a with r,
 
 ## Note (2026-11-09)
 By Dec-fieldaspect, matching is no longer part of C. It is kept to state what registration is not (E2) and as a possible further commitment of which-way registration (Which-position).
+
+## Revision (2026-11-10, rebuild after the close reading)
+Called "pairing" in the paper. One of three relations that can hold where neither contrast holds in virtue of the other (resemblance, pairing, agreement owed to a third).

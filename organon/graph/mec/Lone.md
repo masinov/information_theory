@@ -10,7 +10,7 @@ requires: [Df-bears, Df-registration]
 layer: 1
 order: 4
 ---
-What differs from no actual other term in a given respect is a position in no contrast in that respect, and the core provides for registering nothing of it in that respect.
+What differs from no actual other term in a given respect is a term of no contrast in that respect, and the core provides for taking up nothing of it in that respect.
 
 ## Does not establish
 That there is any such thing.

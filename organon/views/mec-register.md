@@ -69,7 +69,7 @@ Not claims of the core: rules about what the reconstruction articulates.
 
 <!-- table filter="ns=mec layer=1 role=consequence" ns="mec" cols="Id:id!b|Statement:titled|Requires:requires|Does not establish:#Does not establish|§:where" -->
 
-<!-- arguments filter="ns=mec type=argument" ns="mec" -->
+<!-- arguments filter="ns=mec type=argument status=accepted" ns="mec" -->
 
 ### Definitions
 

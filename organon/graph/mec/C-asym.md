@@ -26,3 +26,6 @@ By Dec-direction. The id is kept. Previous wording: "Within the scope of the rec
 
 ## Revision (2026-11-10, after the second cold reader)
 That nothing holds in virtue of itself is stipulated, so that no contrast counts as registering itself; the earlier reason given for it did not follow.
+
+## Revision (2026-11-10, rebuild after the close reading)
+Added: transitivity and mutual dependence exclude each other. If the dependence is transitive, two contrasts that depended on each other would each depend on itself. The account does not decide between them.

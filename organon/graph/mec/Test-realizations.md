@@ -34,3 +34,6 @@ A case from a linguistic domain; a case where the two contrasts have the same po
 
 ## Revised (2026-11-10, after the second cold reader)
 The constitutive case with collections is withdrawn: the collections were formed by the account, and the scope condition leaves out respects that depend on the grouping of terms. Replaced: a and b differ in a fine respect δ (exact shade: scarlet, navy) and so in a coarser respect Δ (colour: red, blue). K is their contrast in δ, K′ their contrast in Δ; two contrasts, since the respects differ. K′ holds in virtue of K and is due to nothing besides; the dependence is not causal, temporal or spatial; one field bears both contrasts. The claim that every contrast is registered is weakened to: wherever a difference in one respect is due to a difference in another there is a registration, so registration is very widespread.
+
+## After the rebuild (2026-11-10)
+The second case is given in letters: δ a fine respect and Δ a coarser one, such that terms which differ in δ in a certain way differ, for that reason, in Δ. Three differences from the causal case are stated: K′ holds in virtue of K alone; whether it does is fixed by description; one field bears both. In the causal case the paper now says that something does pass from the bodies to the beam.

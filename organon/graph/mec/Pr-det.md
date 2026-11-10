@@ -2,9 +2,8 @@
 id: mec/Pr-det
 since: 2026-11-10
 type: claim
-role: premise
 title: Determinacy
-status: adopted
+status: withdrawn
 by: claude
 where: 2
 layer: 1
@@ -17,3 +16,6 @@ Asserted, not derived: it is what the account takes "in particular" to mean. Its
 
 ## Corrected (2026-11-10, after the author's question)
 The first wording, "to be some way in particular is to differ", read as an identity, and Arg-P used it as one ("X's being some way in a respect is nothing apart from its position among the differences"; "a position is nothing apart from its contrast"). That was stronger than the account needs and than Claude can defend: a difference needs something that differs, and the account elsewhere leaves open that a term has a character beyond its actual contrasts (Ps-relata, Obj-intrinsic). What the account identifies with differing is the particularity of a way, what makes it this way as against another, not the way itself. So the principle is more than a bare implication and less than a reduction.
+
+## Why withdrawn
+2026-11-10, by Dec-rebuild. Its content is the reason for D (Arg-D): that the particularity of a way lies in a difference, without reduction.

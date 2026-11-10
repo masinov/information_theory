@@ -2,14 +2,14 @@
 id: mec/R
 type: claim
 role: consequence
-title: The registering contrast and its bearer
+title: The receiving contrast and its bearer
 status: adopted
 where: 6
-requires: [C, C-asym, Field-aspect]
+requires: [C-asym, Df-field, As-receiver]
 layer: 1
 order: 3
 ---
-In an instance of C, the contrast K′ that depends is distinct from the registered contrast K, since by C-asym nothing holds in virtue of itself. What bears K′ is, insofar as it does, a field (Field-aspect); R names it.
+Where a contrast K′ holds in virtue of a contrast K, K′ is distinct from K. What bears K′ is, insofar as it does, a field; R designates it, and it may be the field that bears K.
 
 ## Does not establish
 A knowing subject. Whether R and F are distinct fields, parts of one field, or the same field bearing two contrasts.
@@ -19,3 +19,6 @@ By Dec-fieldaspect, R is a consequence of C, C-asym and Field-aspect, no longer 
 
 ## Revision (2026-11-10, after the second cold reader)
 Retitled: one field may bear both contrasts, so "second relatum" and "second field" misdescribe it.
+
+## Revision (2026-11-10, rebuild after the close reading)
+Previous wording: "In an instance of C, the contrast K′ that depends is distinct from the registered contrast K, since by C-asym nothing holds in virtue of itself. What bears K′ is, insofar as it does, a field (Field-aspect); R names it."

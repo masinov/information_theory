@@ -21,3 +21,6 @@ Ps-actual, E4; all material on alternatives (Shannon, Dretske's probabilities, r
 
 ## Grounds strengthened (2026-11-10)
 Arg-actual. The decision and its content stand as the author took them. It is now a consequence of receptivity with three supporting arguments, of which the third is the author's original reason.
+
+## Standing (2026-11-10)
+By Dec-rebuild: a decision, as the author took it, with the reasons in Arg-actual. The claim made earlier the same day that it follows from receptivity is withdrawn. It applies to both sides (As-receiver). Its cost now includes: a receiver with one condition only is not covered.
