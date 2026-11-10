@@ -30,3 +30,6 @@ Rewritten around the two principles. The earlier versions either argued P2 circu
 
 ## Corrected (2026-11-10)
 The two steps that used determinacy as an identity are replaced (see Pr-det). The step from "differs" to "is taken up as differing" now rests on what a taking-up of something *in particular* must be due to.
+
+## Corrected (2026-11-10, Test-audit-1)
+Two corrections. That what a relation is of is some way in particular comes from the starting assumption, not from determinacy. And the step from "differs" to "is taken up as it differs" is not a consequence of the two principles: it is a further assumption, with its own point of refusal (holding that a thing's being some way in particular can be taken up without its difference from anything being taken up).

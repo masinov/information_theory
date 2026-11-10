@@ -22,3 +22,6 @@ Content. (1) Calling P2 a postulate that no case can refute was wrong in the oth
 After two cold readers the paper had been weakened at every point they pressed, and it described its own premise as unrefutable by cases. The author asked whether this was a collapse into scepticism; Claude then proposed strengthening it; the author objected that Claude was moving with each push and asked for a position held on its own grounds. This entry is that position. It was reached by working the question again from the start, not by adjusting the previous wording.
 
 Taken by Claude under the author's delegation of 2026-11-10; open to the author's critique.
+
+## Corrected (2026-11-10, Test-audit-1)
+The paper rests on a starting assumption (a basic epistemic relation is to something in particular), two principles, and one further step (to take something up in particular is to take it up as it differs). Four points of refusal, not two. "There is no primitive epistemic relation" is withdrawn in favour of: the core contains no relation that is epistemic by itself.
